@@ -1,0 +1,2604 @@
+fileFormatVersion: 2
+guid: 33bdf7cce72723a4b839e9eab17b4be3
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Pixel Book_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1561
+      width: 576
+      height: 416
+    spriteID: fe882a61d43782949aaff92b1872d253
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1561}
+  - name: Pixel Book_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1985
+      width: 576
+      height: 416
+    spriteID: 46b5be5d06d139d4a9dcd9fef8c3e3e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1985}
+  - name: Pixel Book_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2409
+      width: 576
+      height: 416
+    spriteID: 743c787b1059cb94f8f08e19467bc53c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2409}
+  - name: Pixel Book_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2833
+      width: 576
+      height: 416
+    spriteID: 72dd31c5e06922b4487e1dbffec6eec7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2833}
+  - name: Pixel Book_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3257
+      width: 576
+      height: 416
+    spriteID: 820542e82525c5d439541d08f1b6b237
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3257}
+  - name: Pixel Book_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3681
+      width: 576
+      height: 416
+    spriteID: 0e86f5147f7de08438148674e9bcaf95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3681}
+  - name: Pixel Book_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4105
+      width: 576
+      height: 416
+    spriteID: f536ecb9d4db5494a904010c496ba0f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4105}
+  - name: Pixel Book_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4529
+      width: 576
+      height: 416
+    spriteID: dc35125360890214ba1424fdede7c7a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4529}
+  - name: Pixel Book_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4953
+      width: 576
+      height: 416
+    spriteID: bed25948aca6bfc40990a3b664330e3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4953}
+  - name: Pixel Book_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5377
+      width: 576
+      height: 416
+    spriteID: 5cfb2409a5ff52c4bb265ef1be6760b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5377}
+  - name: Pixel Book_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5801
+      width: 576
+      height: 416
+    spriteID: 42a2a2923c104624cbda70bd29607ac0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5801}
+  - name: Pixel Book_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6225
+      width: 576
+      height: 416
+    spriteID: 87c2cd1f804b23f4da4378d4e9522aff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6225}
+  - name: Pixel Book_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6649
+      width: 576
+      height: 416
+    spriteID: 5ebcfcb476bf31943b4c07946a4190f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6649}
+  - name: Pixel Book_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7073
+      width: 576
+      height: 416
+    spriteID: acf715119609dbc4f87592b760800b9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7073}
+  - name: Pixel Book_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7497
+      width: 576
+      height: 416
+    spriteID: e725346f1c404c44bb5609598f9c3d2e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 7497}
+  - name: Pixel Book_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 4
+      width: 576
+      height: 416
+    spriteID: ea221828891c48c42aeb196017046e88
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 4}
+  - name: Pixel Book_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 428
+      width: 576
+      height: 416
+    spriteID: 35d86027ce53dcb40b6d3f81b8efc1b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 428}
+  - name: Pixel Book_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 852
+      width: 576
+      height: 416
+    spriteID: 62dbf8ae45f50e6499dd532d618a34a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 852}
+  - name: Pixel Book_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 1276
+      width: 576
+      height: 416
+    spriteID: 4d9bf6e9ef4b76d438975728f3e452dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 1276}
+  - name: Pixel Book_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 1700
+      width: 576
+      height: 416
+    spriteID: 576028460a4901045be5a3643f0b1cf3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 1700}
+  - name: Pixel Book_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 2124
+      width: 576
+      height: 416
+    spriteID: 19565b1a3df656245b3ad77200353c78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 2124}
+  - name: Pixel Book_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: -0.20088302}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1100
+      width: 576
+      height: 453
+    spriteID: 38065dfc4311aef40bbe26ee1261d46a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1100}
+  - name: Pixel Book_Frame_23
+    originalName: 
+    pivot: {x: 0.5, y: -0.06390978}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 560
+      width: 576
+      height: 532
+    spriteID: 6e298e7c64d96484db07837b67ea1f87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 560}
+  - name: Pixel Book_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: -0.045620434}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 576
+      height: 548
+    spriteID: 7d1158c277a78e740b469e0f86599b68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Pixel Book_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 2548
+      width: 576
+      height: 416
+    spriteID: ccf9dccd285569d48828b6b0aa1f5c8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 2548}
+  - name: Pixel Book_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 2972
+      width: 576
+      height: 416
+    spriteID: 9ab511338a7fdf746836b57f0a916196
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 2972}
+  - name: Pixel Book_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 3396
+      width: 576
+      height: 416
+    spriteID: 7073037d579949e42b3562f2ea645d6e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 3396}
+  - name: Pixel Book_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 3820
+      width: 576
+      height: 416
+    spriteID: 015dbca4db25d144880f504f51bd009d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 3820}
+  - name: Pixel Book_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 4244
+      width: 576
+      height: 416
+    spriteID: d2afe5dc7cadf904185da3ad35394892
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 4244}
+  - name: Pixel Book_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 4668
+      width: 576
+      height: 416
+    spriteID: 89e318b38a262b9489629464d7a8f116
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 4668}
+  - name: Pixel Book_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 5092
+      width: 576
+      height: 416
+    spriteID: 2edbb4dc22221c54597acd793ed2a3d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 5092}
+  - name: Pixel Book_Frame_32
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 5516
+      width: 576
+      height: 416
+    spriteID: 29d21a444864ffe4ea947c2d37a55d1f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 5516}
+  - name: Pixel Book_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 5940
+      width: 576
+      height: 416
+    spriteID: aa0cee4d013c7aa4d9ca776fc3c96ab4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 5940}
+  - name: Pixel Book_Frame_34
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 6364
+      width: 576
+      height: 416
+    spriteID: 1f3b887429efddc49be05373c27f257c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 6364}
+  - name: Pixel Book_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 6788
+      width: 576
+      height: 416
+    spriteID: e15db056b5d8cfa489f4508deafc9d4c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 6788}
+  - name: Pixel Book_Frame_36
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 7212
+      width: 576
+      height: 416
+    spriteID: a6a6e13bbdd7ef44493456d04ed4fe67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 7212}
+  - name: Pixel Book_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 588
+      y: 7636
+      width: 576
+      height: 416
+    spriteID: 035bfdb63b7d20b498c064f511c224c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 7636}
+  - name: Pixel Book_Frame_38
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 4
+      width: 576
+      height: 416
+    spriteID: 2ad9427005518f34a82b3b35f9436ea4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 4}
+  - name: Pixel Book_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 428
+      width: 576
+      height: 416
+    spriteID: cd7c8e276688183469af433fc3d74458
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 428}
+  - name: Pixel Book_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 852
+      width: 576
+      height: 416
+    spriteID: 53348b56e046fb045b32aa03f39c67bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 852}
+  - name: Pixel Book_Frame_41
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 1276
+      width: 576
+      height: 416
+    spriteID: b330da82b5b4a6f468c1826e08449027
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 1276}
+  - name: Pixel Book_Frame_42
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 1700
+      width: 576
+      height: 416
+    spriteID: 702131dcc83437641b9d603ffac4786c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 1700}
+  - name: Pixel Book_Frame_43
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 2124
+      width: 576
+      height: 416
+    spriteID: c4a87cdc7c3bd72498cc678882c9858e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 2124}
+  - name: Pixel Book_Frame_44
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 2548
+      width: 576
+      height: 416
+    spriteID: 54ea4b1dfae77da4a91ef238c108cf13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 2548}
+  - name: Pixel Book_Frame_45
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 2972
+      width: 576
+      height: 416
+    spriteID: 9a895469357f254449988163416af82c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 2972}
+  - name: Pixel Book_Frame_46
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 3396
+      width: 576
+      height: 416
+    spriteID: 5bce6c2eced0be04096882374e624be5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 3396}
+  - name: Pixel Book_Frame_47
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 3820
+      width: 576
+      height: 416
+    spriteID: 07e5cac49ff58a0418df809bdb3e89e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 3820}
+  - name: Pixel Book_Frame_48
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 4244
+      width: 576
+      height: 416
+    spriteID: 3a9d893ca2296c4428c807837672f905
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 4244}
+  - name: Pixel Book_Frame_49
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 4668
+      width: 576
+      height: 416
+    spriteID: 48d97d46a8ce6964ebc4bec0d6d55bbe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 4668}
+  - name: Pixel Book_Frame_50
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 5092
+      width: 576
+      height: 416
+    spriteID: 1d68320458dd3ae4f82aa256c6683d96
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 5092}
+  - name: Pixel Book_Frame_51
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 5516
+      width: 576
+      height: 416
+    spriteID: c529ed23f1dff524abc315e21984b9c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 5516}
+  - name: Pixel Book_Frame_52
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 5940
+      width: 576
+      height: 416
+    spriteID: 97c691392b59402438e606c31cd6d2eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 5940}
+  - name: Pixel Book_Frame_53
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 6364
+      width: 576
+      height: 416
+    spriteID: 77cd7a367f748ef43bb17b5464174dba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 6364}
+  - name: Pixel Book_Frame_54
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 6788
+      width: 576
+      height: 416
+    spriteID: f08b930dcb5848e46a4b8a1d6b8e3bfd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 6788}
+  - name: Pixel Book_Frame_56
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 7212
+      width: 576
+      height: 416
+    spriteID: ffdc1a404d2c2414ab2b9738b2bf6048
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 7212}
+  - name: Pixel Book_Frame_57
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1172
+      y: 7636
+      width: 576
+      height: 416
+    spriteID: 1e467997124ef194884b8040a847941e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1172, y: 7636}
+  - name: Pixel Book_Frame_58
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 4
+      width: 576
+      height: 416
+    spriteID: d9127010badd1e4469f7085ac19387e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 4}
+  - name: Pixel Book_Frame_59
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 428
+      width: 576
+      height: 416
+    spriteID: 344376998de2c1e499d319a9bd7c740a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 428}
+  - name: Pixel Book_Frame_60
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 852
+      width: 576
+      height: 416
+    spriteID: dde767b6d4713bd4f9f41536cd82d7a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 852}
+  - name: Pixel Book_Frame_61
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 1276
+      width: 576
+      height: 416
+    spriteID: b1bd066eec15e0741ae026f7c90a5071
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 1276}
+  - name: Pixel Book_Frame_62
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 1700
+      width: 576
+      height: 416
+    spriteID: f1d1336f47c6bb94799fbfa8e6d1a2f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 1700}
+  - name: Pixel Book_Frame_63
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 2124
+      width: 576
+      height: 416
+    spriteID: 8afe4f44d28a42d4db00a766c47cc577
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 2124}
+  - name: Pixel Book_Frame_64
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 2548
+      width: 576
+      height: 416
+    spriteID: c365fa021a2a0ce4ab4c22723f9eb4e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 2548}
+  - name: Pixel Book_Frame_65
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 2972
+      width: 576
+      height: 416
+    spriteID: ea4f14050ac5dc348a91eefab886de4d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 2972}
+  - name: Pixel Book_Frame_66
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 3396
+      width: 576
+      height: 416
+    spriteID: aeedf4da456bf324081d488c85e89f03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 3396}
+  - name: Pixel Book_Frame_67
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 3820
+      width: 576
+      height: 416
+    spriteID: 5e808d5a2f000be449e8ed101891c5de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 3820}
+  - name: Pixel Book_Frame_68
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 4244
+      width: 576
+      height: 416
+    spriteID: 7441c8c27d6062c42b2bed238a1f221c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 4244}
+  - name: Pixel Book_Frame_69
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 4668
+      width: 576
+      height: 416
+    spriteID: a2877a5f71666ec47825b320ca3fbafc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 4668}
+  - name: Pixel Book_Frame_70
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 5092
+      width: 576
+      height: 416
+    spriteID: b186fb437cf5ebd4e90f416002a90e8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 5092}
+  - name: Pixel Book_Frame_71
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 5516
+      width: 576
+      height: 416
+    spriteID: f14e3d6bc9ea3914283383487b52683c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 5516}
+  - name: Pixel Book_Frame_72
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 5940
+      width: 576
+      height: 416
+    spriteID: ff3314fa691f7e24cb08a41076ca057b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 5940}
+  - name: Pixel Book_Frame_73
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 6364
+      width: 576
+      height: 416
+    spriteID: 50c0ca38321362d41a3144866f9cbc01
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 6364}
+  - name: Pixel Book_Frame_74
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 6788
+      width: 576
+      height: 416
+    spriteID: d2c44220af4dad241a6d2a34965553b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 6788}
+  - name: Pixel Book_Frame_75
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 7212
+      width: 576
+      height: 416
+    spriteID: d738c0af9033d554bbc9a4badc8791f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 7212}
+  - name: Pixel Book_Frame_76
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1756
+      y: 7636
+      width: 576
+      height: 416
+    spriteID: b71aad8c13ee86e4f9f2be2127477bfc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1756, y: 7636}
+  - name: Pixel Book_Frame_77
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 4
+      width: 576
+      height: 416
+    spriteID: ad6b12882acffe241ae74a9586f24489
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 4}
+  - name: Pixel Book_Frame_78
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 428
+      width: 576
+      height: 416
+    spriteID: 4df0ba0412644464b9df233b20405cc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 428}
+  - name: Pixel Book_Frame_79
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 852
+      width: 576
+      height: 416
+    spriteID: 6089d97f0e9548141b8990fd58650324
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 852}
+  - name: Pixel Book_Frame_80
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 1276
+      width: 576
+      height: 416
+    spriteID: 2bf989a8b4d54ca409d2294174c84e71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 1276}
+  - name: Pixel Book_Frame_81
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 1700
+      width: 576
+      height: 416
+    spriteID: 0238634217f659342b4222cc6bc2c691
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 1700}
+  - name: Pixel Book_Frame_82
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 2124
+      width: 576
+      height: 416
+    spriteID: 361c5c6b8a6cd28448fe841af5411e83
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 2124}
+  - name: Pixel Book_Frame_83
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 2548
+      width: 576
+      height: 416
+    spriteID: 3bd57dfaad0039f42a52fd9963837137
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 2548}
+  - name: Pixel Book_Frame_84
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 2972
+      width: 576
+      height: 416
+    spriteID: 8570f50ddd47ac443b31d8295b0f197b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 2972}
+  - name: Pixel Book_Frame_85
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 3396
+      width: 576
+      height: 416
+    spriteID: 4f1a411ee4ff5604bbb9ee426e8f253c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 3396}
+  - name: Pixel Book_Frame_86
+    originalName: 
+    pivot: {x: 0.5, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2340
+      y: 3820
+      width: 576
+      height: 416
+    spriteID: 2de7cfb514fc88b41a6edf571a9ad1ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2340, y: 3820}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1765668169
+    name: Pixel Book
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Pixel Book_Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: fe882a61d43782949aaff92b1872d253
+    - name: Pixel Book_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 46b5be5d06d139d4a9dcd9fef8c3e3e4
+    - name: Pixel Book_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 743c787b1059cb94f8f08e19467bc53c
+    - name: Pixel Book_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 72dd31c5e06922b4487e1dbffec6eec7
+    - name: Pixel Book_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 820542e82525c5d439541d08f1b6b237
+    - name: Pixel Book_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 0e86f5147f7de08438148674e9bcaf95
+    - name: Pixel Book_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: f536ecb9d4db5494a904010c496ba0f0
+    - name: Pixel Book_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: dc35125360890214ba1424fdede7c7a0
+    - name: Pixel Book_Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: bed25948aca6bfc40990a3b664330e3c
+    - name: Pixel Book_Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 5cfb2409a5ff52c4bb265ef1be6760b0
+    - name: Pixel Book_Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 42a2a2923c104624cbda70bd29607ac0
+    - name: Pixel Book_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 87c2cd1f804b23f4da4378d4e9522aff
+    - name: Pixel Book_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 5ebcfcb476bf31943b4c07946a4190f8
+    - name: Pixel Book_Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: acf715119609dbc4f87592b760800b9b
+    - name: Pixel Book_Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: e725346f1c404c44bb5609598f9c3d2e
+    - name: Pixel Book_Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: ea221828891c48c42aeb196017046e88
+    - name: Pixel Book_Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 35d86027ce53dcb40b6d3f81b8efc1b9
+    - name: Pixel Book_Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 62dbf8ae45f50e6499dd532d618a34a2
+    - name: Pixel Book_Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 4d9bf6e9ef4b76d438975728f3e452dc
+    - name: Pixel Book_Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 576028460a4901045be5a3643f0b1cf3
+    - name: Pixel Book_Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 19565b1a3df656245b3ad77200353c78
+    - name: Pixel Book_Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 91
+        width: 576
+        height: 453
+      spriteId: 38065dfc4311aef40bbe26ee1261d46a
+    - name: Pixel Book_Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 34
+        width: 576
+        height: 532
+      spriteId: 6e298e7c64d96484db07837b67ea1f87
+    - name: Pixel Book_Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 25
+        width: 576
+        height: 548
+      spriteId: 7d1158c277a78e740b469e0f86599b68
+    - name: Pixel Book_Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: ccf9dccd285569d48828b6b0aa1f5c8b
+    - name: Pixel Book_Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 9ab511338a7fdf746836b57f0a916196
+    - name: Pixel Book_Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 7073037d579949e42b3562f2ea645d6e
+    - name: Pixel Book_Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 015dbca4db25d144880f504f51bd009d
+    - name: Pixel Book_Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: d2afe5dc7cadf904185da3ad35394892
+    - name: Pixel Book_Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 89e318b38a262b9489629464d7a8f116
+    - name: Pixel Book_Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 2edbb4dc22221c54597acd793ed2a3d5
+    - name: Pixel Book_Frame_32
+      frameIndex: 32
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 29d21a444864ffe4ea947c2d37a55d1f
+    - name: Pixel Book_Frame_33
+      frameIndex: 33
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: aa0cee4d013c7aa4d9ca776fc3c96ab4
+    - name: Pixel Book_Frame_34
+      frameIndex: 34
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 1f3b887429efddc49be05373c27f257c
+    - name: Pixel Book_Frame_35
+      frameIndex: 35
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: e15db056b5d8cfa489f4508deafc9d4c
+    - name: Pixel Book_Frame_36
+      frameIndex: 36
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: a6a6e13bbdd7ef44493456d04ed4fe67
+    - name: Pixel Book_Frame_37
+      frameIndex: 37
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 035bfdb63b7d20b498c064f511c224c4
+    - name: Pixel Book_Frame_38
+      frameIndex: 38
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 2ad9427005518f34a82b3b35f9436ea4
+    - name: Pixel Book_Frame_39
+      frameIndex: 39
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: cd7c8e276688183469af433fc3d74458
+    - name: Pixel Book_Frame_40
+      frameIndex: 40
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 53348b56e046fb045b32aa03f39c67bf
+    - name: Pixel Book_Frame_41
+      frameIndex: 41
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: b330da82b5b4a6f468c1826e08449027
+    - name: Pixel Book_Frame_42
+      frameIndex: 42
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 702131dcc83437641b9d603ffac4786c
+    - name: Pixel Book_Frame_43
+      frameIndex: 43
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: c4a87cdc7c3bd72498cc678882c9858e
+    - name: Pixel Book_Frame_44
+      frameIndex: 44
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 54ea4b1dfae77da4a91ef238c108cf13
+    - name: Pixel Book_Frame_45
+      frameIndex: 45
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 9a895469357f254449988163416af82c
+    - name: Pixel Book_Frame_46
+      frameIndex: 46
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 5bce6c2eced0be04096882374e624be5
+    - name: Pixel Book_Frame_47
+      frameIndex: 47
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 07e5cac49ff58a0418df809bdb3e89e5
+    - name: Pixel Book_Frame_48
+      frameIndex: 48
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 3a9d893ca2296c4428c807837672f905
+    - name: Pixel Book_Frame_49
+      frameIndex: 49
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 48d97d46a8ce6964ebc4bec0d6d55bbe
+    - name: Pixel Book_Frame_50
+      frameIndex: 50
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 1d68320458dd3ae4f82aa256c6683d96
+    - name: Pixel Book_Frame_51
+      frameIndex: 51
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: c529ed23f1dff524abc315e21984b9c7
+    - name: Pixel Book_Frame_52
+      frameIndex: 52
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 97c691392b59402438e606c31cd6d2eb
+    - name: Pixel Book_Frame_53
+      frameIndex: 53
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 77cd7a367f748ef43bb17b5464174dba
+    - name: Pixel Book_Frame_54
+      frameIndex: 54
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: f08b930dcb5848e46a4b8a1d6b8e3bfd
+    - name: Pixel Book_Frame_56
+      frameIndex: 56
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: ffdc1a404d2c2414ab2b9738b2bf6048
+    - name: Pixel Book_Frame_57
+      frameIndex: 57
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 1e467997124ef194884b8040a847941e
+    - name: Pixel Book_Frame_58
+      frameIndex: 58
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: d9127010badd1e4469f7085ac19387e0
+    - name: Pixel Book_Frame_59
+      frameIndex: 59
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 344376998de2c1e499d319a9bd7c740a
+    - name: Pixel Book_Frame_60
+      frameIndex: 60
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: dde767b6d4713bd4f9f41536cd82d7a7
+    - name: Pixel Book_Frame_61
+      frameIndex: 61
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: b1bd066eec15e0741ae026f7c90a5071
+    - name: Pixel Book_Frame_62
+      frameIndex: 62
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: f1d1336f47c6bb94799fbfa8e6d1a2f2
+    - name: Pixel Book_Frame_63
+      frameIndex: 63
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 8afe4f44d28a42d4db00a766c47cc577
+    - name: Pixel Book_Frame_64
+      frameIndex: 64
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: c365fa021a2a0ce4ab4c22723f9eb4e9
+    - name: Pixel Book_Frame_65
+      frameIndex: 65
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: ea4f14050ac5dc348a91eefab886de4d
+    - name: Pixel Book_Frame_66
+      frameIndex: 66
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: aeedf4da456bf324081d488c85e89f03
+    - name: Pixel Book_Frame_67
+      frameIndex: 67
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 5e808d5a2f000be449e8ed101891c5de
+    - name: Pixel Book_Frame_68
+      frameIndex: 68
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 7441c8c27d6062c42b2bed238a1f221c
+    - name: Pixel Book_Frame_69
+      frameIndex: 69
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: a2877a5f71666ec47825b320ca3fbafc
+    - name: Pixel Book_Frame_70
+      frameIndex: 70
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: b186fb437cf5ebd4e90f416002a90e8f
+    - name: Pixel Book_Frame_71
+      frameIndex: 71
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: f14e3d6bc9ea3914283383487b52683c
+    - name: Pixel Book_Frame_72
+      frameIndex: 72
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: ff3314fa691f7e24cb08a41076ca057b
+    - name: Pixel Book_Frame_73
+      frameIndex: 73
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 50c0ca38321362d41a3144866f9cbc01
+    - name: Pixel Book_Frame_74
+      frameIndex: 74
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: d2c44220af4dad241a6d2a34965553b5
+    - name: Pixel Book_Frame_75
+      frameIndex: 75
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: d738c0af9033d554bbc9a4badc8791f7
+    - name: Pixel Book_Frame_76
+      frameIndex: 76
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: b71aad8c13ee86e4f9f2be2127477bfc
+    - name: Pixel Book_Frame_77
+      frameIndex: 77
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: ad6b12882acffe241ae74a9586f24489
+    - name: Pixel Book_Frame_78
+      frameIndex: 78
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 4df0ba0412644464b9df233b20405cc6
+    - name: Pixel Book_Frame_79
+      frameIndex: 79
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 6089d97f0e9548141b8990fd58650324
+    - name: Pixel Book_Frame_80
+      frameIndex: 80
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 2bf989a8b4d54ca409d2294174c84e71
+    - name: Pixel Book_Frame_81
+      frameIndex: 81
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 0238634217f659342b4222cc6bc2c691
+    - name: Pixel Book_Frame_82
+      frameIndex: 82
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 361c5c6b8a6cd28448fe841af5411e83
+    - name: Pixel Book_Frame_83
+      frameIndex: 83
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 3bd57dfaad0039f42a52fd9963837137
+    - name: Pixel Book_Frame_84
+      frameIndex: 84
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 8570f50ddd47ac443b31d8295b0f197b
+    - name: Pixel Book_Frame_85
+      frameIndex: 85
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 4f1a411ee4ff5604bbb9ee426e8f253c
+    - name: Pixel Book_Frame_86
+      frameIndex: 86
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 128
+        width: 576
+        height: 416
+      spriteId: 2de7cfb514fc88b41a6edf571a9ad1ca
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 768, y: 640}
