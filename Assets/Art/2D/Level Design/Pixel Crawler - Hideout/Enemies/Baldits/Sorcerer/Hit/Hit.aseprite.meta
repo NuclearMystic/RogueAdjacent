@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -83,6 +84,8 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -96,6 +99,8 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -105,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -146,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.6111111, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -166,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.5555556, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -186,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 30
@@ -202,15 +212,21 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 30, y: 4}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1756787313
+    uuid:
+      value0: 339800437
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 339800437
     name: Hit
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Hit_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -219,7 +235,7 @@ ScriptedImporter:
         width: 16
         height: 30
       spriteId: 78ab7b77d197ef44daf3a6da92df8f64
-    - name: Hit_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -228,7 +244,7 @@ ScriptedImporter:
         width: 18
         height: 32
       spriteId: 0a8fa6c601aa46a409a09e9ec71db233
-    - name: Hit_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -237,7 +253,7 @@ ScriptedImporter:
         width: 18
         height: 30
       spriteId: 0428b5f8ab7012145adb86201385ece0
-    - name: Hit_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -247,9 +263,13 @@ ScriptedImporter:
         height: 30
       spriteId: ca86506f6e960db43921d5d3845d840c
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 64, y: 128}
