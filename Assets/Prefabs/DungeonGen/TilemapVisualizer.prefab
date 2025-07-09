@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2859428429005801991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3507143191998728897}
+  - component: {fileID: 1524283222601366610}
+  m_Layer: 0
+  m_Name: TilemapVisualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3507143191998728897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859428429005801991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1524283222601366610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859428429005801991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad2b25ff4a6bee46890995473408de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorTilemap: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  floorTile: {fileID: 11400000, guid: 115c87e1ae7ccfa46b3525d814ec45bd, type: 2}
+  wallTop: {fileID: 11400000, guid: e55401689b657ed4e840a863e9f6b78a, type: 2}
+  wallSideRight: {fileID: 11400000, guid: 58456b0accb650042a7e2b172d7ae94c, type: 2}
+  wallSiderLeft: {fileID: 11400000, guid: 58456b0accb650042a7e2b172d7ae94c, type: 2}
+  wallBottom: {fileID: 11400000, guid: e55401689b657ed4e840a863e9f6b78a, type: 2}
+  wallFull: {fileID: 11400000, guid: 4450a9ec67a2cde48802d89877869d42, type: 2}
+  wallInnerCornerDownLeft: {fileID: 11400000, guid: cbafb61b0d8a6a240a88d34d921f9412, type: 2}
+  wallInnerCornerDownRight: {fileID: 11400000, guid: ccd92bc18e5fc9e41b26075f61733e90, type: 2}
+  wallInnerCornerUpLeft: {fileID: 11400000, guid: e6ccacad8bd4f7c4386ac98cbc10bcf8, type: 2}
+  wallInnerCornerUpRight: {fileID: 11400000, guid: 9cbb586214ffdef41a768fca7e0593d9, type: 2}
+  wallDiagonalCornerDownRight: {fileID: 11400000, guid: e6ccacad8bd4f7c4386ac98cbc10bcf8, type: 2}
+  wallDiagonalCornerDownLeft: {fileID: 11400000, guid: 9cbb586214ffdef41a768fca7e0593d9, type: 2}
+  wallDiagonalCornerUpRight: {fileID: 11400000, guid: cbafb61b0d8a6a240a88d34d921f9412, type: 2}
+  wallDiagonalCornerUpLeft: {fileID: 11400000, guid: ccd92bc18e5fc9e41b26075f61733e90, type: 2}
