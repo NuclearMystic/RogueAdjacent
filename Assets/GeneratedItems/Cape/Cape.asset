@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Cape
+  m_EditorClassIdentifier: 
+  ObjectName: Cape
+  ObjectIcon: {fileID: -1874780478, guid: 92af51eef4319564790532ff39dea6a6, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 3
+  itemType: 5
+  itemPrefab: {fileID: 2659724034874399694, guid: 7233d4f65d1cb44479de50888f266383, type: 3}
+  draggableIcon: {fileID: 7796107029272244512, guid: 43a1e0c146d63954c9e627f7c61d20e2, type: 3}
+  filePathSheetOne: 2D/Actors/char_a_p1/2clo/
+  filePathSheetTwo: 
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 92af51eef4319564790532ff39dea6a6, type: 3}
+  textureTwo: {fileID: 0}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}
