@@ -12,8 +12,10 @@ public class PlayerInventoryManager : MonoBehaviour
     private void Start()
     {
         UIManager = FindFirstObjectByType<UIManager>();  
-        inventoryManager = UIManager.InventoryMenu.GetComponent<InventoryManager>();    
-        characterManager = UIManager.CharacterMenu.GetComponent<CharacterManager>();
+
+        inventoryManager = UIManager.InventoryMenu.GetComponentInChildren<InventoryManager>();    
+        characterManager = UIManager.CharacterMenu.GetComponentInChildren<CharacterManager>();
+
     }
 
     private void Update()

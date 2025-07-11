@@ -97,6 +97,10 @@ public class PaperDoll : MonoBehaviour
         }
 
         LayerSorting();
+
+        CheckForUnequip();
+
+
     }
 
     private void LayerSorting()
@@ -127,6 +131,17 @@ public class PaperDoll : MonoBehaviour
     }
 
 
+    private void CheckForUnequip()
+    {
+        if (isChildSprite && equipped == null)
+        {
+           // Debug.Log("Unequipping item");
+            UnequipItem();
+        }
+    }
+
+
+
     private void LoadSpritesFromTexture()
     {
         // Get the individual sprites from the replacement texture
@@ -149,12 +164,14 @@ public class PaperDoll : MonoBehaviour
                 paperDoll.SwapToBaseSheet();
             }
         }
+
     }
 
     public void UpdateTest()
     {
-        SwapToBaseSheet();
-        swapTest = false;
+
+        SwapToBaseSheet();       
+
     }
 
     public void SwapToAttackSheet()
@@ -214,4 +231,12 @@ public class PaperDoll : MonoBehaviour
             }
         }
     }
+
+    public void UnequipItem()
+    {
+        equipped = null;
+        path = null;
+        this.GetComponent<SpriteRenderer>().sprite = null;
+    }
+
 }

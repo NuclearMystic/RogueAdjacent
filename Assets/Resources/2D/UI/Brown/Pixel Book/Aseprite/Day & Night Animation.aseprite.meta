@@ -1,0 +1,5075 @@
+fileFormatVersion: 2
+guid: 48d324668a96b10488f77c583afea98a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Day & Night Animation_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 63810b62ebb9d264e96ad29020f98cca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Day & Night Animation_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 64
+      width: 50
+      height: 52
+    spriteID: ca823172028634541bfb61a9963d8dbf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 64}
+  - name: Day & Night Animation_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 7e2810c6fc071ca498c3b90b7f9e3460
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 124}
+  - name: Day & Night Animation_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 8e71c1a1ee7e5e54a91434e89141ff0e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 184}
+  - name: Day & Night Animation_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 244
+      width: 50
+      height: 52
+    spriteID: 6df0b817d4fd8c24285fb958f71728c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 244}
+  - name: Day & Night Animation_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 304
+      width: 50
+      height: 52
+    spriteID: a64b9b3068848c3449b7024e3d7eed23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 304}
+  - name: Day & Night Animation_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 364
+      width: 50
+      height: 52
+    spriteID: d53a15ecb1fab7c4883b518d6bd5d25c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 364}
+  - name: Day & Night Animation_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 424
+      width: 50
+      height: 52
+    spriteID: 83b5a2da2494ce74087de61ad48ac342
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 424}
+  - name: Day & Night Animation_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 484
+      width: 50
+      height: 52
+    spriteID: f3e207221075f794a8d9091c619af292
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 484}
+  - name: Day & Night Animation_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 544
+      width: 50
+      height: 52
+    spriteID: 1e409c9ae419e8648b3a97aa4e31639c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 544}
+  - name: Day & Night Animation_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 604
+      width: 50
+      height: 52
+    spriteID: eac42315123e7804d831afb5bae0c2dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 604}
+  - name: Day & Night Animation_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 664
+      width: 50
+      height: 52
+    spriteID: 8a0bdaa1d8218994bb0987f2f39fdcad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 664}
+  - name: Day & Night Animation_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 23e6671688e583f4082291caf14c4040
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 724}
+  - name: Day & Night Animation_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 784
+      width: 50
+      height: 52
+    spriteID: 680c416f8be1f7441a6cebfca74c7dc3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 784}
+  - name: Day & Night Animation_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 844
+      width: 50
+      height: 52
+    spriteID: ec712df1bff2f2b478ae98344747145e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 844}
+  - name: Day & Night Animation_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 904
+      width: 50
+      height: 52
+    spriteID: ffee4e6d37aadf6429b890e93ff0749a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 904}
+  - name: Day & Night Animation_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 964
+      width: 50
+      height: 52
+    spriteID: 60e306b34bbaad44891dd308628523a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 964}
+  - name: Day & Night Animation_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 65d582e4609fb8642abbec173ba32201
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 4}
+  - name: Day & Night Animation_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 64
+      width: 50
+      height: 52
+    spriteID: 90e0003b69a01684797f151f18f7ad51
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 64}
+  - name: Day & Night Animation_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 124
+      width: 50
+      height: 52
+    spriteID: b112cb010303da042b7650e76e11894a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 124}
+  - name: Day & Night Animation_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 184
+      width: 50
+      height: 52
+    spriteID: fdfe5b12a3769784e8b164cfe52b2d09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 184}
+  - name: Day & Night Animation_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 244
+      width: 50
+      height: 52
+    spriteID: 0bdb13fee024b0a4eb25e0afa3a4878f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 244}
+  - name: Day & Night Animation_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 7af1e07cb62b90c4fbcd91041f25188e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 304}
+  - name: Day & Night Animation_Frame_23
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 364
+      width: 50
+      height: 52
+    spriteID: de3510a2f747d8c48a349cf3ae33b7f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 364}
+  - name: Day & Night Animation_Frame_24
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 424
+      width: 50
+      height: 52
+    spriteID: bc2539c8b084cbc4d91c35b0150d895e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 424}
+  - name: Day & Night Animation_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 484
+      width: 50
+      height: 52
+    spriteID: 8b835696a1c5e28408ba771dfc46c71a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 484}
+  - name: Day & Night Animation_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 544
+      width: 50
+      height: 52
+    spriteID: fe2316d82b38405438597e028c3b6388
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 544}
+  - name: Day & Night Animation_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 604
+      width: 50
+      height: 52
+    spriteID: cd572c439def71d4c9d7d7c2bca1f8ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 604}
+  - name: Day & Night Animation_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 664
+      width: 50
+      height: 52
+    spriteID: a4e1ff0c5dc33254498c2c2a32b48a29
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 664}
+  - name: Day & Night Animation_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 59aa623976129ff45bb461ad24ba1147
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 724}
+  - name: Day & Night Animation_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 784
+      width: 50
+      height: 52
+    spriteID: a026db54092e57348bc37bd5dc7bc276
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 784}
+  - name: Day & Night Animation_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 844
+      width: 50
+      height: 52
+    spriteID: 2edf3630909f230499f50a1dc10b0464
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 844}
+  - name: Day & Night Animation_Frame_32
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 904
+      width: 50
+      height: 52
+    spriteID: fd01c0452bc3f3e4cb6f4ede4458b7b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 904}
+  - name: Day & Night Animation_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 964
+      width: 50
+      height: 52
+    spriteID: bcd58104e51a80d40b26c6f8bbc68413
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 964}
+  - name: Day & Night Animation_Frame_34
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 7e6dc03bb35f7934db9e882aa4ecc7ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 4}
+  - name: Day & Night Animation_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 64
+      width: 50
+      height: 52
+    spriteID: 6d05d9ec23467874689f215a93bfa15d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 64}
+  - name: Day & Night Animation_Frame_36
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 3a71ead80a39ab2488fcd16e8116935e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 124}
+  - name: Day & Night Animation_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 184
+      width: 50
+      height: 52
+    spriteID: ab2ea2435ade32a44b8cb2ec19943ae2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 184}
+  - name: Day & Night Animation_Frame_38
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 244
+      width: 50
+      height: 52
+    spriteID: afd40f5d69bee914cabd8dff8de9b66e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 244}
+  - name: Day & Night Animation_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 763cf23a6fe6ed94181afcc791e69962
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 304}
+  - name: Day & Night Animation_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 364
+      width: 50
+      height: 52
+    spriteID: a07a1e9d458adbf49a747a86eb941984
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 364}
+  - name: Day & Night Animation_Frame_41
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 424
+      width: 50
+      height: 52
+    spriteID: a5367de7d86e54b42add98fc10878696
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 424}
+  - name: Day & Night Animation_Frame_42
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 484
+      width: 50
+      height: 52
+    spriteID: 2bd0be8e0573c094ba87f2be150b2817
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 484}
+  - name: Day & Night Animation_Frame_43
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 544
+      width: 50
+      height: 52
+    spriteID: df2438f3257c9af488f7195f3a32a760
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 544}
+  - name: Day & Night Animation_Frame_44
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 84bb5e540cc47964dac0bf984f801723
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 604}
+  - name: Day & Night Animation_Frame_45
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 664
+      width: 50
+      height: 52
+    spriteID: 1e8c5786d5574ff46820234f89703153
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 664}
+  - name: Day & Night Animation_Frame_46
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 9d6708e1e671c254db01b5f8a93b4856
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 724}
+  - name: Day & Night Animation_Frame_47
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 784
+      width: 50
+      height: 52
+    spriteID: 069cd166640db264da4bb29e1357e833
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 784}
+  - name: Day & Night Animation_Frame_48
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 844
+      width: 50
+      height: 52
+    spriteID: df968df55f5cbc74b8ea2c0b9d50eda9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 844}
+  - name: Day & Night Animation_Frame_49
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 904
+      width: 50
+      height: 52
+    spriteID: 550f1cc7ef4e21e478ec091d62fed237
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 904}
+  - name: Day & Night Animation_Frame_50
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 964
+      width: 50
+      height: 52
+    spriteID: af7d8c6006d8c8b40bb4a77cdb9a30c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 964}
+  - name: Day & Night Animation_Frame_51
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 4
+      width: 50
+      height: 52
+    spriteID: bd7320f951dc40b439d56facde3701b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 4}
+  - name: Day & Night Animation_Frame_52
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 64
+      width: 50
+      height: 52
+    spriteID: cc34219cedf02b54fa8270755118a821
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 64}
+  - name: Day & Night Animation_Frame_53
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 6624f225602ee544c9b333764830c9e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 124}
+  - name: Day & Night Animation_Frame_54
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 11a33a06d8f315f46aed294527ace228
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 184}
+  - name: Day & Night Animation_Frame_55
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 244
+      width: 50
+      height: 52
+    spriteID: f131383c526517340aa1af44d9cc663e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 244}
+  - name: Day & Night Animation_Frame_56
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 780db953db7679d4795eebde0c28c211
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 304}
+  - name: Day & Night Animation_Frame_57
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 364
+      width: 50
+      height: 52
+    spriteID: 5aa8675ddf66d3944a55b3bfafb7f773
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 364}
+  - name: Day & Night Animation_Frame_58
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 424
+      width: 50
+      height: 52
+    spriteID: 9bab77d292c63b64cbfab3aec9879a0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 424}
+  - name: Day & Night Animation_Frame_59
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 484
+      width: 50
+      height: 52
+    spriteID: d9f6d48df0b520b46b3a1e861f7fb29e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 484}
+  - name: Day & Night Animation_Frame_60
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 544
+      width: 50
+      height: 52
+    spriteID: 8b45a91b12ec8304c8de15fa7d7b98eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 544}
+  - name: Day & Night Animation_Frame_61
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 8899595ebb411fe46a0dd708358669a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 604}
+  - name: Day & Night Animation_Frame_62
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 664
+      width: 50
+      height: 52
+    spriteID: ac802699a70dd2a42b75ea0177c570ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 664}
+  - name: Day & Night Animation_Frame_63
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 724
+      width: 50
+      height: 52
+    spriteID: c59c6ba257d96e94e846e058c18a1ef0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 724}
+  - name: Day & Night Animation_Frame_64
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 784
+      width: 50
+      height: 52
+    spriteID: 54cbed5b89f461a4abc41a03322d8875
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 784}
+  - name: Day & Night Animation_Frame_65
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 844
+      width: 50
+      height: 52
+    spriteID: 09c7f3f448c27cd42a252d305d39c0f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 844}
+  - name: Day & Night Animation_Frame_66
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 904
+      width: 50
+      height: 52
+    spriteID: 7570ba1d2472e4d4392ee7cebfa840a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 904}
+  - name: Day & Night Animation_Frame_67
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 964
+      width: 50
+      height: 52
+    spriteID: bd7b4fb79e69f7a4593256d850221f74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 178, y: 964}
+  - name: Day & Night Animation_Frame_68
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 5edd940e49c7ead48866a51a0b16ce03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 4}
+  - name: Day & Night Animation_Frame_69
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 64
+      width: 50
+      height: 52
+    spriteID: 9f832a38ac7c37946b0808b26ec55cd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 64}
+  - name: Day & Night Animation_Frame_70
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 124
+      width: 50
+      height: 52
+    spriteID: e706304d6464c274da03bb7d98fa5997
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 124}
+  - name: Day & Night Animation_Frame_71
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 689d7080b22cf824ba99f9893b733b37
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 184}
+  - name: Day & Night Animation_Frame_72
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 244
+      width: 50
+      height: 52
+    spriteID: df8cbdd2bc8615a4194d4cf61d4b97f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 244}
+  - name: Day & Night Animation_Frame_73
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 11ea86a43fed7b64daf1be6faf997012
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 304}
+  - name: Day & Night Animation_Frame_74
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 364
+      width: 50
+      height: 52
+    spriteID: fef7d03e2f8606049a16ed38eec4bbd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 364}
+  - name: Day & Night Animation_Frame_75
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 424
+      width: 50
+      height: 52
+    spriteID: ea9ab8a42e234a54daf942d6f8877514
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 424}
+  - name: Day & Night Animation_Frame_76
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 484
+      width: 50
+      height: 52
+    spriteID: 72b3ae6568da2d84cb9c19601a8a9037
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 484}
+  - name: Day & Night Animation_Frame_77
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 544
+      width: 50
+      height: 52
+    spriteID: 88bf457144db48045953853057f643af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 544}
+  - name: Day & Night Animation_Frame_78
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 8d062a8172d2fd347bef4a617ff37cf6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 604}
+  - name: Day & Night Animation_Frame_79
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 664
+      width: 50
+      height: 52
+    spriteID: f5fbe6917aa0f824cac7ab7a5834122c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 664}
+  - name: Day & Night Animation_Frame_80
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 0b0a114686ac2134db7b4700f0b12133
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 724}
+  - name: Day & Night Animation_Frame_81
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 784
+      width: 50
+      height: 52
+    spriteID: ad886957ee8421746825df14d92cacd4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 784}
+  - name: Day & Night Animation_Frame_82
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 844
+      width: 50
+      height: 52
+    spriteID: 5f17f6e808ddc03409ca5e5f44da283f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 844}
+  - name: Day & Night Animation_Frame_83
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 904
+      width: 50
+      height: 52
+    spriteID: 1f7cd382827d7fb43a81fab78c49b934
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 904}
+  - name: Day & Night Animation_Frame_84
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 964
+      width: 50
+      height: 52
+    spriteID: 44d1e27c6db7444498c93fac0ce60f5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 964}
+  - name: Day & Night Animation_Frame_85
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 4
+      width: 50
+      height: 52
+    spriteID: c276a23c502c92c40b4afb8dde2f560e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 4}
+  - name: Day & Night Animation_Frame_86
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 64
+      width: 50
+      height: 52
+    spriteID: 2e79b088ba88637498a6ddb83f411f00
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 64}
+  - name: Day & Night Animation_Frame_87
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 9fc07bd9a53de704d8739aa636f1a20b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 124}
+  - name: Day & Night Animation_Frame_88
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 12ea652808f11cb41b681e45543962e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 184}
+  - name: Day & Night Animation_Frame_89
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 244
+      width: 50
+      height: 52
+    spriteID: 873ffb6b0dbbf9149879ac6e5cc9fbaa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 244}
+  - name: Day & Night Animation_Frame_90
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 52683da757044e940852f2bbd2606625
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 304}
+  - name: Day & Night Animation_Frame_91
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 364
+      width: 50
+      height: 52
+    spriteID: 650b5d0bf7387d5499c8684391269546
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 364}
+  - name: Day & Night Animation_Frame_92
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 424
+      width: 50
+      height: 52
+    spriteID: c70edb9ddc6f5a94895b2e05934be5fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 424}
+  - name: Day & Night Animation_Frame_93
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 484
+      width: 50
+      height: 52
+    spriteID: a4fe9c6aa92859944b3342c7a13feccc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 484}
+  - name: Day & Night Animation_Frame_94
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 544
+      width: 50
+      height: 52
+    spriteID: f3230e924cbd077499f10f793626073b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 544}
+  - name: Day & Night Animation_Frame_95
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 57c09936765a9804ba007cc3529a9999
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 604}
+  - name: Day & Night Animation_Frame_96
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 664
+      width: 50
+      height: 52
+    spriteID: 31550d1bf48ce4245bffe7a5d15d7217
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 664}
+  - name: Day & Night Animation_Frame_97
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 45869210ff6d1fe45a6215abac6c8248
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 724}
+  - name: Day & Night Animation_Frame_98
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 784
+      width: 50
+      height: 52
+    spriteID: 66095cff5b5118b4790cc0c5be4d9bdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 784}
+  - name: Day & Night Animation_Frame_99
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 844
+      width: 50
+      height: 52
+    spriteID: 6be0982be8c8b964ba1a57458bdc7b4d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 844}
+  - name: Day & Night Animation_Frame_100
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 904
+      width: 50
+      height: 52
+    spriteID: b46d66e781aa0894e996a0a120626f5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 904}
+  - name: Day & Night Animation_Frame_101
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 294
+      y: 964
+      width: 50
+      height: 52
+    spriteID: 3ecfbecde60be1d4980dfb3a541fa8f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 294, y: 964}
+  - name: Day & Night Animation_Frame_102
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 8074f0b31bdb32442b91101f0cd5e6ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 4}
+  - name: Day & Night Animation_Frame_103
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 64
+      width: 50
+      height: 52
+    spriteID: c99d880ef8d60184fba2c482ad4f0c4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 64}
+  - name: Day & Night Animation_Frame_104
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 124
+      width: 50
+      height: 52
+    spriteID: b65383a4b0a33554b89fe169650631cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 124}
+  - name: Day & Night Animation_Frame_105
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 3f99ee23f804b7c4bba64d888c5f42d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 184}
+  - name: Day & Night Animation_Frame_106
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 244
+      width: 50
+      height: 52
+    spriteID: 9bf33435595834e4c94a3058ff49f46d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 244}
+  - name: Day & Night Animation_Frame_107
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 75d1c108ce9f0a543bdf84027ac93177
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 304}
+  - name: Day & Night Animation_Frame_108
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 364
+      width: 50
+      height: 52
+    spriteID: dccd5193070fce54c981af4327aaac2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 364}
+  - name: Day & Night Animation_Frame_109
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 424
+      width: 50
+      height: 52
+    spriteID: 9284504628226214584f35f2372fd386
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 424}
+  - name: Day & Night Animation_Frame_110
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 484
+      width: 50
+      height: 52
+    spriteID: 41da05a71632f914296a6ed2f950e303
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 484}
+  - name: Day & Night Animation_Frame_111
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 544
+      width: 50
+      height: 52
+    spriteID: 67bf0bd4e59524f4aacb09bcb6c7d109
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 544}
+  - name: Day & Night Animation_Frame_112
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 61f9f8877020047489d1e1bb3e6faf19
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 604}
+  - name: Day & Night Animation_Frame_113
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 664
+      width: 50
+      height: 52
+    spriteID: 6f253244556e84a42bfafadbbe49d4af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 664}
+  - name: Day & Night Animation_Frame_114
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 5235e48e96bcb694799cba1b54ce69ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 724}
+  - name: Day & Night Animation_Frame_115
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 784
+      width: 50
+      height: 52
+    spriteID: 7ec70f91e50808b42ab9adc49a225269
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 784}
+  - name: Day & Night Animation_Frame_116
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 844
+      width: 50
+      height: 52
+    spriteID: 23f662797ccd9f048b68f8ebfacfbf70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 844}
+  - name: Day & Night Animation_Frame_117
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 904
+      width: 50
+      height: 52
+    spriteID: 60e205c4a1ca0154ca8280e2c2946465
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 904}
+  - name: Day & Night Animation_Frame_118
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 964
+      width: 50
+      height: 52
+    spriteID: 0c11e67e6ea5963408acf72669849078
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 352, y: 964}
+  - name: Day & Night Animation_Frame_119
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 8e1b973c70a1bfe4cb0c861a6bf2d9c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 4}
+  - name: Day & Night Animation_Frame_120
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 64
+      width: 50
+      height: 52
+    spriteID: a19bd9b1c2b365e42b397c28fc1609dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 64}
+  - name: Day & Night Animation_Frame_121
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 30c55e67023e23942b4ff627a5e88439
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 124}
+  - name: Day & Night Animation_Frame_122
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 4f050c6d9031b4f49ba60e435bbff73d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 184}
+  - name: Day & Night Animation_Frame_123
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 244
+      width: 50
+      height: 52
+    spriteID: 99eebfedee4169b448fcd623c2113ef8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 244}
+  - name: Day & Night Animation_Frame_124
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 304
+      width: 50
+      height: 52
+    spriteID: eceecb40395d8f240a308a547ab36cfe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 304}
+  - name: Day & Night Animation_Frame_125
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 364
+      width: 50
+      height: 52
+    spriteID: e0eb4519e4f443e4f9959e3847604ba1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 364}
+  - name: Day & Night Animation_Frame_126
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 424
+      width: 50
+      height: 52
+    spriteID: 4c32d6adb2f52d140b234a67f9962c33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 424}
+  - name: Day & Night Animation_Frame_127
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 484
+      width: 50
+      height: 52
+    spriteID: 4b7a0a630b25e8b4ab4132955447632b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 484}
+  - name: Day & Night Animation_Frame_128
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 544
+      width: 50
+      height: 52
+    spriteID: 0e24ee0e01eb9ab429fa908a812aae41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 544}
+  - name: Day & Night Animation_Frame_129
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 00d217aedd7d6f84ea727f445edbd0c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 604}
+  - name: Day & Night Animation_Frame_130
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 664
+      width: 50
+      height: 52
+    spriteID: d3de3dfac0e360b4a9052d8da1e31e25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 664}
+  - name: Day & Night Animation_Frame_131
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 724
+      width: 50
+      height: 52
+    spriteID: d5c251d5a2c59a34b893469a52b1c5dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 724}
+  - name: Day & Night Animation_Frame_132
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 784
+      width: 50
+      height: 52
+    spriteID: c9d80f4a93e6b2c4c84d85c71c1c569a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 784}
+  - name: Day & Night Animation_Frame_133
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 844
+      width: 50
+      height: 52
+    spriteID: 05fba1be9e6a7ac49901d8ea6fc16b79
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 844}
+  - name: Day & Night Animation_Frame_134
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 904
+      width: 50
+      height: 52
+    spriteID: c64ae81676508274294c37f800938278
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 904}
+  - name: Day & Night Animation_Frame_135
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 964
+      width: 50
+      height: 52
+    spriteID: e0e2bdd54691708479f210831f4de4ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 410, y: 964}
+  - name: Day & Night Animation_Frame_136
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 35e760cbc50660344900db372f0f89ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 4}
+  - name: Day & Night Animation_Frame_137
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 64
+      width: 50
+      height: 52
+    spriteID: 6710eeb5b1a95624fbd3263ed0392491
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 64}
+  - name: Day & Night Animation_Frame_138
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 37c1694853a615640a6c6c098215a4b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 124}
+  - name: Day & Night Animation_Frame_139
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 45273438a851f8e43aedf4b16df41680
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 184}
+  - name: Day & Night Animation_Frame_140
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 244
+      width: 50
+      height: 52
+    spriteID: 85700826205c0864c932e7f081687a71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 244}
+  - name: Day & Night Animation_Frame_141
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 304
+      width: 50
+      height: 52
+    spriteID: b4ba3ad82f1ff9d4dbb6e7e010fd3272
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 304}
+  - name: Day & Night Animation_Frame_142
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 364
+      width: 50
+      height: 52
+    spriteID: ed9c297cc310a8b42b9fdc5b997e2274
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 364}
+  - name: Day & Night Animation_Frame_143
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 424
+      width: 50
+      height: 52
+    spriteID: 32fba1bae4734f84badf9248d07f43f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 424}
+  - name: Day & Night Animation_Frame_144
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 484
+      width: 50
+      height: 52
+    spriteID: ed548a8c6f2840a4d86c5471fd17e827
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 484}
+  - name: Day & Night Animation_Frame_145
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 544
+      width: 50
+      height: 52
+    spriteID: 79b32a55a9a41c943b938a4cd75f1e26
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 544}
+  - name: Day & Night Animation_Frame_146
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 604
+      width: 50
+      height: 52
+    spriteID: 74559e7e39dd43941977cc745124b0d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 604}
+  - name: Day & Night Animation_Frame_147
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 664
+      width: 50
+      height: 52
+    spriteID: 3388830162e96f24e92b5127f8c5e566
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 664}
+  - name: Day & Night Animation_Frame_148
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 724
+      width: 50
+      height: 52
+    spriteID: 4302860d64b54994da194d3682bdcf4c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 724}
+  - name: Day & Night Animation_Frame_149
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 784
+      width: 50
+      height: 52
+    spriteID: 038ae95a5d7e06f42a9b60d60e7d802a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 784}
+  - name: Day & Night Animation_Frame_150
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 844
+      width: 50
+      height: 52
+    spriteID: a92d9dcda8c334944bccabf5b5090392
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 844}
+  - name: Day & Night Animation_Frame_151
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 904
+      width: 50
+      height: 52
+    spriteID: 90ccc40553eecd1468342c2a433bc19a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 904}
+  - name: Day & Night Animation_Frame_152
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 964
+      width: 50
+      height: 52
+    spriteID: 35c659d66b534bb47ae13e918af8b7c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 964}
+  - name: Day & Night Animation_Frame_153
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 4
+      width: 50
+      height: 52
+    spriteID: 0dfc27f2d74e7744491c7f5c743f9116
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 4}
+  - name: Day & Night Animation_Frame_154
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 64
+      width: 50
+      height: 52
+    spriteID: 53a41bd0ee2d56949a2310f2dec1a0ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 64}
+  - name: Day & Night Animation_Frame_155
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 124
+      width: 50
+      height: 52
+    spriteID: 8e8cc882933635e4f863264ba113a5f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 124}
+  - name: Day & Night Animation_Frame_156
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 184
+      width: 50
+      height: 52
+    spriteID: 77889aac36d85af48b130e024779bd9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 184}
+  - name: Day & Night Animation_Frame_157
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 244
+      width: 50
+      height: 52
+    spriteID: a01eefe0bf3d1b04a80ef47cb55121f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 244}
+  - name: Day & Night Animation_Frame_158
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 304
+      width: 50
+      height: 52
+    spriteID: 5aa662805fea5704c94b279f6b3b3692
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 304}
+  - name: Day & Night Animation_Frame_159
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 364
+      width: 50
+      height: 52
+    spriteID: 2bf2024c92bd1d3459ba98ce34c56ad8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 364}
+  - name: Day & Night Animation_Frame_160
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 424
+      width: 50
+      height: 52
+    spriteID: 260b8d9898e557144a30fd4a3bdd5ca4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 424}
+  - name: Day & Night Animation_Frame_161
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 484
+      width: 50
+      height: 52
+    spriteID: 07db2a75492a7d548a555ce9ce045468
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 484}
+  - name: Day & Night Animation_Frame_162
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 544
+      width: 50
+      height: 52
+    spriteID: c6675e26463367e42bb1f24e502dacff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 544}
+  - name: Day & Night Animation_Frame_163
+    originalName: 
+    pivot: {x: 0.5, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 604
+      width: 50
+      height: 52
+    spriteID: a7266d5cd4b2ef84c9f0f277c205068f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 604}
+  spriteSheetImportData: []
+  tileSetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    uuid:
+      value0: 2993464158
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1301503138
+    name: Day & Night Animation
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 63810b62ebb9d264e96ad29020f98cca
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ca823172028634541bfb61a9963d8dbf
+    - name: Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 7e2810c6fc071ca498c3b90b7f9e3460
+    - name: Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8e71c1a1ee7e5e54a91434e89141ff0e
+    - name: Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 6df0b817d4fd8c24285fb958f71728c3
+    - name: Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a64b9b3068848c3449b7024e3d7eed23
+    - name: Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: d53a15ecb1fab7c4883b518d6bd5d25c
+    - name: Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 83b5a2da2494ce74087de61ad48ac342
+    - name: Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: f3e207221075f794a8d9091c619af292
+    - name: Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 1e409c9ae419e8648b3a97aa4e31639c
+    - name: Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: eac42315123e7804d831afb5bae0c2dd
+    - name: Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8a0bdaa1d8218994bb0987f2f39fdcad
+    - name: Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 23e6671688e583f4082291caf14c4040
+    - name: Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 680c416f8be1f7441a6cebfca74c7dc3
+    - name: Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ec712df1bff2f2b478ae98344747145e
+    - name: Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ffee4e6d37aadf6429b890e93ff0749a
+    - name: Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 60e306b34bbaad44891dd308628523a9
+    - name: Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 65d582e4609fb8642abbec173ba32201
+    - name: Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 90e0003b69a01684797f151f18f7ad51
+    - name: Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: b112cb010303da042b7650e76e11894a
+    - name: Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: fdfe5b12a3769784e8b164cfe52b2d09
+    - name: Frame_21
+      frameIndex: 21
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 0bdb13fee024b0a4eb25e0afa3a4878f
+    - name: Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 7af1e07cb62b90c4fbcd91041f25188e
+    - name: Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: de3510a2f747d8c48a349cf3ae33b7f5
+    - name: Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: bc2539c8b084cbc4d91c35b0150d895e
+    - name: Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8b835696a1c5e28408ba771dfc46c71a
+    - name: Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: fe2316d82b38405438597e028c3b6388
+    - name: Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: cd572c439def71d4c9d7d7c2bca1f8ad
+    - name: Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a4e1ff0c5dc33254498c2c2a32b48a29
+    - name: Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 59aa623976129ff45bb461ad24ba1147
+    - name: Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a026db54092e57348bc37bd5dc7bc276
+    - name: Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 2edf3630909f230499f50a1dc10b0464
+    - name: Frame_32
+      frameIndex: 32
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: fd01c0452bc3f3e4cb6f4ede4458b7b2
+    - name: Frame_33
+      frameIndex: 33
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: bcd58104e51a80d40b26c6f8bbc68413
+    - name: Frame_34
+      frameIndex: 34
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 7e6dc03bb35f7934db9e882aa4ecc7ad
+    - name: Frame_35
+      frameIndex: 35
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 6d05d9ec23467874689f215a93bfa15d
+    - name: Frame_36
+      frameIndex: 36
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 3a71ead80a39ab2488fcd16e8116935e
+    - name: Frame_37
+      frameIndex: 37
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ab2ea2435ade32a44b8cb2ec19943ae2
+    - name: Frame_38
+      frameIndex: 38
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: afd40f5d69bee914cabd8dff8de9b66e
+    - name: Frame_39
+      frameIndex: 39
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 763cf23a6fe6ed94181afcc791e69962
+    - name: Frame_40
+      frameIndex: 40
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a07a1e9d458adbf49a747a86eb941984
+    - name: Frame_41
+      frameIndex: 41
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a5367de7d86e54b42add98fc10878696
+    - name: Frame_42
+      frameIndex: 42
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 2bd0be8e0573c094ba87f2be150b2817
+    - name: Frame_43
+      frameIndex: 43
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: df2438f3257c9af488f7195f3a32a760
+    - name: Frame_44
+      frameIndex: 44
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 84bb5e540cc47964dac0bf984f801723
+    - name: Frame_45
+      frameIndex: 45
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 1e8c5786d5574ff46820234f89703153
+    - name: Frame_46
+      frameIndex: 46
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 9d6708e1e671c254db01b5f8a93b4856
+    - name: Frame_47
+      frameIndex: 47
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 069cd166640db264da4bb29e1357e833
+    - name: Frame_48
+      frameIndex: 48
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: df968df55f5cbc74b8ea2c0b9d50eda9
+    - name: Frame_49
+      frameIndex: 49
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 550f1cc7ef4e21e478ec091d62fed237
+    - name: Frame_50
+      frameIndex: 50
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: af7d8c6006d8c8b40bb4a77cdb9a30c0
+    - name: Frame_51
+      frameIndex: 51
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: bd7320f951dc40b439d56facde3701b7
+    - name: Frame_52
+      frameIndex: 52
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: cc34219cedf02b54fa8270755118a821
+    - name: Frame_53
+      frameIndex: 53
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 6624f225602ee544c9b333764830c9e1
+    - name: Frame_54
+      frameIndex: 54
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 11a33a06d8f315f46aed294527ace228
+    - name: Frame_55
+      frameIndex: 55
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: f131383c526517340aa1af44d9cc663e
+    - name: Frame_56
+      frameIndex: 56
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 780db953db7679d4795eebde0c28c211
+    - name: Frame_57
+      frameIndex: 57
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 5aa8675ddf66d3944a55b3bfafb7f773
+    - name: Frame_58
+      frameIndex: 58
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 9bab77d292c63b64cbfab3aec9879a0d
+    - name: Frame_59
+      frameIndex: 59
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: d9f6d48df0b520b46b3a1e861f7fb29e
+    - name: Frame_60
+      frameIndex: 60
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8b45a91b12ec8304c8de15fa7d7b98eb
+    - name: Frame_61
+      frameIndex: 61
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8899595ebb411fe46a0dd708358669a5
+    - name: Frame_62
+      frameIndex: 62
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ac802699a70dd2a42b75ea0177c570ad
+    - name: Frame_63
+      frameIndex: 63
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c59c6ba257d96e94e846e058c18a1ef0
+    - name: Frame_64
+      frameIndex: 64
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 54cbed5b89f461a4abc41a03322d8875
+    - name: Frame_65
+      frameIndex: 65
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 09c7f3f448c27cd42a252d305d39c0f1
+    - name: Frame_66
+      frameIndex: 66
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 7570ba1d2472e4d4392ee7cebfa840a4
+    - name: Frame_67
+      frameIndex: 67
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: bd7b4fb79e69f7a4593256d850221f74
+    - name: Frame_68
+      frameIndex: 68
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 5edd940e49c7ead48866a51a0b16ce03
+    - name: Frame_69
+      frameIndex: 69
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 9f832a38ac7c37946b0808b26ec55cd8
+    - name: Frame_70
+      frameIndex: 70
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: e706304d6464c274da03bb7d98fa5997
+    - name: Frame_71
+      frameIndex: 71
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 689d7080b22cf824ba99f9893b733b37
+    - name: Frame_72
+      frameIndex: 72
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: df8cbdd2bc8615a4194d4cf61d4b97f2
+    - name: Frame_73
+      frameIndex: 73
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 11ea86a43fed7b64daf1be6faf997012
+    - name: Frame_74
+      frameIndex: 74
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: fef7d03e2f8606049a16ed38eec4bbd8
+    - name: Frame_75
+      frameIndex: 75
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ea9ab8a42e234a54daf942d6f8877514
+    - name: Frame_76
+      frameIndex: 76
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 72b3ae6568da2d84cb9c19601a8a9037
+    - name: Frame_77
+      frameIndex: 77
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 88bf457144db48045953853057f643af
+    - name: Frame_78
+      frameIndex: 78
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8d062a8172d2fd347bef4a617ff37cf6
+    - name: Frame_79
+      frameIndex: 79
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: f5fbe6917aa0f824cac7ab7a5834122c
+    - name: Frame_80
+      frameIndex: 80
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 0b0a114686ac2134db7b4700f0b12133
+    - name: Frame_81
+      frameIndex: 81
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ad886957ee8421746825df14d92cacd4
+    - name: Frame_82
+      frameIndex: 82
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 5f17f6e808ddc03409ca5e5f44da283f
+    - name: Frame_83
+      frameIndex: 83
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 1f7cd382827d7fb43a81fab78c49b934
+    - name: Frame_84
+      frameIndex: 84
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 44d1e27c6db7444498c93fac0ce60f5b
+    - name: Frame_85
+      frameIndex: 85
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c276a23c502c92c40b4afb8dde2f560e
+    - name: Frame_86
+      frameIndex: 86
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 2e79b088ba88637498a6ddb83f411f00
+    - name: Frame_87
+      frameIndex: 87
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 9fc07bd9a53de704d8739aa636f1a20b
+    - name: Frame_88
+      frameIndex: 88
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 12ea652808f11cb41b681e45543962e7
+    - name: Frame_89
+      frameIndex: 89
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 873ffb6b0dbbf9149879ac6e5cc9fbaa
+    - name: Frame_90
+      frameIndex: 90
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 52683da757044e940852f2bbd2606625
+    - name: Frame_91
+      frameIndex: 91
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 650b5d0bf7387d5499c8684391269546
+    - name: Frame_92
+      frameIndex: 92
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c70edb9ddc6f5a94895b2e05934be5fa
+    - name: Frame_93
+      frameIndex: 93
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a4fe9c6aa92859944b3342c7a13feccc
+    - name: Frame_94
+      frameIndex: 94
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: f3230e924cbd077499f10f793626073b
+    - name: Frame_95
+      frameIndex: 95
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 57c09936765a9804ba007cc3529a9999
+    - name: Frame_96
+      frameIndex: 96
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 31550d1bf48ce4245bffe7a5d15d7217
+    - name: Frame_97
+      frameIndex: 97
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 45869210ff6d1fe45a6215abac6c8248
+    - name: Frame_98
+      frameIndex: 98
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 66095cff5b5118b4790cc0c5be4d9bdf
+    - name: Frame_99
+      frameIndex: 99
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 6be0982be8c8b964ba1a57458bdc7b4d
+    - name: Frame_100
+      frameIndex: 100
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: b46d66e781aa0894e996a0a120626f5a
+    - name: Frame_101
+      frameIndex: 101
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 3ecfbecde60be1d4980dfb3a541fa8f7
+    - name: Frame_102
+      frameIndex: 102
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8074f0b31bdb32442b91101f0cd5e6ad
+    - name: Frame_103
+      frameIndex: 103
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c99d880ef8d60184fba2c482ad4f0c4e
+    - name: Frame_104
+      frameIndex: 104
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: b65383a4b0a33554b89fe169650631cd
+    - name: Frame_105
+      frameIndex: 105
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 3f99ee23f804b7c4bba64d888c5f42d1
+    - name: Frame_106
+      frameIndex: 106
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 9bf33435595834e4c94a3058ff49f46d
+    - name: Frame_107
+      frameIndex: 107
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 75d1c108ce9f0a543bdf84027ac93177
+    - name: Frame_108
+      frameIndex: 108
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: dccd5193070fce54c981af4327aaac2b
+    - name: Frame_109
+      frameIndex: 109
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 9284504628226214584f35f2372fd386
+    - name: Frame_110
+      frameIndex: 110
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 41da05a71632f914296a6ed2f950e303
+    - name: Frame_111
+      frameIndex: 111
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 67bf0bd4e59524f4aacb09bcb6c7d109
+    - name: Frame_112
+      frameIndex: 112
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 61f9f8877020047489d1e1bb3e6faf19
+    - name: Frame_113
+      frameIndex: 113
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 6f253244556e84a42bfafadbbe49d4af
+    - name: Frame_114
+      frameIndex: 114
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 5235e48e96bcb694799cba1b54ce69ea
+    - name: Frame_115
+      frameIndex: 115
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 7ec70f91e50808b42ab9adc49a225269
+    - name: Frame_116
+      frameIndex: 116
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 23f662797ccd9f048b68f8ebfacfbf70
+    - name: Frame_117
+      frameIndex: 117
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 60e205c4a1ca0154ca8280e2c2946465
+    - name: Frame_118
+      frameIndex: 118
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 0c11e67e6ea5963408acf72669849078
+    - name: Frame_119
+      frameIndex: 119
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8e1b973c70a1bfe4cb0c861a6bf2d9c7
+    - name: Frame_120
+      frameIndex: 120
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a19bd9b1c2b365e42b397c28fc1609dd
+    - name: Frame_121
+      frameIndex: 121
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 30c55e67023e23942b4ff627a5e88439
+    - name: Frame_122
+      frameIndex: 122
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 4f050c6d9031b4f49ba60e435bbff73d
+    - name: Frame_123
+      frameIndex: 123
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 99eebfedee4169b448fcd623c2113ef8
+    - name: Frame_124
+      frameIndex: 124
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: eceecb40395d8f240a308a547ab36cfe
+    - name: Frame_125
+      frameIndex: 125
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: e0eb4519e4f443e4f9959e3847604ba1
+    - name: Frame_126
+      frameIndex: 126
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 4c32d6adb2f52d140b234a67f9962c33
+    - name: Frame_127
+      frameIndex: 127
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 4b7a0a630b25e8b4ab4132955447632b
+    - name: Frame_128
+      frameIndex: 128
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 0e24ee0e01eb9ab429fa908a812aae41
+    - name: Frame_129
+      frameIndex: 129
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 00d217aedd7d6f84ea727f445edbd0c3
+    - name: Frame_130
+      frameIndex: 130
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: d3de3dfac0e360b4a9052d8da1e31e25
+    - name: Frame_131
+      frameIndex: 131
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: d5c251d5a2c59a34b893469a52b1c5dc
+    - name: Frame_132
+      frameIndex: 132
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c9d80f4a93e6b2c4c84d85c71c1c569a
+    - name: Frame_133
+      frameIndex: 133
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 05fba1be9e6a7ac49901d8ea6fc16b79
+    - name: Frame_134
+      frameIndex: 134
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c64ae81676508274294c37f800938278
+    - name: Frame_135
+      frameIndex: 135
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: e0e2bdd54691708479f210831f4de4ef
+    - name: Frame_136
+      frameIndex: 136
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 35e760cbc50660344900db372f0f89ab
+    - name: Frame_137
+      frameIndex: 137
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 6710eeb5b1a95624fbd3263ed0392491
+    - name: Frame_138
+      frameIndex: 138
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 37c1694853a615640a6c6c098215a4b3
+    - name: Frame_139
+      frameIndex: 139
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 45273438a851f8e43aedf4b16df41680
+    - name: Frame_140
+      frameIndex: 140
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 85700826205c0864c932e7f081687a71
+    - name: Frame_141
+      frameIndex: 141
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: b4ba3ad82f1ff9d4dbb6e7e010fd3272
+    - name: Frame_142
+      frameIndex: 142
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ed9c297cc310a8b42b9fdc5b997e2274
+    - name: Frame_143
+      frameIndex: 143
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 32fba1bae4734f84badf9248d07f43f6
+    - name: Frame_144
+      frameIndex: 144
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: ed548a8c6f2840a4d86c5471fd17e827
+    - name: Frame_145
+      frameIndex: 145
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 79b32a55a9a41c943b938a4cd75f1e26
+    - name: Frame_146
+      frameIndex: 146
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 74559e7e39dd43941977cc745124b0d4
+    - name: Frame_147
+      frameIndex: 147
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 3388830162e96f24e92b5127f8c5e566
+    - name: Frame_148
+      frameIndex: 148
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 4302860d64b54994da194d3682bdcf4c
+    - name: Frame_149
+      frameIndex: 149
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 038ae95a5d7e06f42a9b60d60e7d802a
+    - name: Frame_150
+      frameIndex: 150
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a92d9dcda8c334944bccabf5b5090392
+    - name: Frame_151
+      frameIndex: 151
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 90ccc40553eecd1468342c2a433bc19a
+    - name: Frame_152
+      frameIndex: 152
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 35c659d66b534bb47ae13e918af8b7c8
+    - name: Frame_153
+      frameIndex: 153
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 0dfc27f2d74e7744491c7f5c743f9116
+    - name: Frame_154
+      frameIndex: 154
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 53a41bd0ee2d56949a2310f2dec1a0ba
+    - name: Frame_155
+      frameIndex: 155
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 8e8cc882933635e4f863264ba113a5f5
+    - name: Frame_156
+      frameIndex: 156
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 77889aac36d85af48b130e024779bd9c
+    - name: Frame_157
+      frameIndex: 157
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a01eefe0bf3d1b04a80ef47cb55121f3
+    - name: Frame_158
+      frameIndex: 158
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 5aa662805fea5704c94b279f6b3b3692
+    - name: Frame_159
+      frameIndex: 159
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 2bf2024c92bd1d3459ba98ce34c56ad8
+    - name: Frame_160
+      frameIndex: 160
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 260b8d9898e557144a30fd4a3bdd5ca4
+    - name: Frame_161
+      frameIndex: 161
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: 07db2a75492a7d548a555ce9ce045468
+    - name: Frame_162
+      frameIndex: 162
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: c6675e26463367e42bb1f24e502dacff
+    - name: Frame_163
+      frameIndex: 163
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 14
+        width: 50
+        height: 52
+      spriteId: a7266d5cd4b2ef84c9f0f277c205068f
+    linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
+    parentIndex: -1
+  tileSets: []
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 96, y: 80}
+  previousTextureSize: {x: 1024, y: 1024}

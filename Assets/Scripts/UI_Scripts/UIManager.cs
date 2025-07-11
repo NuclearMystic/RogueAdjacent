@@ -2,6 +2,10 @@ using System;
 using TMPro;
 using UnityEngine;
 
+using System.Collections.Generic;
+using System.Collections;
+
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
@@ -19,14 +23,15 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        Instance = this;    
+
+        Instance = this;
+
     }
 
     public void Update()
@@ -61,17 +66,21 @@ public class UIManager : MonoBehaviour
 
     private void ToggleCharacterMenu()
     {
-        characterOpen= !characterOpen;
+
+        characterOpen = !characterOpen;
+
         CharacterMenu.SetActive(characterOpen);
     }
 
     public void InteractToolTip(bool tipState, string promptText)
     {
-       // Debug.Log("Interacting");
+
+        // Debug.Log("Interacting");
         if (promptText != null)
         {
             ChangeInteractText(promptText);
-            
+
+
         }
         interactTooltip.SetActive(tipState);
     }
@@ -85,13 +94,40 @@ public class UIManager : MonoBehaviour
     {
         if (inventoryOpen || characterOpen)
         {
-           // Cursor.visible = true;
-          //  Cursor.lockState = CursorLockMode.Confined;
+
+            // Cursor.visible = true;
+            //  Cursor.lockState = CursorLockMode.Confined;
         }
         else
         {
-           // Cursor.visible = false;
-           // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.visible = false;
+            // Cursor.lockState = CursorLockMode.Locked;
         }
     }
+    public void ForceRefreshCharacterMenu()
+    {
+        StartCoroutine(TempOpenCharacterMenu());
+    }
+
+    private IEnumerator TempOpenCharacterMenu()
+    {
+        bool wasOpen = characterOpen;
+        RectTransform menuTransform = CharacterMenu.GetComponent<RectTransform>();
+
+        Vector3 originalPosition = menuTransform.anchoredPosition;
+
+        menuTransform.anchoredPosition = new Vector2(5000, 5000);
+
+        if (!wasOpen)
+        {
+            CharacterMenu.SetActive(true);
+            yield return null;
+            yield return null;
+            yield return null;
+            CharacterMenu.SetActive(false);
+        }
+
+        menuTransform.anchoredPosition = originalPosition;
+    }
 }
+

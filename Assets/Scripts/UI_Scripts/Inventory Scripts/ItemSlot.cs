@@ -13,69 +13,45 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public int maxHeldItems;
     public int curItemID;
 
-    public enum SlotType
-    {
-        Any, 
-        Weapon,
-        Hat,
-        FaceAcces,
-        Cape,
-        Outfit
-    }
 
+    public enum SlotType { Any, Weapon, Hat, FaceAcces, Cape, Outfit }
     public SlotType slotType;
-
     public bool isItemEquipped = false;
-
 
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
         DraggableIconSlot draggedIcon = dropped.GetComponent<DraggableIconSlot>();
 
-        if (draggedIcon == null || draggedIcon.slotItem == null)
-            return;
+        if (draggedIcon == null || draggedIcon.slotItem == null) return;
 
-        // Check if the slot accepts the item type
-        if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString())
-            return;
+        if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString()) return;
 
-        // If no children, just parent the dragged item
+
         if (transform.childCount == 0)
         {
             draggedIcon.parentAfterDrag = transform;
         }
-        else
+
+        if (slotType != SlotType.Any && draggedIcon.slotItem is EquipmentItem equipItem)
         {
-            // Get the first child (assuming one item type per stack)
-            DraggableIconSlot existingIcon = transform.GetChild(0).GetComponent<DraggableIconSlot>();
-
-            if (existingIcon != null && existingIcon.slotItem != null)
+            int index = transform.GetSiblingIndex();
+            if (IsWeaponSlot())
             {
-                // Check if the items are the same and stackable
-                if (existingIcon.slotItem.itemId == draggedIcon.slotItem.itemId && existingIcon.slotItem.stackable)
-                {
-                    // Stack the item by reparenting it under the same slot
-                    draggedIcon.parentAfterDrag = transform;
-
-                    // Optional: Update a stack UI count here (e.g., text field)
-                }
-                else
-                {
-                    // Optional: Reject or swap if item is different
-                    return;
-                }
+                PlayerEquipmentManager.Instance.EquipWeaponItem(index, equipItem);
+            }
+            else
+            {
+                PlayerEquipmentManager.Instance.EquipArmorItem(index, equipItem);
             }
         }
     }
-    public void Update()
+
+    private bool IsWeaponSlot() => slotType == SlotType.Weapon;
+
+    private void Update()
     {
-        //if (inventoryItem != null && transform.childCount == 0 && !slotFilled)
-        //{           
-        //    slotFilled = true;
-        //    Instantiate (inventoryItem.draggableIcon, this.transform);
-        //    inventoryItem = null;
-        //}
+
         UpdateInventoryItem();
     }
 
@@ -84,21 +60,21 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if (transform.childCount > 0)
         {
             inventoryItem = GetComponentInChildren<DraggableIconSlot>().slotItem;
-            draggableIconSlot = this.GetComponentInChildren<DraggableIconSlot>();
+
+            draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
             maxHeldItems = inventoryItem.stackSize;
             heldItems = transform.childCount;
-
-            if (heldItems == maxHeldItems)
-            {
-                slotFilled = true;
-            }
+            slotFilled = heldItems == maxHeldItems;
         }
-        else if (transform.childCount == 0)
+        else
+
         {
             heldItems = 0;
             maxHeldItems = 0;
             inventoryItem = null;
-            draggableIconSlot=null;
+
+            draggableIconSlot = null;
+
             slotFilled = false;
         }
         UpdateStackVisuals();
@@ -110,12 +86,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         {
             GameObject child = transform.GetChild(i).gameObject;
 
-            // Show the first child, hide the rest
             bool shouldShow = (i == 0);
             foreach (var image in child.GetComponentsInChildren<Image>())
-            {
                 image.enabled = shouldShow;
-            }
 
             foreach (var canvasGroup in child.GetComponentsInChildren<CanvasGroup>())
             {
@@ -128,9 +101,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void ReceiveInventoryItem(InventoryItem receivedItem)
     {
         if (!slotFilled)
-        {                 
-            Instantiate(receivedItem.draggableIcon, this.transform);
-            draggableIconSlot = this.GetComponentInChildren<DraggableIconSlot>();
+
+        {
+            Instantiate(receivedItem.draggableIcon, transform);
+            draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
+
             inventoryItem = null;
             heldItems++;
         }

@@ -9,8 +9,19 @@ public class PickupInteractionSO : InteractionSO
     {
         if (addToInventory)
         {
-            actor.GetComponent<PlayerInventoryManager>().PickUpItem(target.inventorySO, out addToInventory);
+
+            var inventoryManager = actor.GetComponent<PlayerInventoryManager>();
+            inventoryManager.PickUpItem(target.inventorySO, out addToInventory);
+
+            if (addToInventory)
+            {
+                UIManager.Instance.ForceRefreshCharacterMenu();
+                PlayerEquipmentManager.Instance.RefreshAllEquipmentVisuals();
+                
+            }
         }
+
+
         if (addToInventory)
         {
             GameObject.Destroy(target.gameObject);
