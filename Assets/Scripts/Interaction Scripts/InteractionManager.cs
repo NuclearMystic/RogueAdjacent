@@ -11,7 +11,9 @@ public class InteractionManager : MonoBehaviour
     private Camera mainCam;
     
     [Header("Raycast Settings")]
+
     public float interactionDistance = 5f;   
+
     public Camera playerCamera;
 
     [Header("Triggers")]
@@ -31,7 +33,9 @@ public class InteractionManager : MonoBehaviour
 
     public void CheckForInteractable()
     {
+
         Vector2 origin = mainCam.transform.position + Vector3.right *0.1f;
+
         Vector2 direction = Vector2.up;
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, interactionDistance, interactableLayer);
 

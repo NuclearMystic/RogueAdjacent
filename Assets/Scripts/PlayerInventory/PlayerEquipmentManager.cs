@@ -1,10 +1,12 @@
 using UnityEngine;
 
+
 public class PlayerEquipmentManager : MonoBehaviour
 {
     public static PlayerEquipmentManager Instance { get; private set; }
 
     public PlayerInventoryManager inventoryManager;
+
 
     private Transform firstChild;
     private PaperDoll baseLayer;
@@ -18,12 +20,15 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
+
     }
 
     private void Start()
@@ -35,16 +40,19 @@ public class PlayerEquipmentManager : MonoBehaviour
         animator = firstChild.GetComponent<Animator>();
 
         GetEdittableLayers();
+
     }
 
     private void Update()
     {
         RefreshAllEquipmentVisuals();
+
     }
 
     private void GetEdittableLayers()
     {
         equipmentLayers = baseLayer.paperDollLayers;
+
     }
 
     public void RefreshAllEquipmentVisuals()
@@ -76,11 +84,13 @@ public class PlayerEquipmentManager : MonoBehaviour
         else
         {
             equipmentLayers[4].EquipNewItem(null);
+
         }
     }
 
     public void SetCurrentHeldWeapon(int weapon)
     {
+
         currentHeldWeapon = (weapon != currentHeldWeapon) ? weapon : 0;
         UpdateEquippedWeapons();
     }
@@ -120,4 +130,5 @@ public class PlayerEquipmentManager : MonoBehaviour
             UpdateEquippedWeapons();
         }
     }
+
 }

@@ -1,8 +1,10 @@
 using System;
 using TMPro;
 using UnityEngine;
+
 using System.Collections.Generic;
 using System.Collections;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -21,14 +23,15 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
+
         Instance = this;
+
     }
 
     public void Update()
@@ -63,16 +66,20 @@ public class UIManager : MonoBehaviour
 
     private void ToggleCharacterMenu()
     {
+
         characterOpen = !characterOpen;
+
         CharacterMenu.SetActive(characterOpen);
     }
 
     public void InteractToolTip(bool tipState, string promptText)
     {
+
         // Debug.Log("Interacting");
         if (promptText != null)
         {
             ChangeInteractText(promptText);
+
 
         }
         interactTooltip.SetActive(tipState);
@@ -87,6 +94,7 @@ public class UIManager : MonoBehaviour
     {
         if (inventoryOpen || characterOpen)
         {
+
             // Cursor.visible = true;
             //  Cursor.lockState = CursorLockMode.Confined;
         }
@@ -122,3 +130,4 @@ public class UIManager : MonoBehaviour
         menuTransform.anchoredPosition = originalPosition;
     }
 }
+

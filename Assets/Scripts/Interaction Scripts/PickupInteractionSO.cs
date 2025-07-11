@@ -9,6 +9,7 @@ public class PickupInteractionSO : InteractionSO
     {
         if (addToInventory)
         {
+
             var inventoryManager = actor.GetComponent<PlayerInventoryManager>();
             inventoryManager.PickUpItem(target.inventorySO, out addToInventory);
 
@@ -19,6 +20,7 @@ public class PickupInteractionSO : InteractionSO
                 
             }
         }
+
 
         if (addToInventory)
         {

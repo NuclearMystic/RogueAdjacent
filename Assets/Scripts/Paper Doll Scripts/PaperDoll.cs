@@ -97,7 +97,10 @@ public class PaperDoll : MonoBehaviour
         }
 
         LayerSorting();
+
         CheckForUnequip();
+
+
     }
 
     private void LayerSorting()
@@ -127,6 +130,7 @@ public class PaperDoll : MonoBehaviour
 
     }
 
+
     private void CheckForUnequip()
     {
         if (isChildSprite && equipped == null)
@@ -135,6 +139,8 @@ public class PaperDoll : MonoBehaviour
             UnequipItem();
         }
     }
+
+
 
     private void LoadSpritesFromTexture()
     {
@@ -146,8 +152,6 @@ public class PaperDoll : MonoBehaviour
 
     public void SwapToBaseSheet()
     {
-        
-
         // Swap back to the idle sprite sheet
         replacementTexture = equipped.textureOne;
         path = equipped.filePathSheetOne;
@@ -161,12 +165,13 @@ public class PaperDoll : MonoBehaviour
             }
         }
 
-        
     }
 
     public void UpdateTest()
     {
+
         SwapToBaseSheet();       
+
     }
 
     public void SwapToAttackSheet()
@@ -226,10 +231,12 @@ public class PaperDoll : MonoBehaviour
             }
         }
     }
+
     public void UnequipItem()
     {
         equipped = null;
         path = null;
         this.GetComponent<SpriteRenderer>().sprite = null;
     }
+
 }

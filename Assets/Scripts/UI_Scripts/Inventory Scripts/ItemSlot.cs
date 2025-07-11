@@ -13,6 +13,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public int maxHeldItems;
     public int curItemID;
 
+
     public enum SlotType { Any, Weapon, Hat, FaceAcces, Cape, Outfit }
     public SlotType slotType;
     public bool isItemEquipped = false;
@@ -25,6 +26,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if (draggedIcon == null || draggedIcon.slotItem == null) return;
 
         if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString()) return;
+
 
         if (transform.childCount == 0)
         {
@@ -49,6 +51,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     private void Update()
     {
+
         UpdateInventoryItem();
     }
 
@@ -57,17 +60,21 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if (transform.childCount > 0)
         {
             inventoryItem = GetComponentInChildren<DraggableIconSlot>().slotItem;
+
             draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
             maxHeldItems = inventoryItem.stackSize;
             heldItems = transform.childCount;
             slotFilled = heldItems == maxHeldItems;
         }
         else
+
         {
             heldItems = 0;
             maxHeldItems = 0;
             inventoryItem = null;
+
             draggableIconSlot = null;
+
             slotFilled = false;
         }
         UpdateStackVisuals();
@@ -78,9 +85,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
+
             bool shouldShow = (i == 0);
             foreach (var image in child.GetComponentsInChildren<Image>())
                 image.enabled = shouldShow;
+
             foreach (var canvasGroup in child.GetComponentsInChildren<CanvasGroup>())
             {
                 canvasGroup.alpha = shouldShow ? 1f : 0f;
@@ -92,9 +101,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void ReceiveInventoryItem(InventoryItem receivedItem)
     {
         if (!slotFilled)
+
         {
             Instantiate(receivedItem.draggableIcon, transform);
             draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
+
             inventoryItem = null;
             heldItems++;
         }

@@ -6,6 +6,7 @@ public class CharacterManager : MonoBehaviour
     public ItemSlot[] characterWeaponSlots;
     public ItemSlot[] characterArmorSlots;
 
+
     private void Update()
     {
         SyncEquippedItemsToManager();
@@ -26,3 +27,4 @@ public class CharacterManager : MonoBehaviour
         }
     }
 }
+
