@@ -2,74 +2,113 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using TMPro;
+using System;
 
-public class InGameConsole : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InGameConsole : MonoBehaviour
 {
     public static InGameConsole Instance { get; private set; }
 
-    [SerializeField] private RectTransform contentArea;
-    [SerializeField] private GameObject messagePrefab;
-    [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private TextMeshProUGUI consoleText;
+    [SerializeField] private Image backgroundPanel;
+    [SerializeField] private int maxVisibleLines = 5;
+    [SerializeField] private int maxMessages = 100;
+    [SerializeField] private string defaultMessage = "Console Initialized";
 
-    private List<string> messageHistory = new List<string>();
-    private Queue<GameObject> messageObjects = new Queue<GameObject>();
+    private List<string> messageList = new List<string>();
+    private int startIndex = 0;
 
-    private bool isMouseOver = false;
-    private int maxMessages = 100;
-
-    void Awake()
+    private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance == null)
         {
-            Destroy(this.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            AddMessage(defaultMessage);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+        {
+            ScrollUp();
+        }
+        else if (scroll < 0f)
+        {
+            ScrollDown();
+        }
+    }
+
+    public void SendMessageToConsole(string message)
+    {
+        if (Instance != null)
+        {
+            Instance.AddMessage(message);
+        }
+        else
+        {
+            Debug.LogWarning("ConsoleWindow instance not found. Make sure it is added to the scene.");
+        }
+    }
+
+    private void AddMessage(string message)
+    {
+        if (consoleText == null || backgroundPanel == null)
+        {
+            Debug.LogError("ConsoleText or BackgroundPanel is not assigned.");
             return;
         }
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-    }
 
-    public void SendMessageToConsole(string msg)
-    {
-        messageHistory.Add(msg);
+        string timestamp = DateTime.Now.ToString("HH:mm:ss");
+        messageList.Add($"[{timestamp}] {message}");
 
-        if (messageObjects.Count >= maxMessages)
+        if (messageList.Count > maxMessages)
         {
-            GameObject oldest = messageObjects.Dequeue();
-            Destroy(oldest);
+            messageList.RemoveAt(0);
         }
 
-        GameObject newMsgObj = Instantiate(messagePrefab, contentArea);
-        Text txt = newMsgObj.GetComponent<Text>();
-        if (txt != null)
-        {
-            txt.text = msg;
-        }
-
-        messageObjects.Enqueue(newMsgObj);
-        Canvas.ForceUpdateCanvases();
-        scrollRect.verticalNormalizedPosition = 0f; // Focus on newest
+        // Auto-scroll to latest
+        startIndex = Mathf.Max(0, messageList.Count - maxVisibleLines);
+        UpdateConsoleText();
     }
 
-    void Update()
+    private void UpdateConsoleText()
     {
-        if (isMouseOver)
+        consoleText.text = "";
+
+        int endIndex = Mathf.Min(startIndex + maxVisibleLines, messageList.Count);
+        for (int i = startIndex; i < endIndex; i++)
         {
-            float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
-            if (scrollDelta != 0)
-            {
-                float newPos = scrollRect.verticalNormalizedPosition + scrollDelta * 0.2f;
-                scrollRect.verticalNormalizedPosition = Mathf.Clamp01(newPos);
-            }
+            consoleText.text += messageList[i] + "\n";
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void ScrollUp()
     {
-        isMouseOver = true;
+        if (startIndex > 0)
+        {
+            startIndex--;
+            UpdateConsoleText();
+        }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void ScrollDown()
     {
-        isMouseOver = false;
+        if (startIndex + maxVisibleLines < messageList.Count)
+        {
+            startIndex++;
+            UpdateConsoleText();
+        }
+    }
+
+    public void ToggleConsole(bool isVisible)
+    {
+        backgroundPanel.gameObject.SetActive(isVisible);
     }
 }
