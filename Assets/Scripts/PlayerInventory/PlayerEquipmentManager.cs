@@ -40,12 +40,13 @@ public class PlayerEquipmentManager : MonoBehaviour
         animator = firstChild.GetComponent<Animator>();
 
         GetEdittableLayers();
+        RefreshAllEquipmentVisuals();
 
     }
 
     private void Update()
     {
-        RefreshAllEquipmentVisuals();
+        
 
     }
 
@@ -60,6 +61,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         UpdateEquippedItems();
         UpdateEquippedWeapons();
     }
+
     private void UpdateEquippedItems()
     {
         for (int i = 0; i < equipmentLayers.Length - 1; i++)
@@ -73,6 +75,7 @@ public class PlayerEquipmentManager : MonoBehaviour
                 equipmentLayers[i].UnequipItem();
             }
         }
+
     }
 
     private void UpdateEquippedWeapons()
@@ -86,6 +89,7 @@ public class PlayerEquipmentManager : MonoBehaviour
             equipmentLayers[4].EquipNewItem(null);
 
         }
+
     }
 
     public void SetCurrentHeldWeapon(int weapon)
@@ -93,6 +97,11 @@ public class PlayerEquipmentManager : MonoBehaviour
 
         currentHeldWeapon = (weapon != currentHeldWeapon) ? weapon : 0;
         UpdateEquippedWeapons();
+    }
+
+    public EquipmentItem GetCurrentHeldWeapon()
+    {
+        return equippedWeapons[currentHeldWeapon - 1];
     }
 
     public void EquipArmorItem(int index, EquipmentItem item)

@@ -41,14 +41,11 @@ public class PaperDoll : MonoBehaviour
     {
         if (replacementTexture != null)
         {
-            // Convert the replacementTexture to sprites
             LoadSpritesFromTexture();
         }
-        else
+        else if (equipped != null)
         {
-            // If replacementTexture is null, disable the script component
-            //enabled = false;
-            //Debug.LogWarning("Replacement texture is not assigned. PaperDoll component disabled.");
+            UpdateTest(); // Fallback to load from equipped item
         }
     }
 
@@ -66,29 +63,27 @@ public class PaperDoll : MonoBehaviour
             UpdateTest();
         }
 
+        // FRAME SYNC FIX:
         if (!isChildSprite)
         {
             for (int i = 0; i < sprites.Length; i++)
             {
+                // Compare sprite texture rectangles to find the index
                 if (sprites[i].textureRect.Equals(currentBaseSprite.textureRect))
                 {
                     currentBaseSpriteIndex = i;
                     break;
                 }
             }
-
-
         }
         else
         {
-            // Sync to the parent/base sprite
+            // Child object: just follow parent's resolved index
             PaperDoll parent = baseRenderer.GetComponent<PaperDoll>();
             if (parent != null && parent.sprites != null && parent.sprites.Length > 0)
             {
-               // Debug.Log("changing sprite index");
                 currentBaseSpriteIndex = parent.currentBaseSpriteIndex;
 
-                // Only assign if within bounds
                 if (sprites != null && currentBaseSpriteIndex < sprites.Length)
                 {
                     GetComponent<SpriteRenderer>().sprite = sprites[currentBaseSpriteIndex];
@@ -97,10 +92,7 @@ public class PaperDoll : MonoBehaviour
         }
 
         LayerSorting();
-
         CheckForUnequip();
-
-
     }
 
     private void LayerSorting()
@@ -112,50 +104,52 @@ public class PaperDoll : MonoBehaviour
 
             // Example: Get movement input
             float verticalInput = Input.GetAxisRaw("Vertical");
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+
 
             // Change sorting order based on vertical movement
-            if (verticalInput > 0) // Moving upwards
+            if (verticalInput == 1) // Moving upwards
             {
-                spriteRenderer.sortingOrder = 1; // Or a higher value
+                spriteRenderer.sortingOrder = 2; // Or a higher value
             }
-            else if (verticalInput < 0) // Moving downwards
+            else if (verticalInput == -1) // Moving downwards
+            {
+                spriteRenderer.sortingOrder = -1; // Or a lower value
+            }
+            else if(verticalInput == 0 && horizontalInput != 0) // moving left and right
             {
                 spriteRenderer.sortingOrder = -1; // Or a lower value
             }
             else // Not moving vertically
             {
-               // spriteRenderer.sortingOrder = 0; // Default sorting order
+                // spriteRenderer.sortingOrder = 0; // Default sorting order
             }
         }
 
     }
 
-
     private void CheckForUnequip()
     {
         if (isChildSprite && equipped == null)
         {
-           // Debug.Log("Unequipping item");
             UnequipItem();
         }
     }
 
-
-
     private void LoadSpritesFromTexture()
     {
-        // Get the individual sprites from the replacement texture
-        // its just loading sprites into the array
         sprites = Resources.LoadAll<Sprite>(path + replacementTexture.name);
-        
     }
 
     public void SwapToBaseSheet()
     {
-        // Swap back to the idle sprite sheet
-        replacementTexture = equipped.textureOne;
-        path = equipped.filePathSheetOne;
-        LoadSpritesFromTexture();
+        if (equipped != null)
+        {
+            // Swap back to the idle sprite sheet
+            replacementTexture = equipped.textureOne;
+            path = equipped.filePathSheetOne;
+            LoadSpritesFromTexture();
+        }
 
         if (!isChildSprite)
         {
@@ -164,24 +158,23 @@ public class PaperDoll : MonoBehaviour
                 paperDoll.SwapToBaseSheet();
             }
         }
-
-    }
-
-    public void UpdateTest()
-    {
-
-        SwapToBaseSheet();       
-
     }
 
     public void SwapToAttackSheet()
     {
-        // Swap to the attack sprite sheet
-        replacementTexture = equipped.textureTwo;
-        path = equipped.filePathSheetTwo;
-        LoadSpritesFromTexture();
+        if (equipped != null)
+        {
+            Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
+            replacementTexture = equipped.textureTwo;
+            path = equipped.filePathSheetTwo;
+            LoadSpritesFromTexture();
+        }
+        else
+        {
+            Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
+        }
 
-        if (!isChildSprite)
+        if (!isChildSprite && paperDollLayers != null)
         {
             foreach (PaperDoll paperDoll in paperDollLayers)
             {
@@ -236,7 +229,11 @@ public class PaperDoll : MonoBehaviour
     {
         equipped = null;
         path = null;
-        this.GetComponent<SpriteRenderer>().sprite = null;
+        GetComponent<SpriteRenderer>().sprite = null;
     }
 
+    public void UpdateTest()
+    {
+        SwapToBaseSheet();
+    }
 }

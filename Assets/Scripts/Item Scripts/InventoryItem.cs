@@ -14,6 +14,7 @@ public class InventoryItem : ScriptableObject
 
     public enum SlotType
     {
+        Body,
         Food,
         Weapon,
         Hair,

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerVitals : MonoBehaviour
 {
@@ -240,12 +241,11 @@ public class PlayerVitals : MonoBehaviour
 
         while (currentStamina < maxStamina)
         {
-            float skill = PlayerStats.Instance.GetSkillTotal(SkillType.Athletics);
             // Base regen rate at skill 0
             float baseRegen = 2.0f;
 
             // Add diminishing bonus from skill
-            float regen = baseRegen + Mathf.Log(skill + 1f, 2f);
+            float regen = baseRegen + Mathf.Log(5f, 2f);
 
             currentStamina += Time.deltaTime * regen;
             RefreshBarsUI();
@@ -346,6 +346,7 @@ public class PlayerVitals : MonoBehaviour
 
     private void DeathHandling()
     {
+        SceneManager.LoadScene("DevZone");
         Debug.Log("Player has died. R.I.P.");
     }
 }

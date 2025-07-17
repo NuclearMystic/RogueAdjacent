@@ -4,6 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InventoryItem", menuName = "Scriptable Objects/Inventory Item/Equipment Item")]
 public class EquipmentItem : InventoryItem
 {
+    public SkillType weaponSkill;
+    public DiceType weaponDice;
+    public int flatBonusDamage;
+    public float stamDrain;
+
     //public Sprite[] spriteSheetOne;
     //public Sprite[] spriteSheetTwo;
     //public Sprite[] spriteSheetThree;

@@ -2,95 +2,48 @@ using UnityEngine;
 
 public static class DiceRoller
 {
-    public static int RollD2(int amountOfDice)
+    public static int Roll(DiceType type, int amountOfDice = 1)
     {
         int result = 0;
+        int max = GetMaxRollValue(type);
 
         for (int i = 0; i < amountOfDice; i++)
         {
-            result += Random.Range(1, 3); 
+            result += Random.Range(1, max + 1);
         }
 
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D2!");
+        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} {type}!");
         return result;
     }
 
-    public static int RollD4(int amountOfDice)
+    private static int GetMaxRollValue(DiceType type)
     {
-        int result = 0;
-
-        for (int i = 0; i < amountOfDice; i++)
+        switch (type)
         {
-            result += Random.Range(1, 5); 
+            case DiceType.D2: return 2;
+            case DiceType.D4: return 4;
+            case DiceType.D6: return 6;
+            case DiceType.D8: return 8;
+            case DiceType.D10: return 10;
+            case DiceType.D12: return 12;
+            case DiceType.D20: return 20;
+            case DiceType.D100: return 100;
+            default: return 6;
         }
-
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D4!");
-        return result;
     }
 
-    public static int RollD6(int amountOfDice)
-    {
-        int result = 0;
 
-        for (int i = 0; i < amountOfDice; i++)
-        {
-            result += Random.Range(1, 7); 
-        }
+}
 
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D6!");
-        return result;
-    }
-
-    public static int RollD10(int amountOfDice)
-    {
-        int result = 0;
-
-        for (int i = 0; i < amountOfDice; i++)
-        {
-            result += Random.Range(1, 11); 
-        }
-
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D10!");
-        return result;
-    }
-
-    public static int RollD12(int amountOfDice)
-    {
-        int result = 0;
-
-        for (int i = 0; i < amountOfDice; i++)
-        {
-            result += Random.Range(1, 13); 
-        }
-
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D12!");
-        return result;
-    }
-
-    public static int RollD20(int amountOfDice)
-    {
-        int result = 0;
-
-        for (int i = 0; i < amountOfDice; i++)
-        {
-            result += Random.Range(1, 21); 
-        }
-
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D20!");
-        return result;
-    }
-
-    public static int RollD100(int amountOfDice)
-    {
-        int result = 0;
-
-        for (int i = 0; i < amountOfDice; i++)
-        {
-            result += Random.Range(1, 101); 
-        }
-
-        InGameConsole.Instance.SendMessageToConsole($"Rolled {result} on {amountOfDice} D100!");
-        return result;
-    }
-
+public enum DiceType
+{
+    None,
+    D2,
+    D4,
+    D6,
+    D8,
+    D10,
+    D12,
+    D20,
+    D100
 }
