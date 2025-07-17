@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: PlayerBase_SkinTypeOne
+  m_EditorClassIdentifier: 
+  ObjectName: BodyTypeOne
+  ObjectIcon: {fileID: 0}
+  stackable: 0
+  stackSize: 1
+  itemId: 0
+  itemType: 0
+  itemPrefab: {fileID: 0}
+  draggableIcon: {fileID: 0}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
+  filePathSheetOne: 2D/Actors/char_a_p1/
+  filePathSheetTwo: 2D/Actors/char_a_pONE3/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: a8b2e108be155b64f8fcc30bdf46c853, type: 3}
+  textureTwo: {fileID: 2800000, guid: 5cf0d0f5392780b429f610da20a90df3, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

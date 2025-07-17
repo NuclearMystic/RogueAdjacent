@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2295132021681916370}
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -866827543
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 655788200, guid: 79fe0417e9e801e4f93633ea1273c800, type: 3}
+  m_SortingLayerID: 1494113281
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -72500057605473, guid: e9b0dad31d9faa24698b19409e42d193, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 2295132021681916370}
   - component: {fileID: 7112451798711986191}
   - component: {fileID: 8356961316310622155}
+  - component: {fileID: 7037303708562741972}
+  - component: {fileID: 162813094756345812}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Enemy
@@ -155,7 +157,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.5, y: 0.5}
+  m_Offset: {x: 0.4966526, y: 0.5033475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -165,7 +167,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48448062, y: 0.60499173}
   m_EdgeRadius: 0
 --- !u!50 &8356961316310622155
 Rigidbody2D:
@@ -175,12 +177,12 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895018915321834762}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 5
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -190,7 +192,47 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &7037303708562741972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895018915321834762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c470c9617ca0448b8b994103f4b537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Goblin
+  maxHealth: 20
+  defense: 10
+  xpOnDeath: 10
+  knockbackForce: 75
+  spriteRenderer: {fileID: 5123609442947710183}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.05
+  flashCount: 2
+--- !u!114 &162813094756345812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895018915321834762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae4ea95b5d3aa3458987478ed9641c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 6
+  attackRange: 1.5
+  giveUpRange: 12
+  moveSpeed: 2
+  wanderRadius: 3
+  wanderInterval: 2
+  attackCooldown: 1

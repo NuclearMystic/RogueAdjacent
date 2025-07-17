@@ -35,6 +35,8 @@ public class TopDownCharacterController : MonoBehaviour
     // Track facing direction (default facing down)
     private Vector2 lastDirection = Vector2.down;
 
+    public bool canMove = true;
+
     private void Start()
     {
         // Get necessary components
@@ -47,9 +49,12 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-        HandleJump();
-        HandleRunWalkToggle();
+        if (canMove)
+        {
+            HandleMovement();
+            HandleJump();
+            HandleRunWalkToggle();
+        }
     }
 
     private void HandleMovement()

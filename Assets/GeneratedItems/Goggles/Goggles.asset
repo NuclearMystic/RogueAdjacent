@@ -17,14 +17,17 @@ MonoBehaviour:
   stackable: 0
   stackSize: 1
   itemId: 1
-  itemType: 4
+  itemType: 5
   itemPrefab: {fileID: 1151645614898418768, guid: 8f844b7aef5acd344955d2387739de2b, type: 3}
   draggableIcon: {fileID: 404474995498903207, guid: 12977b5bfd4c61b47a5bc8f9640a96d8, type: 3}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
   filePathSheetOne: 2D/Actors/char_a_p1/3fac/
-  filePathSheetTwo: 
+  filePathSheetTwo: 2D/Actors/char_a_p1/3fac/
   filePathSheetThree: 
   filePathSheetFour: 
   textureOne: {fileID: 2800000, guid: 451bc771c6b52d94aa8ae615d18f8638, type: 3}
-  textureTwo: {fileID: 0}
+  textureTwo: {fileID: 2800000, guid: 451bc771c6b52d94aa8ae615d18f8638, type: 3}
   textureThree: {fileID: 0}
   textureFour: {fileID: 0}

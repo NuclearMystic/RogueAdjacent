@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Armor_v1
+  m_EditorClassIdentifier: 
+  ObjectName: Light Armor
+  ObjectIcon: {fileID: 423946969, guid: a973fc9b8e1e41748a3a4ea07da16ad7, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 0
+  itemType: 7
+  itemPrefab: {fileID: 6953103871812360537, guid: 84aeee8792616384cb55a4df95564dc2, type: 3}
+  draggableIcon: {fileID: 3187352227952596333, guid: f6a8a30afa6648a4c9fbe09e843927c4, type: 3}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
+  filePathSheetOne: 2D/Actors/char_a_p1/1out/
+  filePathSheetTwo: 2D/Actors/char_a_pONE3/1out/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 7dcaa83c247e0204c868633d2eb6ec16, type: 3}
+  textureTwo: {fileID: 2800000, guid: c3de6bf82f7fdbd4b8cf886ff635db28, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}
