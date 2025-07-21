@@ -28,7 +28,8 @@ public class InteractionManager : MonoBehaviour
     void Update()
     {
         CheckForInteractable();
-        //InteractWithAim();       
+
+        
     }
 
     public void CheckForInteractable()
@@ -61,7 +62,8 @@ public class InteractionManager : MonoBehaviour
     {
         if (currentTarget != null)
         {
-            currentTarget.Interact(gameObject);
+            currentTarget.Interact(gameObject); 
+            GameEventsManager.instance.interactionEvents.Interact(currentTarget.gameObject);
         }
     }
 }

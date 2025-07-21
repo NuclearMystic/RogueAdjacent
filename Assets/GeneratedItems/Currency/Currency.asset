@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Currency
+  m_EditorClassIdentifier: 
+  ObjectName: Currency
+  ObjectIcon: {fileID: 21300000, guid: d702b6b6581e90c4699143431a7a8737, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 0
+  baseCost: 0
+  itemType: 0
+  itemPrefab: {fileID: 6435824881033226245, guid: 5623a632cdf1c4a428284e9e94c85db7, type: 3}
+  draggableIcon: {fileID: 3900315858439495964, guid: a4804758641165241aed1f3feef15e7a, type: 3}
+  filePathSheetOne: 2D/Icons/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/32x32/
+  filePathSheetTwo: 
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 2e26c1f4f2e7fd3488596e637dcf2787, type: 3}
+  textureTwo: {fileID: 0}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}
