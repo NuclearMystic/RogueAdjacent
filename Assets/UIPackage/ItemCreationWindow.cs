@@ -1,6 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
+using TMPro;
 using System.IO;
+using UnityEngine.UI;
 
 public class ItemCreationWindow : EditorWindow
 {
@@ -11,13 +13,10 @@ public class ItemCreationWindow : EditorWindow
     private int itemId = 0;
     private InventoryItem.SlotType itemType = InventoryItem.SlotType.Weapon;
 
-    private string filePathSheetOne;
-    private string filePathSheetTwo;
-    private string filePathSheetThree;
-    private string filePathSheetFour;
-
+    private string filePathSheetOne, filePathSheetTwo, filePathSheetThree, filePathSheetFour;
     private Texture2D textureOne, textureTwo, textureThree, textureFour;
 
+    private TMP_FontAsset fontAsset; // 👈 New font field
     private InteractionSO interactionScriptable;
 
     [MenuItem("Tools/Equipment Item Creator")]
@@ -26,53 +25,30 @@ public class ItemCreationWindow : EditorWindow
         GetWindow<ItemCreationWindow>("Item Creator");
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
         GUILayout.Label("Inventory Item Fields", EditorStyles.boldLabel);
         objectName = EditorGUILayout.TextField("Object Name", objectName);
         objectIcon = (Sprite)EditorGUILayout.ObjectField("Object Icon", objectIcon, typeof(Sprite), false);
         stackable = EditorGUILayout.Toggle("Stackable", stackable);
-        stackSize = EditorGUILayout.IntField("Stack Size", stackSize);
+        stackSize = EditorGUILayout.IntField("Stack Size", Mathf.Max(stackSize, 1));
         itemId = EditorGUILayout.IntField("Item ID", itemId);
         itemType = (InventoryItem.SlotType)EditorGUILayout.EnumPopup("Item Type", itemType);
 
         GUILayout.Space(10);
         GUILayout.Label("Equipment Item Fields", EditorStyles.boldLabel);
 
-        Texture2D newTexOne = (Texture2D)EditorGUILayout.ObjectField("Texture One", textureOne, typeof(Texture2D), false);
-        if (newTexOne != textureOne)
-        {
-            textureOne = newTexOne;
-            filePathSheetOne = GetResourceFolderPath(textureOne);
-        }
-        EditorGUILayout.TextField("File Path Sheet One", filePathSheetOne);
-
-        Texture2D newTexTwo = (Texture2D)EditorGUILayout.ObjectField("Texture Two", textureTwo, typeof(Texture2D), false);
-        if (newTexTwo != textureTwo)
-        {
-            textureTwo = newTexTwo;
-            filePathSheetTwo = GetResourceFolderPath(textureTwo);
-        }
-        EditorGUILayout.TextField("File Path Sheet Two", filePathSheetTwo);
-
-        Texture2D newTexThree = (Texture2D)EditorGUILayout.ObjectField("Texture Three", textureThree, typeof(Texture2D), false);
-        if (newTexThree != textureThree)
-        {
-            textureThree = newTexThree;
-            filePathSheetThree = GetResourceFolderPath(textureThree);
-        }
-        EditorGUILayout.TextField("File Path Sheet Three", filePathSheetThree);
-
-        Texture2D newTexFour = (Texture2D)EditorGUILayout.ObjectField("Texture Four", textureFour, typeof(Texture2D), false);
-        if (newTexFour != textureFour)
-        {
-            textureFour = newTexFour;
-            filePathSheetFour = GetResourceFolderPath(textureFour);
-        }
-        EditorGUILayout.TextField("File Path Sheet Four", filePathSheetFour);
+        TextureField("Texture One", ref textureOne, ref filePathSheetOne);
+        TextureField("Texture Two", ref textureTwo, ref filePathSheetTwo);
+        TextureField("Texture Three", ref textureThree, ref filePathSheetThree);
+        TextureField("Texture Four", ref textureFour, ref filePathSheetFour);
 
         GUILayout.Space(10);
         interactionScriptable = (InteractionSO)EditorGUILayout.ObjectField("Interaction Scriptable", interactionScriptable, typeof(InteractionSO), false);
+
+        GUILayout.Space(10);
+        GUILayout.Label("UI Font", EditorStyles.boldLabel);
+        fontAsset = (TMP_FontAsset)EditorGUILayout.ObjectField("Quantity Label Font", fontAsset, typeof(TMP_FontAsset), false);
 
         GUILayout.Space(20);
         if (GUILayout.Button("Generate Item"))
@@ -81,40 +57,43 @@ public class ItemCreationWindow : EditorWindow
         }
     }
 
-    string GetResourceFolderPath(Texture2D texture)
+    private void TextureField(string label, ref Texture2D tex, ref string path)
     {
-        if (texture == null)
-            return "";
+        Texture2D newTex = (Texture2D)EditorGUILayout.ObjectField(label, tex, typeof(Texture2D), false);
+        if (newTex != tex)
+        {
+            tex = newTex;
+            path = GetResourceFolderPath(tex);
+        }
+        EditorGUILayout.TextField("Path", path);
+    }
 
+    private string GetResourceFolderPath(Texture2D texture)
+    {
+        if (texture == null) return "";
         string fullPath = AssetDatabase.GetAssetPath(texture);
         const string resourcesPrefix = "Assets/Resources/";
 
         if (!fullPath.StartsWith(resourcesPrefix))
         {
-            Debug.LogWarning($"Texture '{texture.name}' is not inside a Resources folder. Path: {fullPath}");
+            Debug.LogWarning($"Texture '{texture.name}' is not inside a Resources folder.");
             return "";
         }
 
         string relativePath = fullPath.Substring(resourcesPrefix.Length);
-
         string folderPath = Path.GetDirectoryName(relativePath).Replace("\\", "/");
 
-        if (!folderPath.EndsWith("/"))
-            folderPath += "/";
-
-        return folderPath;
+        return folderPath.EndsWith("/") ? folderPath : folderPath + "/";
     }
 
-    void CreateItem()
+    private void CreateItem()
     {
         string baseFolder = "Assets/GeneratedItems";
         string itemFolder = $"{baseFolder}/{objectName}";
+        if (!Directory.Exists(itemFolder)) Directory.CreateDirectory(itemFolder);
 
-        if (!Directory.Exists(itemFolder))
-            Directory.CreateDirectory(itemFolder);
-
+        // Create EquipmentItem asset
         EquipmentItem itemAsset = ScriptableObject.CreateInstance<EquipmentItem>();
-
         itemAsset.ObjectName = objectName;
         itemAsset.ObjectIcon = objectIcon;
         itemAsset.stackable = stackable;
@@ -135,17 +114,10 @@ public class ItemCreationWindow : EditorWindow
         string assetPath = $"{itemFolder}/{objectName}.asset";
         AssetDatabase.CreateAsset(itemAsset, assetPath);
 
+        // --- World Prefab ---
         GameObject worldItem = new GameObject(objectName + "_World");
-
         int interactableLayer = LayerMask.NameToLayer("Interactable");
-        if (interactableLayer == -1)
-        {
-            Debug.LogWarning("Layer 'Interactable' does not exist! Please add it in Tags & Layers.");
-        }
-        else
-        {
-            worldItem.layer = interactableLayer;
-        }
+        if (interactableLayer != -1) worldItem.layer = interactableLayer;
 
         var interactable = worldItem.AddComponent<InteractableGameObject>();
         interactable.inventorySO = itemAsset;
@@ -155,32 +127,57 @@ public class ItemCreationWindow : EditorWindow
         sr.sprite = objectIcon;
 
         var collider = worldItem.AddComponent<BoxCollider2D>();
-        if (sr.sprite != null)
-            collider.size = sr.sprite.bounds.size;
+        if (sr.sprite != null) collider.size = sr.sprite.bounds.size;
 
         worldItem.transform.localScale = new Vector3(2f, 2f, 1f);
 
         string worldPrefabPath = $"{itemFolder}/{objectName}_World.prefab";
         PrefabUtility.SaveAsPrefabAsset(worldItem, worldPrefabPath);
         itemAsset.itemPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(worldPrefabPath);
-        GameObject.DestroyImmediate(worldItem);
+        DestroyImmediate(worldItem);
 
-        GameObject draggableIcon = new GameObject(objectName + "_UI");
-        var iconImage = draggableIcon.AddComponent<UnityEngine.UI.Image>();
+        // --- UI Prefab ---
+        GameObject uiIcon = new GameObject(objectName + "_UI", typeof(RectTransform));
+        var iconImage = uiIcon.AddComponent<Image>();
         iconImage.sprite = objectIcon;
-        var slot = draggableIcon.AddComponent<DraggableIconSlot>();
+
+        var slot = uiIcon.AddComponent<DraggableIconSlot>();
         slot.slotItem = itemAsset;
         slot.iconImage = iconImage;
 
+        // Create QuantityLabel (bottom-right)
+        GameObject labelGO = new GameObject("QuantityLabel", typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
+        labelGO.transform.SetParent(uiIcon.transform, false);
+
+        RectTransform rect = labelGO.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(1f, 0f);
+        rect.anchorMax = new Vector2(1f, 0f);
+        rect.pivot = new Vector2(1f, 0f);
+        rect.anchoredPosition = new Vector2(-5f, 5f);
+        rect.sizeDelta = new Vector2(30f, 15f);
+
+        var quantityLabel = labelGO.GetComponent<TextMeshProUGUI>();
+        quantityLabel.text = "";
+        quantityLabel.fontSize = 20;
+        quantityLabel.alignment = TextAlignmentOptions.BottomRight;
+        quantityLabel.color = Color.white;
+
+        if (fontAsset != null)
+            quantityLabel.font = fontAsset;
+        else
+            Debug.LogWarning("⚠️ Font asset was not assigned. Quantity label will use default font.");
+
+        slot.quantityLabel = quantityLabel;
+
         string uiPrefabPath = $"{itemFolder}/{objectName}_UI.prefab";
-        PrefabUtility.SaveAsPrefabAsset(draggableIcon, uiPrefabPath);
+        PrefabUtility.SaveAsPrefabAsset(uiIcon, uiPrefabPath);
         itemAsset.draggableIcon = AssetDatabase.LoadAssetAtPath<GameObject>(uiPrefabPath);
-        GameObject.DestroyImmediate(draggableIcon);
+        DestroyImmediate(uiIcon);
 
         EditorUtility.SetDirty(itemAsset);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log($"Item '{objectName}' created in folder '{itemFolder}' with trailing slash on texture paths.");
+        Debug.Log($"✅ Created full item: '{objectName}' with UI + world prefab + textures.");
     }
 }

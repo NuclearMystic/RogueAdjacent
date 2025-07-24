@@ -13,7 +13,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public int maxHeldItems;
     public int curItemID;
 
-
     public enum SlotType { Any, Weapon, Hat, FaceAcces, Cape, Outfit }
     public SlotType slotType;
     public bool isItemEquipped = false;
@@ -24,26 +23,32 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         DraggableIconSlot draggedIcon = dropped.GetComponent<DraggableIconSlot>();
 
         if (draggedIcon == null || draggedIcon.slotItem == null) return;
-
         if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString()) return;
 
+        if (inventoryItem != null &&
+            inventoryItem.itemId == draggedIcon.slotItem.itemId &&
+            heldItems < maxHeldItems)
+        {
+            heldItems++;
+            draggableIconSlot.UpdateQuantity(heldItems);
+            Destroy(draggedIcon.gameObject); // Avoid duplicate icon
+            slotFilled = heldItems >= maxHeldItems;
+            return;
+        }
 
-        if (transform.childCount == 0)
+        if (inventoryItem == null)
         {
             draggedIcon.parentAfterDrag = transform;
         }
 
+        // Equip logic (optional)
         if (slotType != SlotType.Any && draggedIcon.slotItem is EquipmentItem equipItem)
         {
             int index = transform.GetSiblingIndex();
             if (IsWeaponSlot())
-            {
                 PlayerEquipmentManager.Instance.EquipWeaponItem(index, equipItem);
-            }
             else
-            {
                 PlayerEquipmentManager.Instance.EquipArmorItem(index, equipItem);
-            }
         }
     }
 
@@ -51,7 +56,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     private void Update()
     {
-
         UpdateInventoryItem();
     }
 
@@ -59,24 +63,23 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     {
         if (transform.childCount > 0)
         {
-            inventoryItem = GetComponentInChildren<DraggableIconSlot>().slotItem;
-
             draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
+            inventoryItem = draggableIconSlot.slotItem;
+
+            heldItems = draggableIconSlot.quantity;
             maxHeldItems = inventoryItem.stackSize;
-            heldItems = transform.childCount;
-            slotFilled = heldItems == maxHeldItems;
+
+            slotFilled = heldItems >= maxHeldItems;
         }
         else
-
         {
             heldItems = 0;
             maxHeldItems = 0;
             inventoryItem = null;
-
             draggableIconSlot = null;
-
             slotFilled = false;
         }
+
         UpdateStackVisuals();
     }
 
@@ -85,8 +88,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
-
             bool shouldShow = (i == 0);
+
             foreach (var image in child.GetComponentsInChildren<Image>())
                 image.enabled = shouldShow;
 
@@ -98,17 +101,34 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         }
     }
 
-    public void ReceiveInventoryItem(InventoryItem receivedItem)
+    public bool ReceiveInventoryItem(InventoryItem receivedItem)
     {
-        if (!slotFilled)
-
+        if (inventoryItem != null &&
+            inventoryItem.itemId == receivedItem.itemId &&
+            heldItems < maxHeldItems)
         {
-            Instantiate(receivedItem.draggableIcon, transform);
-            draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
-
-            inventoryItem = null;
             heldItems++;
+            draggableIconSlot.UpdateQuantity(heldItems);
+            slotFilled = heldItems >= maxHeldItems;
+            return true;
         }
+
+        if (inventoryItem == null &&
+            (slotType == SlotType.Any || receivedItem.itemType.ToString() == slotType.ToString()))
+        {
+            GameObject iconGO = Instantiate(receivedItem.draggableIcon, transform);
+            draggableIconSlot = iconGO.GetComponent<DraggableIconSlot>();
+            draggableIconSlot.slotItem = receivedItem;
+            draggableIconSlot.UpdateQuantity(1);
+
+            inventoryItem = receivedItem;
+            heldItems = 1;
+            maxHeldItems = receivedItem.stackSize;
+            slotFilled = false;
+            return true;
+        }
+
+        return false;
     }
 
     public void ClearSlot()

@@ -17,14 +17,19 @@ MonoBehaviour:
   stackable: 0
   stackSize: 1
   itemId: 7
+  baseCost: 5
   itemType: 1
   itemPrefab: {fileID: 6174046915519909791, guid: bc46d64d9c65a584e9a744004110c6f9, type: 3}
   draggableIcon: {fileID: 7404350160053310676, guid: 1a4c7025751849f46acd088767bf33a1, type: 3}
+  weaponSkill: 1
+  weaponDice: 4
+  flatBonusDamage: 0
+  stamDrain: 0
   filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
-  filePathSheetTwo: 
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/6tla/
   filePathSheetThree: 
   filePathSheetFour: 
   textureOne: {fileID: 2800000, guid: 712c6a9e2b1eeea4eb92a957f708c3e4, type: 3}
-  textureTwo: {fileID: 0}
+  textureTwo: {fileID: 2800000, guid: de3bf6398338b2f4da9e5d997695c4c2, type: 3}
   textureThree: {fileID: 0}
   textureFour: {fileID: 0}
