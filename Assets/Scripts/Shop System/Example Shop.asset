@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8461dc6d79ee9f843b6b565737d7465d, type: 3}
+  m_Name: Example Shop
+  m_EditorClassIdentifier: 
+  shopName: Example Shop
+  shopIcon: {fileID: 21300062, guid: 8b8333c8af9b0c54da038fe9102febb5, type: 3}
+  buyMarkup: 1
+  sellMultiplier: 0.5
+  itemsForSale:
+  - item: {fileID: 11400000, guid: 4213ac9563ad475438e9891772fa1f61, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: ba8be415c35d43149b658e7e69e7cd2d, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: dc6f2c035629a0642b7b7ab14cf3e0f3, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 6635ea56f77c1e84c9ceca2902f730c7, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: ebbe32d5b9a20da4c825fd57ef4ffb51, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: c3b2f0190199a1e4bb1eed105cdb9a6f, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 4211930d023ae1f46a1b4fe820dc84f9, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 3b14fe8cd966b7a48965549f9e87ef21, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 3f1100e774a151140a724709627f050f, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 997833d67b837234cb8898a161617a37, type: 2}
+    quantity: 1
+    isRestocking: 0

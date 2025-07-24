@@ -185,7 +185,7 @@ public class PlayerVitals : MonoBehaviour
     // call this with the amount of stamina to drain from player
     public void DrainStamina(float stamina)
     {
-        StopStaminaRegen(); 
+        StopStaminaRegen();
         StartCoroutine(DrainPlayerStamina(stamina));
         RefreshBarsUI();
     }
@@ -271,7 +271,7 @@ public class PlayerVitals : MonoBehaviour
     #region Magic Logic
     public void UseMagic(float magic)
     {
-        StopMagicRegen(); 
+        StopMagicRegen();
         currentMagic -= magic;
         RefreshBarsUI();
         Debug.Log("Player used magic " + magic);
