@@ -1,77 +1,125 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class StaticPlacementHelper
 {
-    Dictionary<PlacementType, HashSet<Vector2Int>>
-        tileByType = new Dictionary<PlacementType, HashSet<Vector2Int>>();
+    private readonly Dictionary<PlacementType, HashSet<Vector2Int>> tileByType =
+        new Dictionary<PlacementType, HashSet<Vector2Int>>();
 
-
-    HashSet<Vector2Int> roomFloorNoCorridor;
-
+    private readonly HashSet<Vector2Int> roomFloorNoCorridor;
 
     public StaticPlacementHelper(HashSet<Vector2Int> roomFloor,
-        HashSet<Vector2Int> roomFloorNoCorridor)
+                                 HashSet<Vector2Int> roomFloorNoCorridor)
     {
-        Graph graph = new Graph(roomFloor);
         this.roomFloorNoCorridor = roomFloorNoCorridor;
+
+        // Initialize every key to avoid KeyNotFoundException
+        foreach (PlacementType t in Enum.GetValues(typeof(PlacementType)))
+            tileByType[t] = new HashSet<Vector2Int>();
+
+        var graph = new Graph(roomFloor);
 
         foreach (var position in roomFloorNoCorridor)
         {
             int neighboursCount8Dir = graph.GetNeighbours8Directions(position).Count;
-            PlacementType type = neighboursCount8Dir < 8 ? PlacementType.NearWall : PlacementType.OpenSpace;
+            var type = neighboursCount8Dir < 8 ? PlacementType.NearWall : PlacementType.OpenSpace;
 
-            if (tileByType.ContainsKey(type) == false)
-                tileByType[type] = new HashSet<Vector2Int>();
-
+            // Skip inner walls-only tiles for NearWall (like you had before)
             if (type == PlacementType.NearWall && graph.GetNeighbours4Directions(position).Count == 4)
                 continue;
+
             tileByType[type].Add(position);
         }
     }
 
-    public Vector2? GetItemPlacementPosition(PlacementType placementType, int iterationsMax, Vector2Int size, bool addOffset)
+    public Vector2? GetItemPlacementPosition(PlacementType requestedType,
+                                             int iterationsMax,
+                                             Vector2Int size,
+                                             bool addOffset)
     {
-        int itemArea = size.x * size.y;
-        if (tileByType[placementType].Count < itemArea)
+        // Pick a bucket (with fallback)
+        var bucket = GetBestBucket(requestedType, size);
+        if (bucket == null || bucket.Count == 0)
             return null;
 
         int iteration = 0;
-        while (iteration < iterationsMax)
+        int itemArea = size.x * size.y;
+
+        while (iteration < iterationsMax && bucket.Count >= itemArea)
         {
             iteration++;
-            int index = UnityEngine.Random.Range(0, tileByType[placementType].Count);
-            Vector2Int position = tileByType[placementType].ElementAt(index);
+
+            // Random pick
+            int index = UnityEngine.Random.Range(0, bucket.Count);
+            Vector2Int position = bucket.ElementAt(index);
 
             if (itemArea > 1)
             {
-                var (result, placementPositions) = PlaceBigItem(position, size, addOffset);
-
-                if (result == false)
+                var (ok, placementPositions) = PlaceBigItem(position, size, addOffset);
+                if (!ok)
                     continue;
 
-                tileByType[placementType].ExceptWith(placementPositions);
-                tileByType[PlacementType.NearWall].ExceptWith(placementPositions);
+                // Remove the occupied positions from all buckets we care about
+                RemoveFromBucket(requestedType, placementPositions);
+                RemoveFromBucket(PlacementType.NearWall, placementPositions);
+                RemoveFromBucket(PlacementType.OpenSpace, placementPositions);
             }
             else
             {
-                tileByType[placementType].Remove(position);
+                bucket.Remove(position);
+                // Also remove from the other bucket (if present) to avoid double-use
+                RemoveFromBucket(PlacementType.NearWall, position);
+                RemoveFromBucket(PlacementType.OpenSpace, position);
             }
-
 
             return position;
         }
+
         return null;
     }
 
-    private (bool, List<Vector2Int>) PlaceBigItem(
-        Vector2Int originPosition,
-        Vector2Int size,
-        bool addOffset)
+    private HashSet<Vector2Int> GetBestBucket(PlacementType requestedType, Vector2Int size)
     {
-        List<Vector2Int> positions = new List<Vector2Int>() { originPosition };
+        int area = size.x * size.y;
+
+        // Primary
+        if (tileByType.TryGetValue(requestedType, out var primary) && primary.Count >= area)
+            return primary;
+
+        // Fallback to the other type
+        var other = requestedType == PlacementType.OpenSpace ? PlacementType.NearWall : PlacementType.OpenSpace;
+        if (tileByType.TryGetValue(other, out var secondary) && secondary.Count >= area)
+        {
+            Debug.LogWarning($"StaticPlacementHelper: No tiles for {requestedType}, using {other} instead.");
+            return secondary;
+        }
+
+        // Final fallback: try any tile that fits
+        var union = new HashSet<Vector2Int>(
+            tileByType.Values.SelectMany(v => v)
+        );
+        return union.Count >= area ? union : null;
+    }
+
+    private void RemoveFromBucket(PlacementType type, IEnumerable<Vector2Int> positions)
+    {
+        if (tileByType.TryGetValue(type, out var set))
+            set.ExceptWith(positions);
+    }
+
+    private void RemoveFromBucket(PlacementType type, Vector2Int position)
+    {
+        if (tileByType.TryGetValue(type, out var set))
+            set.Remove(position);
+    }
+
+    private (bool, List<Vector2Int>) PlaceBigItem(Vector2Int originPosition,
+                                                  Vector2Int size,
+                                                  bool addOffset)
+    {
+        List<Vector2Int> positions = new List<Vector2Int> { originPosition };
         int maxX = addOffset ? size.x + 1 : size.x;
         int maxY = addOffset ? size.y + 1 : size.y;
         int minX = addOffset ? -1 : 0;
@@ -81,18 +129,17 @@ public class StaticPlacementHelper
         {
             for (int col = minY; col <= maxY; col++)
             {
-                if (col == 0 && row == 0)
-                    continue;
-                Vector2Int newPosToCheck =
-                    new Vector2Int(originPosition.x + row, originPosition.y + col);
-                if (roomFloorNoCorridor.Contains(newPosToCheck) == false)
+                if (col == 0 && row == 0) continue;
+
+                Vector2Int newPosToCheck = new Vector2Int(originPosition.x + row, originPosition.y + col);
+                if (!roomFloorNoCorridor.Contains(newPosToCheck))
                     return (false, positions);
+
                 positions.Add(newPosToCheck);
             }
         }
         return (true, positions);
     }
-
 }
 
 public enum PlacementType

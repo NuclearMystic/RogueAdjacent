@@ -5,85 +5,96 @@ using UnityEngine.Events;
 
 public class RoomContentGenerator : MonoBehaviour
 {
-    [SerializeField]
-    private RoomGenerator playerRoom, defaultRoom;
-
-    List<GameObject> spawnedObjects = new List<GameObject>();
-
-    [SerializeField]
-    private GraphTest graphTest;
-
-
-    public Transform itemParent;
-
+    [SerializeField] private RoomGenerator playerRoom, defaultRoom;
+    [SerializeField] private GraphTest graphTest;
+    [SerializeField] private Transform itemParent;
 
     public UnityEvent RegenerateDungeon;
+
+    private readonly List<GameObject> spawnedObjects = new List<GameObject>();
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (var item in spawnedObjects)
-            {
-                Destroy(item);
-            }
+            CleanupSpawned();
             RegenerateDungeon?.Invoke();
         }
     }
+
     public void GenerateRoomContent(DungeonData dungeonData)
     {
-        foreach (GameObject item in spawnedObjects)
+        CleanupSpawned();
+
+        if (dungeonData.roomsDictionary == null || dungeonData.roomsDictionary.Count == 0)
         {
-            DestroyImmediate(item);
+            Debug.LogWarning("No rooms to populate in dungeonData.");
+            return;
         }
-        spawnedObjects.Clear();
 
         SelectPlayerSpawnPoint(dungeonData);
-        SelectEnemySpawnPoints(dungeonData);
 
-        foreach (GameObject item in spawnedObjects)
+        // Snapshot what’s left so we don't iterate a collection we edit
+        var remainingRooms = dungeonData.roomsDictionary.ToList();
+
+        foreach (var room in remainingRooms)
         {
-            if(item != null)
-                item.transform.SetParent(itemParent, false);
+            var spawned = defaultRoom.ProcessRoom(
+                room.Key,
+                room.Value,
+                dungeonData.GetRoomFloorWithoutCorridors(room.Key)
+            );
+            spawnedObjects.AddRange(spawned);
         }
+
+        ReparentSpawned(itemParent);
     }
 
     private void SelectPlayerSpawnPoint(DungeonData dungeonData)
     {
-        int randomRoomIndex = UnityEngine.Random.Range(0, dungeonData.roomsDictionary.Count);
-        Vector2Int playerSpawnPoint = dungeonData.roomsDictionary.Keys.ElementAt(randomRoomIndex);
+        int count = dungeonData.roomsDictionary.Count;
+        if (count == 0)
+        {
+            Debug.LogError("roomsDictionary is empty – cannot pick a player spawn room.");
+            return;
+        }
 
-        graphTest.RunDijkstraAlgorithm(playerSpawnPoint, dungeonData.floorPositions);
+        int randomRoomIndex = Random.Range(0, count);
+        var kvp = dungeonData.roomsDictionary.ElementAt(randomRoomIndex);
+        var playerSpawnPoint = kvp.Key;
+        var roomTiles = kvp.Value;
 
-        Vector2Int roomIndex = dungeonData.roomsDictionary.Keys.ElementAt(randomRoomIndex);
+        graphTest?.RunDijkstraAlgorithm(playerSpawnPoint, dungeonData.floorPositions);
 
-        List<GameObject> placedPrefabs = playerRoom.ProcessRoom(
+        var placedPrefabs = playerRoom.ProcessRoom(
             playerSpawnPoint,
-            dungeonData.roomsDictionary.Values.ElementAt(randomRoomIndex),
-            dungeonData.GetRoomFloorWithoutCorridors(roomIndex)
-            );
-
-        //FocusCameraOnThePlayer(placedPrefabs[placedPrefabs.Count - 1].transform);
+            roomTiles,
+            dungeonData.GetRoomFloorWithoutCorridors(playerSpawnPoint)
+        );
 
         spawnedObjects.AddRange(placedPrefabs);
 
         dungeonData.roomsDictionary.Remove(playerSpawnPoint);
     }
 
-
-    private void SelectEnemySpawnPoints(DungeonData dungeonData)
+    private void CleanupSpawned()
     {
-        foreach (KeyValuePair<Vector2Int,HashSet<Vector2Int>> roomData in dungeonData.roomsDictionary)
-        { 
-            spawnedObjects.AddRange(
-                defaultRoom.ProcessRoom(
-                    roomData.Key,
-                    roomData.Value, 
-                    dungeonData.GetRoomFloorWithoutCorridors(roomData.Key)
-                    )
-            );
-
+        // Prefer Destroy at runtime; DestroyImmediate is for editor-time ops.
+        foreach (var go in spawnedObjects)
+        {
+            if (go != null) Destroy(go);
         }
+        spawnedObjects.Clear();
     }
 
+    private void ReparentSpawned(Transform parent)
+    {
+        if (parent == null) return;
+
+        foreach (var go in spawnedObjects)
+        {
+            if (go != null)
+                go.transform.SetParent(parent, false);
+        }
+    }
 }

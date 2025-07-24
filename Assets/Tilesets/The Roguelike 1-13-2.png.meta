@@ -153,7 +153,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 675
+        y: 279
         width: 1408
         height: 45
       alignment: 0
@@ -19839,7 +19839,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-2_895
+      name: fort_floor_1
       rect:
         serializedVersion: 2
         x: 240
@@ -21756,8 +21756,8 @@ TextureImporter:
       name: The Roguelike 1-13-2_982
       rect:
         serializedVersion: 2
-        x: 224
-        y: 528
+        x: 223
+        y: 531
         width: 16
         height: 16
       alignment: 0
@@ -35173,7 +35173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-2_1592
+      name: fort_wall_full
       rect:
         serializedVersion: 2
         x: 128
@@ -42213,7 +42213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Roguelike 1-13-2_1912
+      name: barrel
       rect:
         serializedVersion: 2
         x: 1024
@@ -87990,7 +87990,6 @@ TextureImporter:
       The Roguelike 1-13-2_1586: 894319601
       The Roguelike 1-13-2_1587: -1237368800
       The Roguelike 1-13-2_159: 578192064
-      The Roguelike 1-13-2_1592: 392997646
       The Roguelike 1-13-2_1597: 1609297984
       The Roguelike 1-13-2_1598: 1221608191
       The Roguelike 1-13-2_1599: 1491595062
@@ -88325,7 +88324,6 @@ TextureImporter:
       The Roguelike 1-13-2_191: -1419606846
       The Roguelike 1-13-2_1910: -1776271506
       The Roguelike 1-13-2_1911: -81196675
-      The Roguelike 1-13-2_1912: -1352743721
       The Roguelike 1-13-2_1913: -420244370
       The Roguelike 1-13-2_1914: -2074493820
       The Roguelike 1-13-2_1915: 1521097937
@@ -91141,7 +91139,6 @@ TextureImporter:
       The Roguelike 1-13-2_892: -413289825
       The Roguelike 1-13-2_893: -1470256438
       The Roguelike 1-13-2_894: 1279502134
-      The Roguelike 1-13-2_895: -1651494882
       The Roguelike 1-13-2_896: -1658325840
       The Roguelike 1-13-2_897: 1174144774
       The Roguelike 1-13-2_898: 1169024013
@@ -91257,6 +91254,7 @@ TextureImporter:
       The Roguelike 1-13-2_997: 1995268956
       The Roguelike 1-13-2_998: -1280185226
       The Roguelike 1-13-2_999: -1064132100
+      barrel: -81196675
       campfire: -398742391
       castle_1: -1550570572
       cave_1: -343233028
@@ -91286,6 +91284,8 @@ TextureImporter:
       field_1: 563731440
       field_2: 659714148
       field_3: -479688011
+      fort_floor_1: 1279502134
+      fort_wall_full: -1948739646
       fortress_1: 655788200
       fortress_wall_bottom_1: -667523973
       fortress_wall_diagonal_corner_down_left: -830308660
