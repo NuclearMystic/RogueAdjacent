@@ -35,6 +35,8 @@ public class TopDownCharacterController : MonoBehaviour
     // Track facing direction (default facing down)
     private Vector2 lastDirection = Vector2.down;
 
+    public bool canMove = true;
+
     private void Start()
     {
         // Get necessary components
@@ -47,9 +49,12 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-        HandleJump();
-        HandleRunWalkToggle();
+        if (canMove)
+        {
+            HandleMovement();
+            HandleJump();
+            HandleRunWalkToggle();
+        }
     }
 
     private void HandleMovement()
@@ -65,7 +70,7 @@ public class TopDownCharacterController : MonoBehaviour
         Vector2 movement = new Vector2(moveX, moveY).normalized * speed;
 
         // Override the Rigidbody2D's velocity to apply movement, but ignore gravity
-        rb.velocity = movement;
+        rb.linearVelocity = movement;
 
         // Update the facing direction and animator parameters
         UpdateDirection(moveX, moveY);
@@ -122,7 +127,7 @@ public class TopDownCharacterController : MonoBehaviour
             isJumping = true;
 
             // Apply the jump force
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
 
             // Determine jump direction based on lastDirection
             if (lastDirection == Vector2.up)

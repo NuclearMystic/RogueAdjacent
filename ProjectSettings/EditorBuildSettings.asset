@@ -5,7 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/DevZone_Andrew.unity
+    guid: 067d6f59485f828488ada499d2c68b21
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Dungeon-Cave.unity
+    guid: b35974a1cc55cfc438f392aa2483adee
+  - enabled: 1
+    path: Assets/Scenes/Dungeon-Fort.unity
+    guid: a76dc5f59ab88cd4b9e0467f8caefdfa
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

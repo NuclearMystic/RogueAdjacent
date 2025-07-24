@@ -1,0 +1,108 @@
+using UnityEngine;
+using System.Collections;
+
+public class Enemy : MonoBehaviour
+{
+    [Header("Enemy Info")]
+    public string enemyName = "Goblin";
+    public int maxHealth = 20;
+    public int defense = 10;
+    public int xpOnDeath = 10;
+
+    private int currentHealth;
+
+    [Header("Knockback Settings")]
+    [SerializeField] private float knockbackForce = 5f;
+    private Rigidbody2D rb;
+
+    [Header("Flash Settings")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Color flashColor = Color.white;
+    [SerializeField] private float flashDuration = 0.05f;
+    [SerializeField] private int flashCount = 2;
+
+    private bool isOnHitCooldown = false;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+    }
+
+    public int Defense => defense;
+
+    public void TakeDamage(int amount, Vector2 knockbackDirection)
+    {
+        if (isOnHitCooldown) return;
+
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth, 0);
+
+        InGameConsole.Instance.SendMessageToConsole($"{enemyName} takes {amount} damage! HP: {currentHealth}/{maxHealth}");
+
+        StartCoroutine(HitCooldown());
+        ApplyKnockback(knockbackDirection);
+        StartCoroutine(FlashSprite());
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void ApplyKnockback(Vector2 direction)
+    {
+        if (rb == null) return;
+        Debug.Log("tried to knockback)");
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(direction.normalized * knockbackForce, ForceMode2D.Impulse);
+    }
+
+    private IEnumerator FlashSprite()
+    {
+        if (spriteRenderer == null) yield break;
+
+        Color originalColor = spriteRenderer.color;
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(flashDuration);
+        }
+    }
+
+    private IEnumerator HitCooldown(float duration = 0.5f)
+    {
+        isOnHitCooldown = true;
+        yield return new WaitForSeconds(duration);
+        isOnHitCooldown = false;
+    }
+
+    private void Die()
+    {
+        InGameConsole.Instance.SendMessageToConsole($"{enemyName} has been slain!");
+        // TODO: Grant XP to player, drop loot, trigger animation, etc.
+        Destroy(gameObject);
+    }
+
+    public float GetHealthPercent()
+    {
+        return (float)currentHealth / maxHealth;
+    }
+
+    public void SetStats(string name, int hp, int def, int xpReward)
+    {
+        enemyName = name;
+        maxHealth = hp;
+        currentHealth = hp;
+        defense = def;
+        xpOnDeath = xpReward;
+    }
+}

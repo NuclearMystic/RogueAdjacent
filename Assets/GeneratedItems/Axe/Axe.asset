@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Axe
+  m_EditorClassIdentifier: 
+  ObjectName: Axe
+  ObjectIcon: {fileID: 338497175, guid: 4b658565e6b4a214bbf23420028dca8b, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 4
+  itemType: 2
+  itemPrefab: {fileID: 8442681505238350167, guid: fff279302a8dd294bb30ce106168cb52, type: 3}
+  draggableIcon: {fileID: 650231313308108039, guid: 53ea2f61d473e2a4a9d94e1006d769c3, type: 3}
+  weaponSkill: 1
+  weaponDice: 4
+  flatBonusDamage: 0
+  filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
+  filePathSheetTwo: 2D/Actors/char_a_pONE3/6tla/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 4b658565e6b4a214bbf23420028dca8b, type: 3}
+  textureTwo: {fileID: 2800000, guid: 61e33a275577acf4db3322488c2fa26c, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}
