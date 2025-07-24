@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &263754007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 521949994165975888, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+  m_PrefabInstance: {fileID: 877360697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c0adb568dfb124b81bfd67511bb00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &414859886
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +371,34 @@ PrefabInstance:
     - target: {fileID: 1029802318057491000, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 263754007}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RefreshAllSkills
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SkillMenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283769330602934168, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1323643102560032113, guid: 141d975dc0796fe4e89b6cbd27dabcf7, type: 3}
       propertyPath: m_AnchorMax.y

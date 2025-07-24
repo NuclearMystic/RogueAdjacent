@@ -4,6 +4,7 @@ using UnityEngine;
 
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Events;
 
 
 public class UIManager : MonoBehaviour
@@ -20,6 +21,8 @@ public class UIManager : MonoBehaviour
     public bool inventoryOpen = false;
     public bool characterOpen = false;
     public bool skillsMenuOpen = false;
+
+    public UnityEvent updateSkillMenu;
 
     private void Awake()
     {
@@ -41,15 +44,18 @@ public class UIManager : MonoBehaviour
     public void ShowCharacterMenu()
     {
         ToggleCharacterMenu();
+        updateSkillMenu?.Invoke();
     }
     public void ShowInventoryMenu()
     {
         ToggleInventoryMenu();
+        updateSkillMenu?.Invoke();
     }
 
     public void ShowSkillsMenu()
     {
         ToggleSkillsMenu();
+        updateSkillMenu?.Invoke();
     }
 
     private void ToggleSkillsMenu()

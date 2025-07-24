@@ -10,7 +10,7 @@ public static class SkillUsageTracker
         if (skillLeveledUp)
         {
             // Show skill level up feedback
-            // UIController.Instance.ShowLevelUpPopup($"{skill} +1!");
+            InGameConsole.Instance.SendMessageToConsole($"{skill} leveled up!");
 
             // Only give attribute XP if the skill actually leveled up
             AttributeType governingAttribute = SkillAttributeMap.GetPrimaryAttribute(skill);
@@ -21,15 +21,15 @@ public static class SkillUsageTracker
 
                 if (attributeLeveledUp)
                 {
-                    // UIController.Instance.ShowLevelUpPopup($"{governingAttribute} +1!");
+                    InGameConsole.Instance.SendMessageToConsole($"{governingAttribute} leveled up!");
                 }
             }
         }
 
-        // Refresh skill list when menu opens and closes to show most recent updates to skills
-        //if (UIController.Instance.inventoryAnimator.GetBool("inventoryOpen"))
-        //{
-        //    UIController.Instance.skillMenuUI.RefreshAllSkills();
-        //}
+        //Refresh skill list when menu opens and closes to show most recent updates to skills
+        if (UIManager.Instance.skillsMenuOpen == true)
+        {
+            UIManager.Instance.gameObject.GetComponent<SkillMenuUI>().RefreshAllSkills();
+        }
     }
 }
