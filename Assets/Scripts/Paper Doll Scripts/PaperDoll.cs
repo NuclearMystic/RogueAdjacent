@@ -164,14 +164,14 @@ public class PaperDoll : MonoBehaviour
     {
         if (equipped != null)
         {
-            Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
+           // Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
             replacementTexture = equipped.textureTwo;
             path = equipped.filePathSheetTwo;
             LoadSpritesFromTexture();
         }
         else
         {
-            Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
+            //Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
         }
 
         if (!isChildSprite && paperDollLayers != null)

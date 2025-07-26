@@ -12,12 +12,16 @@ public class PickupInteractionSO : InteractionSO
 
             var inventoryManager = actor.GetComponent<PlayerInventoryManager>();
             inventoryManager.PickUpItem(target.inventorySO, out addToInventory);
+            GameEventsManager.instance.miscEvents.ItemCollected(target.inventorySO.itemId);
 
             if (addToInventory)
             {
-                UIManager.Instance.ForceRefreshCharacterMenu();
-                PlayerEquipmentManager.Instance.RefreshAllEquipmentVisuals();
-                
+                if (!UIManager.Instance.inventoryOpen || !UIManager.Instance.characterOpen)
+                {
+                    UIManager.Instance.ForceRefreshCharacterMenu();
+                    PlayerEquipmentManager.Instance.RefreshAllEquipmentVisuals();
+                }
+
             }
         }
 
