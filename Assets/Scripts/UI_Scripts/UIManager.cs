@@ -1,10 +1,8 @@
 using System;
 using TMPro;
 using UnityEngine;
-
 using System.Collections.Generic;
 using System.Collections;
-using UnityEngine.Events;
 
 
 public class UIManager : MonoBehaviour
@@ -16,13 +14,13 @@ public class UIManager : MonoBehaviour
     public GameObject InventoryMenu;
     public GameObject SkillsMenu;
     public GameObject interactTooltip;
+    public GameObject QuestMenu;
 
     [Header("Bool Triggers")]
     public bool inventoryOpen = false;
     public bool characterOpen = false;
     public bool skillsMenuOpen = false;
-
-    public UnityEvent updateSkillMenu;
+    // public bool questMenuOpen = false;
 
     private void Awake()
     {
@@ -35,6 +33,7 @@ public class UIManager : MonoBehaviour
 
         Instance = this;
 
+        ForceRefreshCharacterMenu();
     }
 
     public void Update()
@@ -44,22 +43,31 @@ public class UIManager : MonoBehaviour
     public void ShowCharacterMenu()
     {
         ToggleCharacterMenu();
-        updateSkillMenu?.Invoke();
     }
     public void ShowInventoryMenu()
     {
         ToggleInventoryMenu();
-        updateSkillMenu?.Invoke();
     }
 
     public void ShowSkillsMenu()
     {
         ToggleSkillsMenu();
-        updateSkillMenu?.Invoke();
+    }
+
+    public void ShowQuestMenu()
+    {
+        ToggleQuestMenu();
+    }
+
+    private void ToggleQuestMenu()
+    {
+        // questMenuOpen = !questMenuOpen;
+        QuestMenuManager.Instance.OpenMenu();
     }
 
     private void ToggleSkillsMenu()
     {
+
         skillsMenuOpen = !skillsMenuOpen;
         SkillsMenu.SetActive(skillsMenuOpen);
     }
@@ -118,22 +126,35 @@ public class UIManager : MonoBehaviour
     private IEnumerator TempOpenCharacterMenu()
     {
         bool wasOpen = characterOpen;
+        bool wasIOpen = inventoryOpen;
         RectTransform menuTransform = CharacterMenu.GetComponent<RectTransform>();
+        RectTransform iMTransform = InventoryMenu.GetComponent<RectTransform>();
 
         Vector3 originalPosition = menuTransform.anchoredPosition;
-
-        menuTransform.anchoredPosition = new Vector2(5000, 5000);
+        Vector3 iMOP = iMTransform.anchoredPosition;
 
         if (!wasOpen)
         {
+            menuTransform.anchoredPosition = new Vector2(5000, 5000);
             CharacterMenu.SetActive(true);
+
             yield return null;
-            yield return null;
+            // yield return null;
             yield return null;
             CharacterMenu.SetActive(false);
+
+        }
+        if (!wasIOpen)
+        {
+            iMTransform.anchoredPosition = new Vector2(5000, 5000);
+            InventoryMenu.SetActive(true);
+            yield return null;
+            yield return null;
+            InventoryMenu.SetActive(false);
         }
 
         menuTransform.anchoredPosition = originalPosition;
+        iMTransform.anchoredPosition = iMOP;
     }
 }
 
