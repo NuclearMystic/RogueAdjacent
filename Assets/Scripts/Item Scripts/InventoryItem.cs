@@ -9,19 +9,17 @@ public class InventoryItem : ScriptableObject
     public bool stackable;
     public int stackSize = 1;
     public int itemId;
-    
-        
+    public int baseCost;
 
     public enum SlotType
     {
-        Body,
         Food,
         Weapon,
         Hair,
         Hat,
         FaceAcces,
         Cape,
-        Outfit       
+        Outfit
     }
 
     public SlotType itemType;

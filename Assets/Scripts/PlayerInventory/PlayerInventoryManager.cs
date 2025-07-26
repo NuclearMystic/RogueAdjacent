@@ -3,69 +3,77 @@ using UnityEngine;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
+    public static PlayerInventoryManager Instance { get; private set; }
+
     private UIManager UIManager;
     public InventoryManager inventoryManager;
     public CharacterManager characterManager;
     public ItemSlot[] playerInventory;
     public bool isInventoryFull = false;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
     private void Start()
     {
-        UIManager = FindFirstObjectByType<UIManager>();  
+        UIManager = FindFirstObjectByType<UIManager>();
 
-        inventoryManager = UIManager.InventoryMenu.GetComponentInChildren<InventoryManager>();    
+        inventoryManager = UIManager.InventoryMenu.GetComponentInChildren<InventoryManager>();
         characterManager = UIManager.CharacterMenu.GetComponentInChildren<CharacterManager>();
-
     }
 
     private void Update()
     {
-        playerInventory = characterManager.characterItemSlots.Concat(inventoryManager.inventoryItemSlots).ToArray();
+        playerInventory = characterManager.characterItemSlots
+                          .Concat(inventoryManager.inventoryItemSlots).ToArray();
     }
 
     public void CheckIfInventoryFull()
     {
         int slotsFilled = 0;
-        
-        for (int i = 0; i < playerInventory.Length; i++)
+
+        foreach (var slot in playerInventory)
         {
-            if (playerInventory[i].slotFilled)
-            {
+            if (slot.slotFilled)
                 slotsFilled++;
-            }
         }
-        if (slotsFilled >= playerInventory.Length)
-        {
-            isInventoryFull = true;
-        }
-        else
-        {
-            isInventoryFull = false;
-        }
+
+        isInventoryFull = slotsFilled >= playerInventory.Length;
     }
 
     public void PickUpItem(in InventoryItem incomingItem, out bool pickedUp)
     {
-        for (int i = 0; i < playerInventory.Length; i++)
+        pickedUp = false;
+
+        // Try stacking
+        if (incomingItem.stackable)
         {
-            if (playerInventory[i].slotFilled == false && playerInventory[i].slotType == ItemSlot.SlotType.Any)
+            foreach (var slot in playerInventory)
             {
-                playerInventory[i].ReceiveInventoryItem(incomingItem);
-                //playerInventory[i].UpdateInventoryItem();
+                if (slot.ReceiveInventoryItem(incomingItem))
+                {
+                    pickedUp = true;
+                    return;
+                }
+            }
+        }
+
+        // Try empty slot
+        foreach (var slot in playerInventory)
+        {
+            if (slot.ReceiveInventoryItem(incomingItem))
+            {
                 pickedUp = true;
                 return;
             }
-            else if (playerInventory[i].slotFilled == false && playerInventory[i].slotType != ItemSlot.SlotType.Any)
-            {
-                if (incomingItem.itemType.ToString() == playerInventory[i].slotType.ToString())
-                {
-                    playerInventory[i].ReceiveInventoryItem(incomingItem);
-                   //playerInventory[i].UpdateInventoryItem();
-                    pickedUp = true;
-                    return;
-                }            
-            }           
         }
-        pickedUp = false;
     }
 }

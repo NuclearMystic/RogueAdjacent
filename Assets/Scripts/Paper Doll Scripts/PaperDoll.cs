@@ -190,7 +190,7 @@ public class PaperDoll : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
+            //Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
         }
 
         if (!isChildSprite && paperDollLayers != null)

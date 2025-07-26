@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d31da1405a25b41a095d2fab7de005, type: 3}
+  m_Name: ExampleShopInteraction
+  m_EditorClassIdentifier: 
+  promptText: '''E'' to Open Shop'
+  shopData: {fileID: 11400000, guid: 4a09037ac9899c94094e2b04314f4aa6, type: 2}

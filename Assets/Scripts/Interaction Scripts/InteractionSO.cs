@@ -7,7 +7,7 @@ public class InteractionSO : ScriptableObject
 
     public virtual void Execute(GameObject actor, InteractableGameObject target)
     {
-        Debug.Log("Interacting");
+        //Debug.Log("Interacting");
     }
     public string GetPromptText() => promptText;
 }
