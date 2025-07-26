@@ -104,6 +104,18 @@ public class PlayerEquipmentManager : MonoBehaviour
         return equippedWeapons[currentHeldWeapon - 1];
     }
 
+    public bool HasWeaponEquipped()
+    {
+        if(GetCurrentHeldWeapon() != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void EquipArmorItem(int index, EquipmentItem item)
     {
         if (index >= 0 && index < equippedArmorItems.Length)

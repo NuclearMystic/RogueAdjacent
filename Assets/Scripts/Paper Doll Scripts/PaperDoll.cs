@@ -22,6 +22,8 @@ public class PaperDoll : MonoBehaviour
     public int currentBaseSpriteIndex;
 
     public bool isChildSprite;
+    public bool equippedWeaponIsRanged;
+
     public enum LayerType
     {
         Parent,
@@ -106,6 +108,14 @@ public class PaperDoll : MonoBehaviour
             float verticalInput = Input.GetAxisRaw("Vertical");
             float horizontalInput = Input.GetAxisRaw("Horizontal");
 
+            if (equipped != null && equipped.isRanged)
+            {
+                equippedWeaponIsRanged = true;
+            }
+            else
+            {
+                equippedWeaponIsRanged = false;
+            }
 
             // Change sorting order based on vertical movement
             if (verticalInput == 1) // Moving upwards
@@ -164,9 +174,18 @@ public class PaperDoll : MonoBehaviour
     {
         if (equipped != null)
         {
-           // Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
-            replacementTexture = equipped.textureTwo;
-            path = equipped.filePathSheetTwo;
+            Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
+
+            if (equippedWeaponIsRanged && layerType != LayerType.Weapon)
+            {
+                replacementTexture = equipped.textureThree;
+                path = equipped.filePathSheetThree;
+            }
+            else
+            {
+                replacementTexture = equipped.textureTwo;
+                path = equipped.filePathSheetTwo;
+            }
             LoadSpritesFromTexture();
         }
         else

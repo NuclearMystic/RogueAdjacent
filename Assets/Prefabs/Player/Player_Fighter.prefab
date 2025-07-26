@@ -2436,6 +2436,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 521949994165975888}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RefreshAllSkills
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SkillMenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285296841861794264, guid: b81097e60287f614e8012c96a0f07296, type: 3}
+      propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4454150338401693730, guid: b81097e60287f614e8012c96a0f07296, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3345,6 +3373,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2498428347768681305, guid: b81097e60287f614e8012c96a0f07296, type: 3}
   m_PrefabInstance: {fileID: 3073904256133527104}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!114 &967097710981371844 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2865241114779394436, guid: b81097e60287f614e8012c96a0f07296, type: 3}
