@@ -1,8 +1,18 @@
 public enum SkillType
 {
-    None,
     // Weapons
+    Bows,
     Axes,
     Maces,
-    Swords    
+    Swords,
+
+    // Magic
+    Fire,
+    Ice,
+    Lightning,
+    
+    // Armor
+    HeavyArmor,
+    LightArmor,
+    MageArmor
 }

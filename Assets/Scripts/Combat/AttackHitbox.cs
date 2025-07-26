@@ -28,8 +28,11 @@ public class AttackHitbox : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null && !hitEnemies.Contains(enemy))
         {
-            hitEnemies.Add(enemy);
-            combatManager.Attack(enemy);
+            if (combatManager.IsCurrentClassFighter()) 
+            {
+                hitEnemies.Add(enemy);
+                combatManager.Attack(enemy);
+            }
         }
     }
 
