@@ -14,6 +14,8 @@ public class CombatManager : MonoBehaviour
     private Animator playerAnimator;
     private TopDownCharacterController playerController;
 
+    private IPlayerClass currentClass;
+
     private void Start()
     {
         equipmentManager = PlayerEquipmentManager.Instance;
@@ -25,6 +27,10 @@ public class CombatManager : MonoBehaviour
 
         if (equipmentManager == null) Debug.LogError("PlayerEquipmentManager not found!");
         if (playerStats == null) Debug.LogError("PlayerStats not found!");
+
+        // placed here for testing purposes. Eventually a character creation screen will be
+        // implemented and a set class method will handle setting the players class at start
+        SetPlayerClass(new ArcherClass());
     }
 
     private void Update()
@@ -35,6 +41,25 @@ public class CombatManager : MonoBehaviour
             {
                 playerAnimator.SetTrigger("Attack");
             }
+        }
+    }
+
+    public void SetPlayerClass(IPlayerClass playerClass)
+    {
+        currentClass = playerClass;
+        Debug.Log($"Player class set to {playerClass}!");
+    }
+
+    public bool IsCurrentClassFighter()
+    {
+        return currentClass is FighterClass;
+    }
+
+    public void PerformAttack()
+    {
+        if (currentClass != null)
+        {
+            currentClass.PerformAttack(playerStats, equipmentManager, playerController);
         }
     }
 
@@ -49,33 +74,29 @@ public class CombatManager : MonoBehaviour
         }
 
         SkillType skill = weapon.weaponSkill;
-
         int skillTotal = playerStats.GetSkillTotal(skill);
-
-        // Use DiceRoller for hit roll (simulate D20)
         int hitRoll = DiceRoller.Roll(DiceType.D20) + skillTotal;
-        PlayerVitals.instance.DrainStamina(weapon.stamDrain - skillTotal * 0.1f);
 
-        console.SendMessageToConsole($"Hit Roll: d20 + Skill({skillTotal}) = {hitRoll} vs Enemy Defense: {enemy.Defense}");
+        console.SendMessageToConsole($"Fighter Hit Roll: d20 + Skill({skillTotal}) = {hitRoll} vs Enemy Defense: {enemy.Defense}");
 
         if (hitRoll >= enemy.Defense)
         {
-            // Damage calculation
             int diceRoll = DiceRoller.Roll(weapon.weaponDice);
             int attributeBonus = SkillAttributeMap.GetAttributeBonus(skill, playerStats.attributes);
             int totalDamage = diceRoll + attributeBonus + weapon.flatBonusDamage;
 
-            console.SendMessageToConsole($"Hit! Damage: Dice({diceRoll}) + Attr({attributeBonus}) + Weapon({weapon.flatBonusDamage}) = {totalDamage}");
+            console.SendMessageToConsole($"Fighter Damage: Dice({diceRoll}) + Attr({attributeBonus}) + Weapon({weapon.flatBonusDamage}) = {totalDamage}");
 
             Vector2 knockbackDir = playerController.GetFacingDirection();
             enemy.TakeDamage(totalDamage, knockbackDir);
 
-            // Register skill use for XP gain
-            SkillUsageTracker.RegisterSkillUse(skill, totalDamage * 0.2f); // Example: give 20% of damage as XP
+            SkillUsageTracker.RegisterSkillUse(skill, totalDamage * 0.2f);
         }
         else
         {
-            console.SendMessageToConsole("Missed the attack!");
+            console.SendMessageToConsole("Fighter missed!");
         }
     }
+
+
 }

@@ -8,6 +8,7 @@ public class EquipmentItem : InventoryItem
     public DiceType weaponDice;
     public int flatBonusDamage;
     public float stamDrain;
+    public bool isRanged = false;
 
     //public Sprite[] spriteSheetOne;
     //public Sprite[] spriteSheetTwo;

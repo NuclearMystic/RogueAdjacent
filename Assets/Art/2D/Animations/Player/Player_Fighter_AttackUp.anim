@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_AttackRight
+  m_Name: Player_Fighter_AttackUp
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -60,7 +60,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Offset.x
+    attribute: m_Offset.y
     path: AttackHitBox
     classID: 58
     script: {fileID: 0}
@@ -147,13 +147,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 904285497, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+      value: {fileID: -471645680, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
     - time: 0.16666667
-      value: {fileID: -1057299707, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+      value: {fileID: 2082973634, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
     - time: 0.33333334
-      value: {fileID: -269259390, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+      value: {fileID: 1271493882, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
     - time: 0.5
-      value: {fileID: -1071674406, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+      value: {fileID: 1271273638, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -168,7 +168,7 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 2706796285
-      attribute: 413499720
+      attribute: 1872933342
       script: {fileID: 0}
       typeID: 58
       customType: 0
@@ -203,10 +203,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 904285497, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
-    - {fileID: -1057299707, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
-    - {fileID: -269259390, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
-    - {fileID: -1071674406, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+    - {fileID: -471645680, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+    - {fileID: 2082973634, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+    - {fileID: 1271493882, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
+    - {fileID: 1271273638, guid: f27e51eeb4a3ade4a8684057998aaee7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -271,7 +271,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Offset.x
+    attribute: m_Offset.y
     path: AttackHitBox
     classID: 58
     script: {fileID: 0}
