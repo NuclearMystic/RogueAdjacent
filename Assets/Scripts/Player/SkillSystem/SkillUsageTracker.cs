@@ -1,6 +1,6 @@
 public static class SkillUsageTracker
 {
-    private const float AttributeXPPercent = 0.05f;
+    private const float AttributeXPPercent = 0.5f;
 
     public static void RegisterSkillUse(SkillType skill, float xpAmount)
     {

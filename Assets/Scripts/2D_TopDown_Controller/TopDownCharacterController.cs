@@ -55,6 +55,10 @@ public class TopDownCharacterController : MonoBehaviour
             HandleJump();
             HandleRunWalkToggle();
         }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void HandleMovement()
