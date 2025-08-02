@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Interactable
   - Obstacle
-  - 
+  - NPC
   - 
   - 
   - 
@@ -41,11 +41,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 168732047
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Water
+    uniqueID: 1024927439
+    locked: 0
+  - name: Buildings
+    uniqueID: 1541728611
+    locked: 0
   - name: Player
     uniqueID: 1494113281
+    locked: 0
+  - name: Walkbehind
+    uniqueID: 1746375745
     locked: 0
   m_RenderingLayers:
   - Default

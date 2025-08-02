@@ -46,7 +46,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     private void Update()
     {
-        
+
 
     }
 

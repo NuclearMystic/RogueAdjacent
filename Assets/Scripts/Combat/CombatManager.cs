@@ -15,6 +15,7 @@ public class CombatManager : MonoBehaviour
     private TopDownCharacterController playerController;
 
     private IPlayerClass currentClass;
+    public PlayerClass playerClass;
 
     private void Start()
     {
@@ -28,9 +29,7 @@ public class CombatManager : MonoBehaviour
         if (equipmentManager == null) Debug.LogError("PlayerEquipmentManager not found!");
         if (playerStats == null) Debug.LogError("PlayerStats not found!");
 
-        // placed here for testing purposes. Eventually a character creation screen will be
-        // implemented and a set class method will handle setting the players class at start
-        SetPlayerClass(new ArcherClass());
+        SetPlayerClass();
     }
 
     private void Update()
@@ -44,10 +43,26 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerClass(IPlayerClass playerClass)
+    public void SetPlayerClass()
     {
-        currentClass = playerClass;
-        Debug.Log($"Player class set to {playerClass}!");
+        switch (playerClass)
+        {
+            case PlayerClass.None:
+                Debug.LogWarning("Player class was not selected!");
+                break;
+            case PlayerClass.Archer:
+                currentClass = new ArcherClass();
+                break;
+            case PlayerClass.Fighter:
+                currentClass = new FighterClass();
+                break;
+            case PlayerClass.Wizard:
+                currentClass = new WizardClass();
+                break;
+            default:
+                break;
+        }
+
     }
 
     public bool IsCurrentClassFighter()

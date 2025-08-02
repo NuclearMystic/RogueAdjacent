@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/DevZone_Andrew.unity
-    guid: 067d6f59485f828488ada499d2c68b21
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d0b123c94d8579446bdfa4cc180551ee
+  - enabled: 1
+    path: Assets/Scenes/CharacterCreation.unity
+    guid: 44de603093b585442bb074d223db71a8
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: 829b153232e56b943ab3271deb0462f4
+  - enabled: 1
+    path: Assets/Scenes/Overworld.unity
+    guid: 7643fda2642006945823b51ddad8aa4f
   - enabled: 1
     path: Assets/Scenes/Dungeon-Cave.unity
     guid: b35974a1cc55cfc438f392aa2483adee

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd53113795d5eb418d312dd3ae68c1c, type: 3}
+  m_Name: ExampleShopSO
+  m_EditorClassIdentifier: 
+  shopName: Example Shop
+  shopIcon: {fileID: 21300062, guid: 8b8333c8af9b0c54da038fe9102febb5, type: 3}
+  buyMarkup: 1
+  sellMultiplier: 0.5
+  itemsForSale:
+  - item: {fileID: 11400000, guid: ebbe32d5b9a20da4c825fd57ef4ffb51, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
+    quantity: 1
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: e51da57a7bbb96f499dacd6f238e7c20, type: 2}
+    quantity: 1
+    isRestocking: 0
