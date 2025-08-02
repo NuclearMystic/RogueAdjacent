@@ -346,7 +346,7 @@ public class PlayerVitals : MonoBehaviour
 
     private void DeathHandling()
     {
-        SceneManager.LoadScene("DevZone");
+        GameManager.Instance.WarpBackToOriginalPosition();
         Debug.Log("Player has died. R.I.P.");
     }
 }

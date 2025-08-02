@@ -4,29 +4,49 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public PlayerData playerData { get; private set; }
+
     private GameObject playerObject;
-    private Vector3 originalPosition; // Store the player's original position
-    private string originalScene; // Store the player's original scene
+    private Vector3 originalPosition; 
+    private string originalScene;
+
+    public string GetPlayerName()
+    {
+        return playerData.PlayerName;
+    }
+    public PlayerClass GetPlayerClass()
+    {
+        return playerData.PlayerClass;
+    }
 
     public void SetPlayerObject(GameObject playerObject) => this.playerObject = playerObject;
+    public void SetPlayerData(PlayerData playerData) => this.playerData = playerData;
 
-    private void Start()
+    private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject); // Ensure GameManager persists across scenes
-        SetPlayerObject(GameObject.FindWithTag("Player"));
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void StartSceneLoad(string sceneName)
     {
-        originalPosition = playerObject.transform.position; // Store the player's position
-        originalScene = SceneManager.GetActiveScene().name; // Store the current scene name
+        originalPosition = playerObject.transform.position;
+        originalScene = SceneManager.GetActiveScene().name; 
         StartCoroutine(LoadSceneAndPlacePlayer(sceneName));
     }
 
     public IEnumerator LoadSceneAndPlacePlayer(string sceneName)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-        //GetComponent<CombatManager>().detectionRadius = 0;
+
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
@@ -35,12 +55,14 @@ public class GameManager : MonoBehaviour
 
         // Scene is fully loaded, now find the spawn point
         Transform whereToPlacePlayer = GameObject.FindWithTag("SpawnPoint")?.transform;
+        Debug.Log($"Placing player at {whereToPlacePlayer.position}");
         if (whereToPlacePlayer != null)
         {
             Vector3 spawnPosition = whereToPlacePlayer.position;
 
             // Move the player to the spawn point
             playerObject.transform.position = spawnPosition;
+            Debug.Log($"Player moved to {spawnPosition}");
 
             // Reset Rigidbody velocities
             Rigidbody2D rb = playerObject.GetComponent<Rigidbody2D>();
@@ -56,7 +78,6 @@ public class GameManager : MonoBehaviour
 
             // Optionally, wait for an additional frame to ensure all initializations are done
             yield return new WaitForEndOfFrame();
-            //GetComponent<CombatManager>().detectionRadius = 5f;
         }
         else
         {

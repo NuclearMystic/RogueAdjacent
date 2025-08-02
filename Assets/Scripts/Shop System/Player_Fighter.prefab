@@ -2064,6 +2064,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 5
   edittable: 1
   swapTest: 0
@@ -2109,7 +2110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2250,6 +2251,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 1
   edittable: 1
   swapTest: 0
@@ -2295,7 +2297,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2441,6 +2443,9 @@ MonoBehaviour:
   inventoryOpen: 0
   characterOpen: 0
   skillsMenuOpen: 0
+  updateSkillMenu:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2331488596928111970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4514,6 +4519,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 6
   edittable: 1
   swapTest: 0
@@ -4559,7 +4565,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7106,7 +7112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000013887882}
+  m_AnchoredPosition: {x: 0, y: -0.00006382167}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7382014304849521239
@@ -7546,6 +7552,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 3
   edittable: 1
   swapTest: 0
@@ -7591,7 +7598,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8679,7 +8686,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1766824418, guid: 55602175ee4a100478c23dec572af2b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8782,6 +8789,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 0
+  equippedWeaponIsRanged: 0
   layerType: 0
   edittable: 0
   swapTest: 0
@@ -11582,6 +11590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackButton: 323
   defenseButton: 324
+  playerClass: 0
 --- !u!114 &7180395235394427717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12291,7 +12300,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3529043443156402605}
   m_HandleRect: {fileID: 2369075856822394809}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13621,6 +13630,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 4
   edittable: 1
   swapTest: 0
@@ -13666,7 +13676,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13716,7 +13726,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 50.19995, y: -28.6678}
-  m_SizeDelta: {x: 69.35, y: 19.9429}
+  m_SizeDelta: {x: 0, y: 19.9429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4122007579302220947
 CanvasRenderer:

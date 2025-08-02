@@ -49,10 +49,11 @@ MonoBehaviour:
   replacementTexture: {fileID: 0}
   path: 
   paperDollLayers: []
-  equipped: {fileID: 0}
+  equipped: {fileID: 11400000, guid: ba8be415c35d43149b658e7e69e7cd2d, type: 2}
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 6
   edittable: 1
   swapTest: 0
@@ -98,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -111,6 +112,87 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5016733458213924027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954744762000594550}
+  - component: {fileID: 5418788252203091805}
+  - component: {fileID: 7428642658903997393}
+  m_Layer: 0
+  m_Name: AttackHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &954744762000594550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016733458213924027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4143376346327241083}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5418788252203091805
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016733458213924027}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.2
+--- !u!114 &7428642658903997393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016733458213924027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9261178109bbcab49b524f97fdde989d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5995202846489077732
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +246,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 4
   edittable: 1
   swapTest: 0
@@ -209,7 +292,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -271,10 +354,11 @@ MonoBehaviour:
   replacementTexture: {fileID: 0}
   path: 
   paperDollLayers: []
-  equipped: {fileID: 0}
+  equipped: {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 3
   edittable: 1
   swapTest: 0
@@ -320,7 +404,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -386,6 +470,7 @@ MonoBehaviour:
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 5
   edittable: 1
   swapTest: 0
@@ -431,7 +516,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -459,7 +544,7 @@ GameObject:
   - component: {fileID: 4379079581104830825}
   - component: {fileID: 8574305115109214539}
   - component: {fileID: 4998589520382236508}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -484,6 +569,7 @@ Transform:
   - {fileID: 2642138967580792547}
   - {fileID: 2920249678650585355}
   - {fileID: 5255778100851426767}
+  - {fileID: 954744762000594550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4017847821073348095
@@ -528,7 +614,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1766824418, guid: 55602175ee4a100478c23dec572af2b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -575,9 +661,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
-  m_LinearDamping: 0
-  m_AngularDamping: 0
+  m_Mass: 10
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -605,6 +691,7 @@ MonoBehaviour:
   walkSpeed: 2
   runSpeed: 4
   jumpForce: 5
+  canMove: 1
 --- !u!114 &8574305115109214539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,10 +713,11 @@ MonoBehaviour:
   - {fileID: 3330833753863205765}
   - {fileID: 4698405868816045729}
   - {fileID: 5393394283681980400}
-  equipped: {fileID: 0}
+  equipped: {fileID: 11400000, guid: 1b13041875cd0bd4083e4bb4b54b38dc, type: 2}
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 0
+  equippedWeaponIsRanged: 0
   layerType: 0
   edittable: 0
   swapTest: 0
@@ -667,7 +755,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.008153439, y: 0.027721614}
+  m_Offset: {x: -0.00279738, y: 0.017041057}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -677,7 +765,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2062383, y: 0.33669293}
+  m_Size: {x: 0.17384973, y: 0.2991376}
   m_EdgeRadius: 0
 --- !u!1 &8076277783978865255
 GameObject:
@@ -728,10 +816,11 @@ MonoBehaviour:
   replacementTexture: {fileID: 0}
   path: 
   paperDollLayers: []
-  equipped: {fileID: 0}
+  equipped: {fileID: 11400000, guid: 04953d3f3f888d74ca5053c1c298876a, type: 2}
   sprites: []
   currentBaseSpriteIndex: 0
   isChildSprite: 1
+  equippedWeaponIsRanged: 0
   layerType: 1
   edittable: 1
   swapTest: 0
@@ -777,7 +866,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

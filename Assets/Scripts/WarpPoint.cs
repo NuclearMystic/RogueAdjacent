@@ -10,8 +10,8 @@ public class WarpPoint : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            GameManager gameManger = FindAnyObjectByType<GameManager>();
-            gameManger.StartSceneLoad(dungeonToLoad);
+            GameManager gameManager = GameManager.Instance;
+            gameManager.StartSceneLoad(dungeonToLoad);
         }
     }
 }
