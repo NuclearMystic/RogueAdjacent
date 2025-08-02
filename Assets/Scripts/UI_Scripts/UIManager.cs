@@ -1,9 +1,9 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
-using UnityEngine.Events;
 
 
 public class UIManager : MonoBehaviour
@@ -16,14 +16,16 @@ public class UIManager : MonoBehaviour
     public GameObject SkillsMenu;
     public GameObject interactTooltip;
     public GameObject QuestMenu;
+    public GameObject Crosshair;
+    public GameObject ShopMenu;
 
     [Header("Bool Triggers")]
     public bool inventoryOpen = false;
     public bool characterOpen = false;
     public bool skillsMenuOpen = false;
+    public bool refreshingMenus = false;
     // public bool questMenuOpen = false;
 
-    public UnityEvent updateSkillMenu;
 
     private void Awake()
     {
@@ -41,33 +43,44 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
-        ChangeCursorState();
+        ToggleCursor();
     }
-
     public void ShowCharacterMenu()
     {
         ToggleCharacterMenu();
-        updateSkillMenu?.Invoke();
     }
-
     public void ShowInventoryMenu()
     {
         ToggleInventoryMenu();
-        updateSkillMenu?.Invoke();
     }
 
     public void ShowSkillsMenu()
     {
         ToggleSkillsMenu();
-        updateSkillMenu?.Invoke();
     }
 
     public void ShowQuestMenu()
     {
         ToggleQuestMenu();
-        updateSkillMenu?.Invoke();
     }
 
+    private void ToggleCursor()
+    {
+        bool anyMenuOpen = false;
+        if (!refreshingMenus && (InventoryMenu.activeInHierarchy || CharacterMenu.activeInHierarchy || SkillsMenu.activeInHierarchy || QuestMenu.activeInHierarchy || ShopMenu.activeInHierarchy))
+        {
+            anyMenuOpen = true;
+        }
+        else
+        {
+            anyMenuOpen = false;
+        }
+
+
+
+        Crosshair.SetActive(anyMenuOpen);
+        Cursor.visible = false;
+    }
     private void ToggleQuestMenu()
     {
         // questMenuOpen = !questMenuOpen;
@@ -114,21 +127,6 @@ public class UIManager : MonoBehaviour
         interactText.text = text;
     }
 
-    private void ChangeCursorState()
-    {
-        if (inventoryOpen || characterOpen)
-        {
-
-            // Cursor.visible = true;
-            //  Cursor.lockState = CursorLockMode.Confined;
-        }
-        else
-        {
-            // Cursor.visible = false;
-            // Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
-
     public void ForceRefreshCharacterMenu()
     {
         StartCoroutine(TempOpenCharacterMenu());
@@ -136,13 +134,18 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator TempOpenCharacterMenu()
     {
+        refreshingMenus = true;
         bool wasOpen = characterOpen;
         bool wasIOpen = inventoryOpen;
+
+
         RectTransform menuTransform = CharacterMenu.GetComponent<RectTransform>();
         RectTransform iMTransform = InventoryMenu.GetComponent<RectTransform>();
 
+
         Vector3 originalPosition = menuTransform.anchoredPosition;
         Vector3 iMOP = iMTransform.anchoredPosition;
+
 
         if (!wasOpen)
         {
@@ -164,8 +167,10 @@ public class UIManager : MonoBehaviour
             InventoryMenu.SetActive(false);
         }
 
+
         menuTransform.anchoredPosition = originalPosition;
         iMTransform.anchoredPosition = iMOP;
+        refreshingMenus = false;
     }
 }
 
