@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Events;
 
 
 public class UIManager : MonoBehaviour
@@ -22,6 +23,8 @@ public class UIManager : MonoBehaviour
     public bool skillsMenuOpen = false;
     // public bool questMenuOpen = false;
 
+    public UnityEvent updateSkillMenu;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -40,23 +43,29 @@ public class UIManager : MonoBehaviour
     {
         ChangeCursorState();
     }
+
     public void ShowCharacterMenu()
     {
         ToggleCharacterMenu();
+        updateSkillMenu?.Invoke();
     }
+
     public void ShowInventoryMenu()
     {
         ToggleInventoryMenu();
+        updateSkillMenu?.Invoke();
     }
 
     public void ShowSkillsMenu()
     {
         ToggleSkillsMenu();
+        updateSkillMenu?.Invoke();
     }
 
     public void ShowQuestMenu()
     {
         ToggleQuestMenu();
+        updateSkillMenu?.Invoke();
     }
 
     private void ToggleQuestMenu()
@@ -104,6 +113,7 @@ public class UIManager : MonoBehaviour
         TextMeshProUGUI interactText = interactTooltip.GetComponentInChildren<TextMeshProUGUI>();
         interactText.text = text;
     }
+
     private void ChangeCursorState()
     {
         if (inventoryOpen || characterOpen)
@@ -118,6 +128,7 @@ public class UIManager : MonoBehaviour
             // Cursor.lockState = CursorLockMode.Locked;
         }
     }
+
     public void ForceRefreshCharacterMenu()
     {
         StartCoroutine(TempOpenCharacterMenu());

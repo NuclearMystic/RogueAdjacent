@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            Debug.Log("Second Inventory manager destroyed.");
             return;
         }
 
