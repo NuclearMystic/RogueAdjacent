@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Start()
+    {
+        if (playerObject == null)
+        {
+            SetPlayerObject(GameObject.FindWithTag("Player"));
+        }
+    }
+
     public void StartSceneLoad(string sceneName)
     {
         originalPosition = playerObject.transform.position;
