@@ -16,7 +16,7 @@ public class PickupInteractionSO : InteractionSO
 
             if (addToInventory)
             {
-                if (!UIManager.Instance.inventoryOpen || !UIManager.Instance.characterOpen)
+                if (!UIManager.Instance.InventoryOpen || !UIManager.Instance.CharacterOpen)
                 {
                     UIManager.Instance.ForceRefreshCharacterMenu();
                     PlayerEquipmentManager.Instance.RefreshAllEquipmentVisuals();

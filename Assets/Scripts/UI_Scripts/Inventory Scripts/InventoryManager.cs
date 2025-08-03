@@ -11,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Button closeButton;
     [SerializeField] private GameObject thisMenu;
     [SerializeField] private TextMeshProUGUI currencyText;
+    public GameObject highlightedSlotPrefab;
+    public DraggableIconSlot selectedItemSlot;
 
     private void Awake()
     {

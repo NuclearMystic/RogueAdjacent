@@ -2,9 +2,8 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,13 +18,14 @@ public class UIManager : MonoBehaviour
     public GameObject Crosshair;
     public GameObject ShopMenu;
 
-    [Header("Bool Triggers")]
-    public bool inventoryOpen = false;
-    public bool characterOpen = false;
-    public bool skillsMenuOpen = false;
-    public bool refreshingMenus = false;
-    // public bool questMenuOpen = false;
+    [Header("Runtime State (Read-Only)")]
+    public bool InventoryOpen => InventoryMenu.activeInHierarchy;
+    public bool CharacterOpen => CharacterMenu.activeInHierarchy;
+    public bool SkillsMenuOpen => SkillsMenu.activeInHierarchy;
+    public bool QuestMenuOpen => QuestMenu.activeInHierarchy;
+    public bool ShopMenuOpen => ShopMenu.activeInHierarchy;
 
+    private bool refreshingMenus = false;
 
     private void Awake()
     {
@@ -35,20 +35,20 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-
         Instance = this;
-
         ForceRefreshCharacterMenu();
     }
 
-    public void Update()
+    private void Update()
     {
         ToggleCursor();
     }
+
     public void ShowCharacterMenu()
     {
         ToggleCharacterMenu();
     }
+
     public void ShowInventoryMenu()
     {
         ToggleInventoryMenu();
@@ -67,56 +67,40 @@ public class UIManager : MonoBehaviour
     private void ToggleCursor()
     {
         bool anyMenuOpen = false;
-        if (!refreshingMenus && (InventoryMenu.activeInHierarchy || CharacterMenu.activeInHierarchy || SkillsMenu.activeInHierarchy || QuestMenu.activeInHierarchy || ShopMenu.activeInHierarchy))
+        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen))
         {
             anyMenuOpen = true;
         }
-        else
-        {
-            anyMenuOpen = false;
-        }
-
-
 
         Crosshair.SetActive(anyMenuOpen);
         Cursor.visible = false;
     }
+
     private void ToggleQuestMenu()
     {
-        // questMenuOpen = !questMenuOpen;
-        QuestMenuManager.Instance.OpenMenu();
+        QuestMenuManager.Instance.OpenMenu(); // You handle this separately, assumed to toggle it internally
     }
 
     private void ToggleSkillsMenu()
     {
-
-        skillsMenuOpen = !skillsMenuOpen;
-        SkillsMenu.SetActive(skillsMenuOpen);
+        SkillsMenu.SetActive(!SkillsMenu.activeInHierarchy);
     }
 
     private void ToggleInventoryMenu()
     {
-        inventoryOpen = !inventoryOpen;
-        InventoryMenu.SetActive(inventoryOpen);
+        InventoryMenu.SetActive(!InventoryMenu.activeInHierarchy);
     }
 
     private void ToggleCharacterMenu()
     {
-
-        characterOpen = !characterOpen;
-
-        CharacterMenu.SetActive(characterOpen);
+        CharacterMenu.SetActive(!CharacterMenu.activeInHierarchy);
     }
 
     public void InteractToolTip(bool tipState, string promptText)
     {
-
-        // Debug.Log("Interacting");
         if (promptText != null)
         {
             ChangeInteractText(promptText);
-
-
         }
         interactTooltip.SetActive(tipState);
     }
@@ -135,30 +119,23 @@ public class UIManager : MonoBehaviour
     private IEnumerator TempOpenCharacterMenu()
     {
         refreshingMenus = true;
-        bool wasOpen = characterOpen;
-        bool wasIOpen = inventoryOpen;
-
 
         RectTransform menuTransform = CharacterMenu.GetComponent<RectTransform>();
         RectTransform iMTransform = InventoryMenu.GetComponent<RectTransform>();
 
-
         Vector3 originalPosition = menuTransform.anchoredPosition;
         Vector3 iMOP = iMTransform.anchoredPosition;
 
-
-        if (!wasOpen)
+        if (!CharacterOpen)
         {
             menuTransform.anchoredPosition = new Vector2(5000, 5000);
             CharacterMenu.SetActive(true);
-
             yield return null;
-            // yield return null;
             yield return null;
             CharacterMenu.SetActive(false);
-
         }
-        if (!wasIOpen)
+
+        if (!InventoryOpen)
         {
             iMTransform.anchoredPosition = new Vector2(5000, 5000);
             InventoryMenu.SetActive(true);
@@ -167,10 +144,8 @@ public class UIManager : MonoBehaviour
             InventoryMenu.SetActive(false);
         }
 
-
         menuTransform.anchoredPosition = originalPosition;
         iMTransform.anchoredPosition = iMOP;
         refreshingMenus = false;
     }
 }
-

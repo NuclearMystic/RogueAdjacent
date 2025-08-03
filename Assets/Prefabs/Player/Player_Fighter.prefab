@@ -629,7 +629,6 @@ GameObject:
   - component: {fileID: 8082169582643699163}
   - component: {fileID: 708893389022328108}
   - component: {fileID: 573560653996561700}
-  - component: {fileID: 1136838640060683971}
   m_Layer: 0
   m_Name: Player_Fighter
   m_TagString: Untagged
@@ -798,14 +797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingCurrency: 25
---- !u!81 &1136838640060683971
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298376033988569408}
-  m_Enabled: 1
 --- !u!1 &5339421506429955652
 GameObject:
   m_ObjectHideFlags: 0
