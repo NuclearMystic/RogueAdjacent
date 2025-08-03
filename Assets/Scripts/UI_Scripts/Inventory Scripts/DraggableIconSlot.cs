@@ -228,7 +228,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         if (manager == null)
         {
-            Debug.LogWarning("PlayerInventoryManager.Instance is null.");
+            Debug.LogWarning("InventoryManager.Instance is null.");
             return;
         }
 
