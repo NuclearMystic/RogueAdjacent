@@ -130,6 +130,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         return false;
     }
 
+    public bool CanAcceptItem(InventoryItem item)
+    {
+        return slotType == SlotType.Any || item.itemType.ToString() == slotType.ToString();
+    }
+
     public void ClearSlot()
     {
         if (transform.childCount > 0)
