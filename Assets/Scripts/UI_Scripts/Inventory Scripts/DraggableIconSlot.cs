@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public Image iconImage;
     public TextMeshProUGUI quantityLabel;
@@ -11,9 +11,13 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public int quantity = 1;
     public Transform parentAfterDrag;
 
+    public RectTransform crosshair;
+
+    private Canvas mainUICanvas;
+    private GameObject highlightOverlayInstance;
+
     private void Awake()
     {
-        // Auto-bind quantityLabel if not assigned
         if (quantityLabel == null)
         {
             var labelTransform = transform.Find("QuantityLabel");
@@ -24,6 +28,21 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if (slotItem != null)
         {
             iconImage.sprite = slotItem.ObjectIcon;
+        }
+    }
+
+    private void Start()
+    {
+        if (crosshair == null)
+        {
+            GameObject crosshairGO = GameObject.FindGameObjectWithTag("Crosshair");
+            if (crosshairGO != null)
+                crosshair = crosshairGO.GetComponent<RectTransform>();
+        }
+
+        if (mainUICanvas == null && UIManager.Instance != null)
+        {
+            mainUICanvas = UIManager.Instance.GetComponentInParent<Canvas>();
         }
     }
 
@@ -40,6 +59,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             iconImage.sprite = slotItem.ObjectIcon;
         }
     }
+
     public void SetQuantity(int amount)
     {
         quantity = amount;
@@ -49,7 +69,6 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void UpdateQuantity(int newAmount)
     {
         quantity = newAmount;
-
         if (quantityLabel != null)
             quantityLabel.text = quantity > 1 ? quantity.ToString() : "";
     }
@@ -57,7 +76,16 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root); // So it floats on top
+
+        if (mainUICanvas != null)
+        {
+            transform.SetParent(mainUICanvas.transform);
+        }
+        else
+        {
+            transform.SetParent(transform.root);
+        }
+
         transform.SetAsLastSibling();
         iconImage.raycastTarget = false;
 
@@ -65,11 +93,27 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         {
             ShopManager.Instance.UnregisterSellItem(this);
         }
+
+        gameObject.SetActive(true);
+
+        // Optional: deselect on drag
+        if (InventoryManager.Instance.selectedItemSlot == this)
+        {
+            InventoryManager.Instance.selectedItemSlot = null;
+            RemoveHighlight();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        if (crosshair != null)
+        {
+            transform.position = crosshair.position;
+        }
+        else
+        {
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -78,16 +122,43 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         GameObject hovered = eventData.pointerEnter;
 
-        if (hovered != null && hovered.transform.IsChildOf(ShopManager.Instance.sellSlotParent))
+        if (hovered == gameObject || (hovered != null && hovered.transform.IsChildOf(transform)))
         {
-            transform.SetParent(ShopManager.Instance.sellSlotParent);
-            ShopManager.Instance.RegisterSellItem(this);
+            hovered = null;
         }
-        else if (hovered != null && hovered.transform.IsChildOf(parentAfterDrag))
+
+        bool droppedInUI = false;
+
+        if (hovered != null)
         {
-            transform.SetParent(parentAfterDrag);
+            if (hovered.transform.IsChildOf(ShopManager.Instance.sellSlotParent))
+            {
+                transform.SetParent(ShopManager.Instance.sellSlotParent);
+                ShopManager.Instance.RegisterSellItem(this);
+                droppedInUI = true;
+            }
+            else if (hovered.TryGetComponent<ItemSlot>(out var targetSlot))
+            {
+                if (targetSlot.CanAcceptItem(slotItem))
+                {
+                    transform.SetParent(targetSlot.transform);
+                    droppedInUI = true;
+                }
+                else
+                {
+                    transform.SetParent(parentAfterDrag);
+                    transform.localPosition = Vector3.zero;
+                    return;
+                }
+            }
+            else if (hovered.transform.IsChildOf(parentAfterDrag))
+            {
+                transform.SetParent(parentAfterDrag);
+                droppedInUI = true;
+            }
         }
-        else
+
+        if (!droppedInUI && !EventSystem.current.IsPointerOverGameObject())
         {
             DropItemToWorld();
             return;
@@ -101,6 +172,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if (slotItem == null || slotItem.itemPrefab == null)
         {
             Debug.LogWarning("No item or world prefab to drop.");
+            Destroy(gameObject);
             return;
         }
 
@@ -108,13 +180,12 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if (player == null)
         {
             Debug.LogError("Player not found in scene!");
+            Destroy(gameObject);
             return;
         }
 
-        // Determine drop direction from drag
         Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         Vector3 dragDirection = (Input.mousePosition - screenCenter).normalized;
-
         Vector3 worldDirection = Camera.main.transform.TransformDirection(dragDirection);
         worldDirection.z = 0;
         worldDirection.Normalize();
@@ -123,7 +194,6 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         for (int i = 0; i < quantity; i++)
         {
-            // Offset each item slightly to avoid perfect overlap
             float offset = 0.1f * i;
             Vector3 dropPosition = player.position + worldDirection * (baseDistance + offset);
 
@@ -138,19 +208,64 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         Debug.Log($"Dropped {quantity}x {slotItem.ObjectName} into world");
 
-        // Remove from original inventory slot
         if (parentAfterDrag.TryGetComponent<ItemSlot>(out var slot))
         {
             slot.heldItems -= quantity;
-            slot.draggableIconSlot.UpdateQuantity(slot.heldItems);
+
+            if (slot.draggableIconSlot != null)
+                slot.draggableIconSlot.UpdateQuantity(slot.heldItems);
 
             if (slot.heldItems <= 0)
-            {
                 slot.ClearSlot();
-            }
         }
 
         Destroy(gameObject);
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        var manager = InventoryManager.Instance;
+
+        if (manager == null)
+        {
+            Debug.LogWarning("InventoryManager.Instance is null.");
+            return;
+        }
+
+        if (manager.selectedItemSlot == this)
+        {
+            RemoveHighlight();
+            manager.selectedItemSlot = null;
+            return;
+        }
+
+        if (manager.selectedItemSlot != null)
+        {
+            manager.selectedItemSlot.RemoveHighlight();
+        }
+
+        manager.selectedItemSlot = this;
+        AddHighlight();
+    }
+
+    public void AddHighlight()
+    {
+        if (highlightOverlayInstance != null) return;
+
+        GameObject prefab = InventoryManager.Instance.highlightedSlotPrefab;
+        if (prefab != null)
+        {
+            highlightOverlayInstance = Instantiate(prefab, transform);
+            highlightOverlayInstance.transform.SetAsFirstSibling(); 
+        }
+    }
+
+    public void RemoveHighlight()
+    {
+        if (highlightOverlayInstance != null)
+        {
+            Destroy(highlightOverlayInstance);
+            highlightOverlayInstance = null;
+        }
+    }
 }
