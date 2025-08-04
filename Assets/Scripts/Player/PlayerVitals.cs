@@ -50,7 +50,7 @@ public class PlayerVitals : MonoBehaviour
     private Coroutine magicRegenCoroutine;
 
     // health
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
     private float maxHealth = 100;
 
     // stamina
