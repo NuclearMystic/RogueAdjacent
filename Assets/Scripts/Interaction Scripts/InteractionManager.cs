@@ -77,6 +77,7 @@ public class InteractionManager : MonoBehaviour
 
     public void InteractWithAim()
     {
+        if (currentTarget == null) return;  
         if (currentTarget != null)
         {
             currentTarget.Interact(gameObject);

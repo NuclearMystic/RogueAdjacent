@@ -18,6 +18,9 @@ MonoBehaviour:
   stackSize: 64
   itemId: 44
   baseCost: 5
+  healthEffect: 15
+  staminaEffect: 5
+  magicEffect: 0
   itemType: 0
   itemPrefab: {fileID: 691827731045224900, guid: f28baaf701a32eb42b0b7e690056c999, type: 3}
   draggableIcon: {fileID: 36135355360691799, guid: d3563fb43eb20124a8127d9c2f3ebde5, type: 3}
@@ -25,6 +28,7 @@ MonoBehaviour:
   weaponDice: 0
   flatBonusDamage: 0
   stamDrain: 0
+  isRanged: 0
   filePathSheetOne: UIAssets/DarkPixelRPGUI/Artwok/Icons/
   filePathSheetTwo: 
   filePathSheetThree: 

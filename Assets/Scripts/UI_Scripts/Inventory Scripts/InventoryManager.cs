@@ -7,13 +7,17 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
+    [Header("UI Components")]
     public ItemSlot[] inventoryItemSlots;
     [SerializeField] private Button closeButton;
+    [SerializeField] private Button consumeButton;
     [SerializeField] private GameObject thisMenu;
     [SerializeField] private TextMeshProUGUI currencyText;
+
+    [Header("Prefabs")]
     public GameObject highlightedSlotPrefab;
     public DraggableIconSlot selectedItemSlot;
-
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,16 +33,57 @@ public class InventoryManager : MonoBehaviour
     {
         closeButton.onClick.RemoveAllListeners();
         closeButton.onClick.AddListener(() => CloseWindow());
+        consumeButton.onClick.RemoveAllListeners();
+        consumeButton.onClick.AddListener(() => ConsumeItem());
     }
 
     private void Update()
     {
         UpdateCurrency();
+        ShowConsumeButton();
     }
 
     public void CloseWindow()
     {
         thisMenu.SetActive(false);
+    }
+
+    public void ShowConsumeButton()
+    {
+        if (selectedItemSlot != null && selectedItemSlot.slotItem != null)
+        {
+            var item = selectedItemSlot.slotItem;
+            bool canUse = item.healthEffect > 0 || item.staminaEffect > 0 || item.magicEffect > 0;
+            consumeButton.gameObject.SetActive(canUse);
+        }
+        else
+        {
+            consumeButton.gameObject.SetActive(false);
+        }
+    }
+    public void ConsumeItem()
+    {
+        if (selectedItemSlot == null || selectedItemSlot.slotItem == null)
+            return;
+
+        var item = selectedItemSlot.slotItem;
+
+        PlayerVitals.instance.RestoreHealth(item.healthEffect);
+        PlayerVitals.instance.RestoreStamina(item.staminaEffect);
+        PlayerVitals.instance.ReplenishMagic(item.magicEffect);
+
+        selectedItemSlot.quantity--;
+        selectedItemSlot.UpdateQuantity(selectedItemSlot.quantity);
+
+        if (selectedItemSlot.quantity <= 0)
+        {
+            var parentSlot = selectedItemSlot.transform.parent.GetComponent<ItemSlot>();
+            if (parentSlot != null)
+            {
+                parentSlot.ClearSlot();
+            }
+            selectedItemSlot = null;
+        }
     }
 
     public void UpdateCurrency()
@@ -139,4 +184,6 @@ public class InventoryManager : MonoBehaviour
             Debug.LogWarning($"Not enough space for all {itemToAdd.ObjectName} items. {amount} left over.");
         }
     }
+
+
 }
