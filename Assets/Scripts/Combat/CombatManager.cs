@@ -87,7 +87,7 @@ public class CombatManager : MonoBehaviour
             console.SendMessageToConsole("No weapon equipped!");
             return;
         }
-
+ 
         SkillType skill = weapon.weaponSkill;
         int skillTotal = playerStats.GetSkillTotal(skill);
         int hitRoll = DiceRoller.Roll(DiceType.D20) + skillTotal;
