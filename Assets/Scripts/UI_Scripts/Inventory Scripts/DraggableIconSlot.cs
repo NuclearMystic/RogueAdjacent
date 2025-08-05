@@ -190,7 +190,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         worldDirection.z = 0;
         worldDirection.Normalize();
 
-        float baseDistance = 1f;
+        float baseDistance = .1f;
 
         for (int i = 0; i < quantity; i++)
         {
