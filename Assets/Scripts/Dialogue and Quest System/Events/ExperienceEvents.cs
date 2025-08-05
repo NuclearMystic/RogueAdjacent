@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 
-public class ExperienceEvents : MonoBehaviour
+public class ExperienceEvents
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public event Action<int> onEnemyKilledXPGain;
+    public event Action<SkillType, float> onWeaponSkillGained;
+
+    public void EnemyKilledStrengthGained(int xpAmount)
     {
-        
+        onEnemyKilledXPGain?.Invoke(xpAmount);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void WeaponSkillGained(SkillType skill, float xpAmount)
     {
-        
+        onWeaponSkillGained?.Invoke(skill, xpAmount);
     }
 }

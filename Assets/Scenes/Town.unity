@@ -6979,7 +6979,8 @@ GameObject:
   - component: {fileID: 1896544167}
   - component: {fileID: 1896544166}
   - component: {fileID: 1896544168}
-  m_Layer: 0
+  - component: {fileID: 1896544169}
+  m_Layer: 6
   m_Name: Inn/collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7177,6 +7178,20 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1896544169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896544164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9876a22d9a2df749b965eca52874bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interaction: {fileID: 11400000, guid: d44a4212983e5c54db9a3afeb85f0e17, type: 2}
+  inventorySO: {fileID: 0}
 --- !u!1 &1944895042
 GameObject:
   m_ObjectHideFlags: 0
