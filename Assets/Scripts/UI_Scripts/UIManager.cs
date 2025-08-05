@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject QuestMenu;
     public GameObject Crosshair;
     public GameObject ShopMenu;
+    public GameObject SystemMenu;
 
     [Header("Runtime State (Read-Only)")]
     public bool InventoryOpen => InventoryMenu.activeInHierarchy;
@@ -24,6 +25,9 @@ public class UIManager : MonoBehaviour
     public bool SkillsMenuOpen => SkillsMenu.activeInHierarchy;
     public bool QuestMenuOpen => QuestMenu.activeInHierarchy;
     public bool ShopMenuOpen => ShopMenu.activeInHierarchy;
+    public bool SystemMenuOpen => SystemMenu.activeInHierarchy;
+    public void PauseGame() => Time.timeScale = 0f;
+    public void UnPauseGame() => Time.timeScale = 1f;
 
     private bool refreshingMenus = false;
 
@@ -41,6 +45,15 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (IsAnyMenuOpen())
+        {
+            if (Time.timeScale != 0f) PauseGame();             
+        }
+        else
+        {
+            if (Time.timeScale != 1f) UnPauseGame();
+        }
+
         ToggleCursor();
     }
 
@@ -64,16 +77,33 @@ public class UIManager : MonoBehaviour
         ToggleQuestMenu();
     }
 
+    public void ShowSystemMenu()
+    {
+        ToggleSystemMenu();
+    }
+
+
     private void ToggleCursor()
     {
-        bool anyMenuOpen = false;
-        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen))
-        {
-            anyMenuOpen = true;
-        }
-
-        Crosshair.SetActive(anyMenuOpen);
+        Crosshair.SetActive(IsAnyMenuOpen());
         Cursor.visible = false;
+    }
+
+    public bool IsAnyMenuOpen()
+    {
+        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen || SystemMenuOpen))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void ToggleSystemMenu()
+    {
+        SystemMenu.SetActive(!SystemMenu.activeInHierarchy);
     }
 
     private void ToggleQuestMenu()
@@ -148,4 +178,6 @@ public class UIManager : MonoBehaviour
         iMTransform.anchoredPosition = iMOP;
         refreshingMenus = false;
     }
+
+
 }

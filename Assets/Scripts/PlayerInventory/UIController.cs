@@ -6,6 +6,8 @@ public class UIController : MonoBehaviour
     public KeyCode inventoryButton;
     public KeyCode skillsMenuButton;
     public KeyCode characterMenuButton;
+    public KeyCode openAllMenus;
+    public KeyCode systemMenuButton;
 
     private InteractionManager interactionManager;
 
@@ -22,8 +24,16 @@ public class UIController : MonoBehaviour
             interactionManager.InteractWithAim();
         }
 
-        // Open player inventory menu
-        if (Input.GetKeyDown(inventoryButton))
+        // Open all menus at once
+        if (Input.GetKeyDown(openAllMenus))
+        {
+            UIManager.Instance.ShowInventoryMenu();
+            UIManager.Instance.ShowSkillsMenu();
+            UIManager.Instance.ShowCharacterMenu();
+        }
+
+            // Open player inventory menu
+            if (Input.GetKeyDown(inventoryButton))
         {
             UIManager.Instance.ShowInventoryMenu();
         }
@@ -38,6 +48,12 @@ public class UIController : MonoBehaviour
         if (Input.GetKeyDown(characterMenuButton))
         {
             UIManager.Instance.ShowCharacterMenu();
+        }
+
+        // Open system menu
+        if (Input.GetKeyDown(systemMenuButton))
+        {
+            UIManager.Instance.ShowSystemMenu();
         }
     }
 }
