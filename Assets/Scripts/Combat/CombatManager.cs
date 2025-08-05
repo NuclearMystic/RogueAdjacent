@@ -72,7 +72,7 @@ public class CombatManager : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (currentClass != null)
+        if (currentClass != null && Time.timeScale != 0f)
         {
             currentClass.PerformAttack(playerStats, equipmentManager, playerController);
         }
