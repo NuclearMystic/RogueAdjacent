@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     public bool QuestMenuOpen => QuestMenu.activeInHierarchy;
     public bool ShopMenuOpen => ShopMenu.activeInHierarchy;
     public bool SystemMenuOpen => SystemMenu.activeInHierarchy;
+    public UnityEvent updateSkillMenu;
     public void PauseGame() => Time.timeScale = 0f;
     public void UnPauseGame() => Time.timeScale = 1f;
 
@@ -70,6 +72,7 @@ public class UIManager : MonoBehaviour
     public void ShowSkillsMenu()
     {
         ToggleSkillsMenu();
+        updateSkillMenu?.Invoke();
     }
 
     public void ShowQuestMenu()
