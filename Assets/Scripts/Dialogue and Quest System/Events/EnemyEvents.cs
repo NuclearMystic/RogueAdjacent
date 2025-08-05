@@ -1,16 +1,12 @@
+using System;
 using UnityEngine;
 
-public class EnemyEvents : MonoBehaviour
+public class EnemyEvents
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public event Action<string> onEnemyKilled;
 
-    // Update is called once per frame
-    void Update()
+    public void EnemyKilled(string enemyName)
     {
-        
+        onEnemyKilled?.Invoke(enemyName);
     }
 }

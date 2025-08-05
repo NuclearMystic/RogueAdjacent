@@ -34,10 +34,12 @@ public class QuestMenuManager : MonoBehaviour
     private void OnEnable()
     {
         GameEventsManager.instance.questEvents.onQuestStateChange += OnQuestChanged;
+        GameEventsManager.instance.questEvents.onQuestStepProgress += OnQuestProgressChanged;
     }
     private void OnDisable()
     {
         GameEventsManager.instance.questEvents.onQuestStateChange -= OnQuestChanged;
+        GameEventsManager.instance.questEvents.onQuestStepProgress -= OnQuestProgressChanged;
     }
 
     private void OnQuestChanged(Quest quest)
@@ -86,6 +88,19 @@ public class QuestMenuManager : MonoBehaviour
 
 
         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)contentContainer);
+    }
+    private void OnQuestProgressChanged(string questId)
+    {
+        // Find the relevant UI object and update just its description
+        foreach (Transform child in contentContainer)
+        {
+            QuestUIObject questUI = child.GetComponent<QuestUIObject>();
+            if (questUI != null && questUI.HasQuestId(questId))
+            {
+                questUI.UpdateStepDesc();
+                break;
+            }
+        }
     }
 
     private IEnumerator DelayedRefresh()

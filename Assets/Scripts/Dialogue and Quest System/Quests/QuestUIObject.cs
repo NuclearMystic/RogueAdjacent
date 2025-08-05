@@ -21,5 +21,13 @@ public class QuestUIObject : MonoBehaviour
         questStateLabel.text = quest.state.ToString();
 
     }
+    public bool HasQuestId(string id)
+    {
+        return quest.questSO.id == id;
+    }
+    public void UpdateStepDesc()
+    {
+        questStepDesc.text = quest.GetCurrentStepDescription();
+    }
 
 }

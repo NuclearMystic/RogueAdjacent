@@ -31,33 +31,40 @@ public class InteractionManager : MonoBehaviour
 
     public void CheckForInteractable()
     {
-        Vector2 origin = mainCam.transform.position + Vector3.right * 0.1f;
-        Vector2 direction = Vector2.up;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogWarning("Player with tag 'Player' not found.");
+            return;
+        }
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, direction, interactionDistance, interactableLayer);
-        Debug.DrawRay(origin, direction * interactionDistance, Color.yellow, 0.2f);
+        Vector2 origin = player.transform.position;
+        float radius = interactionDistance;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(origin, radius, interactableLayer);
+        
 
         InteractableGameObject bestInteractable = null;
         float closestDistance = float.MaxValue;
 
-        foreach (var hit in hits)
+        foreach (Collider2D collider in hits)
         {
-            InteractableGameObject candidate = hit.collider.GetComponent<InteractableGameObject>();
+            InteractableGameObject candidate = collider.GetComponent<InteractableGameObject>();
+            if (candidate == null || inventoryManager.isInventoryFull) continue;
 
-            if (candidate == null || inventoryManager.isInventoryFull)
-                continue;
+            float distance = Vector2.Distance(origin, collider.transform.position);
 
             bool candidateHasInventory = candidate.inventorySO != null;
             bool bestHasInventory = bestInteractable?.inventorySO != null;
-           
+
             if (
                 bestInteractable == null ||
                 (!bestHasInventory && candidateHasInventory) ||
-                (bestHasInventory == candidateHasInventory && hit.distance < closestDistance)
+                (bestHasInventory == candidateHasInventory && distance < closestDistance)
             )
             {
                 bestInteractable = candidate;
-                closestDistance = hit.distance;
+                closestDistance = distance;
             }
         }
 
@@ -65,7 +72,7 @@ public class InteractionManager : MonoBehaviour
         {
             interacting = true;
             currentTarget = bestInteractable;
-            manager.InteractToolTip(interacting, currentTarget.interaction.promptText);
+            manager.InteractToolTip(interacting, currentTarget.interaction.GetPromptText());
         }
         else
         {
@@ -84,4 +91,5 @@ public class InteractionManager : MonoBehaviour
             GameEventsManager.instance.interactionEvents.Interact(currentTarget.gameObject);
         }
     }
+    
 }

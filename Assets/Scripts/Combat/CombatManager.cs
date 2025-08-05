@@ -106,7 +106,9 @@ public class CombatManager : MonoBehaviour
             enemy.TakeDamage(totalDamage, knockbackDir);
 
             SkillUsageTracker.RegisterSkillUse(skill, totalDamage * 0.2f);
+            GameEventsManager.instance.experienceEvents.WeaponSkillGained(skill, totalDamage * 0.2f);
         }
+
         else
         {
             console.SendMessageToConsole("Fighter missed!");

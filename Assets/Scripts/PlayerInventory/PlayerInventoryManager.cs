@@ -76,4 +76,31 @@ public class PlayerInventoryManager : MonoBehaviour
             }
         }
     }
+
+    public void RemoveItemsById(int itemId, int quantity)
+    {
+        int remaining = quantity;
+
+        foreach (var slot in characterManager.characterItemSlots.Concat(inventoryManager.inventoryItemSlots))
+        {
+            if (slot.inventoryItem != null && slot.inventoryItem.itemId == itemId)
+            {
+                int removable = Mathf.Min(remaining, slot.heldItems);
+                slot.heldItems -= removable;
+                remaining -= removable;
+
+                slot.draggableIconSlot.UpdateQuantity(slot.heldItems);
+
+                if (slot.heldItems <= 0)
+                {
+                    slot.ClearSlot();
+                }
+
+                if (remaining <= 0)
+                    return;
+            }
+        }
+
+        Debug.LogWarning($"Tried to remove {quantity} items with ID {itemId}, but only {quantity - remaining} were removed.");
+    }
 }
