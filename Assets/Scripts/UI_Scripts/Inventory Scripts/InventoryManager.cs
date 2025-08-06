@@ -13,6 +13,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Button consumeButton;
     [SerializeField] private GameObject thisMenu;
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] public Slider qtySlider;
+    [SerializeField] private TextMeshProUGUI qtySliderLabel;
 
     [Header("Prefabs")]
     public GameObject highlightedSlotPrefab;
@@ -35,6 +37,10 @@ public class InventoryManager : MonoBehaviour
         closeButton.onClick.AddListener(() => CloseWindow());
         consumeButton.onClick.RemoveAllListeners();
         consumeButton.onClick.AddListener(() => ConsumeItem());
+
+        qtySlider.onValueChanged.AddListener((val) => {
+            qtySliderLabel.text = $"{val}";
+        });
     }
 
     private void Update()
@@ -55,10 +61,24 @@ public class InventoryManager : MonoBehaviour
             var item = selectedItemSlot.slotItem;
             bool canUse = item.healthEffect > 0 || item.staminaEffect > 0 || item.magicEffect > 0;
             consumeButton.gameObject.SetActive(canUse);
+
+            if (selectedItemSlot.quantity > 1)
+            {
+                qtySlider.gameObject.SetActive(true);
+                qtySlider.wholeNumbers = true;
+                qtySlider.minValue = 1;
+                qtySlider.maxValue = selectedItemSlot.quantity;
+                //qtySlider.value = 1;
+            }
+            else
+            {
+                qtySlider.gameObject.SetActive(false);
+            }
         }
         else
         {
             consumeButton.gameObject.SetActive(false);
+            qtySlider.gameObject.SetActive(false);
         }
     }
     public void ConsumeItem()
@@ -67,12 +87,13 @@ public class InventoryManager : MonoBehaviour
             return;
 
         var item = selectedItemSlot.slotItem;
+        int amountToConsume = selectedItemSlot.quantity > 1 ? Mathf.RoundToInt(qtySlider.value) : 1;
 
-        PlayerVitals.instance.RestoreHealth(item.healthEffect);
-        PlayerVitals.instance.RestoreStamina(item.staminaEffect);
-        PlayerVitals.instance.ReplenishMagic(item.magicEffect);
+        PlayerVitals.instance.RestoreHealth(item.healthEffect * amountToConsume);
+        PlayerVitals.instance.RestoreStamina(item.staminaEffect * amountToConsume);
+        PlayerVitals.instance.ReplenishMagic(item.magicEffect * amountToConsume);
 
-        selectedItemSlot.quantity--;
+        selectedItemSlot.quantity -= amountToConsume;
         selectedItemSlot.UpdateQuantity(selectedItemSlot.quantity);
 
         if (selectedItemSlot.quantity <= 0)
@@ -84,6 +105,8 @@ public class InventoryManager : MonoBehaviour
             }
             selectedItemSlot = null;
         }
+
+        ShowConsumeButton(); 
     }
 
     public void UpdateCurrency()
