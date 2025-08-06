@@ -31,7 +31,8 @@ public class AttackHitbox : MonoBehaviour
             if (combatManager.IsCurrentClassFighter()) 
             {
                 hitEnemies.Add(enemy);
-                combatManager.Attack(enemy);
+                combatManager?.PerformAttack();
+                combatManager?.Attack(enemy);
             }
         }
     }

@@ -936,7 +936,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   equippedWeapons:
-  - {fileID: 11400000, guid: 04953d3f3f888d74ca5053c1c298876a, type: 2}
+  - {fileID: 11400000, guid: ebbe32d5b9a20da4c825fd57ef4ffb51, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1591,6 +1591,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3164223394302847003, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
+      propertyPath: skillLevelUpSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: e3add06cbfba87b458b6f50e3a45990e, type: 3}
+    - target: {fileID: 3164223394302847003, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
+      propertyPath: attributeLevelUpSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 22c8784922ddea94f8b0b8a1b952be4f, type: 3}
     - target: {fileID: 3519354752126672785, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

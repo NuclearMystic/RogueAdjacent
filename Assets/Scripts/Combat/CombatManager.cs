@@ -119,7 +119,7 @@ public class CombatManager : MonoBehaviour
 
         else
         {
-            SFXManager.Instance.PlaySFX(miss);
+            SFXManager.Instance.PlaySFX(hit);
             console.SendMessageToConsole("Fighter missed!");
         }
     }
