@@ -30,7 +30,7 @@ public class ItemCollectionQuestStep : QuestStep
         {
             itemsCollected++;
             Debug.Log($"Picked up item {itemId}. Progress: {itemsCollected}/{itemsToCollect}");
-
+            UpdateStepDescription();
             if (itemsCollected >= itemsToCollect)
             {
                 Debug.Log("Quest Complete!");
@@ -38,5 +38,11 @@ public class ItemCollectionQuestStep : QuestStep
                 FinishQuestStep();
             }
         }
+    }
+
+    private void UpdateStepDescription()
+    {
+        stepDescription = $"Collect {itemsToCollect} apples ({itemsCollected}/{itemsToCollect})";
+        GameEventsManager.instance.questEvents.QuestStepProgressChanged(questId);
     }
 }

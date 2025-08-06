@@ -128,6 +128,7 @@ public class ItemCreationWindow : EditorWindow
 
         var collider = worldItem.AddComponent<BoxCollider2D>();
         if (sr.sprite != null) collider.size = sr.sprite.bounds.size;
+        collider.isTrigger = true;
 
         worldItem.transform.localScale = new Vector3(2f, 2f, 1f);
 

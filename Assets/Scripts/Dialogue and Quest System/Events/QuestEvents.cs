@@ -42,4 +42,14 @@ public class QuestEvents
         }
     }
 
+    public event Action<string> onQuestStepProgress;
+
+    public void QuestStepProgressChanged(string questId)
+    {
+        if (onQuestStepProgress != null)
+        {
+            onQuestStepProgress(questId);
+        }
+    }
+
 }

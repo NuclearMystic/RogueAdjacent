@@ -101,11 +101,21 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     public EquipmentItem GetCurrentHeldWeapon()
     {
-        return equippedWeapons[currentHeldWeapon - 1];
+        if (currentHeldWeapon == 0)
+        {
+            return equippedWeapons[currentHeldWeapon];
+        }
+        else
+        {
+            return equippedWeapons[currentHeldWeapon - 1];
+        }
     }
 
     public bool HasWeaponEquipped()
     {
+        if (GetCurrentHeldWeapon() == null)
+            return false;
+
         if(GetCurrentHeldWeapon() != null)
         {
             return true;

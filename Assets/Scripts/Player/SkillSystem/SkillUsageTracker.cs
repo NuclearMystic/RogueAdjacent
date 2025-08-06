@@ -1,6 +1,6 @@
 public static class SkillUsageTracker
 {
-    private const float AttributeXPPercent = 0.05f;
+    private const float AttributeXPPercent = 10f;
 
     public static void RegisterSkillUse(SkillType skill, float xpAmount)
     {
@@ -27,7 +27,7 @@ public static class SkillUsageTracker
         }
 
         //Refresh skill list when menu opens and closes to show most recent updates to skills
-        if (UIManager.Instance.skillsMenuOpen == true)
+        if (UIManager.Instance.SkillsMenuOpen == true)
         {
             UIManager.Instance.gameObject.GetComponent<SkillMenuUI>().RefreshAllSkills();
         }

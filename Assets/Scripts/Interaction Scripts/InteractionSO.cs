@@ -9,5 +9,5 @@ public class InteractionSO : ScriptableObject
     {
         //Debug.Log("Interacting");
     }
-    public string GetPromptText() => promptText;
+    public virtual string GetPromptText() => promptText;
 }

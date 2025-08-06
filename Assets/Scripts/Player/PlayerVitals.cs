@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerVitals : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class PlayerVitals : MonoBehaviour
     private Coroutine magicRegenCoroutine;
 
     // health
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
     private float maxHealth = 100;
 
     // stamina
@@ -61,11 +62,16 @@ public class PlayerVitals : MonoBehaviour
     private float currentMagic;
     private float maxMagic = 100;
 
+    private CombatManager combatManager;
+    private SkillType armorSkill;
+
     void Start()
     {
         // initialize vitals with starting max values based off attributes
         InitializeVitals();
 
+        combatManager = GetComponentInParent<CombatManager>();
+        SetArmorSkill();
         // initialize sliders with starting current health
         RefreshBarsUI();
     }
@@ -117,6 +123,26 @@ public class PlayerVitals : MonoBehaviour
         }
     }
 
+    private void SetArmorSkill()
+    {
+        PlayerClass playerClass = combatManager.playerClass;
+
+        if (combatManager == null)
+        {
+            Debug.LogWarning("Armor Type Not Set");
+            return;
+        }
+        else
+        {
+            switch (playerClass)
+            {
+                case PlayerClass.Archer: armorSkill = SkillType.LightArmor; break;
+                case PlayerClass.Fighter: armorSkill = SkillType.HeavyArmor; break;
+                case PlayerClass.Wizard: armorSkill = SkillType.MageArmor; break;
+                default: armorSkill = SkillType.LightArmor; break;
+            }
+        }
+    }
     public void RefreshBarsUI()
     {
         // refresh slider values so they match current health values
@@ -130,6 +156,8 @@ public class PlayerVitals : MonoBehaviour
     public void DamageHealth(float damage)
     {
         currentHealth -= damage;
+
+        PlayerStats.Instance.AddSkillXP(armorSkill, damage * .2f);
 
         // Stop healing if damaged
         StopHealing();

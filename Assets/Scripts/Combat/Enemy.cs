@@ -22,9 +22,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int flashCount = 2;
 
     private bool isOnHitCooldown = false;
+    private LootTable lootTable;
 
     private void Start()
     {
+        lootTable = FindAnyObjectByType<LootTable>();
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
 
@@ -88,8 +90,27 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         InGameConsole.Instance.SendMessageToConsole($"{enemyName} has been slain!");
+        GameEventsManager.instance.enemyEvents.EnemyKilled(enemyName);
+        GameEventsManager.instance.experienceEvents.EnemyKilledStrengthGained(xpOnDeath);
+
+        SkillType skill = PlayerEquipmentManager.Instance.GetCurrentHeldWeapon().weaponSkill;
+        PlayerStats.Instance.AddSkillXP(skill, xpOnDeath);
+        DropLoot();
         // TODO: Grant XP to player, drop loot, trigger animation, etc.
         Destroy(gameObject);
+    }
+
+    private void DropLoot()
+    {
+        if (lootTable == null) return;
+
+        InventoryItem item = lootTable.GetRandomLootItem();
+        if (item == null) return;
+
+        Vector2 dropOffset = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+        Vector2 dropPosition = (Vector2)transform.position + dropOffset;
+
+        Instantiate(item.itemPrefab, dropPosition, Quaternion.identity);
     }
 
     public float GetHealthPercent()

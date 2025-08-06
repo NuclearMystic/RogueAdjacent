@@ -72,7 +72,7 @@ public class CombatManager : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (currentClass != null)
+        if (currentClass != null && Time.timeScale != 0f)
         {
             currentClass.PerformAttack(playerStats, equipmentManager, playerController);
         }
@@ -87,7 +87,7 @@ public class CombatManager : MonoBehaviour
             console.SendMessageToConsole("No weapon equipped!");
             return;
         }
-
+ 
         SkillType skill = weapon.weaponSkill;
         int skillTotal = playerStats.GetSkillTotal(skill);
         int hitRoll = DiceRoller.Roll(DiceType.D20) + skillTotal;
@@ -106,7 +106,9 @@ public class CombatManager : MonoBehaviour
             enemy.TakeDamage(totalDamage, knockbackDir);
 
             SkillUsageTracker.RegisterSkillUse(skill, totalDamage * 0.2f);
+            GameEventsManager.instance.experienceEvents.WeaponSkillGained(skill, totalDamage * 0.2f);
         }
+
         else
         {
             console.SendMessageToConsole("Fighter missed!");

@@ -49,11 +49,15 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void Update()
     {
-        if (canMove)
+        if (canMove && Time.timeScale != 0f)
         {
             HandleMovement();
             HandleJump();
             HandleRunWalkToggle();
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
