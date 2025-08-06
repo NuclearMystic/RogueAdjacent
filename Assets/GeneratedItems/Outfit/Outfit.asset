@@ -17,12 +17,18 @@ MonoBehaviour:
   stackable: 0
   stackSize: 1
   itemId: 4
-  itemType: 7
+  baseCost: 5
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemType: 6
   itemPrefab: {fileID: 6953103871812360537, guid: fac31c487be015f409ba71dcac58b4c3, type: 3}
   draggableIcon: {fileID: 3187352227952596333, guid: ca866d6f397b72742a20d8b04e98d3b5, type: 3}
-  weaponSkill: 0
+  weaponSkill: 9
   weaponDice: 0
   flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
   filePathSheetOne: 2D/Actors/char_a_p1/1out/
   filePathSheetTwo: 2D/Actors/char_a_p1/1out/
   filePathSheetThree: 
