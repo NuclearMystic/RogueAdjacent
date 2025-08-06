@@ -42,7 +42,7 @@ public class CombatManager : MonoBehaviour
     {
         if (Input.GetKeyDown(attackButton))
         {
-            if (PlayerVitals.instance.currentStamina > 0)
+            if (PlayerVitals.instance.currentStamina > 0 && Time.timeScale != 0f && uiManager.IsAnyMenuOpen() == false)
             {
                 SFXManager.Instance.PlaySFX(equipmentManager.GetCurrentHeldWeapon().itemSFX, 1);
                 playerAnimator.SetTrigger("Attack");
@@ -79,7 +79,7 @@ public class CombatManager : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (currentClass != null && Time.timeScale != 0f && uiManager.IsAnyMenuOpen() == false)
+        if (currentClass != null)
         {
             currentClass.PerformAttack(playerStats, equipmentManager, playerController);
         }
