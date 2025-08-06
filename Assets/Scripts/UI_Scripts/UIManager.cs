@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject ShopMenu;
     public GameObject SystemMenu;
     public GameObject LootBoxMenu;
+    public DragGhostHandler GhostPrefab; //For item splitting
 
     [Header("Runtime State (Read-Only)")]
     public bool LootBoxOpen => LootBoxMenu.activeInHierarchy;
@@ -30,8 +31,8 @@ public class UIManager : MonoBehaviour
     public bool ShopMenuOpen => ShopMenu.activeInHierarchy;
     public bool SystemMenuOpen => SystemMenu.activeInHierarchy;
     public UnityEvent updateSkillMenu;
-    public void PauseGame() => Time.timeScale = 0f;
-    public void UnPauseGame() => Time.timeScale = 1f;
+    //public void PauseGame() => Time.timeScale = 0f;
+    //public void UnPauseGame() => Time.timeScale = 1f;
 
     private bool refreshingMenus = false;
 
@@ -49,14 +50,14 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (IsAnyMenuOpen())
-        {
-            if (Time.timeScale != 0f) PauseGame();
-        }
-        else
-        {
-            if (Time.timeScale != 1f) UnPauseGame();
-        }
+        //if (IsAnyMenuOpen())
+        //{
+        //    if (Time.timeScale != 0f) PauseGame();
+        //}
+        //else
+        //{
+        //    if (Time.timeScale != 1f) UnPauseGame();
+        //}
 
         ToggleCursor();
     }

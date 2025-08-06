@@ -5,10 +5,10 @@ public class ShopNPC : MonoBehaviour
 {
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private DialogueSO dialogueData;
-    [SerializeField] private float triggerCooldown = 5f;
+    
 
     private bool playerNear = false;
-    private float cooldownTimer = 0f;
+    
 
     private void Start()
     {

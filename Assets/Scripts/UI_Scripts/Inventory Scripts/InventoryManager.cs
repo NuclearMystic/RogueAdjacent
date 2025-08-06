@@ -13,6 +13,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Button consumeButton;
     [SerializeField] private GameObject thisMenu;
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] public Slider qtySlider;
+    [SerializeField] private TextMeshProUGUI qtySliderLabel;
 
     [Header("Prefabs")]
     public GameObject highlightedSlotPrefab;
@@ -35,12 +37,20 @@ public class InventoryManager : MonoBehaviour
         closeButton.onClick.AddListener(() => CloseWindow());
         consumeButton.onClick.RemoveAllListeners();
         consumeButton.onClick.AddListener(() => ConsumeItem());
+
+        qtySlider.onValueChanged.AddListener((val) => {
+            qtySliderLabel.text = $"{val}";
+        });
     }
 
     private void Update()
     {
         UpdateCurrency();
-        ShowConsumeButton();
+        //ShowConsumeButton();
+        if (qtySlider.isActiveAndEnabled)
+        {
+            qtySlider.wholeNumbers = true;
+        }
     }
 
     public void CloseWindow()
@@ -55,25 +65,58 @@ public class InventoryManager : MonoBehaviour
             var item = selectedItemSlot.slotItem;
             bool canUse = item.healthEffect > 0 || item.staminaEffect > 0 || item.magicEffect > 0;
             consumeButton.gameObject.SetActive(canUse);
+
+            if (selectedItemSlot.quantity > 1)
+            {
+                qtySlider.gameObject.SetActive(true);
+                qtySlider.wholeNumbers = true;
+
+                // Remove old listeners BEFORE assigning values
+                qtySlider.onValueChanged.RemoveAllListeners();
+
+                // Set min/max BEFORE value
+                qtySlider.minValue = 1;
+                qtySlider.maxValue = selectedItemSlot.quantity;
+
+                // Only after min/max, set value
+                qtySlider.value = selectedItemSlot.quantity;
+
+                // Set label immediately
+                qtySliderLabel.text = qtySlider.value.ToString();
+
+                // Rebind value change listener AFTER value set
+                qtySlider.onValueChanged.AddListener((val) =>
+                {
+                    qtySliderLabel.text = val.ToString();
+                });
+                qtySlider.wholeNumbers = true;
+            }
+            else
+            {
+                qtySlider.gameObject.SetActive(false);
+            }
         }
         else
         {
             consumeButton.gameObject.SetActive(false);
+            qtySlider.gameObject.SetActive(false);
         }
     }
+
+
     public void ConsumeItem()
     {
         if (selectedItemSlot == null || selectedItemSlot.slotItem == null)
             return;
 
         var item = selectedItemSlot.slotItem;
+        int amountToConsume = selectedItemSlot.quantity > 1 ? Mathf.RoundToInt(qtySlider.value) : 1;
 
-        SFXManager.Instance.PlaySFX(item.itemUsedSFX);
-        PlayerVitals.instance.RestoreHealth(item.healthEffect);
-        PlayerVitals.instance.RestoreStamina(item.staminaEffect);
-        PlayerVitals.instance.ReplenishMagic(item.magicEffect);
+        PlayerVitals.instance.RestoreHealth(item.healthEffect * amountToConsume);
+        PlayerVitals.instance.RestoreStamina(item.staminaEffect * amountToConsume);
+        PlayerVitals.instance.ReplenishMagic(item.magicEffect * amountToConsume);
 
-        selectedItemSlot.quantity--;
+        selectedItemSlot.quantity -= amountToConsume;
         selectedItemSlot.UpdateQuantity(selectedItemSlot.quantity);
 
         if (selectedItemSlot.quantity <= 0)
@@ -85,6 +128,8 @@ public class InventoryManager : MonoBehaviour
             }
             selectedItemSlot = null;
         }
+
+        ShowConsumeButton(); 
     }
 
     public void UpdateCurrency()

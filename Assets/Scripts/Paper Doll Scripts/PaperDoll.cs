@@ -174,7 +174,7 @@ public class PaperDoll : MonoBehaviour
     {
         if (equipped != null)
         {
-            Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
+            //Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
 
             if (equippedWeaponIsRanged && layerType != LayerType.Weapon)
             {
