@@ -12,8 +12,8 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public Transform parentAfterDrag;
 
     public RectTransform crosshair;
-    public GameObject crosshairGO;
 
+    private Canvas mainUICanvas;
     private GameObject highlightOverlayInstance;
 
     private void Awake()
@@ -35,9 +35,14 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (crosshair == null)
         {
-            crosshairGO = GameObject.FindGameObjectWithTag("Crosshair");
+            GameObject crosshairGO = GameObject.FindGameObjectWithTag("Crosshair");
             if (crosshairGO != null)
                 crosshair = crosshairGO.GetComponent<RectTransform>();
+        }
+
+        if (mainUICanvas == null && UIManager.Instance != null)
+        {
+            mainUICanvas = UIManager.Instance.GetComponentInParent<Canvas>();
         }
     }
 
@@ -72,106 +77,82 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         parentAfterDrag = transform.parent;
 
-        var invManager = InventoryManager.Instance;
-        int dragQty = 1;
-
-        if (invManager != null && invManager.selectedItemSlot == this &&
-            invManager.qtySlider != null && invManager.qtySlider.gameObject.activeInHierarchy)
+        if (mainUICanvas != null)
         {
-            dragQty = Mathf.Clamp(Mathf.RoundToInt(invManager.qtySlider.value), 1, quantity);
+            transform.SetParent(mainUICanvas.transform);
+        }
+        else
+        {
+            transform.SetParent(transform.root);
         }
 
-        if (dragQty >= quantity)
-        {
-            dragQty = quantity;
-
-            transform.SetParent(crosshairGO.transform, false);
-            transform.SetAsLastSibling();
-            iconImage.raycastTarget = false;
-
-            if (parentAfterDrag == ShopManager.Instance.sellSlotParent)
-            {
-                ShopManager.Instance.UnregisterSellItem(this);
-            }
-
-            if (invManager.selectedItemSlot == this)
-            {
-                invManager.selectedItemSlot = null;
-                RemoveHighlight();
-            }
-
-            return;
-        }
-
-        quantity -= dragQty;
-        UpdateQuantity(quantity);
-
-        GameObject dragGO = Instantiate(gameObject);
-        DraggableIconSlot newIcon = dragGO.GetComponent<DraggableIconSlot>();
-
-        newIcon.slotItem = this.slotItem;
-        newIcon.SetQuantity(dragQty);
-        newIcon.parentAfterDrag = parentAfterDrag;
-
-        if (crosshairGO != null)
-        {
-            dragGO.transform.SetParent(crosshairGO.transform, false);
-            dragGO.transform.SetAsLastSibling();
-        }
-
-        newIcon.iconImage.raycastTarget = false;
+        transform.SetAsLastSibling();
+        iconImage.raycastTarget = false;
 
         if (parentAfterDrag == ShopManager.Instance.sellSlotParent)
         {
             ShopManager.Instance.UnregisterSellItem(this);
         }
 
-        transform.SetAsLastSibling();
+        gameObject.SetActive(true);
 
-        if (invManager.selectedItemSlot == this)
+        if (InventoryManager.Instance.selectedItemSlot == this)
         {
-            invManager.selectedItemSlot = null;
+            InventoryManager.Instance.selectedItemSlot = null;
             RemoveHighlight();
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //if (crosshair != null)
-        //    transform.position = crosshair.position;
-        //else
-        //    transform.position = Input.mousePosition;
+        if (crosshair != null)
+        {
+            transform.position = crosshair.position;
+        }
+        else
+        {
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         iconImage.raycastTarget = true;
 
-        bool droppedInUI = false;
         GameObject hovered = eventData.pointerEnter;
 
-        if (hovered != null && hovered != gameObject)
+        if (hovered == gameObject || (hovered != null && hovered.transform.IsChildOf(transform)))
         {
-            if (hovered.transform.TryGetComponent<ItemSlot>(out var targetSlot))
+            hovered = null;
+        }
+
+        bool droppedInUI = false;
+
+        if (hovered != null)
+        {
+            if (hovered.transform.IsChildOf(ShopManager.Instance.sellSlotParent))
+            {
+                transform.SetParent(ShopManager.Instance.sellSlotParent);
+                ShopManager.Instance.RegisterSellItem(this);
+                droppedInUI = true;
+            }
+            else if (hovered.TryGetComponent<ItemSlot>(out var targetSlot))
             {
                 if (targetSlot.CanAcceptItem(slotItem))
                 {
                     transform.SetParent(targetSlot.transform);
-                    transform.localPosition = Vector3.zero;
-
-                    targetSlot.draggableIconSlot = this;
-                    targetSlot.inventoryItem = slotItem;
-                    targetSlot.heldItems = quantity;
-                    targetSlot.maxHeldItems = slotItem.stackSize;
-                    targetSlot.slotFilled = quantity >= slotItem.stackSize;
-
                     droppedInUI = true;
+                }
+                else
+                {
+                    transform.SetParent(parentAfterDrag);
+                    transform.localPosition = Vector3.zero;
+                    return;
                 }
             }
             else if (hovered.transform.IsChildOf(parentAfterDrag))
             {
                 transform.SetParent(parentAfterDrag);
-                transform.localPosition = Vector3.zero;
                 droppedInUI = true;
             }
         }
@@ -189,6 +170,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (slotItem == null || slotItem.itemPrefab == null)
         {
+            Debug.LogWarning("No item or world prefab to drop.");
             Destroy(gameObject);
             return;
         }
@@ -196,6 +178,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
         {
+            Debug.LogError("Player not found in scene!");
             Destroy(gameObject);
             return;
         }
@@ -222,6 +205,8 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             Instantiate(slotItem.itemPrefab, dropPosition, Quaternion.identity);
         }
 
+        Debug.Log($"Dropped {quantity}x {slotItem.ObjectName} into world");
+
         if (parentAfterDrag.TryGetComponent<ItemSlot>(out var slot))
         {
             slot.heldItems -= quantity;
@@ -241,7 +226,10 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         var manager = InventoryManager.Instance;
 
         if (manager == null)
+        {
+            Debug.LogWarning("InventoryManager.Instance is null.");
             return;
+        }
 
         if (manager.selectedItemSlot == this)
         {

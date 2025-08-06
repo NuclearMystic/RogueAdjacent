@@ -28,6 +28,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString())
             return;
 
+        // Merge stack
         if (inventoryItem != null &&
             inventoryItem.itemId == draggedIcon.slotItem.itemId &&
             heldItems < maxHeldItems)
@@ -44,6 +45,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             draggedIcon.parentAfterDrag = transform;
         }
 
+        // Optional: Equip item if valid
         if (slotType != SlotType.Any && draggedIcon.slotItem is EquipmentItem equipItem)
         {
             int index = transform.GetSiblingIndex();
@@ -66,21 +68,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         if (transform.childCount > 0)
         {
             draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
+            inventoryItem = draggableIconSlot.slotItem;
 
-            if (draggableIconSlot != null && draggableIconSlot.slotItem != null)
-            {
-                inventoryItem = draggableIconSlot.slotItem;
-                heldItems = draggableIconSlot.quantity;
-                maxHeldItems = inventoryItem.stackSize;
-                slotFilled = heldItems >= maxHeldItems;
-            }
-            else
-            {
-                heldItems = 0;
-                maxHeldItems = 0;
-                inventoryItem = null;
-                slotFilled = false;
-            }
+            heldItems = draggableIconSlot.quantity;
+            maxHeldItems = inventoryItem.stackSize;
+            slotFilled = heldItems >= maxHeldItems;
         }
         else
         {
