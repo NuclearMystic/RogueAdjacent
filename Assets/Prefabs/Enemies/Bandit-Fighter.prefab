@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1494113281
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 6801092503285493249, guid: 6103dd78e39176e49a0a703cc4d0aebe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c470c9617ca0448b8b994103f4b537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Bandit
+  enemyName: Bandit Fighter
   maxHealth: 45
   defense: 13
   xpOnDeath: 30

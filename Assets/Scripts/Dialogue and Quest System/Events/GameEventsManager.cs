@@ -12,6 +12,7 @@ public class GameEventsManager : MonoBehaviour
 
     public EnemyEvents enemyEvents;
     public ExperienceEvents experienceEvents;
+    public PlayerEvents playerEvents;
 
 
     private void Awake()
@@ -34,5 +35,6 @@ public class GameEventsManager : MonoBehaviour
         interactionEvents = new InteractionEvents();
         enemyEvents = new EnemyEvents();
         experienceEvents = new ExperienceEvents();
+        playerEvents = new PlayerEvents();  
     }
 }

@@ -27,7 +27,7 @@ public class HealingInteraction : InteractionSO
         vitals.RestoreHealth(healAmount);
         vitals.RestoreStamina(healAmount);
         vitals.ReplenishMagic(healAmount);
-
+        GameEventsManager.instance.playerEvents.HealedAtInn(true);
         InGameConsole.Instance.SendMessageToConsole($"Rested at the inn. Spent {healCost} gold and restored {healAmount} to all vitals.");
     }
     public override string GetPromptText()

@@ -176,6 +176,7 @@ public class ShopManager : MonoBehaviour
         {
             float amount = GetSellValueForItem(slot.slotItem) * slot.quantity;
             GameEventsManager.instance.currencyEvents.CurrencyGained(amount);
+            GameEventsManager.instance.miscEvents.ItemSold(slot.slotItem.itemId, slot.quantity);
             Destroy(slot.gameObject);
         }
 

@@ -10,4 +10,10 @@ public class MiscEvents
         onItemCollected?.Invoke(incomingItemID);
     }
 
+    public event Action<int, int> onItemSold;
+
+    public void ItemSold(int incomingItemID, int incomingQty)
+    {
+        onItemSold?.Invoke(incomingItemID, incomingQty);
+    }
 }

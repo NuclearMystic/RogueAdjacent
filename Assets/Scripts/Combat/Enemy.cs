@@ -23,12 +23,13 @@ public class Enemy : MonoBehaviour
 
     private bool isOnHitCooldown = false;
     private LootTable lootTable;
-
+    //private DialogueManager dialogueManager;
     private void Start()
     {
         lootTable = FindAnyObjectByType<LootTable>();
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
+        //dialogueManager = GetComponentInChildren<DialogueManager>();    
 
         if (spriteRenderer == null)
         {
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(HitCooldown());
         ApplyKnockback(knockbackDirection);
         StartCoroutine(FlashSprite());
+        //dialogueManager.HitDialogue();
 
         if (currentHealth <= 0)
         {
@@ -91,7 +93,7 @@ public class Enemy : MonoBehaviour
     {
         InGameConsole.Instance.SendMessageToConsole($"{enemyName} has been slain!");
         GameEventsManager.instance.enemyEvents.EnemyKilled(enemyName);
-        GameEventsManager.instance.experienceEvents.EnemyKilledStrengthGained(xpOnDeath);
+        GameEventsManager.instance.experienceEvents.EnemyKilledXPGained(xpOnDeath);
 
         SkillType skill = PlayerEquipmentManager.Instance.GetCurrentHeldWeapon().weaponSkill;
         PlayerStats.Instance.AddSkillXP(skill, xpOnDeath);
