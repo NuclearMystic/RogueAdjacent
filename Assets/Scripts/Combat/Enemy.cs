@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 20;
     public int defense = 10;
     public int xpOnDeath = 10;
+    public int goldOffDeath;
 
     private int currentHealth;
 
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour
         {
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
+
+        goldOffDeath = Random.Range(xpOnDeath/2 - 5, xpOnDeath/2 + 5);
     }
 
     public int Defense => defense;
@@ -97,6 +100,7 @@ public class Enemy : MonoBehaviour
 
         SkillType skill = PlayerEquipmentManager.Instance.GetCurrentHeldWeapon().weaponSkill;
         PlayerStats.Instance.AddSkillXP(skill, xpOnDeath);
+        GameEventsManager.instance.currencyEvents.CurrencyGained(goldOffDeath);
         DropLoot();
         // TODO: Grant XP to player, drop loot, trigger animation, etc.
         Destroy(gameObject);
