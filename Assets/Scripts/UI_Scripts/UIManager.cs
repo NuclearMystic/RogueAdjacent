@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject QuestMenu;
     public GameObject Crosshair;
     public GameObject ShopMenu;
+    public GameObject LootBoxMenu;
 
     [Header("Runtime State (Read-Only)")]
     public bool InventoryOpen => InventoryMenu.activeInHierarchy;
@@ -24,6 +25,8 @@ public class UIManager : MonoBehaviour
     public bool SkillsMenuOpen => SkillsMenu.activeInHierarchy;
     public bool QuestMenuOpen => QuestMenu.activeInHierarchy;
     public bool ShopMenuOpen => ShopMenu.activeInHierarchy;
+
+    public bool LootBoxOpen => LootBoxMenu.activeInHierarchy;
 
     private bool refreshingMenus = false;
 
@@ -67,7 +70,7 @@ public class UIManager : MonoBehaviour
     private void ToggleCursor()
     {
         bool anyMenuOpen = false;
-        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen))
+        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen || LootBoxOpen))
         {
             anyMenuOpen = true;
         }

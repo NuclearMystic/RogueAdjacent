@@ -59,8 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85134602fa576434fbfc5fbad2618c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyEvents: {fileID: 0}
-  experienceEvents: {fileID: 0}
 --- !u!114 &-8736475395161967937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,3 +84,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80605bfcfd5de55408a24581f3abacf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsDatabase:
+  - {fileID: 11400000, guid: e51da57a7bbb96f499dacd6f238e7c20, type: 2}
+  - {fileID: 11400000, guid: ba8be415c35d43149b658e7e69e7cd2d, type: 2}
+  - {fileID: 11400000, guid: ebbe32d5b9a20da4c825fd57ef4ffb51, type: 2}
+  - {fileID: 11400000, guid: 04953d3f3f888d74ca5053c1c298876a, type: 2}
+  - {fileID: 11400000, guid: 4211930d023ae1f46a1b4fe820dc84f9, type: 2}
+  - {fileID: 11400000, guid: 7b365ca48d831e046baec4b143c62e23, type: 2}
+  - {fileID: 11400000, guid: c6bf4652ae236464b836cb3a685ea37f, type: 2}
+  - {fileID: 11400000, guid: 4f8a7594277f9324b95f2a5bf5d2313b, type: 2}
+  - {fileID: 11400000, guid: 7c5365cbfaf6d4c4cb0c29c66f85bd8d, type: 2}
+  - {fileID: 11400000, guid: 0b1e4a095e60ea048b8c786a1e87c922, type: 2}
+  - {fileID: 11400000, guid: 9626eb568348f3144bf3399a5bf2d243, type: 2}
+  - {fileID: 11400000, guid: c935f89bbb19cf141a23aea60216a117, type: 2}
+  - {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
+  - {fileID: 11400000, guid: 73a40dc8a55960843a57e3293798cc05, type: 2}
+  - {fileID: 11400000, guid: c4deba01ffd224a4cbbe19f2ed200f37, type: 2}
+  - {fileID: 11400000, guid: 1b13041875cd0bd4083e4bb4b54b38dc, type: 2}
+  - {fileID: 11400000, guid: c1dc4b99034a57049aa43318c1e85464, type: 2}

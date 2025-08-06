@@ -16,21 +16,26 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public SlotType slotType;
     public bool isItemEquipped = false;
 
+    [Header("Loot Box Slot?")]
+    public bool isLootSlot = false;
+
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
-        DraggableIconSlot draggedIcon = dropped.GetComponent<DraggableIconSlot>();
-
+        DraggableIconSlot draggedIcon = dropped?.GetComponent<DraggableIconSlot>();
         if (draggedIcon == null || draggedIcon.slotItem == null) return;
-        if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString()) return;
 
+        if (slotType != SlotType.Any && draggedIcon.slotItem.itemType.ToString() != slotType.ToString())
+            return;
+
+        // Merge stack
         if (inventoryItem != null &&
             inventoryItem.itemId == draggedIcon.slotItem.itemId &&
             heldItems < maxHeldItems)
         {
             heldItems++;
             draggableIconSlot.UpdateQuantity(heldItems);
-            Destroy(draggedIcon.gameObject); // Avoid duplicate icon
+            Destroy(draggedIcon.gameObject);
             slotFilled = heldItems >= maxHeldItems;
             return;
         }
@@ -40,7 +45,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             draggedIcon.parentAfterDrag = transform;
         }
 
-        // Equip logic (optional)
+        // Optional: Equip item if valid
         if (slotType != SlotType.Any && draggedIcon.slotItem is EquipmentItem equipItem)
         {
             int index = transform.GetSiblingIndex();
@@ -67,7 +72,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
             heldItems = draggableIconSlot.quantity;
             maxHeldItems = inventoryItem.stackSize;
-
             slotFilled = heldItems >= maxHeldItems;
         }
         else
@@ -124,6 +128,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             heldItems = 1;
             maxHeldItems = receivedItem.stackSize;
             slotFilled = false;
+
             return true;
         }
 
@@ -139,10 +144,15 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     {
         if (transform.childCount > 0)
         {
+            Destroy(transform.GetChild(0).gameObject);
             slotFilled = false;
             inventoryItem = null;
             isItemEquipped = false;
-            Destroy(transform.GetChild(0).gameObject);
         }
+    }
+
+    public bool HasItem()
+    {
+        return inventoryItem != null;
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4820850854172593621}
   - component: {fileID: 6765622655977312496}
-  - component: {fileID: 443625701454498698}
   m_Layer: 0
   m_Name: CollectItemsQuestStep
   m_TagString: Untagged
@@ -45,17 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f92802dd6b10844956a49c3d1c6685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &443625701454498698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590837069326582903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9876a22d9a2df749b965eca52874bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interaction: {fileID: 11400000, guid: 72e5fd9ef156dd74d828c29a9015de7f, type: 2}
-  inventorySO: {fileID: 0}
