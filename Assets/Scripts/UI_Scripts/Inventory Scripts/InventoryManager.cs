@@ -68,6 +68,7 @@ public class InventoryManager : MonoBehaviour
 
         var item = selectedItemSlot.slotItem;
 
+        SFXManager.Instance.PlaySFX(item.itemUsedSFX);
         PlayerVitals.instance.RestoreHealth(item.healthEffect);
         PlayerVitals.instance.RestoreStamina(item.staminaEffect);
         PlayerVitals.instance.ReplenishMagic(item.magicEffect);

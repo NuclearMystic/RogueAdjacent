@@ -4441,7 +4441,19 @@ MonoBehaviour:
   LootBoxMenu: {fileID: 564368938918115233}
   updateSkillMenu:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2111197306754825009}
+        m_TargetAssemblyTypeName: SkillMenuUI, Assembly-CSharp
+        m_MethodName: RefreshAllSkills
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2111197306754825009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15036,6 +15048,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -27.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6390683410807471132, guid: a46c918437dc5d94f89e8e85edcc8ba8, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 3698679532003816586}
     - target: {fileID: 7599844889962352038, guid: a46c918437dc5d94f89e8e85edcc8ba8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

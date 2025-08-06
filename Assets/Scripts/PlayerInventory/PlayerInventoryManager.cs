@@ -52,6 +52,7 @@ public class PlayerInventoryManager : MonoBehaviour
     public void PickUpItem(in InventoryItem incomingItem, out bool pickedUp)
     {
         pickedUp = false;
+        SFXManager.Instance.PlaySFX(incomingItem.itemPickedUpSFX);
 
         // Try stacking
         if (incomingItem.stackable)

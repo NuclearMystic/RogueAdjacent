@@ -17,23 +17,27 @@ MonoBehaviour:
   stackable: 0
   stackSize: 1
   itemId: 7
-  baseCost: 0
+  baseCost: 15
   healthEffect: 0
   staminaEffect: 0
   magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: dfb0f0ac4a6b1c7409bc2a0ba724aa8a, type: 3}
+  itemUsedSFX: {fileID: 0}
   itemType: 1
   itemPrefab: {fileID: 6174046915519909791, guid: bc46d64d9c65a584e9a744004110c6f9, type: 3}
   draggableIcon: {fileID: 7404350160053310676, guid: 1a4c7025751849f46acd088767bf33a1, type: 3}
-  weaponSkill: 0
-  weaponDice: 0
-  flatBonusDamage: 0
-  stamDrain: 0
+  weaponSkill: 1
+  weaponDice: 4
+  flatBonusDamage: 1
+  stamDrain: 5
   isRanged: 0
+  itemEquippedSFX: {fileID: 8300000, guid: aa7f7af9c268e8e4c8e450321c0a1981, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 6090e0b83373dd24cba56d832b82e419, type: 3}
   filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
-  filePathSheetTwo: 2D/Actors/Playyer/char_a_pONE1/6lta
+  filePathSheetTwo: 2D/Actors/char_a_pONE3/6tla/
   filePathSheetThree: 
   filePathSheetFour: 
   textureOne: {fileID: 2800000, guid: 712c6a9e2b1eeea4eb92a957f708c3e4, type: 3}
-  textureTwo: {fileID: 2800000, guid: a35a9f15935e90a4d96f6dbdc2992109, type: 3}
+  textureTwo: {fileID: 2800000, guid: 8464e4a4f5c4e9f4ea89e91c48db588b, type: 3}
   textureThree: {fileID: 0}
   textureFour: {fileID: 0}

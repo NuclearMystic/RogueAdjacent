@@ -17,8 +17,14 @@ public class CombatManager : MonoBehaviour
     private IPlayerClass currentClass;
     public PlayerClass playerClass;
 
+    private UIManager uiManager;
+
+    public AudioClip hit;
+    public AudioClip miss;
+
     private void Start()
     {
+        uiManager = UIManager.Instance;
         equipmentManager = PlayerEquipmentManager.Instance;
         playerStats = PlayerStats.Instance;
         console = InGameConsole.Instance;
@@ -36,8 +42,9 @@ public class CombatManager : MonoBehaviour
     {
         if (Input.GetKeyDown(attackButton))
         {
-            if (PlayerVitals.instance.currentStamina > 0)
+            if (PlayerVitals.instance.currentStamina > 0 && Time.timeScale != 0f && uiManager.IsAnyMenuOpen() == false)
             {
+                SFXManager.Instance.PlaySFX(equipmentManager.GetCurrentHeldWeapon().itemAttackSFX, 1);
                 playerAnimator.SetTrigger("Attack");
             }
         }
@@ -72,7 +79,7 @@ public class CombatManager : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (currentClass != null && Time.timeScale != 0f)
+        if (currentClass != null)
         {
             currentClass.PerformAttack(playerStats, equipmentManager, playerController);
         }
@@ -96,6 +103,7 @@ public class CombatManager : MonoBehaviour
 
         if (hitRoll >= enemy.Defense)
         {
+            SFXManager.Instance.PlaySFX(hit);
             int diceRoll = DiceRoller.Roll(weapon.weaponDice);
             int attributeBonus = SkillAttributeMap.GetAttributeBonus(skill, playerStats.attributes);
             int totalDamage = diceRoll + attributeBonus + weapon.flatBonusDamage;
@@ -111,6 +119,7 @@ public class CombatManager : MonoBehaviour
 
         else
         {
+            SFXManager.Instance.PlaySFX(hit);
             console.SendMessageToConsole("Fighter missed!");
         }
     }

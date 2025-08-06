@@ -14,6 +14,7 @@ public class AttackEventRelay : MonoBehaviour
         Debug.Log(PlayerEquipmentManager.Instance.HasWeaponEquipped());
         if (PlayerEquipmentManager.Instance.HasWeaponEquipped())
         {
+            Debug.Log("attacking.");
             combatManager?.PerformAttack();
         }
         else
