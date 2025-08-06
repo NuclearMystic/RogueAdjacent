@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 1771930754864138707}
   - component: {fileID: 6762213599337704507}
   - component: {fileID: 8803715777177833629}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 8089617702094032822}
   - component: {fileID: 2894600242808699340}
   - component: {fileID: 8577161356027574503}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EquippedWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,6 +665,7 @@ Transform:
   - {fileID: 3522197279654801448}
   - {fileID: 4703769136517556770}
   - {fileID: 2984033749796592495}
+  - {fileID: 9081577748265373630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &322392426501901586
@@ -904,7 +905,7 @@ GameObject:
   - component: {fileID: 2603104931950630156}
   - component: {fileID: 3751609691394676876}
   - component: {fileID: 849977949832780401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Face Accessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1017,7 @@ GameObject:
   - component: {fileID: 8809136879076327132}
   - component: {fileID: 703818462194627346}
   - component: {fileID: 7600603598097072798}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1129,7 @@ GameObject:
   - component: {fileID: 1189734904584558626}
   - component: {fileID: 8235864682929901214}
   - component: {fileID: 3094101585188511179}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Outfit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1812,4 +1813,66 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4196672852849907735, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
   m_PrefabInstance: {fileID: 4691712871816808488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5549916422702844257
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2015236425374694948}
+    m_Modifications:
+    - target: {fileID: 3454275107062343578, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_Name
+      value: PortraitCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 382.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 200.63327
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+--- !u!4 &9081577748265373630 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3678734237768107743, guid: 2282ad9c52fa38d4d873c7580c22c87c, type: 3}
+  m_PrefabInstance: {fileID: 5549916422702844257}
   m_PrefabAsset: {fileID: 0}

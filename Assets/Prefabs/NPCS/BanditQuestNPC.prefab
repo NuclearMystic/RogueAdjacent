@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcDia: {fileID: 0}
-  dialogueBox: {fileID: 0}
-  dialogue: {fileID: 0}
+  dialogueBox: {fileID: 2448140276530832074}
+  dialogue: {fileID: 3033386283411089902}
   timePerCharacter: 0.05
 --- !u!114 &6886023135863027892
 MonoBehaviour:
@@ -407,6 +407,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd0f89d8d0c5a2141b1003dbe035c721, type: 3}
+--- !u!223 &2448140276530832074 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6336502979829413641, guid: bd0f89d8d0c5a2141b1003dbe035c721, type: 3}
+  m_PrefabInstance: {fileID: 8509073754223924675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3033386283411089902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6633395156020067373, guid: bd0f89d8d0c5a2141b1003dbe035c721, type: 3}
+  m_PrefabInstance: {fileID: 8509073754223924675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9129731607373182185 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 622939280188088618, guid: bd0f89d8d0c5a2141b1003dbe035c721, type: 3}

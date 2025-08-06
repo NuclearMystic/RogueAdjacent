@@ -19,8 +19,10 @@ public class UIManager : MonoBehaviour
     public GameObject Crosshair;
     public GameObject ShopMenu;
     public GameObject SystemMenu;
+    public GameObject LootBoxMenu;
 
     [Header("Runtime State (Read-Only)")]
+    public bool LootBoxOpen => LootBoxMenu.activeInHierarchy;
     public bool InventoryOpen => InventoryMenu.activeInHierarchy;
     public bool CharacterOpen => CharacterMenu.activeInHierarchy;
     public bool SkillsMenuOpen => SkillsMenu.activeInHierarchy;
@@ -49,7 +51,7 @@ public class UIManager : MonoBehaviour
     {
         if (IsAnyMenuOpen())
         {
-            if (Time.timeScale != 0f) PauseGame();             
+            if (Time.timeScale != 0f) PauseGame();
         }
         else
         {
@@ -94,7 +96,7 @@ public class UIManager : MonoBehaviour
 
     public bool IsAnyMenuOpen()
     {
-        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen || SystemMenuOpen))
+        if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen || SystemMenuOpen || LootBoxOpen))
         {
             return true;
         }
@@ -111,7 +113,7 @@ public class UIManager : MonoBehaviour
 
     private void ToggleQuestMenu()
     {
-        QuestMenuManager.Instance.OpenMenu(); // You handle this separately, assumed to toggle it internally
+        QuestMenuManager.Instance.OpenMenu();
     }
 
     private void ToggleSkillsMenu()
