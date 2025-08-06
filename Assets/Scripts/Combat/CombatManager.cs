@@ -44,7 +44,7 @@ public class CombatManager : MonoBehaviour
         {
             if (PlayerVitals.instance.currentStamina > 0 && Time.timeScale != 0f && uiManager.IsAnyMenuOpen() == false)
             {
-                SFXManager.Instance.PlaySFX(equipmentManager.GetCurrentHeldWeapon().itemSFX, 1);
+                SFXManager.Instance.PlaySFX(equipmentManager.GetCurrentHeldWeapon().itemAttackSFX, 1);
                 playerAnimator.SetTrigger("Attack");
             }
         }

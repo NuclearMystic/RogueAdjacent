@@ -18,6 +18,11 @@ MonoBehaviour:
   stackSize: 1
   itemId: 4
   baseCost: 0
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 0}
+  itemUsedSFX: {fileID: 0}
   itemType: 1
   itemPrefab: {fileID: 8442681505238350167, guid: e72394a4e38d70f43bfb2931efbe90fb, type: 3}
   draggableIcon: {fileID: 650231313308108039, guid: 60d8fc9f948ad95419a2679173bdb936, type: 3}
@@ -26,6 +31,8 @@ MonoBehaviour:
   flatBonusDamage: 0
   stamDrain: 5
   isRanged: 1
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
   filePathSheetOne: 2D/Actors/char_a_pBOW3/6tla/
   filePathSheetTwo: 2D/Actors/char_a_pBOW3/6tla/
   filePathSheetThree: 

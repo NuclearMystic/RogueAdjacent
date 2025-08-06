@@ -17,6 +17,9 @@ public class InventoryItem : ScriptableObject
     public float staminaEffect;
     public float magicEffect;
 
+    public AudioClip itemPickedUpSFX;
+    public AudioClip itemUsedSFX;
+
     public enum SlotType
     {
         Food,

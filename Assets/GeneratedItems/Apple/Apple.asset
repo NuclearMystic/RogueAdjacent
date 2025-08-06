@@ -21,6 +21,8 @@ MonoBehaviour:
   healthEffect: 15
   staminaEffect: 5
   magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: dfb0f0ac4a6b1c7409bc2a0ba724aa8a, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 42cb4eb72bb0cc84584e05e8ab77cf40, type: 3}
   itemType: 0
   itemPrefab: {fileID: 691827731045224900, guid: f28baaf701a32eb42b0b7e690056c999, type: 3}
   draggableIcon: {fileID: 36135355360691799, guid: d3563fb43eb20124a8127d9c2f3ebde5, type: 3}
@@ -29,6 +31,8 @@ MonoBehaviour:
   flatBonusDamage: 0
   stamDrain: 0
   isRanged: 0
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
   filePathSheetOne: UIAssets/DarkPixelRPGUI/Artwok/Icons/
   filePathSheetTwo: 
   filePathSheetThree: 

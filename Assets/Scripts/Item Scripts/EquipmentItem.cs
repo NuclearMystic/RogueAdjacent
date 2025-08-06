@@ -10,7 +10,9 @@ public class EquipmentItem : InventoryItem
     public float stamDrain;
     public bool isRanged = false;
 
-    public AudioClip itemSFX;
+
+    public AudioClip itemEquippedSFX;
+    public AudioClip itemAttackSFX;
 
     //public Sprite[] spriteSheetOne;
     //public Sprite[] spriteSheetTwo;
