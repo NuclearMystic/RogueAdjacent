@@ -1003,6 +1003,8 @@ MonoBehaviour:
   attackButton: 323
   defenseButton: 324
   playerClass: 2
+  hit: {fileID: 8300000, guid: fd8609e5526967445b628681dcabf25e, type: 3}
+  miss: {fileID: 8300000, guid: 934354d679da21c44ac0657ea9b1091e, type: 3}
 --- !u!114 &573560653996561700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,6 +1515,10 @@ PrefabInstance:
       propertyPath: updateSkillMenu.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1407442822067660064, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 2422260735350878213}
     - target: {fileID: 1506280603819113429, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1741,6 +1747,10 @@ PrefabInstance:
       propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6499612123609063971, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 2422260735350878213}
     - target: {fileID: 6626645635612700374, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1960,6 +1970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c0adb568dfb124b81bfd67511bb00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2422260735350878213 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3698679532003816586, guid: 2e855cf417209bc42b86befe028392cb, type: 3}
+  m_PrefabInstance: {fileID: 1353824535537730703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7148571615654083727 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8213743545378355200, guid: 2e855cf417209bc42b86befe028392cb, type: 3}

@@ -2,7 +2,7 @@
 - Project name: RogueAdjacent
 - Unity version: Unity 6000.1.7f1
 - Active game object:
-  - Name: ExampleQuestNPC
-  - Tag: Untagged
-  - Layer: NPC
+  - Name: Body
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
