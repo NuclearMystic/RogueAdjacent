@@ -46,7 +46,11 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         UpdateCurrency();
-        ShowConsumeButton();
+        //ShowConsumeButton();
+        if (qtySlider.isActiveAndEnabled)
+        {
+            qtySlider.wholeNumbers = true;
+        }
     }
 
     public void CloseWindow()
@@ -66,9 +70,26 @@ public class InventoryManager : MonoBehaviour
             {
                 qtySlider.gameObject.SetActive(true);
                 qtySlider.wholeNumbers = true;
+
+                // Remove old listeners BEFORE assigning values
+                qtySlider.onValueChanged.RemoveAllListeners();
+
+                // Set min/max BEFORE value
                 qtySlider.minValue = 1;
                 qtySlider.maxValue = selectedItemSlot.quantity;
-                //qtySlider.value = 1;
+
+                // Only after min/max, set value
+                qtySlider.value = selectedItemSlot.quantity;
+
+                // Set label immediately
+                qtySliderLabel.text = qtySlider.value.ToString();
+
+                // Rebind value change listener AFTER value set
+                qtySlider.onValueChanged.AddListener((val) =>
+                {
+                    qtySliderLabel.text = val.ToString();
+                });
+                qtySlider.wholeNumbers = true;
             }
             else
             {
@@ -81,6 +102,8 @@ public class InventoryManager : MonoBehaviour
             qtySlider.gameObject.SetActive(false);
         }
     }
+
+
     public void ConsumeItem()
     {
         if (selectedItemSlot == null || selectedItemSlot.slotItem == null)

@@ -37,7 +37,7 @@ public class LootBoxMenuManager : MonoBehaviour
             InventoryItem item = table.GetRandomLootItem();
             if (item != null)
             {
-                lootSlots[i].ReceiveInventoryItem(item);
+                lootSlots[i].ReceiveInventoryItem(item, 1);
             }
         }
     }

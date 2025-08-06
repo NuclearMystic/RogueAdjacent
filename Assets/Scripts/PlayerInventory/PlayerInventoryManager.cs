@@ -58,7 +58,7 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             foreach (var slot in playerInventory)
             {
-                if (slot.ReceiveInventoryItem(incomingItem))
+                if (slot.ReceiveInventoryItem(incomingItem, 1))
                 {
                     pickedUp = true;
                     return;
@@ -69,7 +69,7 @@ public class PlayerInventoryManager : MonoBehaviour
         // Try empty slot
         foreach (var slot in playerInventory)
         {
-            if (slot.ReceiveInventoryItem(incomingItem))
+            if (slot.ReceiveInventoryItem(incomingItem, 1))
             {
                 pickedUp = true;
                 return;
@@ -79,7 +79,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void RemoveItemsById(int itemId, int quantity)
     {
-        int remaining = quantity;
+        int remaining = quantity; 
 
         foreach (var slot in characterManager.characterItemSlots.Concat(inventoryManager.inventoryItemSlots))
         {
