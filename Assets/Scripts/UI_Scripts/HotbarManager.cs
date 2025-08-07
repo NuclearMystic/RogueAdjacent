@@ -157,15 +157,10 @@ public class HotbarManager : MonoBehaviour
         }
     }
 
-    private int FindEquippedWeaponIndex(EquipmentItem target)
+    public bool IsSlotAssigned(ItemSlot originSlot)
     {
-        var equipped = PlayerEquipmentManager.Instance.equippedWeapons;
-        for (int i = 0; i < equipped.Length; i++)
-        {
-            if (equipped[i] == target)
-                return i;
-        }
-        return -1;
+        return hotbarSlots.Any(slot => slot.originSlot == originSlot);
     }
+
 
 }

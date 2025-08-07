@@ -244,7 +244,6 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         }
     }
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
         var manager = InventoryManager.Instance;
@@ -255,7 +254,15 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             ItemSlot originSlot = GetComponentInParent<ItemSlot>();
             if (originSlot != null)
             {
-                HotbarManager.Instance.AssignItemToHotbar(originSlot);
+                var hotbar = HotbarManager.Instance;
+                if (hotbar.IsSlotAssigned(originSlot))
+                {
+                    hotbar.UnassignHotbarSlotByOrigin(originSlot);
+                }
+                else
+                {
+                    hotbar.AssignItemToHotbar(originSlot);
+                }
             }
             return;
         }
