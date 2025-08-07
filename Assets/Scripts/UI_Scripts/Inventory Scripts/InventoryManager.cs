@@ -229,7 +229,7 @@ public class InventoryManager : MonoBehaviour
 
         if (amount > 0)
         {
-            //Debug.LogWarning($"Not enough space for all {itemToAdd.ObjectName} items. {amount} left over.");
+            Debug.LogWarning($"Not enough space for all {itemToAdd.ObjectName} items. {amount} left over.");
         }
     }
 
