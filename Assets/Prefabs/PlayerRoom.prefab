@@ -45,5 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3648364489823573220, guid: 24a5df70341a6aa47bd423f11698e7ab, type: 3}
-  itemData: []
+  itemData:
+  - minQuantity: 1
+    maxQuantity: 1
+    sceneStaticData: {fileID: 11400000, guid: 2fbea2a091178ea4597a4788d6f22307, type: 2}
   prefabPlacer: {fileID: 5383660885804886146, guid: 3832cda8f0b088e4497a8519f3616ea8, type: 3}
