@@ -13,6 +13,7 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     private int currentQuantity;
     private ItemSlot originalSlot;
 
+
     public void BeginDrag(InventoryItem item, int quantity, ItemSlot originSlot = null)
     {
         currentItem = item;
@@ -35,7 +36,6 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // No logic required here
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -58,6 +58,22 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         var results = new System.Collections.Generic.List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerEventData, results);
 
+        HotbarSlot hotbarSlot = null;
+        foreach (var result in results)
+        {
+            hotbarSlot = result.gameObject.GetComponentInParent<HotbarSlot>();
+            if (hotbarSlot != null) break;
+        }
+
+        if (hotbarSlot != null && originalSlot != null)
+        {
+            hotbarSlot.AssignReference(originalSlot);
+
+            originalSlot.ReceiveInventoryItem(currentItem, currentQuantity);
+            ResetGhost();
+            return;
+        }
+
         ItemSlot targetSlot = null;
         foreach (var result in results)
         {
@@ -66,10 +82,10 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         }
 
         int remainingAmount = currentQuantity;
+        bool successfullyTransferred = false;
 
         if (targetSlot != null && targetSlot.CanAcceptItem(currentItem))
         {
-            // If slot already has the same item and room, merge instead of full receive
             if (targetSlot.inventoryItem != null &&
                 targetSlot.inventoryItem.itemId == currentItem.itemId &&
                 !targetSlot.slotFilled)
@@ -77,34 +93,48 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 int spaceLeft = targetSlot.maxHeldItems - targetSlot.heldItems;
                 int amountToMerge = Mathf.Min(spaceLeft, remainingAmount);
 
-                targetSlot.draggableIconSlot.SetQuantity(
-                    targetSlot.draggableIconSlot.quantity + amountToMerge);
+                targetSlot.draggableIconSlot.SetQuantity(targetSlot.draggableIconSlot.quantity + amountToMerge);
                 targetSlot.heldItems += amountToMerge;
                 targetSlot.slotFilled = targetSlot.heldItems >= targetSlot.maxHeldItems;
 
                 remainingAmount -= amountToMerge;
+                successfullyTransferred = true;
             }
-            else
+            else if (targetSlot.inventoryItem == null)
             {
-                // Slot was empty or a different item; try full receive
                 bool success = targetSlot.ReceiveInventoryItem(currentItem, remainingAmount);
                 if (success)
                 {
                     remainingAmount = 0;
+                    successfullyTransferred = true;
                 }
             }
         }
 
-        // Return leftover to original slot if any remains
+        foreach (var result in results)
+        {
+            var sellSlot = result.gameObject.GetComponentInParent<SellSlot>();
+            if (sellSlot != null && originalSlot != null)
+            {
+                ShopManager.Instance.RegisterSellItemViaGhost(currentItem, currentQuantity);
+                ResetGhost();
+                return;
+            }
+        }
+
         if (remainingAmount > 0)
         {
-            if (originalSlot != null)
+            if (!successfullyTransferred && targetSlot == null)
+            {
+                DropItemToWorld(remainingAmount);
+            }
+            else if (originalSlot != null)
             {
                 originalSlot.ReceiveInventoryItem(currentItem, remainingAmount);
             }
             else
             {
-                DropItemToWorld();
+                DropItemToWorld(remainingAmount);
             }
         }
 
@@ -112,7 +142,8 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     }
 
 
-    private void DropItemToWorld()
+
+    private void DropItemToWorld(int amount)
     {
         if (currentItem == null || currentItem.itemPrefab == null) return;
 
@@ -127,7 +158,7 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
         float baseDistance = .1f;
 
-        for (int i = 0; i < currentQuantity; i++)
+        for (int i = 0; i < amount; i++)
         {
             float offset = 0.1f * i;
             Vector3 dropPosition = player.position + worldDirection * (baseDistance + offset);
