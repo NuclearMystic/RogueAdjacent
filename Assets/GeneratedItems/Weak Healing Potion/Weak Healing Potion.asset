@@ -21,6 +21,8 @@ MonoBehaviour:
   healthEffect: 15
   staminaEffect: 0
   magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: dfb0f0ac4a6b1c7409bc2a0ba724aa8a, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: bb75c7886f2a27a4180647f88c8378a2, type: 3}
   itemType: 0
   itemPrefab: {fileID: 8998709418705932188, guid: d4184d302367a604fa1292d1805773b6, type: 3}
   draggableIcon: {fileID: 8979197671762502111, guid: 616e14adadf6e0848bc3e2dba0132b7d, type: 3}
@@ -29,6 +31,8 @@ MonoBehaviour:
   flatBonusDamage: 0
   stamDrain: 0
   isRanged: 0
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
   filePathSheetOne: 
   filePathSheetTwo: 
   filePathSheetThree: 

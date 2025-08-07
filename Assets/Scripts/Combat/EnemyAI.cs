@@ -28,6 +28,21 @@ public class EnemyAI : MonoBehaviour
     private enum State { Idle, Chasing, Attacking, Returning }
     private State currentState;
 
+    [Header("Sound Effects")]
+    public AudioClip attackSFX;
+    public AudioClip hitSFX;
+    public AudioClip missSFX;
+    public AudioClip stepsSFX;
+    private AudioSource audioSource;
+
+    [Header("Enemy Damage")]
+    [Tooltip("Select type of dice for this enemy's damage.")]
+    public DiceType damageDie;
+    [Tooltip("This will be in addition to the hit roll of the enemy.")]
+    public int hitModifier;
+    [Tooltip("This will be in adition to any damage this enemy deals.")]
+    public int damageModifier;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -35,6 +50,7 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spawnPoint = transform.position;
         currentState = State.Idle;
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(WanderRoutine());
     }
 
@@ -97,6 +113,7 @@ public class EnemyAI : MonoBehaviour
     {
         Vector2 dir = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = dir * moveSpeed;
+        //SFXManager.Instance.PlaySFXFromSource(audioSource, stepsSFX, 1, 1, 1);
     }
 
     private void FaceTarget(Vector2 target)
@@ -108,18 +125,20 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        int hitRoll = DiceRoller.Roll(DiceType.D20) + 3; // +3 = enemy skill modifier (temp)
+        SFXManager.Instance.PlaySFXFromSource(audioSource, attackSFX, 1, 1, 1);
+        int hitRoll = DiceRoller.Roll(DiceType.D20) + hitModifier; 
         int playerDefense = 12; // replace with actual player defense logic
 
         if (hitRoll >= playerDefense)
         {
-            int damage = DiceRoller.Roll(DiceType.D6); // example: 1D6 damage
+            SFXManager.Instance.PlaySFXFromSource(audioSource, hitSFX, 1, 1, 1);
+            int damage = DiceRoller.Roll(damageDie) + damageModifier; 
             InGameConsole.Instance.SendMessageToConsole($"{enemy.enemyName} hits you for {damage} damage!");
             PlayerVitals.instance.DamageHealth(damage);
-            // TODO: Apply damage to player
         }
         else
         {
+            SFXManager.Instance.PlaySFXFromSource(audioSource, missSFX, 1, 1, 1);
             InGameConsole.Instance.SendMessageToConsole($"{enemy.enemyName} missed!");
         }
     }

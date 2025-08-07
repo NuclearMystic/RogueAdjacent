@@ -1,4 +1,3 @@
-using UnityEditor.Playables;
 using UnityEngine;
 
 public class LootTable : MonoBehaviour
