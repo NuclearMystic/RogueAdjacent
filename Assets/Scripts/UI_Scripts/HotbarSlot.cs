@@ -54,7 +54,10 @@ public class HotbarSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         originSlot = origin;
 
+<<<<<<< Updated upstream
         // Only update visuals if origin has an item
+=======
+>>>>>>> Stashed changes
         if (origin != null && origin.HasItem() && origin.inventoryItem != null)
         {
             iconImage.sprite = origin.inventoryItem.ObjectIcon;
