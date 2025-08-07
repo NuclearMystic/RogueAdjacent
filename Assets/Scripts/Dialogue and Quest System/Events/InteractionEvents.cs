@@ -8,7 +8,7 @@ public class InteractionEvents
     public void Interact(GameObject target)
     {
         onInteract?.Invoke(target);
-        Debug.Log("Event System: Interaction logged");
+        //Debug.Log("Event System: Interaction logged");
     }
 
 

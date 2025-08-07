@@ -50,6 +50,15 @@ public class InventoryManager : MonoBehaviour
         if (qtySlider.isActiveAndEnabled)
         {
             qtySlider.wholeNumbers = true;
+            if (selectedItemSlot != null)
+            {
+                qtySlider.maxValue = selectedItemSlot.quantity;
+            }
+        }
+        if (selectedItemSlot == null)
+        {
+            consumeButton.gameObject.SetActive(false);
+            qtySlider.gameObject.SetActive(false);
         }
     }
 
@@ -70,21 +79,12 @@ public class InventoryManager : MonoBehaviour
             {
                 qtySlider.gameObject.SetActive(true);
                 qtySlider.wholeNumbers = true;
-
-                // Remove old listeners BEFORE assigning values
                 qtySlider.onValueChanged.RemoveAllListeners();
-
-                // Set min/max BEFORE value
                 qtySlider.minValue = 1;
                 qtySlider.maxValue = selectedItemSlot.quantity;
-
-                // Only after min/max, set value
                 qtySlider.value = selectedItemSlot.quantity;
-
-                // Set label immediately
                 qtySliderLabel.text = qtySlider.value.ToString();
 
-                // Rebind value change listener AFTER value set
                 qtySlider.onValueChanged.AddListener((val) =>
                 {
                     qtySliderLabel.text = val.ToString();
@@ -168,6 +168,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.inventoryItem == null)
             {
+                
                 var iconGO = Instantiate(itemToAdd.draggableIcon, slot.transform);
                 var icon = iconGO.GetComponent<DraggableIconSlot>();
                 icon.slotItem = itemToAdd;

@@ -51,7 +51,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
                 iconImage.color = Color.white;
                 iconImage.sprite = slotItem.ObjectIcon;
             }
-            if (quantity == 0)
+            if (quantity <= 0)
             {
                 Destroy(this.gameObject);
             }
@@ -88,10 +88,9 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         var originSlot = GetComponentInParent<ItemSlot>();
 
-        // Ghost drag path if using the slider OR only part of stack is dragged
         if (usingSlider || dragAmount < quantity)
         {
-            quantity -= dragAmount;
+            quantity -= dragAmount;             
             UpdateQuantity(quantity);
 
             dragGhostHandler.BeginDrag(slotItem, dragAmount, originSlot);
@@ -101,7 +100,6 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         }
         else
         {
-            // Full drag of the icon itself
             parentAfterDrag = transform.parent;
             transform.SetParent(mainUICanvas.transform);
             transform.SetAsLastSibling();

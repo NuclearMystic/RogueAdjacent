@@ -59,11 +59,15 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             foreach (var slot in playerInventory)
             {
-                if (slot.ReceiveInventoryItem(incomingItem, 1))
+                if (slot.slotType == ItemSlot.SlotType.Any)
                 {
-                    pickedUp = true;
-                    return;
+                    if (slot.ReceiveInventoryItem(incomingItem, 1))
+                    {
+                        pickedUp = true;
+                        return;
+                    }
                 }
+                
             }
         }
 

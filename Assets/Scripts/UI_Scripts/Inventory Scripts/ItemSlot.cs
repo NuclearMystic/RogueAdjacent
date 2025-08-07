@@ -30,7 +30,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
         int transferAmount = draggedIcon.quantity;
 
-        // Merge stack
         if (inventoryItem != null &&
             inventoryItem.itemId == draggedIcon.slotItem.itemId &&
             heldItems < maxHeldItems)
@@ -41,8 +40,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             heldItems += added;
             draggableIconSlot.UpdateQuantity(heldItems);
             slotFilled = heldItems >= maxHeldItems;
-
-            // Return remainder back to dragged icon
+           
             int leftover = transferAmount - added;
             if (leftover > 0)
             {
@@ -56,14 +54,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             return;
         }
 
-        // Empty slot - accept full stack
         if (inventoryItem == null)
         {
             draggedIcon.parentAfterDrag = transform;
             return;
         }
 
-        // Equip if relevant
         if (slotType != SlotType.Any && draggedIcon.slotItem is EquipmentItem equipItem)
         {
             int index = transform.GetSiblingIndex();
@@ -128,39 +124,46 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         //}
     }
 
-    public bool ReceiveInventoryItem(InventoryItem receivedItem, int quantityToAdd)
+    public bool ReceiveInventoryItem(InventoryItem incomingItem, int amount)
     {
-        if (inventoryItem != null &&
-            inventoryItem.itemId == receivedItem.itemId &&
-            heldItems < maxHeldItems)
+        if (incomingItem == null)
+            return false;
+
+        if (inventoryItem == null)
         {
-            int availableSpace = maxHeldItems - heldItems;
-            int toAdd = Mathf.Min(quantityToAdd, availableSpace);
+            // Empty slot, accept full stack
+            var iconGO = Instantiate(incomingItem.draggableIcon, transform);
+            var icon = iconGO.GetComponent<DraggableIconSlot>();
+            icon.slotItem = incomingItem;
+            icon.SetQuantity(amount);
 
-            heldItems += toAdd;
-            draggableIconSlot.UpdateQuantity(heldItems);
-            slotFilled = heldItems >= maxHeldItems;
-            return true;
-        }
-
-        if (inventoryItem == null &&
-            (slotType == SlotType.Any || receivedItem.itemType.ToString() == slotType.ToString()))
-        {
-            GameObject iconGO = Instantiate(receivedItem.draggableIcon, transform);
-            draggableIconSlot = iconGO.GetComponent<DraggableIconSlot>();
-            draggableIconSlot.slotItem = receivedItem;
-            draggableIconSlot.UpdateQuantity(quantityToAdd);
-
-            inventoryItem = receivedItem;
-            heldItems = quantityToAdd;
-            maxHeldItems = receivedItem.stackSize;
+            inventoryItem = incomingItem;
+            draggableIconSlot = icon;
+            heldItems = amount;
+            maxHeldItems = incomingItem.stackSize;
             slotFilled = heldItems >= maxHeldItems;
 
             return true;
         }
 
-        return false;
+        // If different item types, reject
+        if (inventoryItem.itemId != incomingItem.itemId)
+            return false;
+
+        if (slotFilled)
+            return false;
+
+        int spaceLeft = maxHeldItems - heldItems;
+        int amountToAdd = Mathf.Min(spaceLeft, amount);
+
+        draggableIconSlot.SetQuantity(draggableIconSlot.quantity + amountToAdd);
+        heldItems += amountToAdd;
+        slotFilled = heldItems >= maxHeldItems;
+
+        // If we fully accepted it, return true
+        return amountToAdd == amount;
     }
+
 
 
 

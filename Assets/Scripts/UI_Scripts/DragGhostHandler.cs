@@ -65,18 +65,42 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             if (targetSlot != null) break;
         }
 
-        bool successfullyTransferred = false;
+        int remainingAmount = currentQuantity;
 
         if (targetSlot != null && targetSlot.CanAcceptItem(currentItem))
         {
-            successfullyTransferred = targetSlot.ReceiveInventoryItem(currentItem, currentQuantity);
+            // If slot already has the same item and room, merge instead of full receive
+            if (targetSlot.inventoryItem != null &&
+                targetSlot.inventoryItem.itemId == currentItem.itemId &&
+                !targetSlot.slotFilled)
+            {
+                int spaceLeft = targetSlot.maxHeldItems - targetSlot.heldItems;
+                int amountToMerge = Mathf.Min(spaceLeft, remainingAmount);
+
+                targetSlot.draggableIconSlot.SetQuantity(
+                    targetSlot.draggableIconSlot.quantity + amountToMerge);
+                targetSlot.heldItems += amountToMerge;
+                targetSlot.slotFilled = targetSlot.heldItems >= targetSlot.maxHeldItems;
+
+                remainingAmount -= amountToMerge;
+            }
+            else
+            {
+                // Slot was empty or a different item; try full receive
+                bool success = targetSlot.ReceiveInventoryItem(currentItem, remainingAmount);
+                if (success)
+                {
+                    remainingAmount = 0;
+                }
+            }
         }
 
-        if (!successfullyTransferred)
+        // Return leftover to original slot if any remains
+        if (remainingAmount > 0)
         {
             if (originalSlot != null)
             {
-                originalSlot.ReceiveInventoryItem(currentItem, currentQuantity);
+                originalSlot.ReceiveInventoryItem(currentItem, remainingAmount);
             }
             else
             {
@@ -86,6 +110,7 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
         ResetGhost();
     }
+
 
     private void DropItemToWorld()
     {
