@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class ItemCreationWindow : EditorWindow
 {
+    // Foldout toggles
+    private bool showBaseInfo = true;
+    private bool showConsumableInfo = false;
+    private bool showSFXInfo = false;
+    private bool showEquipmentInfo = true;
+
+    // Base Info
     private string objectName = "NewItem";
     private Sprite objectIcon;
     private bool stackable = false;
@@ -13,10 +20,27 @@ public class ItemCreationWindow : EditorWindow
     private int itemId = 0;
     private InventoryItem.SlotType itemType = InventoryItem.SlotType.Weapon;
 
+    // Consumable Info
+    private float healthEffect;
+    private float staminaEffect;
+    private float magicEffect;
+
+    // SFX Info
+    private AudioClip itemPickedUpSFX;
+    private AudioClip itemUsedSFX;
+    private AudioClip itemEquippedSFX;
+    private AudioClip itemAttackSFX;
+
+    // Equipment Info
+    private SkillType weaponSkill;
+    private DiceType weaponDice;
+    private int flatBonusDamage;
+    private float stamDrain;
+    private bool isRanged;
+
     private string filePathSheetOne, filePathSheetTwo, filePathSheetThree, filePathSheetFour;
     private Texture2D textureOne, textureTwo, textureThree, textureFour;
-
-    private TMP_FontAsset fontAsset; // ?? New font field
+    private TMP_FontAsset fontAsset;
     private InteractionSO interactionScriptable;
 
     [MenuItem("Tools/Equipment Item Creator")]
@@ -27,24 +51,68 @@ public class ItemCreationWindow : EditorWindow
 
     private void OnGUI()
     {
-        GUILayout.Label("Inventory Item Fields", EditorStyles.boldLabel);
-        objectName = EditorGUILayout.TextField("Object Name", objectName);
-        objectIcon = (Sprite)EditorGUILayout.ObjectField("Object Icon", objectIcon, typeof(Sprite), false);
-        stackable = EditorGUILayout.Toggle("Stackable", stackable);
-        stackSize = EditorGUILayout.IntField("Stack Size", Mathf.Max(stackSize, 1));
-        itemId = EditorGUILayout.IntField("Item ID", itemId);
-        itemType = (InventoryItem.SlotType)EditorGUILayout.EnumPopup("Item Type", itemType);
+        // --- BASE INFO ---
+        showBaseInfo = EditorGUILayout.Foldout(showBaseInfo, "Base Info", true);
+        if (showBaseInfo)
+        {
+            EditorGUI.indentLevel++;
+            objectName = EditorGUILayout.TextField("Object Name", objectName);
+            objectIcon = (Sprite)EditorGUILayout.ObjectField("Object Icon", objectIcon, typeof(Sprite), false);
+            stackable = EditorGUILayout.Toggle("Stackable", stackable);
+            stackSize = EditorGUILayout.IntField("Stack Size", Mathf.Max(stackSize, 1));
+            itemId = EditorGUILayout.IntField("Item ID", itemId);
+            itemType = (InventoryItem.SlotType)EditorGUILayout.EnumPopup("Item Type", itemType);
+            EditorGUI.indentLevel--;
+        }
 
-        GUILayout.Space(10);
-        GUILayout.Label("Equipment Item Fields", EditorStyles.boldLabel);
+        GUILayout.Space(5);
 
-        TextureField("Texture One", ref textureOne, ref filePathSheetOne);
-        TextureField("Texture Two", ref textureTwo, ref filePathSheetTwo);
-        TextureField("Texture Three", ref textureThree, ref filePathSheetThree);
-        TextureField("Texture Four", ref textureFour, ref filePathSheetFour);
+        // --- CONSUMABLE INFO ---
+        showConsumableInfo = EditorGUILayout.Foldout(showConsumableInfo, "Consumable Effects", true);
+        if (showConsumableInfo)
+        {
+            EditorGUI.indentLevel++;
+            healthEffect = EditorGUILayout.FloatField("Health Effect", healthEffect);
+            staminaEffect = EditorGUILayout.FloatField("Stamina Effect", staminaEffect);
+            magicEffect = EditorGUILayout.FloatField("Magic Effect", magicEffect);
+            EditorGUI.indentLevel--;
+        }
 
-        GUILayout.Space(10);
-        interactionScriptable = (InteractionSO)EditorGUILayout.ObjectField("Interaction Scriptable", interactionScriptable, typeof(InteractionSO), false);
+        GUILayout.Space(5);
+
+        // --- SFX INFO ---
+        showSFXInfo = EditorGUILayout.Foldout(showSFXInfo, "SFX Info", true);
+        if (showSFXInfo)
+        {
+            EditorGUI.indentLevel++;
+            itemPickedUpSFX = (AudioClip)EditorGUILayout.ObjectField("Pickup SFX", itemPickedUpSFX, typeof(AudioClip), false);
+            itemUsedSFX = (AudioClip)EditorGUILayout.ObjectField("Use SFX", itemUsedSFX, typeof(AudioClip), false);
+            itemEquippedSFX = (AudioClip)EditorGUILayout.ObjectField("Equip SFX", itemEquippedSFX, typeof(AudioClip), false);
+            itemAttackSFX = (AudioClip)EditorGUILayout.ObjectField("Attack SFX", itemAttackSFX, typeof(AudioClip), false);
+            EditorGUI.indentLevel--;
+        }
+
+        GUILayout.Space(5);
+
+        // --- EQUIPMENT INFO ---
+        showEquipmentInfo = EditorGUILayout.Foldout(showEquipmentInfo, "Equipment Item Fields", true);
+        if (showEquipmentInfo)
+        {
+            EditorGUI.indentLevel++;
+            TextureField("Texture One", ref textureOne, ref filePathSheetOne);
+            TextureField("Texture Two", ref textureTwo, ref filePathSheetTwo);
+            TextureField("Texture Three", ref textureThree, ref filePathSheetThree);
+            TextureField("Texture Four", ref textureFour, ref filePathSheetFour);
+
+            interactionScriptable = (InteractionSO)EditorGUILayout.ObjectField("Interaction Scriptable", interactionScriptable, typeof(InteractionSO), false);
+
+            weaponSkill = (SkillType)EditorGUILayout.EnumPopup("Weapon Skill", weaponSkill);
+            weaponDice = (DiceType)EditorGUILayout.EnumPopup("Weapon Dice", weaponDice);
+            flatBonusDamage = EditorGUILayout.IntField("Flat Bonus Damage", flatBonusDamage);
+            stamDrain = EditorGUILayout.FloatField("Stamina Drain", stamDrain);
+            isRanged = EditorGUILayout.Toggle("Is Ranged", isRanged);
+            EditorGUI.indentLevel--;
+        }
 
         GUILayout.Space(10);
         GUILayout.Label("UI Font", EditorStyles.boldLabel);
@@ -151,11 +219,12 @@ public class ItemCreationWindow : EditorWindow
         labelGO.transform.SetParent(uiIcon.transform, false);
 
         RectTransform rect = labelGO.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(1f, 0f);
-        rect.anchorMax = new Vector2(1f, 0f);
-        rect.pivot = new Vector2(1f, 0f);
-        rect.anchoredPosition = new Vector2(-5f, 5f);
-        rect.sizeDelta = new Vector2(30f, 15f);
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = Vector2.zero;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
 
         var quantityLabel = labelGO.GetComponent<TextMeshProUGUI>();
         quantityLabel.text = "";

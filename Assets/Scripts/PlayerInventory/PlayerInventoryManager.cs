@@ -54,7 +54,6 @@ public class PlayerInventoryManager : MonoBehaviour
         pickedUp = false;
         SFXManager.Instance.PlaySFX(incomingItem.itemPickedUpSFX);
 
-        // Try stacking
         if (incomingItem.stackable)
         {
             foreach (var slot in playerInventory)
@@ -71,7 +70,6 @@ public class PlayerInventoryManager : MonoBehaviour
             }
         }
 
-        // Try empty slot
         foreach (var slot in playerInventory)
         {
             if (slot.ReceiveInventoryItem(incomingItem, 1))

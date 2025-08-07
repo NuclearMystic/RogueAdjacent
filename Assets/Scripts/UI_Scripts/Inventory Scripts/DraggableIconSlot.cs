@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections.Generic;
 
 public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -19,6 +20,8 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private int dragAmount;
     private bool usedGhost;
 
+    private ItemSlot cachedSlot;
+    private Transform cachedParent;
     private void Start()
     {
         if (crosshair == null)
@@ -70,7 +73,13 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if (quantityLabel != null)
             quantityLabel.text = quantity > 1 ? quantity.ToString() : "";
     }
-
+    public void SetItemAndQuantity(InventoryItem item, int qty)
+    {
+        slotItem = item;
+        quantity = qty;
+        iconImage.sprite = item.ObjectIcon;
+        UpdateQuantity(qty);
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (slotItem == null || dragGhostHandler == null) return;
@@ -87,6 +96,8 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         }
 
         var originSlot = GetComponentInParent<ItemSlot>();
+        cachedSlot = originSlot;
+        cachedParent = transform.parent;
 
         if (usingSlider || dragAmount < quantity)
         {
@@ -132,34 +143,122 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             return;
         }
 
-        GameObject hovered = eventData.pointerEnter;
-        ItemSlot targetSlot = hovered ? hovered.GetComponentInParent<ItemSlot>() : null;
-
-        if (targetSlot != null && targetSlot.CanAcceptItem(slotItem))
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
         {
-            bool success = targetSlot.ReceiveInventoryItem(slotItem, quantity);
-            if (success)
+            position = Input.mousePosition
+        };
+
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, results);
+
+        bool dropped = false;
+
+        // --- SELL SLOT ---
+        SellSlot sellSlot = null;
+        foreach (var result in results)
+        {
+            sellSlot = result.gameObject.GetComponentInParent<SellSlot>();
+            if (sellSlot != null) break;
+        }
+
+        if (sellSlot != null)
+        {
+            //Debug.Log("Dragging into sell slot");
+            ShopManager.Instance.RegisterSellItem(this);
+
+            transform.SetParent(ShopManager.Instance.sellSlotParent, false);
+            transform.SetAsLastSibling();
+            transform.localScale = Vector3.one;
+            transform.localRotation = Quaternion.identity;
+            transform.localPosition = Vector3.zero;
+            GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+
+            dropped = true;
+        }
+        if (cachedParent == ShopManager.Instance.sellSlotParent && transform.parent != ShopManager.Instance.sellSlotParent)
+        {
+            //Debug.Log("Dragged out of sell slot — unregistering");
+            ShopManager.Instance.UnregisterSellItem(this);
+        }
+
+        // --- ITEM SLOT ---
+        if (!dropped)
+        {
+            ItemSlot targetSlot = null;
+            foreach (var result in results)
             {
-                quantity = 0;
-                UpdateQuantity(0);
-                slotItem = null;
-                transform.SetParent(parentAfterDrag);
-                return;
+                targetSlot = result.gameObject.GetComponentInParent<ItemSlot>();
+                if (targetSlot != null) break;
             }
-            else
+
+            if (targetSlot != null && targetSlot.CanAcceptItem(slotItem))
             {
-               // Debug.Log("Items failed to drop in slot in end drag");
+                bool success = targetSlot.ReceiveInventoryItem(slotItem, quantity);
+                if (success)
+                {
+                    quantity = 0;
+                    UpdateQuantity(0);
+                    slotItem = null;
+                    transform.SetParent(parentAfterDrag);
+                    dropped = true;
+                }
             }
         }
 
-        transform.localPosition = Vector3.zero;
-        transform.SetParent(parentAfterDrag);
+        // --- HOTBAR SLOT ---
+        if (!dropped)
+        {
+            HotbarSlot hotbarSlot = null;
+            foreach (var result in results)
+            {
+                hotbarSlot = result.gameObject.GetComponentInParent<HotbarSlot>();
+                if (hotbarSlot != null) break;
+            }
+
+            if (hotbarSlot != null && cachedSlot != null)
+            {
+                hotbarSlot.AssignReference(cachedSlot);
+                transform.SetParent(parentAfterDrag);
+                transform.localPosition = Vector3.zero;
+                dropped = true;
+                return;
+            }
+        }
+
+        // --- DEFAULT DROP TO WORLD ---
+        if (!dropped)
+        {
+            DropItemToWorld();
+            HotbarManager.Instance?.UnassignHotbarSlotByOrigin(cachedSlot);
+
+            quantity = 0;
+            UpdateQuantity(0);
+            slotItem = null;
+            Destroy(gameObject);
+            return;
+        }
+
+        if (transform.parent == parentAfterDrag)
+        {
+            transform.localPosition = Vector3.zero;
+        }
     }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
         var manager = InventoryManager.Instance;
         if (manager == null) return;
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            ItemSlot originSlot = GetComponentInParent<ItemSlot>();
+            if (originSlot != null)
+            {
+                HotbarManager.Instance.AssignItemToHotbar(originSlot);
+            }
+            return;
+        }
 
         if (manager.selectedItemSlot == this)
         {
@@ -176,6 +275,36 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         manager.selectedItemSlot = this;
         AddHighlight();
         manager.ShowConsumeButton();
+    }
+
+    private void DropItemToWorld()
+    {
+        if (slotItem == null || slotItem.itemPrefab == null) return;
+
+        Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (player == null) return;
+
+        Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        Vector3 dragDirection = (Input.mousePosition - screenCenter).normalized;
+        Vector3 worldDirection = Camera.main.transform.TransformDirection(dragDirection);
+        worldDirection.z = 0;
+        worldDirection.Normalize();
+
+        float baseDistance = .1f;
+
+        for (int i = 0; i < quantity; i++)
+        {
+            float offset = 0.1f * i;
+            Vector3 dropPosition = player.position + worldDirection * (baseDistance + offset);
+
+            RaycastHit2D hit = Physics2D.Raycast(dropPosition, Vector2.down, 5f);
+            if (hit.collider != null)
+            {
+                dropPosition = hit.point;
+            }
+
+            Instantiate(slotItem.itemPrefab, dropPosition, Quaternion.identity);
+        }
     }
 
     public void AddHighlight()

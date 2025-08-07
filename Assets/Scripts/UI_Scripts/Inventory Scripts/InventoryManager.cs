@@ -182,7 +182,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("No available inventory slot!");
+        //Debug.LogWarning("No available inventory slot!");
     }
 
     public void AddItemToInventoryWithQuantity(InventoryItem itemToAdd, int amount)
@@ -229,9 +229,20 @@ public class InventoryManager : MonoBehaviour
 
         if (amount > 0)
         {
-            Debug.LogWarning($"Not enough space for all {itemToAdd.ObjectName} items. {amount} left over.");
+            //Debug.LogWarning($"Not enough space for all {itemToAdd.ObjectName} items. {amount} left over.");
         }
     }
 
-
+    public bool IsInventoryFull()
+    {
+        foreach (var slot in inventoryItemSlots)
+        {
+            if (slot.inventoryItem == null ||
+                (!slot.slotFilled && slot.heldItems < slot.maxHeldItems))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
