@@ -127,7 +127,9 @@ public class EnemyAI : MonoBehaviour
     {
         SFXManager.Instance.PlaySFXFromSource(audioSource, attackSFX, 1, 1, 1);
         int hitRoll = DiceRoller.Roll(DiceType.D20) + hitModifier; 
-        int playerDefense = 12; // replace with actual player defense logic
+        int playerDefense = PlayerEquipmentManager.Instance.GetArmorBonus();
+
+        InGameConsole.Instance.SendMessageToConsole($"Enemy Hit Roll: d20 + {hitModifier} = {hitRoll} vs Player Defense: {PlayerEquipmentManager.Instance.GetArmorBonus()}");
 
         if (hitRoll >= playerDefense)
         {

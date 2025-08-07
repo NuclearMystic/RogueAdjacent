@@ -234,16 +234,16 @@ MonoBehaviour:
   detectionRadius: 6
   attackRange: 1.5
   giveUpRange: 12
-  moveSpeed: 2
+  moveSpeed: 3
   wanderRadius: 3
   wanderInterval: 2
-  attackCooldown: 1
+  attackCooldown: 0.5
   attackSFX: {fileID: 8300000, guid: c43ed51a1c4e3f740b601049f108765b, type: 3}
   hitSFX: {fileID: 8300000, guid: fd8609e5526967445b628681dcabf25e, type: 3}
   missSFX: {fileID: 8300000, guid: a9240cc6efc089242874f317023f63f9, type: 3}
   stepsSFX: {fileID: 8300000, guid: c61781f32e46d074e8e6e707f54bf226, type: 3}
   damageDie: 2
-  hitModifier: 1
+  hitModifier: 2
   damageModifier: 0
 --- !u!82 &4654532415971639248
 AudioSource:
@@ -267,7 +267,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
