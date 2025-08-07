@@ -94,6 +94,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public bool ReceiveInventoryItem(InventoryItem incomingItem, int amount)
     {
         if (incomingItem == null) return false;
+        if (!CanAcceptItem(incomingItem)) return false;
 
         if (inventoryItem == null)
         {
@@ -126,7 +127,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     public bool CanAcceptItem(InventoryItem item)
     {
-        return slotType == SlotType.Any || item.itemType.ToString() == slotType.ToString();
+        if (item == null) return false;
+        if (slotType == SlotType.Any) return true;
+
+        // Match slotType to item.itemType enum
+        return item.itemType.ToString() == slotType.ToString();
     }
 
     public void ClearSlot()
