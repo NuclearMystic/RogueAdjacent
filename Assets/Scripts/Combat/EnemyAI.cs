@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     private Enemy enemy;
     private Vector2 spawnPoint;
     private Rigidbody2D rb;
+    private Animator animator;
 
     private float lastAttackTime;
     private Vector2 currentWanderTarget;
@@ -40,7 +41,7 @@ public class EnemyAI : MonoBehaviour
     public DiceType damageDie;
     [Tooltip("This will be in addition to the hit roll of the enemy.")]
     public int hitModifier;
-    [Tooltip("This will be in adition to any damage this enemy deals.")]
+    [Tooltip("This will be in addition to any damage this enemy deals.")]
     public int damageModifier;
 
     private void Start()
@@ -48,6 +49,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         spawnPoint = transform.position;
         currentState = State.Idle;
         audioSource = GetComponent<AudioSource>();
@@ -63,11 +65,13 @@ public class EnemyAI : MonoBehaviour
         switch (currentState)
         {
             case State.Idle:
+                animator.SetFloat("Speed", 0);
                 if (distanceToPlayer <= detectionRadius)
                     currentState = State.Chasing;
                 break;
 
             case State.Chasing:
+                animator.SetFloat("Speed", moveSpeed);
                 if (distanceToPlayer > giveUpRange)
                 {
                     currentState = State.Returning;
@@ -83,6 +87,7 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case State.Attacking:
+                animator.SetFloat("Speed", 0);
                 if (distanceToPlayer > attackRange)
                 {
                     currentState = State.Chasing;
@@ -96,6 +101,7 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case State.Returning:
+                animator.SetFloat("Speed", moveSpeed);
                 float distToSpawn = Vector2.Distance(transform.position, spawnPoint);
                 if (distToSpawn <= 0.2f)
                 {
@@ -113,7 +119,7 @@ public class EnemyAI : MonoBehaviour
     {
         Vector2 dir = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = dir * moveSpeed;
-        //SFXManager.Instance.PlaySFXFromSource(audioSource, stepsSFX, 1, 1, 1);
+        //SFXManager.Instance.PlaySFXFromSource(audioSource, stepsSFX, 1, 1, 1);  
     }
 
     private void FaceTarget(Vector2 target)
@@ -125,8 +131,9 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
+        animator.SetTrigger("Attack");
         SFXManager.Instance.PlaySFXFromSource(audioSource, attackSFX, 1, 1, 1);
-        int hitRoll = DiceRoller.Roll(DiceType.D20) + hitModifier; 
+        int hitRoll = DiceRoller.Roll(DiceType.D20) + hitModifier;
         int playerDefense = PlayerEquipmentManager.Instance.GetArmorBonus();
 
         InGameConsole.Instance.SendMessageToConsole($"Enemy Hit Roll: d20 + {hitModifier} = {hitRoll} vs Player Defense: {PlayerEquipmentManager.Instance.GetArmorBonus()}");
@@ -134,7 +141,7 @@ public class EnemyAI : MonoBehaviour
         if (hitRoll >= playerDefense)
         {
             SFXManager.Instance.PlaySFXFromSource(audioSource, hitSFX, 1, 1, 1);
-            int damage = DiceRoller.Roll(damageDie) + damageModifier; 
+            int damage = DiceRoller.Roll(damageDie) + damageModifier;
             InGameConsole.Instance.SendMessageToConsole($"{enemy.enemyName} hits you for {damage} damage!");
             PlayerVitals.instance.DamageHealth(damage);
         }

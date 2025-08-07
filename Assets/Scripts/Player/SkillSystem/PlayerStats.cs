@@ -32,6 +32,8 @@ public class PlayerStats : MonoBehaviour
     public int GetSkillTotal(SkillType skill)
         => GetSkillBase(skill) + GetSkillBonus(skill);
 
+    public int GetAttributeTotal(AttributeType attribute) => attributes.Get(attribute).value;
+
     public void ModifySkill(SkillType skill, int delta)
     {
         SkillData data = skills.Get(skill);

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca38a866bc264aa4e99338277fd557e2, type: 3}
-  m_Name: Chair
+  m_Name: Crate
   m_EditorClassIdentifier: 
-  sprite: {fileID: 2007130223, guid: 79fe0417e9e801e4f93633ea1273c800, type: 3}
+  sprite: {fileID: -81196675, guid: 79fe0417e9e801e4f93633ea1273c800, type: 3}
   size: {x: 1, y: 1}
   placementType: 1
   addOffset: 0
-  health: 3
+  health: 5
   nonDestructible: 0
-  getHitSFX: {fileID: 8300000, guid: 223fd4820cb61dc4b8bab01d2bd532e1, type: 3}
-  destroySFX: {fileID: 8300000, guid: 3ac082ee5ae87da44b725cea96fcea7b, type: 3}
+  getHitSFX: {fileID: 8300000, guid: 43aec4d697345f7479aac0d086259fd7, type: 3}
+  destroySFX: {fileID: 8300000, guid: dd0a242daf3da1b45845561c1d944964, type: 3}

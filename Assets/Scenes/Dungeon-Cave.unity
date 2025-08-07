@@ -733,6 +733,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 612419740}
     - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: dungeonLootTable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e51da57a7bbb96f499dacd6f238e7c20, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ba8be415c35d43149b658e7e69e7cd2d, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ebbe32d5b9a20da4c825fd57ef4ffb51, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4211930d023ae1f46a1b4fe820dc84f9, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b365ca48d831e046baec4b143c62e23, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9626eb568348f3144bf3399a5bf2d243, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c4deba01ffd224a4cbbe19f2ed200f37, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 90bf729319f27de48be18817066b812b, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
       propertyPath: RegenerateDungeon.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1017229188}

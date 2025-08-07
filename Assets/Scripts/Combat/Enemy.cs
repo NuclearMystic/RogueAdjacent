@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class Enemy : MonoBehaviour
 {
@@ -24,10 +25,15 @@ public class Enemy : MonoBehaviour
 
     private bool isOnHitCooldown = false;
     private LootTable lootTable;
+
+    private AudioSource audioSource;
+    public AudioClip deathSFX;
+
     //private DialogueManager dialogueManager;
     private void Start()
     {
         lootTable = FindAnyObjectByType<LootTable>();
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         //dialogueManager = GetComponentInChildren<DialogueManager>();    
@@ -102,6 +108,7 @@ public class Enemy : MonoBehaviour
         PlayerStats.Instance.AddSkillXP(skill, xpOnDeath);
         GameEventsManager.instance.currencyEvents.CurrencyGained(goldOffDeath);
         DropLoot();
+        SFXManager.Instance.PlaySFX( deathSFX);
         // TODO: Grant XP to player, drop loot, trigger animation, etc.
         Destroy(gameObject);
     }
