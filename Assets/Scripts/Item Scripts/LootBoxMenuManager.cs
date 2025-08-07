@@ -6,7 +6,7 @@ public class LootBoxMenuManager : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private Button closeButton;
     [SerializeField] private ItemSlot[] lootSlots;
-
+    [SerializeField] private Button takeAllButton;
     private LootBoxManager currentBox;
 
     private void Start()
@@ -15,6 +15,8 @@ public class LootBoxMenuManager : MonoBehaviour
         {
             CloseLootBox();
         });
+
+        takeAllButton.onClick.AddListener(() => { TakeAll(); });    
 
         panel.SetActive(false);
     }
@@ -51,5 +53,23 @@ public class LootBoxMenuManager : MonoBehaviour
             currentBox.OnClose();
             currentBox = null;
         }
+    }
+
+    public void TakeAll()
+    {
+        foreach (var slot in lootSlots)
+        {
+            if (slot.HasItem())
+            {
+                InventoryItem item = slot.inventoryItem;
+                int quantity = slot.heldItems;
+
+                InventoryManager.Instance.AddItemToInventoryWithQuantity(item, quantity);
+
+                slot.ClearSlot();
+            }
+        }
+
+        CloseLootBox();
     }
 }

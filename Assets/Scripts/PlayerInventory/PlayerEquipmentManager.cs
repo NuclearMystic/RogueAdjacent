@@ -1,13 +1,10 @@
 using UnityEngine;
 
-
 public class PlayerEquipmentManager : MonoBehaviour
 {
     public static PlayerEquipmentManager Instance { get; private set; }
 
     public PlayerInventoryManager inventoryManager;
-
-
     private Transform firstChild;
     private PaperDoll baseLayer;
     public PaperDoll[] equipmentLayers;
@@ -20,40 +17,27 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
-
     }
 
     private void Start()
     {
         inventoryManager = GetComponent<PlayerInventoryManager>();
-
         firstChild = transform.GetChild(0);
         baseLayer = firstChild.GetComponent<PaperDoll>();
         animator = firstChild.GetComponent<Animator>();
-
         GetEdittableLayers();
         RefreshAllEquipmentVisuals();
-
-    }
-
-    private void Update()
-    {
-
-
     }
 
     private void GetEdittableLayers()
     {
         equipmentLayers = baseLayer.paperDollLayers;
-
     }
 
     public void RefreshAllEquipmentVisuals()
@@ -67,64 +51,33 @@ public class PlayerEquipmentManager : MonoBehaviour
         for (int i = 0; i < equipmentLayers.Length - 1; i++)
         {
             if (equippedArmorItems[i] != null)
-            {
                 equipmentLayers[i].EquipNewItem(equippedArmorItems[i]);
-            }
             else
-            {
                 equipmentLayers[i].UnequipItem();
-            }
         }
-
     }
 
     private void UpdateEquippedWeapons()
     {
         if (currentHeldWeapon != 0 && equippedWeapons[currentHeldWeapon - 1] != null)
-        {
             equipmentLayers[4].EquipNewItem(equippedWeapons[currentHeldWeapon - 1]);
-        }
         else
-        {
             equipmentLayers[4].EquipNewItem(null);
-
-        }
-
     }
 
     public void SetCurrentHeldWeapon(int weapon)
     {
-
-        currentHeldWeapon = (weapon != currentHeldWeapon) ? weapon : 0;
+        currentHeldWeapon = weapon;
         UpdateEquippedWeapons();
     }
 
     public EquipmentItem GetCurrentHeldWeapon()
     {
-        if (currentHeldWeapon == 0)
-        {
-            return equippedWeapons[currentHeldWeapon];
-        }
-        else
-        {
-            return equippedWeapons[currentHeldWeapon - 1];
-        }
+        if (currentHeldWeapon == 0) return equippedWeapons[0];
+        return equippedWeapons[currentHeldWeapon - 1];
     }
 
-    public bool HasWeaponEquipped()
-    {
-        if (GetCurrentHeldWeapon() == null)
-            return false;
-
-        if(GetCurrentHeldWeapon() != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    public bool HasWeaponEquipped() => GetCurrentHeldWeapon() != null;
 
     public void EquipArmorItem(int index, EquipmentItem item)
     {
@@ -161,5 +114,4 @@ public class PlayerEquipmentManager : MonoBehaviour
             UpdateEquippedWeapons();
         }
     }
-
 }

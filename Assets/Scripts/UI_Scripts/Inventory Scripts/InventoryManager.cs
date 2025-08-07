@@ -182,7 +182,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("No available inventory slot!");
+        //Debug.LogWarning("No available inventory slot!");
     }
 
     public void AddItemToInventoryWithQuantity(InventoryItem itemToAdd, int amount)
@@ -233,5 +233,16 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
+    public bool IsInventoryFull()
+    {
+        foreach (var slot in inventoryItemSlots)
+        {
+            if (slot.inventoryItem == null ||
+                (!slot.slotFilled && slot.heldItems < slot.maxHeldItems))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

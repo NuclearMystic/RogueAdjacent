@@ -21,6 +21,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+
         GameObject dropped = eventData.pointerDrag;
         DraggableIconSlot draggedIcon = dropped?.GetComponent<DraggableIconSlot>();
         if (draggedIcon == null || draggedIcon.slotItem == null) return;
@@ -30,9 +31,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
         int transferAmount = draggedIcon.quantity;
 
-        if (inventoryItem != null &&
-            inventoryItem.itemId == draggedIcon.slotItem.itemId &&
-            heldItems < maxHeldItems)
+        if (inventoryItem != null && inventoryItem.itemId == draggedIcon.slotItem.itemId && heldItems < maxHeldItems)
         {
             int availableSpace = maxHeldItems - heldItems;
             int added = Mathf.Min(transferAmount, availableSpace);
@@ -40,16 +39,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             heldItems += added;
             draggableIconSlot.UpdateQuantity(heldItems);
             slotFilled = heldItems >= maxHeldItems;
-           
+
             int leftover = transferAmount - added;
             if (leftover > 0)
-            {
                 draggedIcon.SetQuantity(leftover);
-            }
             else
-            {
                 Destroy(draggedIcon.gameObject);
-            }
 
             return;
         }
@@ -70,26 +65,18 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         }
     }
 
-
     private bool IsWeaponSlot() => slotType == SlotType.Weapon;
 
-    private void Update()
-    {
-        UpdateInventoryItem();
-    }
+    private void Update() => UpdateInventoryItem();
 
     private void UpdateInventoryItem()
     {
         if (transform.childCount > 0)
         {
             draggableIconSlot = GetComponentInChildren<DraggableIconSlot>();
+            if (draggableIconSlot.slotItem == null) return;
 
-            if (draggableIconSlot.slotItem == null)
-            {
-                return;
-            }
             inventoryItem = draggableIconSlot.slotItem;
-
             heldItems = draggableIconSlot.quantity;
             maxHeldItems = inventoryItem.stackSize;
             slotFilled = heldItems >= maxHeldItems;
@@ -102,36 +89,15 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             draggableIconSlot = null;
             slotFilled = false;
         }
-
-        UpdateStackVisuals();
-    }
-
-    private void UpdateStackVisuals()
-    {
-        //for (int i = 0; i < transform.childCount; i++)
-        //{
-        //    GameObject child = transform.GetChild(i).gameObject;
-        //    bool shouldShow = (i == 0);
-
-        //    foreach (var image in child.GetComponentsInChildren<Image>())
-        //        image.enabled = shouldShow;
-
-        //    foreach (var canvasGroup in child.GetComponentsInChildren<CanvasGroup>())
-        //    {
-        //        canvasGroup.alpha = shouldShow ? 1f : 0f;
-        //        canvasGroup.blocksRaycasts = shouldShow;
-        //    }
-        //}
     }
 
     public bool ReceiveInventoryItem(InventoryItem incomingItem, int amount)
     {
-        if (incomingItem == null)
-            return false;
+        if (incomingItem == null) return false;
+        if (!CanAcceptItem(incomingItem)) return false;
 
         if (inventoryItem == null)
         {
-            // Empty slot, accept full stack
             var iconGO = Instantiate(incomingItem.draggableIcon, transform);
             var icon = iconGO.GetComponent<DraggableIconSlot>();
             icon.slotItem = incomingItem;
@@ -146,12 +112,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             return true;
         }
 
-        // If different item types, reject
-        if (inventoryItem.itemId != incomingItem.itemId)
-            return false;
-
-        if (slotFilled)
-            return false;
+        if (inventoryItem.itemId != incomingItem.itemId) return false;
+        if (slotFilled) return false;
 
         int spaceLeft = maxHeldItems - heldItems;
         int amountToAdd = Mathf.Min(spaceLeft, amount);
@@ -160,16 +122,16 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         heldItems += amountToAdd;
         slotFilled = heldItems >= maxHeldItems;
 
-        // If we fully accepted it, return true
         return amountToAdd == amount;
     }
 
-
-
-
     public bool CanAcceptItem(InventoryItem item)
     {
-        return slotType == SlotType.Any || item.itemType.ToString() == slotType.ToString();
+        if (item == null) return false;
+        if (slotType == SlotType.Any) return true;
+
+        // Match slotType to item.itemType enum
+        return item.itemType.ToString() == slotType.ToString();
     }
 
     public void ClearSlot()
@@ -180,11 +142,10 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             slotFilled = false;
             inventoryItem = null;
             isItemEquipped = false;
+
+            HotbarManager.Instance?.UnassignHotbarSlotByOrigin(this);
         }
     }
 
-    public bool HasItem()
-    {
-        return inventoryItem != null;
-    }
+    public bool HasItem() => inventoryItem != null;
 }

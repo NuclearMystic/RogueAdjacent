@@ -32,6 +32,16 @@ public class InGameConsole : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        GameEventsManager.instance.currencyEvents.onCurrencyChange += CurrencyGainedConsoleMessage;
+    }
+
+    private void OnDisable()
+    {
+        GameEventsManager.instance.currencyEvents.onCurrencyChange -= CurrencyGainedConsoleMessage;
+    }
+
     private void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -43,6 +53,11 @@ public class InGameConsole : MonoBehaviour
         {
             ScrollDown();
         }
+    }
+    public void CurrencyGainedConsoleMessage(float ic)
+    {
+        string outString = ("Currency = " + ic);
+        SendMessageToConsole(outString);
     }
 
     public void SendMessageToConsole(string message)

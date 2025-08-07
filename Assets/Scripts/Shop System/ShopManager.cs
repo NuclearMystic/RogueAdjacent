@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -97,6 +98,41 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void RegisterSellItemViaGhost(InventoryItem item, int qty)
+    {
+        if (item == null)
+        {
+            Debug.LogWarning("Tried to register null item via ghost.");
+            return;
+        }
+
+        if (item.draggableIcon == null)
+        {
+            Debug.LogWarning($"Item '{item.ObjectName}' has no draggableIcon prefab.");
+            return;
+        }
+
+        if (sellSlotParent == null)
+        {
+            Debug.LogError("Sell slot parent is not set in ShopManager.");
+            return;
+        }
+
+        GameObject newSlot = Instantiate(item.draggableIcon, sellSlotParent);
+        DraggableIconSlot icon = newSlot.GetComponent<DraggableIconSlot>();
+
+        if (icon == null)
+        {
+            Debug.LogError("Instantiated item does not have DraggableIconSlot component.");
+            return;
+        }
+
+        icon.slotItem = item;
+        icon.SetQuantity(qty);
+
+        RegisterSellItem(icon);
+    }
+
     private void CreateShopSlot(InventoryItem item)
     {
         GameObject slotGO = Instantiate(shopSlotPrefab, shopSlotParent);
@@ -143,20 +179,43 @@ public class ShopManager : MonoBehaviour
 
     public void RegisterSellItem(DraggableIconSlot itemSlot)
     {
+        if (itemSlot == null) return;
+
         if (!itemsToSell.Contains(itemSlot))
         {
             itemsToSell.Add(itemSlot);
-            UpdateTotalSellValue();
         }
+
+        LateCleanupSellList();
     }
 
     public void UnregisterSellItem(DraggableIconSlot itemSlot)
     {
+        if (itemSlot == null) return;
+
         if (itemsToSell.Contains(itemSlot))
         {
             itemsToSell.Remove(itemSlot);
             UpdateTotalSellValue();
         }
+    }
+
+    private void LateCleanupSellList()
+    {
+        StartCoroutine(ILateCleanup());
+    }
+
+    private IEnumerator ILateCleanup()
+    {
+        yield return null;
+
+        itemsToSell.RemoveAll(slot =>
+            slot == null ||
+            slot.slotItem == null ||
+            slot.transform == null ||
+            slot.transform.parent != sellSlotParent);
+
+        UpdateTotalSellValue();
     }
 
     private void UpdateTotalSellValue()
@@ -186,10 +245,16 @@ public class ShopManager : MonoBehaviour
 
     private void CancelSale()
     {
-        foreach (var slot in itemsToSell)
+        var slotsToCancel = new List<DraggableIconSlot>(itemsToSell);
+
+        foreach (var slot in slotsToCancel)
         {
-            InventoryManager.Instance.AddItemToInventoryWithQuantity(slot.slotItem, slot.quantity);
-            Destroy(slot.gameObject);
+            if (slot != null)
+            {
+                InventoryManager.Instance.AddItemToInventoryWithQuantity(slot.slotItem, slot.quantity);
+                UnregisterSellItem(slot);
+                Destroy(slot.gameObject);
+            }
         }
 
         itemsToSell.Clear();
