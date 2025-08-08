@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using AASave;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public PlayerData playerData { get; private set; }
+
+    private string playerName;
 
     private GameObject playerObject;
     private Vector3 originalPosition; 
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            Debug.Log("destroy extra game manager");
             Destroy(gameObject);
             return;
         }
@@ -38,10 +42,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (playerObject == null)
-        {
-            SetPlayerObject(GameObject.FindWithTag("Player"));
-        }
+        //if (playerObject == null)
+        //{
+        //    SetPlayerObject(GameObject.FindWithTag("Player"));
+        //}
+        
     }
 
     public void StartSceneLoad(string sceneName)
@@ -122,5 +127,15 @@ public class GameManager : MonoBehaviour
         // Update the player's targetCellPosition
         //Player player = playerObject.GetComponent<Player>();
         //player.targetCellPosition = player.tilemap.WorldToCell(originalPosition);
+    }
+
+    public void SaveGame()
+    {
+        playerData.SaveData();
+    }
+
+    public void LoadGame()
+    {
+        // SceneManager.LoadScene("LoadGameScene");
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1396464062031116590}
   - component: {fileID: -8736475395161967937}
   - component: {fileID: -9173637392334948086}
+  - component: {fileID: 2271478524167292756}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -99,3 +100,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73a40dc8a55960843a57e3293798cc05, type: 2}
   - {fileID: 11400000, guid: c4deba01ffd224a4cbbe19f2ed200f37, type: 2}
   - {fileID: 11400000, guid: c1dc4b99034a57049aa43318c1e85464, type: 2}
+  dungeonItemsDatabase: []
+--- !u!114 &2271478524167292756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655227029385604991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239b3b1569b4add44bc1ef438c335d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  fileLocation: 0
+  customFilePath: 
+  subFolder: 0
+  subFolderName: Save Slot 1
+  fileExtension: cy548xow
+  encryptData: 0

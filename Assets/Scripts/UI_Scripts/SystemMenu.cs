@@ -4,6 +4,13 @@ public class SystemMenu : MonoBehaviour
 {
     [SerializeField] private GameObject optionsMenu;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
+
     public void ReturnToGame()
     {
         UIManager.Instance.ShowSystemMenu();
@@ -11,12 +18,14 @@ public class SystemMenu : MonoBehaviour
 
     public void SaveGame()
     {
-        InGameConsole.Instance.SendMessageToConsole("Not yet implemented.");
+        gameManager.SaveGame();
+        InGameConsole.Instance.SendMessageToConsole("Tried to save game.");
     }
 
     public void LoadGame()
     {
-        InGameConsole.Instance.SendMessageToConsole("Not yet implemented.");
+        gameManager.LoadGame();
+        InGameConsole.Instance.SendMessageToConsole("Tried to load game.");
     }
 
     public void ToggleOptionsMenu()
