@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Gold Bag
+  m_EditorClassIdentifier: 
+  ObjectName: Gold Bag
+  ObjectIcon: {fileID: 21300000, guid: 4037375dc7463d247863804ab62845a7, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 69420
+  baseCost: 0
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 0}
+  itemUsedSFX: {fileID: 0}
+  itemType: 0
+  itemPrefab: {fileID: 3728525799221722519, guid: 42eb2506649e6f443bce10bede2d1324, type: 3}
+  draggableIcon: {fileID: 8584630831878268818, guid: 36ae71ad01c40d04c8e130918c598ff5, type: 3}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
+  filePathSheetOne: 
+  filePathSheetTwo: 
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 0}
+  textureTwo: {fileID: 0}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

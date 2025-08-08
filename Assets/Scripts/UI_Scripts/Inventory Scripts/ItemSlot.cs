@@ -112,6 +112,13 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             return true;
         }
 
+        ////Check for magical gold purse
+        //if (inventoryItem.itemId == 69420)
+        //{
+        //    GameEventsManager.instance.currencyEvents.CurrencyChange(Random.Range(1, 10));
+        //}
+
+
         if (inventoryItem.itemId != incomingItem.itemId) return false;
         if (slotFilled) return false;
 

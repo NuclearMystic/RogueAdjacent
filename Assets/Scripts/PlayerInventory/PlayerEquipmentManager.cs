@@ -103,19 +103,22 @@ public class PlayerEquipmentManager : MonoBehaviour
 
         // Add skill-based bonuses  
         float skillBonus = 0f;
-        if (gameManager.GetPlayerClass() == PlayerClass.Fighter)
-        {
-            skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.HeavyArmor);
-        }
-        else if (gameManager.GetPlayerClass() == PlayerClass.Archer)
-        {
-            skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.LightArmor);
-        }
-        else if (gameManager.GetPlayerClass() == PlayerClass.Wizard)
-        {
-            skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.MageArmor);
-        }
 
+        if (gameManager.playerData != null)
+        {
+            if (gameManager.GetPlayerClass() == PlayerClass.Fighter)
+            {
+                skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.HeavyArmor);
+            }
+            else if (gameManager.GetPlayerClass() == PlayerClass.Archer)
+            {
+                skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.LightArmor);
+            }
+            else if (gameManager.GetPlayerClass() == PlayerClass.Wizard)
+            {
+                skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.MageArmor);
+            }
+        }
         // Add 1 to armorBonus for every 10 points in the relevant skill  
         armorBonus += Mathf.FloorToInt(skillBonus / 10);
 
