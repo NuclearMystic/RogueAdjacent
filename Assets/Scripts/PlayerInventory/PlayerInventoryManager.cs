@@ -53,23 +53,27 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         pickedUp = false;
 
-        // Try stacking
+        if (incomingItem.itemPickedUpSFX != null) SFXManager.Instance.PlaySFX(incomingItem.itemPickedUpSFX);
+
         if (incomingItem.stackable)
         {
             foreach (var slot in playerInventory)
             {
-                if (slot.ReceiveInventoryItem(incomingItem))
+                if (slot.slotType == ItemSlot.SlotType.Any)
                 {
-                    pickedUp = true;
-                    return;
+                    if (slot.ReceiveInventoryItem(incomingItem, 1))
+                    {
+                        pickedUp = true;
+                        return;
+                    }
                 }
+                
             }
         }
 
-        // Try empty slot
         foreach (var slot in playerInventory)
         {
-            if (slot.ReceiveInventoryItem(incomingItem))
+            if (slot.ReceiveInventoryItem(incomingItem, 1))
             {
                 pickedUp = true;
                 return;
@@ -79,7 +83,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void RemoveItemsById(int itemId, int quantity)
     {
-        int remaining = quantity;
+        int remaining = quantity; 
 
         foreach (var slot in characterManager.characterItemSlots.Concat(inventoryManager.inventoryItemSlots))
         {

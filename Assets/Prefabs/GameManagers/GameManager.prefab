@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1396464062031116590}
   - component: {fileID: -8736475395161967937}
   - component: {fileID: -9173637392334948086}
+  - component: {fileID: 2271478524167292756}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -59,8 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85134602fa576434fbfc5fbad2618c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyEvents: {fileID: 0}
-  experienceEvents: {fileID: 0}
 --- !u!114 &-8736475395161967937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerlevel: 0
+  questAccepted: {fileID: 8300000, guid: 9f7798631b3f0e043885a3bdb2aa1a00, type: 3}
+  questFinished: {fileID: 8300000, guid: bba7b2b9ecc21af4db232041016b08c6, type: 3}
 --- !u!114 &-9173637392334948086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,3 +87,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80605bfcfd5de55408a24581f3abacf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsDatabase:
+  - {fileID: 11400000, guid: e51da57a7bbb96f499dacd6f238e7c20, type: 2}
+  - {fileID: 11400000, guid: ba8be415c35d43149b658e7e69e7cd2d, type: 2}
+  - {fileID: 11400000, guid: ebbe32d5b9a20da4c825fd57ef4ffb51, type: 2}
+  - {fileID: 11400000, guid: 4211930d023ae1f46a1b4fe820dc84f9, type: 2}
+  - {fileID: 11400000, guid: 7b365ca48d831e046baec4b143c62e23, type: 2}
+  - {fileID: 11400000, guid: 4f8a7594277f9324b95f2a5bf5d2313b, type: 2}
+  - {fileID: 11400000, guid: 0b1e4a095e60ea048b8c786a1e87c922, type: 2}
+  - {fileID: 11400000, guid: c935f89bbb19cf141a23aea60216a117, type: 2}
+  - {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
+  - {fileID: 11400000, guid: 73a40dc8a55960843a57e3293798cc05, type: 2}
+  - {fileID: 11400000, guid: c4deba01ffd224a4cbbe19f2ed200f37, type: 2}
+  - {fileID: 11400000, guid: c1dc4b99034a57049aa43318c1e85464, type: 2}
+  dungeonItemsDatabase: []
+--- !u!114 &2271478524167292756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655227029385604991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239b3b1569b4add44bc1ef438c335d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  fileLocation: 0
+  customFilePath: 
+  subFolder: 0
+  subFolderName: Save Slot 1
+  fileExtension: cy548xow
+  encryptData: 0

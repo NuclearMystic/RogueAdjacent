@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 20;
     public int defense = 10;
     public int xpOnDeath = 10;
+    public int goldOffDeath;
 
     private int currentHealth;
 
@@ -24,16 +26,24 @@ public class Enemy : MonoBehaviour
     private bool isOnHitCooldown = false;
     private LootTable lootTable;
 
+    private AudioSource audioSource;
+    public AudioClip deathSFX;
+
+    //private DialogueManager dialogueManager;
     private void Start()
     {
         lootTable = FindAnyObjectByType<LootTable>();
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
+        //dialogueManager = GetComponentInChildren<DialogueManager>();    
 
         if (spriteRenderer == null)
         {
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
+
+        goldOffDeath = Random.Range(xpOnDeath/2 - 5, xpOnDeath/2 + 5);
     }
 
     public int Defense => defense;
@@ -50,6 +60,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(HitCooldown());
         ApplyKnockback(knockbackDirection);
         StartCoroutine(FlashSprite());
+        //dialogueManager.HitDialogue();
 
         if (currentHealth <= 0)
         {
@@ -91,11 +102,13 @@ public class Enemy : MonoBehaviour
     {
         InGameConsole.Instance.SendMessageToConsole($"{enemyName} has been slain!");
         GameEventsManager.instance.enemyEvents.EnemyKilled(enemyName);
-        GameEventsManager.instance.experienceEvents.EnemyKilledStrengthGained(xpOnDeath);
+        GameEventsManager.instance.experienceEvents.EnemyKilledXPGained(xpOnDeath);
 
         SkillType skill = PlayerEquipmentManager.Instance.GetCurrentHeldWeapon().weaponSkill;
         PlayerStats.Instance.AddSkillXP(skill, xpOnDeath);
+        GameEventsManager.instance.currencyEvents.CurrencyGained(goldOffDeath);
         DropLoot();
+        SFXManager.Instance.PlaySFX( deathSFX);
         // TODO: Grant XP to player, drop loot, trigger animation, etc.
         Destroy(gameObject);
     }

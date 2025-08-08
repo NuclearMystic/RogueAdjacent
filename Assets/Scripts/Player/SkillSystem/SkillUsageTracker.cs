@@ -11,6 +11,7 @@ public static class SkillUsageTracker
         {
             // Show skill level up feedback
             InGameConsole.Instance.SendMessageToConsole($"{skill} leveled up!");
+            PlayerVitals.instance.RefreshBarsUI();
 
             // Only give attribute XP if the skill actually leveled up
             AttributeType governingAttribute = SkillAttributeMap.GetPrimaryAttribute(skill);

@@ -10,6 +10,9 @@ public class QuestManager : MonoBehaviour
     private Dictionary<string, Quest> questMap;
     [SerializeField] private int playerlevel = 0;
 
+    public AudioClip questAccepted;
+    public AudioClip questFinished;
+
 
     private void Awake()
     {
@@ -95,6 +98,7 @@ public class QuestManager : MonoBehaviour
         Quest quest = GetQuestById(id);
         quest.InstantiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.questSO.id, QuestState.IN_PROGRESS);
+        SFXManager.Instance.PlaySFX(questAccepted, 1.2f);
     }
     private void AdvanceQuest(string id)
     {
@@ -116,6 +120,7 @@ public class QuestManager : MonoBehaviour
         Quest quest = GetQuestById(id);
         ClaimRewards(quest);
         ChangeQuestState(quest.questSO.id, QuestState.FINISHED);
+        SFXManager.Instance.PlaySFX(questFinished);
     }
 
     private void ClaimRewards(Quest quest)

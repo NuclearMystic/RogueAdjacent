@@ -4,13 +4,13 @@ using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] DialogueSO npcDia;
+    [SerializeField] public DialogueSO npcDia;
     [SerializeField] Canvas dialogueBox;
     [SerializeField] TextMeshProUGUI dialogue;
     public float timePerCharacter = 0.05f;
 
     private RectTransform canvasRect;
-
+    private bool showingText;
     private void Start()
     {
         canvasRect = dialogueBox.GetComponent<RectTransform>();
@@ -18,32 +18,38 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowText(string incomingText)
     {
+        if (showingText)
+        {
+            return;
+        }
+
+        if (incomingText == "") return;
+
         dialogue.text = incomingText;
         //ResizeCanvasToFitText();
+
         dialogue.gameObject.SetActive(true);
+        showingText = true;
         StartCoroutine(DelayHideText(incomingText));
     }
 
     public void HideText()
     {
         dialogue.gameObject.SetActive(false);
+        showingText = false;
     }
 
-    private void ResizeCanvasToFitText()
+    public void HitDialogue()
     {
-        float textWidth = dialogue.preferredWidth;
-        float textHeight = dialogue.preferredHeight;
-
-        float padding = 20f;
-
-        canvasRect.sizeDelta = new Vector2(textWidth, textHeight + padding);
+        int randomIndex = Random.Range(0, npcDia.hitLines.Length);
+        ShowText(npcDia.hitLines[randomIndex]);
     }
 
     private IEnumerator DelayHideText(string inText)
     {
         // Calculate the total time to show the dialogue based on the length of the text
         float totalTime = inText.Length * timePerCharacter;
-
+        
         // Gradually show each character of the dialogue
         for (int i = 0; i <= inText.Length; i++)
         {

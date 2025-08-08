@@ -2,7 +2,7 @@
 - Project name: RogueAdjacent
 - Unity version: Unity 6000.1.7f1
 - Active game object:
-  - Name: GameEventsManager
+  - Name: Slider_Music
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

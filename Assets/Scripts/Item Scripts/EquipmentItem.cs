@@ -9,6 +9,11 @@ public class EquipmentItem : InventoryItem
     public int flatBonusDamage;
     public float stamDrain;
     public bool isRanged = false;
+    public int armorBonus;
+
+
+    public AudioClip itemEquippedSFX;
+    public AudioClip itemAttackSFX;
 
     //public Sprite[] spriteSheetOne;
     //public Sprite[] spriteSheetTwo;

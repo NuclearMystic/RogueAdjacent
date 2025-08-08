@@ -1,13 +1,10 @@
 using UnityEngine;
 
-
 public class PlayerEquipmentManager : MonoBehaviour
 {
     public static PlayerEquipmentManager Instance { get; private set; }
 
     public PlayerInventoryManager inventoryManager;
-
-
     private Transform firstChild;
     private PaperDoll baseLayer;
     public PaperDoll[] equipmentLayers;
@@ -18,42 +15,34 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     public int currentHeldWeapon;
 
+    private GameManager gameManager;
+
     private void Awake()
     {
-
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
 
+        
     }
 
     private void Start()
     {
         inventoryManager = GetComponent<PlayerInventoryManager>();
-
         firstChild = transform.GetChild(0);
         baseLayer = firstChild.GetComponent<PaperDoll>();
         animator = firstChild.GetComponent<Animator>();
-
+        gameManager = GameManager.Instance;
         GetEdittableLayers();
         RefreshAllEquipmentVisuals();
-
-    }
-
-    private void Update()
-    {
-
-
     }
 
     private void GetEdittableLayers()
     {
         equipmentLayers = baseLayer.paperDollLayers;
-
     }
 
     public void RefreshAllEquipmentVisuals()
@@ -73,58 +62,70 @@ public class PlayerEquipmentManager : MonoBehaviour
             else
             {
                 equipmentLayers[i].UnequipItem();
+                InGameConsole.Instance.SendMessageToConsole($"Current armor bonus is {GetArmorBonus()}");
             }
         }
-
     }
 
     private void UpdateEquippedWeapons()
     {
         if (currentHeldWeapon != 0 && equippedWeapons[currentHeldWeapon - 1] != null)
-        {
             equipmentLayers[4].EquipNewItem(equippedWeapons[currentHeldWeapon - 1]);
-        }
         else
-        {
             equipmentLayers[4].EquipNewItem(null);
-
-        }
-
     }
 
     public void SetCurrentHeldWeapon(int weapon)
     {
-
-        currentHeldWeapon = (weapon != currentHeldWeapon) ? weapon : 0;
+        currentHeldWeapon = weapon;
         UpdateEquippedWeapons();
     }
 
     public EquipmentItem GetCurrentHeldWeapon()
     {
-        if (currentHeldWeapon == 0)
-        {
-            return equippedWeapons[currentHeldWeapon];
-        }
-        else
-        {
-            return equippedWeapons[currentHeldWeapon - 1];
-        }
+        if (currentHeldWeapon == 0) return equippedWeapons[0];
+        return equippedWeapons[currentHeldWeapon - 1];
     }
 
-    public bool HasWeaponEquipped()
+    public int GetArmorBonus()
     {
-        if (GetCurrentHeldWeapon() == null)
-            return false;
+        int armorBonus = 8;
 
-        if(GetCurrentHeldWeapon() != null)
+        // Add base armor bonuses from equipped items  
+        foreach (EquipmentItem item in equippedArmorItems)
         {
-            return true;
+            if (item != null && item.armorBonus != 0)
+            {
+                armorBonus += item.armorBonus;
+            }
         }
-        else
+
+        // Add skill-based bonuses  
+        float skillBonus = 0f;
+        if (gameManager.playerData != null)
         {
-            return false;
+            if (gameManager.GetPlayerClass() == PlayerClass.Fighter)
+            {
+                skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.HeavyArmor);
+            }
+            else if (gameManager.GetPlayerClass() == PlayerClass.Archer)
+            {
+                skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.LightArmor);
+            }
+            else if (gameManager.GetPlayerClass() == PlayerClass.Wizard)
+            {
+                skillBonus = PlayerStats.Instance.GetSkillTotal(SkillType.MageArmor);
+            }
         }
+        else { Debug.LogWarning("Player Data is Null"); }
+
+        // Add 1 to armorBonus for every 10 points in the relevant skill  
+        armorBonus += Mathf.FloorToInt(skillBonus / 10);
+
+        return armorBonus;
     }
+
+    public bool HasWeaponEquipped() => GetCurrentHeldWeapon() != null;
 
     public void EquipArmorItem(int index, EquipmentItem item)
     {
@@ -150,6 +151,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         {
             equippedArmorItems[index] = null;
             UpdateEquippedItems();
+            InGameConsole.Instance.SendMessageToConsole($"Current armor bonus is {GetArmorBonus()}");
         }
     }
 
@@ -161,5 +163,4 @@ public class PlayerEquipmentManager : MonoBehaviour
             UpdateEquippedWeapons();
         }
     }
-
 }

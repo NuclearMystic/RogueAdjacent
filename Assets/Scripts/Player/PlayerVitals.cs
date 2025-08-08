@@ -8,7 +8,7 @@ public class PlayerVitals : MonoBehaviour
 {
 
     #region Singleton
-    public static PlayerVitals instance;
+    public static PlayerVitals instance { get; private set; }
 
     private void Awake()
     {
@@ -31,14 +31,6 @@ public class PlayerVitals : MonoBehaviour
     [Tooltip("Slider from the magic bar.")]
     [SerializeField] private Slider magicSlider;
 
-    [Header("Modifiers")]
-    [Tooltip("Placeholder modifier representing attribute that will affect max health.")]
-    public float healthAttribute = 1.0f;
-    [Tooltip("Placeholder modifier representing attribute that will affect max stamina.")]
-    public float staminaAttribute = 1.0f;
-    [Tooltip("Placeholder modifier representing attribute that will affect max magic.")]
-    public float magicAttribute = 1.0f;
-
     [Header("Conditions")]
     [Tooltip("Is the player currently in combat?")]
     public bool inCombat = false;
@@ -52,17 +44,28 @@ public class PlayerVitals : MonoBehaviour
 
     // health
     [SerializeField] private float currentHealth;
-    private float maxHealth = 100;
+    private float MaxHealth(){
+        float maxHealth = 90 + PlayerStats.Instance.GetAttributeTotal(AttributeType.STR) * 10;
+        return maxHealth;
+    }
 
     // stamina
     public float currentStamina { get; private set; }
-    private float maxStamina = 100;
+    private float MaxStamina()
+    {
+        float maxStamina = 90 + PlayerStats.Instance.GetAttributeTotal(AttributeType.DEX) * 10;
+        return maxStamina;
+    }
 
     // magic
     private float currentMagic;
-    private float maxMagic = 100;
+    private float MaxMagic()
+    {
+        float maxMagic = 90 + PlayerStats.Instance.GetAttributeTotal(AttributeType.INT) * 10;
+        return maxMagic;
+    }
 
-    private CombatManager combatManager;
+private CombatManager combatManager;
     private SkillType armorSkill;
 
     void Start()
@@ -78,21 +81,20 @@ public class PlayerVitals : MonoBehaviour
 
     public void InitializeVitals()
     {
-        SetMaxValues();
-        healthSlider.maxValue = maxHealth;
-        staminaSlider.maxValue = maxStamina;
-        magicSlider.maxValue = maxMagic;
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
-        currentMagic = maxMagic;
+        healthSlider.maxValue = MaxHealth();
+        staminaSlider.maxValue = MaxStamina();
+        magicSlider.maxValue = MaxMagic();
+        currentHealth = MaxHealth();
+        currentStamina = MaxStamina();
+        currentMagic = MaxMagic();
     }
 
     private void Update()
     {
         // Clamping values
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-        currentMagic = Mathf.Clamp(currentMagic, 0, maxMagic);
+        currentHealth = Mathf.Clamp(currentHealth, 0, MaxHealth());
+        currentStamina = Mathf.Clamp(currentStamina, 0, MaxStamina());
+        currentMagic = Mathf.Clamp(currentMagic, 0, MaxMagic());
 
         if (currentHealth == 0)
         {
@@ -100,24 +102,24 @@ public class PlayerVitals : MonoBehaviour
         }
 
         // Start passive healing if health is not full, player is not dead, and not in combat
-        if (currentHealth < maxHealth && currentHealth > 0 && !inCombat && !isHealing)
+        if (currentHealth < MaxHealth() && currentHealth > 0 && !inCombat && !isHealing)
         {
             healingCoroutine = StartCoroutine(PassiveHealing());
         }
 
         // Stop healing if player is in combat, at full health, or dead
-        if (currentHealth == maxHealth || inCombat || currentHealth == 0)
+        if (currentHealth == MaxHealth() || inCombat || currentHealth == 0)
         {
             StopHealing();
         }
 
         // Start stamina and magic regeneration if not full
-        if (currentStamina < maxStamina && !isRestoringStamina)
+        if (currentStamina < MaxStamina() && !isRestoringStamina)
         {
             staminaRegenCoroutine = StartCoroutine(PassiveStaminaRegen());
         }
 
-        if (currentMagic < maxMagic && !isRestoringMagic)
+        if (currentMagic < MaxMagic() && !isRestoringMagic)
         {
             magicRegenCoroutine = StartCoroutine(PassiveMagicRegen());
         }
@@ -149,6 +151,10 @@ public class PlayerVitals : MonoBehaviour
         healthSlider.value = currentHealth;
         staminaSlider.value = currentStamina;
         magicSlider.value = currentMagic;
+        // update max values for each slider
+        healthSlider.maxValue = MaxHealth();
+        staminaSlider.maxValue = MaxStamina();
+        magicSlider.maxValue = MaxMagic();
     }
 
     #region Health Logic
@@ -163,7 +169,7 @@ public class PlayerVitals : MonoBehaviour
         StopHealing();
 
         // Start healing again after 5 seconds
-        if (!inCombat && currentHealth > 0 && currentHealth < maxHealth)
+        if (!inCombat && currentHealth > 0 && currentHealth < MaxHealth())
         {
             healingCoroutine = StartCoroutine(PassiveHealing());
         }
@@ -188,7 +194,7 @@ public class PlayerVitals : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         // Continue healing while the player is not at max health and not in combat
-        while (currentHealth < maxHealth && !inCombat)
+        while (currentHealth < MaxHealth() && !inCombat)
         {
             currentHealth += Time.deltaTime;
             RefreshBarsUI();
@@ -267,7 +273,7 @@ public class PlayerVitals : MonoBehaviour
         isRestoringStamina = true;
         yield return new WaitForSeconds(1);
 
-        while (currentStamina < maxStamina)
+        while (currentStamina < MaxStamina())
         {
             // Base regen rate at skill 0
             float baseRegen = 2.0f;
@@ -335,7 +341,7 @@ public class PlayerVitals : MonoBehaviour
         isRestoringMagic = true;
         yield return new WaitForSeconds(5);
 
-        while (currentMagic < maxMagic)
+        while (currentMagic < MaxMagic())
         {
             currentMagic += Time.deltaTime;
             RefreshBarsUI();
@@ -356,19 +362,12 @@ public class PlayerVitals : MonoBehaviour
     }
     #endregion
 
-    public void SetMaxValues()
-    {
-        maxHealth = 100 * healthAttribute;
-        maxStamina = 100 * staminaAttribute;
-        maxMagic = 100 * magicAttribute;
-        RefreshBarsUI();
-    }
 
     public void RestoreAllVitals()
     {
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
-        currentMagic = maxMagic;
+        currentHealth = MaxHealth();
+        currentStamina = MaxStamina();
+        currentMagic = MaxMagic();
         RefreshBarsUI();
     }
 

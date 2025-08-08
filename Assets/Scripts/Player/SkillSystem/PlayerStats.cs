@@ -10,6 +10,9 @@ public class PlayerStats : MonoBehaviour
     public AttributeSet attributes = new();
     public SkillSet skills = new();
 
+    public AudioClip skillLevelUpSFX;
+    public AudioClip attributeLevelUpSFX;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,6 +32,8 @@ public class PlayerStats : MonoBehaviour
     public int GetSkillTotal(SkillType skill)
         => GetSkillBase(skill) + GetSkillBonus(skill);
 
+    public int GetAttributeTotal(AttributeType attribute) => attributes.Get(attribute).value;
+
     public void ModifySkill(SkillType skill, int delta)
     {
         SkillData data = skills.Get(skill);
@@ -47,6 +52,7 @@ public class PlayerStats : MonoBehaviour
         if (data.xp >= data.xpToNextLevel)
         {
             data.LevelUp();
+            SFXManager.Instance.PlaySFX(skillLevelUpSFX);
             Debug.Log($"Skill {skill} leveled up to {data.level}!");
             OnSkillChanged?.Invoke(skill);
             return true;
@@ -64,9 +70,12 @@ public class PlayerStats : MonoBehaviour
         float dampenedXP = ApplyAttributeXPDampening(xp, data.level);
         data.xp += dampenedXP;
 
+        Debug.Log($"Gained {dampenedXP} to {attribute}");
+
         if (data.xp >= data.xpToNextLevel)
         {
             data.LevelUp();
+            SFXManager.Instance.PlaySFX(attributeLevelUpSFX);
             Debug.Log($"Attribute {attribute} leveled up to {data.level}!");
             return true;
         }

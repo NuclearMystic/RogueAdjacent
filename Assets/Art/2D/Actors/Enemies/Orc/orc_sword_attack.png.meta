@@ -155,9 +155,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 143
-        width: 72
-        height: 47
+        y: 144
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: orc_sword_attack_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 95
-        width: 22
-        height: 42
+        x: 24
+        y: 144
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,10 +198,10 @@ TextureImporter:
       name: orc_sword_attack_2
       rect:
         serializedVersion: 2
-        x: 23
-        y: 95
-        width: 25
-        height: 42
+        x: 48
+        y: 144
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: orc_sword_attack_3
       rect:
         serializedVersion: 2
-        x: 47
-        y: 95
-        width: 25
-        height: 40
+        x: 0
+        y: 96
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,10 +242,10 @@ TextureImporter:
       name: orc_sword_attack_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 72
-        height: 90
+        x: 24
+        y: 96
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,11 +260,165 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c833800323a8b0d45912d8dd3a670261
+      internalID: -362950460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24949d4a3ad3b9459d953b74e6a6fb1
+      internalID: -556791631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 48
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fc09a67710d6d499b721842f5af630
+      internalID: 1882611705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56cafaf4793d0e4cb7eca1877c7822f
+      internalID: -639383735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad09769795f7f14ba4d7f437cbd21c9
+      internalID: -1407700321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_10
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832c829070af6eb4ba90d8543e224670
+      internalID: -355793157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_sword_attack_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9e10413d17cbc4ea4a2d148a2ce582
+      internalID: 1109946326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c304e392667a4ba4f94921529396fd42
     internalID: 0
     vertices: []
     indices: 
@@ -272,13 +426,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":4.0},"gridSpriteSize":{"x":24.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       orc_sword_attack_0: -3508426346694003761
       orc_sword_attack_1: 3410495103846932490
+      orc_sword_attack_10: -355793157
+      orc_sword_attack_11: 1109946326
       orc_sword_attack_2: 2240950480892735825
       orc_sword_attack_3: -7185748912594412827
       orc_sword_attack_4: 4203922148369266028
+      orc_sword_attack_5: -362950460
+      orc_sword_attack_6: -556791631
+      orc_sword_attack_7: 1882611705
+      orc_sword_attack_8: -639383735
+      orc_sword_attack_9: -1407700321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

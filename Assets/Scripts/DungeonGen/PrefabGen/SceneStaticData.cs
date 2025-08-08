@@ -9,4 +9,7 @@ public class SceneStaticData : ScriptableObject
     public bool addOffset;
     public int health = 1;
     public bool nonDestructible;
+    public AudioClip getHitSFX;
+    public AudioClip destroySFX;
+    public GameObject specificDropItem;
 }
