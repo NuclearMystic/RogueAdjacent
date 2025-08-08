@@ -10,7 +10,7 @@ public class ShopItemSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Button buyButton;
 
-    private InventoryItem itemData;
+    public InventoryItem itemData;
     private float itemPrice;
 
     public void Initialize(InventoryItem item)
