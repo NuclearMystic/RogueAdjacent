@@ -162,10 +162,10 @@ BoxCollider2D:
   m_Offset: {x: 0.005568981, y: -0.09532705}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: fd8609e5526967445b628681dcabf25e, type: 3}
   missSFX: {fileID: 8300000, guid: 934354d679da21c44ac0657ea9b1091e, type: 3}
   stepsSFX: {fileID: 8300000, guid: 9a4c2b6b0ee98b04ebf2cbbdb42fd57a, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 5325098124750638375}
   damageDie: 5
   hitModifier: 4
   damageModifier: 2

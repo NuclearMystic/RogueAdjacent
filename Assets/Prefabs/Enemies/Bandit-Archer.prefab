@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -5030698943990640947, guid: 8311e843c0c932a41bea2e187f93b940, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -233,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae4ea95b5d3aa3458987478ed9641c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 6
-  attackRange: 1.5
+  detectionRadius: 8
+  attackRange: 2
   giveUpRange: 12
   moveSpeed: 2
   wanderRadius: 3
@@ -244,7 +244,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: 34e30464aa335d648ae1c5e6e0e8951e, type: 3}
   missSFX: {fileID: 8300000, guid: 060f0d20443af9a4ea5d211912226e91, type: 3}
   stepsSFX: {fileID: 8300000, guid: 9a4c2b6b0ee98b04ebf2cbbdb42fd57a, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 1185284714803276736}
   damageDie: 3
   hitModifier: 2
   damageModifier: 1
