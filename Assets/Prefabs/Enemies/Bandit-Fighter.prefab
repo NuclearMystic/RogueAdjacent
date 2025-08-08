@@ -244,6 +244,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: fd8609e5526967445b628681dcabf25e, type: 3}
   missSFX: {fileID: 8300000, guid: 934354d679da21c44ac0657ea9b1091e, type: 3}
   stepsSFX: {fileID: 8300000, guid: 9a4c2b6b0ee98b04ebf2cbbdb42fd57a, type: 3}
+  animator: {fileID: 0}
   damageDie: 5
   hitModifier: 4
   damageModifier: 2
@@ -269,7 +270,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 200
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

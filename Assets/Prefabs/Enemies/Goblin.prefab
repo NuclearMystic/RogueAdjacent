@@ -220,7 +220,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.05
   flashCount: 2
-  deathSFX: {fileID: 8300000, guid: fc19ef58264ff91488f4973321d1b9da, type: 3}
+  deathSFX: {fileID: 8300000, guid: dd0a242daf3da1b45845561c1d944964, type: 3}
 --- !u!114 &162813094756345812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 200
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
