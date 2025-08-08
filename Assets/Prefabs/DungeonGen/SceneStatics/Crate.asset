@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca38a866bc264aa4e99338277fd557e2, type: 3}
+  m_Name: Crate
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -1468665661, guid: 79fe0417e9e801e4f93633ea1273c800, type: 3}
+  size: {x: 1, y: 1}
+  placementType: 1
+  addOffset: 0
+  health: 3
+  nonDestructible: 0
+  getHitSFX: {fileID: 8300000, guid: 43aec4d697345f7479aac0d086259fd7, type: 3}
+  destroySFX: {fileID: 8300000, guid: dd0a242daf3da1b45845561c1d944964, type: 3}
+  specificDropItem: {fileID: 0}

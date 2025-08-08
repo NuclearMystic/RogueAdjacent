@@ -5,6 +5,8 @@ public class HealingInteraction : InteractionSO
 {
     public int healAmount;
     public int healCost;
+    public bool fullRestoration;
+
     public override void Execute(GameObject actor, InteractableGameObject target)
     {
         PlayerVitals vitals = PlayerVitals.instance;
@@ -24,9 +26,17 @@ public class HealingInteraction : InteractionSO
 
         PlayerCurrencyManager.Instance.Spend(healCost);
 
-        vitals.RestoreHealth(healAmount);
-        vitals.RestoreStamina(healAmount);
-        vitals.ReplenishMagic(healAmount);
+        if (fullRestoration)
+        {
+            vitals.RestoreAllVitals();
+        }
+        else
+        {
+            vitals.RestoreHealth(healAmount);
+            vitals.RestoreStamina(healAmount);
+            vitals.ReplenishMagic(healAmount);
+        }
+
         GameEventsManager.instance.playerEvents.HealedAtInn(true);
         InGameConsole.Instance.SendMessageToConsole($"Rested at the inn. Spent {healCost} gold and restored {healAmount} to all vitals.");
     }

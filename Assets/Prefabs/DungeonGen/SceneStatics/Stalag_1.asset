@@ -16,5 +16,7 @@ MonoBehaviour:
   size: {x: 1, y: 1}
   placementType: 0
   addOffset: 0
-  health: 1
+  health: 5
   nonDestructible: 0
+  getHitSFX: {fileID: 8300000, guid: 0cb9f263a9270ce4a977431ce95319d6, type: 3}
+  destroySFX: {fileID: 8300000, guid: 629b9aec04dcc244a932f9d23fa5818d, type: 3}

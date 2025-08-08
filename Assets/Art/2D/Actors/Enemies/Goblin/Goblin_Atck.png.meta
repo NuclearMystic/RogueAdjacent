@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -155,9 +155,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 27
-        width: 28
-        height: 69
+        y: 72
+        width: 29
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: Goblin_Atck_1
       rect:
         serializedVersion: 2
-        x: 26
-        y: 49
-        width: 27
-        height: 46
+        x: 29
+        y: 72
+        width: 29
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,9 +198,9 @@ TextureImporter:
       name: Goblin_Atck_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 27
-        width: 21
+        x: 0
+        y: 48
+        width: 29
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -220,9 +220,9 @@ TextureImporter:
       name: Goblin_Atck_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 24
+        x: 29
+        y: 48
+        width: 29
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -242,10 +242,10 @@ TextureImporter:
       name: Goblin_Atck_4
       rect:
         serializedVersion: 2
-        x: 31
-        y: 1
-        width: 21
-        height: 28
+        x: 0
+        y: 24
+        width: 29
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,11 +260,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Goblin_Atck_5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 24
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bf4decf9cb35e4c9c743e037f2f0c3
+      internalID: 1959579827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Atck_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8782f82cf9d0f641961f50ccd7f1b06
+      internalID: 332473431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Atck_7
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadc02682ba5c97489760ec8eccac80f
+      internalID: 552157071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 19178c5464c34d940aaea4f0f3694b90
     internalID: 0
     vertices: []
     indices: 
@@ -272,13 +338,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":4.0},"gridSpriteSize":{"x":29.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Goblin_Atck_0: 346157000587931399
       Goblin_Atck_1: -2305452042922389379
       Goblin_Atck_2: -2638236250616629601
       Goblin_Atck_3: -2015999708181580216
       Goblin_Atck_4: 4097618471397857985
+      Goblin_Atck_5: 1959579827
+      Goblin_Atck_6: 332473431
+      Goblin_Atck_7: 552157071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

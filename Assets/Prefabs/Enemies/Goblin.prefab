@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7037303708562741972}
   - component: {fileID: 162813094756345812}
   - component: {fileID: 4654532415971639248}
+  - component: {fileID: 4361637363517229372}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Enemy
@@ -161,10 +162,10 @@ BoxCollider2D:
   m_Offset: {x: 0.4966526, y: 0.5033475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.23}
+    newSize: {x: 0.19, y: 0.23}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -219,6 +220,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.05
   flashCount: 2
+  deathSFX: {fileID: 8300000, guid: fc19ef58264ff91488f4973321d1b9da, type: 3}
 --- !u!114 &162813094756345812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,16 +236,17 @@ MonoBehaviour:
   detectionRadius: 6
   attackRange: 1.5
   giveUpRange: 12
-  moveSpeed: 2
+  moveSpeed: 3
   wanderRadius: 3
   wanderInterval: 2
-  attackCooldown: 1
+  attackCooldown: 0.5
   attackSFX: {fileID: 8300000, guid: c43ed51a1c4e3f740b601049f108765b, type: 3}
   hitSFX: {fileID: 8300000, guid: fd8609e5526967445b628681dcabf25e, type: 3}
   missSFX: {fileID: 8300000, guid: a9240cc6efc089242874f317023f63f9, type: 3}
   stepsSFX: {fileID: 8300000, guid: c61781f32e46d074e8e6e707f54bf226, type: 3}
+  animator: {fileID: 4361637363517229372}
   damageDie: 2
-  hitModifier: 1
+  hitModifier: 2
   damageModifier: 0
 --- !u!82 &4654532415971639248
 AudioSource:
@@ -267,7 +270,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -342,3 +345,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4361637363517229372
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895018915321834762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d330a1b4959cd04c8514db04e7b2c0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

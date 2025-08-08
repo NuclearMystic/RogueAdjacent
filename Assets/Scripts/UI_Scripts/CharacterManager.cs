@@ -11,6 +11,9 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private Button questButton;
     [SerializeField] private Button skillsButton;
 
+    private EquipmentItem[] currentArmorItems;
+    private EquipmentItem[] currentWeaponItems;
+
     public void Start()
     {
         closeButton.onClick.RemoveAllListeners();
@@ -20,7 +23,10 @@ public class CharacterManager : MonoBehaviour
         questButton.onClick.AddListener(() => OpenQuestMenu());
         skillsButton.onClick.AddListener(() => OpenSkillsMenu());
 
+        currentArmorItems = new EquipmentItem[characterArmorSlots.Length];
+        currentWeaponItems = new EquipmentItem[characterWeaponSlots.Length];
     }
+
     private void Update()
     {
         SyncEquippedItemsToManager();
@@ -46,13 +52,21 @@ public class CharacterManager : MonoBehaviour
         for (int i = 0; i < characterArmorSlots.Length; i++)
         {
             EquipmentItem item = characterArmorSlots[i].inventoryItem as EquipmentItem;
-            PlayerEquipmentManager.Instance.EquipArmorItem(i, item);
+            if (currentArmorItems[i] != item)
+            {
+                currentArmorItems[i] = item;
+                PlayerEquipmentManager.Instance.EquipArmorItem(i, item);
+            }
         }
 
         for (int i = 0; i < characterWeaponSlots.Length; i++)
         {
             EquipmentItem item = characterWeaponSlots[i].inventoryItem as EquipmentItem;
-            PlayerEquipmentManager.Instance.EquipWeaponItem(i, item);
+            if (currentWeaponItems[i] != item)
+            {
+                currentWeaponItems[i] = item;
+                PlayerEquipmentManager.Instance.EquipWeaponItem(i, item);
+            }
         }
     }
 }

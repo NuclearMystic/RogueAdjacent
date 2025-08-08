@@ -528,6 +528,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8908061730419417309, guid: ba37b8b1fc4b8084e80cccc1fcdf17e2, type: 3}
     - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: dungeonLootTable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
+      propertyPath: 'dungeonLootTable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e51da57a7bbb96f499dacd6f238e7c20, type: 2}
+    - target: {fileID: 7456176004628679885, guid: 79b3ac92613201847bb46f7cbb18da23, type: 3}
       propertyPath: RegenerateDungeon.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7758285212988593852}

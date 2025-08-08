@@ -8,10 +8,16 @@ public class RoomContentGenerator : MonoBehaviour
     [SerializeField] private RoomGenerator playerRoom, defaultRoom;
     [SerializeField] private GraphTest graphTest;
     [SerializeField] private Transform itemParent;
+    [SerializeField] private InventoryItem[] dungeonLootTable;
 
     public UnityEvent RegenerateDungeon;
 
     private readonly List<GameObject> spawnedObjects = new List<GameObject>();
+
+    private void Start()
+    {
+        GameManager.Instance.gameObject.GetComponent<LootTable>().dungeonItemsDatabase = dungeonLootTable;
+    }
 
     private void Update()
     {

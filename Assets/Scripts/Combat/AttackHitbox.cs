@@ -28,11 +28,20 @@ public class AttackHitbox : MonoBehaviour
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null && !hitEnemies.Contains(enemy))
         {
-            if (combatManager.IsCurrentClassFighter()) 
+            if (combatManager.IsCurrentClassFighter())
             {
                 hitEnemies.Add(enemy);
                 combatManager?.PerformAttack();
                 combatManager?.Attack(enemy);
+            }
+        }
+        else
+        {
+            SceneStatic sceneStatic = other.GetComponent<SceneStatic>();
+            if (sceneStatic != null)
+            {
+                // Logic for handling interaction with SceneStatic goes here  
+                sceneStatic.StaticTakeDamage();
             }
         }
     }

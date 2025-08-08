@@ -73,6 +73,16 @@ public class PrefabPlacer : MonoBehaviour
 
     private GameObject PlaceItem(SceneStaticData item, Vector2 pos)
     {
+        // Ensure no duplicate positions  
+        List<Vector2> existingPositions = new List<Vector2>();
+
+        while (existingPositions.Contains(pos))
+        {
+            pos += new Vector2(0.5f, 0.5f); // Adjust position slightly to avoid overlap  
+        }
+
+        existingPositions.Add(pos);
+
         GameObject newItem = CreateObject(itemPrefab, pos);
         newItem.GetComponent<SceneStatic>().Initialize(item);
         return newItem;
