@@ -23,8 +23,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (incomingText == "") return;
-
         dialogue.text = incomingText;
         //ResizeCanvasToFitText();
 
