@@ -71,7 +71,6 @@ public class Enemy : MonoBehaviour
     private void ApplyKnockback(Vector2 direction)
     {
         if (rb == null) return;
-        Debug.Log("tried to knockback)");
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction.normalized * knockbackForce, ForceMode2D.Impulse);
     }

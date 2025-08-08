@@ -26,7 +26,6 @@ public class CharacterCreation : MonoBehaviour
     public void EnterPlayerName(string name)
     {
         playerName = name;
-        Debug.Log("Player Name set to: " + playerName);
     }
 
     public void SelectClass(int value)
@@ -35,27 +34,22 @@ public class CharacterCreation : MonoBehaviour
         {
             case 1:
                 playerClass = PlayerClass.Archer;
-                Debug.Log("Archer class selected!");
                 break;
             case 2:
                 playerClass = PlayerClass.Fighter;
-                Debug.Log("Fighter class selected!");
                 break;
             case 3:
                 playerClass = PlayerClass.Wizard;
-                Debug.Log("Wizard class selected!");
                 break;
             default:
                 Debug.LogWarning("Invalid class selection.");
                 break;
         }
-        Debug.Log($"{playerClass} has been set to {playerClass.GetType()}");
     }
 
     public void ConfirmSelections()
     {
         InitializePlayer();
-        Debug.Log($"Player initialized with the name {playerData.PlayerName} and the class of {playerData.PlayerClass}!");
 
         if (string.IsNullOrWhiteSpace(playerData.PlayerName) || playerData.PlayerClass == PlayerClass.None)
         {

@@ -59,7 +59,6 @@ public class HotbarManager : MonoBehaviour
 
 
         HotbarSlot slot = hotbarSlots[index];
-        Debug.Log("Slot " + slot + " from index " + index);
         if (slot == null || slot.originSlot == null)
         {
             return;

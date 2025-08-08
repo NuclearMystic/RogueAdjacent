@@ -24,9 +24,7 @@ public class PlayerEquipmentManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        Instance = this;
-
-        
+        Instance = this;      
     }
 
     private void Start()
@@ -62,7 +60,6 @@ public class PlayerEquipmentManager : MonoBehaviour
             else
             {
                 equipmentLayers[i].UnequipItem();
-                InGameConsole.Instance.SendMessageToConsole($"Current armor bonus is {GetArmorBonus()}");
             }
         }
     }
@@ -151,7 +148,6 @@ public class PlayerEquipmentManager : MonoBehaviour
         {
             equippedArmorItems[index] = null;
             UpdateEquippedItems();
-            InGameConsole.Instance.SendMessageToConsole($"Current armor bonus is {GetArmorBonus()}");
         }
     }
 

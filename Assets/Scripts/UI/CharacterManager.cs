@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,13 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private Button closeButton;
     [SerializeField] private Button questButton;
     [SerializeField] private Button skillsButton;
+    [SerializeField] private int armorBonus;
+    [SerializeField] private TMP_Text armorBonusText;
 
     private EquipmentItem[] currentArmorItems;
     private EquipmentItem[] currentWeaponItems;
+
+    private PlayerEquipmentManager equipmentManager;
 
     public void Start()
     {
@@ -25,11 +30,19 @@ public class CharacterManager : MonoBehaviour
 
         currentArmorItems = new EquipmentItem[characterArmorSlots.Length];
         currentWeaponItems = new EquipmentItem[characterWeaponSlots.Length];
+
+        equipmentManager = PlayerEquipmentManager.Instance;
     }
 
     private void Update()
     {
         SyncEquippedItemsToManager();
+
+        if (armorBonus != equipmentManager.GetArmorBonus())
+        {
+            armorBonus = equipmentManager.GetArmorBonus();
+            armorBonusText.text = equipmentManager.GetArmorBonus().ToString();
+        }
     }
 
     public void OpenQuestMenu()

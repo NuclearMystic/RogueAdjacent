@@ -175,7 +175,7 @@ private CombatManager combatManager;
         }
 
         RefreshBarsUI();
-        Debug.Log("Player health damaged " + damage);
+        InGameConsole.Instance.SendMessageToConsole("Player health damaged " + damage);
     }
 
     // call this method with a healing value to restore player health
@@ -183,7 +183,7 @@ private CombatManager combatManager;
     {
         currentHealth += healing;
         RefreshBarsUI();
-        Debug.Log("Player health restored " + healing);
+        InGameConsole.Instance.SendMessageToConsole("Player health restored " + healing);
     }
 
     private IEnumerator PassiveHealing()
@@ -249,7 +249,7 @@ private CombatManager combatManager;
         StopStaminaRegen();
         StartCoroutine(RestorePlayerStamina(stamina));
         RefreshBarsUI();
-        Debug.Log("Player stamina restored " + stamina);
+        InGameConsole.Instance.SendMessageToConsole("Player stamina restored " + stamina);
     }
 
     // stamina restores over time as well
@@ -308,7 +308,6 @@ private CombatManager combatManager;
         StopMagicRegen(); 
         currentMagic -= magic;
         RefreshBarsUI();
-        Debug.Log("Player used magic " + magic);
 
         magicRegenCoroutine = StartCoroutine(PassiveMagicRegen());
     }
@@ -318,7 +317,7 @@ private CombatManager combatManager;
         StopMagicRegen();
         StartCoroutine(RestorePlayerMagic(magic));
         RefreshBarsUI();
-        Debug.Log("Player magic replenished " + magic);
+        InGameConsole.Instance.SendMessageToConsole("Player magic replenished " + magic);
     }
 
     // magic restores over time instead of instantly
@@ -374,6 +373,6 @@ private CombatManager combatManager;
     private void DeathHandling()
     {
         GameManager.Instance.WarpBackToOriginalPosition();
-        Debug.Log("Player has died. R.I.P.");
+        InGameConsole.Instance.SendMessageToConsole("Player has died. R.I.P.");
     }
 }

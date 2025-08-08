@@ -174,7 +174,6 @@ public class PaperDoll : MonoBehaviour
     {
         if (equipped != null)
         {
-            //Debug.Log($"[PaperDoll] Swapping {gameObject.name} to {equipped.textureTwo.name}");
 
             if (equippedWeaponIsRanged && layerType != LayerType.Weapon)
             {
@@ -190,7 +189,7 @@ public class PaperDoll : MonoBehaviour
         }
         else
         {
-            //Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
+            Debug.LogWarning($"[PaperDoll] No equipped item on {gameObject.name}, can't swap to attack sheet.");
         }
 
         if (!isChildSprite && paperDollLayers != null)
