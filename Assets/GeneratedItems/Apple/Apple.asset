@@ -22,7 +22,7 @@ MonoBehaviour:
   staminaEffect: 5
   magicEffect: 0
   itemPickedUpSFX: {fileID: 0}
-  itemUsedSFX: {fileID: 0}
+  itemUsedSFX: {fileID: 8300000, guid: 397eafda86f37c1439b6bbdbbe1dd1d0, type: 3}
   itemType: 0
   itemPrefab: {fileID: 691827731045224900, guid: f28baaf701a32eb42b0b7e690056c999, type: 3}
   draggableIcon: {fileID: 36135355360691799, guid: d3563fb43eb20124a8127d9c2f3ebde5, type: 3}
@@ -31,8 +31,9 @@ MonoBehaviour:
   flatBonusDamage: 0
   stamDrain: 0
   isRanged: 0
-  itemEquippedSFX: {fileID: 0}
-  itemAttackSFX: {fileID: 0}
+  armorBonus: 1
+  itemEquippedSFX: {fileID: 8300000, guid: 8ef4d72ef99925f4d9af7d7a8abfc760, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 7a494a3a8308aaf4480e7d11580d4279, type: 3}
   filePathSheetOne: 
   filePathSheetTwo: 
   filePathSheetThree: 

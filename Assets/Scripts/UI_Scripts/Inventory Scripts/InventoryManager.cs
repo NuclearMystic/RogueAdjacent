@@ -112,10 +112,12 @@ public class InventoryManager : MonoBehaviour
         var item = selectedItemSlot.slotItem;
         int amountToConsume = selectedItemSlot.quantity > 1 ? Mathf.RoundToInt(qtySlider.value) : 1;
 
-        SFXManager.Instance.PlaySFX(item.itemUsedSFX);
-        PlayerVitals.instance.RestoreHealth(item.healthEffect);
-        PlayerVitals.instance.RestoreStamina(item.staminaEffect);
-        PlayerVitals.instance.ReplenishMagic(item.magicEffect);
+        
+        if (item.itemPickedUpSFX != null) SFXManager.Instance.PlaySFX(item.itemUsedSFX);
+
+        PlayerVitals.instance.RestoreHealth(item.healthEffect * amountToConsume);
+        PlayerVitals.instance.RestoreStamina(item.healthEffect * amountToConsume);
+        PlayerVitals.instance.ReplenishMagic(item.healthEffect * amountToConsume);
 
         selectedItemSlot.quantity -= amountToConsume;
         selectedItemSlot.UpdateQuantity(selectedItemSlot.quantity);
