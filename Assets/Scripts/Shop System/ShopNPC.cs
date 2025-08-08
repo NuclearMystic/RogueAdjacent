@@ -7,7 +7,7 @@ public class ShopNPC : MonoBehaviour
     [SerializeField] private DialogueSO dialogueData;
     
 
-    private bool playerNear = false;
+    //private bool playerNear = false;
     
 
     private void Start()
@@ -34,7 +34,7 @@ public class ShopNPC : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerNear = true;
+           //playerNear = true;
             ShowDialogue();           
         }
     }
@@ -43,7 +43,7 @@ public class ShopNPC : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerNear = false;
+           // playerNear = false;
         }
     }
 }

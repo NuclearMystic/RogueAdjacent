@@ -62,11 +62,11 @@ public class LootBoxMenuManager : MonoBehaviour
             if (slot.HasItem())
             {
                 InventoryItem item = slot.inventoryItem;
-                int quantity = slot.heldItems;
 
-                InventoryManager.Instance.AddItemToInventoryWithQuantity(item, quantity);
+                bool added = false;
+                PlayerInventoryManager.Instance.PickUpItem(item, out added);
 
-                slot.ClearSlot();
+                if (added) slot.ClearSlot();
             }
         }
 
