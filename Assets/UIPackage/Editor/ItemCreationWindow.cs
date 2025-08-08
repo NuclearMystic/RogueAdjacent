@@ -3,6 +3,7 @@ using UnityEditor;
 using TMPro;
 using System.IO;
 using UnityEngine.UI;
+using System.Globalization;
 
 public class ItemCreationWindow : EditorWindow
 {
@@ -18,6 +19,7 @@ public class ItemCreationWindow : EditorWindow
     private bool stackable = false;
     private int stackSize = 1;
     private int itemId = 0;
+    private int baseCost = 0;
     private InventoryItem.SlotType itemType = InventoryItem.SlotType.Weapon;
 
     // Consumable Info
@@ -58,6 +60,7 @@ public class ItemCreationWindow : EditorWindow
             EditorGUI.indentLevel++;
             objectName = EditorGUILayout.TextField("Object Name", objectName);
             objectIcon = (Sprite)EditorGUILayout.ObjectField("Object Icon", objectIcon, typeof(Sprite), false);
+            baseCost = EditorGUILayout.IntField("Base Cost", baseCost);
             stackable = EditorGUILayout.Toggle("Stackable", stackable);
             stackSize = EditorGUILayout.IntField("Stack Size", Mathf.Max(stackSize, 1));
             itemId = EditorGUILayout.IntField("Item ID", itemId);
@@ -157,7 +160,30 @@ public class ItemCreationWindow : EditorWindow
     private void CreateItem()
     {
         string baseFolder = "Assets/GeneratedItems";
-        string itemFolder = $"{baseFolder}/{objectName}";
+        string itemFolder;
+
+
+        switch (itemType)
+        {
+            case InventoryItem.SlotType.Food:
+            case InventoryItem.SlotType.Weapon:
+                itemFolder = $"{baseFolder}/{itemType}/{objectName}";
+                break;
+
+            case InventoryItem.SlotType.Outfit:
+            case InventoryItem.SlotType.Hair:
+            case InventoryItem.SlotType.Cape:
+            case InventoryItem.SlotType.FaceAcces:
+                itemFolder = $"{baseFolder}/Clothes/{objectName}";
+                break;
+
+            default:
+                itemFolder = $"{baseFolder}/Slottypeassignmentfailure/{objectName}";
+                Debug.LogWarning("Failed to make folder");
+                break;
+        }
+
+
         if (!Directory.Exists(itemFolder)) Directory.CreateDirectory(itemFolder);
 
         // Create EquipmentItem asset
@@ -168,6 +194,12 @@ public class ItemCreationWindow : EditorWindow
         itemAsset.stackSize = stackSize;
         itemAsset.itemId = itemId;
         itemAsset.itemType = itemType;
+        itemAsset.baseCost = baseCost;
+
+        itemAsset.itemAttackSFX = itemAttackSFX;
+        itemAsset.itemEquippedSFX = itemEquippedSFX;
+        itemAsset.itemPickedUpSFX = itemPickedUpSFX;
+        itemAsset.itemUsedSFX = itemUsedSFX;
 
         itemAsset.filePathSheetOne = filePathSheetOne;
         itemAsset.filePathSheetTwo = filePathSheetTwo;

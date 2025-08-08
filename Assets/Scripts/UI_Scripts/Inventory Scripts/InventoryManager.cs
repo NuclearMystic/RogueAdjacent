@@ -82,7 +82,7 @@ public class InventoryManager : MonoBehaviour
                 qtySlider.onValueChanged.RemoveAllListeners();
                 qtySlider.minValue = 1;
                 qtySlider.maxValue = selectedItemSlot.quantity;
-                qtySlider.value = selectedItemSlot.quantity;
+                qtySlider.value = 1;
                 qtySliderLabel.text = qtySlider.value.ToString();
 
                 qtySlider.onValueChanged.AddListener((val) =>

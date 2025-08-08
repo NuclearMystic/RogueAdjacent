@@ -98,6 +98,13 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
         if (inventoryItem == null)
         {
+            if (incomingItem.itemId == 69420 && !isLootSlot)
+            {
+                GameEventsManager.instance.currencyEvents.CurrencyGained(Random.Range(1, 10));
+                return true;
+            }
+
+
             var iconGO = Instantiate(incomingItem.draggableIcon, transform);
             var icon = iconGO.GetComponent<DraggableIconSlot>();
             icon.slotItem = incomingItem;
