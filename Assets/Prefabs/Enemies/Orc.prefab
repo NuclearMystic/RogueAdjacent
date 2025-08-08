@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7461162008155767448}
   - component: {fileID: 80999121616095482}
   - component: {fileID: 9179182906149972730}
+  - component: {fileID: 4434703322555552821}
   m_Layer: 7
   m_Name: Orc
   m_TagString: Enemy
@@ -161,10 +162,10 @@ BoxCollider2D:
   m_Offset: {x: 0.005568981, y: -0.09532705}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.24, y: 0.48}
+    newSize: {x: 0.24, y: 0.48}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -243,6 +244,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: 68b9c283376a5924baca738c753d9f4d, type: 3}
   missSFX: {fileID: 8300000, guid: f760d57a27618f5439c381b5fcf6f42f, type: 3}
   stepsSFX: {fileID: 8300000, guid: a41a91c98c131dd4caba9af2e3316207, type: 3}
+  animator: {fileID: 4434703322555552821}
   damageDie: 4
   hitModifier: 2
   damageModifier: 1
@@ -343,3 +345,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4434703322555552821
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895018915321834762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83ab4089cc64e48439da03b3520cba6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

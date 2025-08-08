@@ -21,7 +21,6 @@ public class EnemyAI : MonoBehaviour
     private Enemy enemy;
     private Vector2 spawnPoint;
     private Rigidbody2D rb;
-    private Animator animator;
 
     private float lastAttackTime;
     private Vector2 currentWanderTarget;
@@ -36,6 +35,13 @@ public class EnemyAI : MonoBehaviour
     public AudioClip stepsSFX;
     private AudioSource audioSource;
 
+    [Header("Animation")]
+    [Tooltip("Animator with DirX, DirY, IsMoving, Attack parameters")]
+    [SerializeField] private Animator animator;
+    private enum Cardinal { Up, Down, Left, Right }
+    // default facing if idle on spawn
+    private Vector2 lastNonZeroDir = Vector2.down; 
+
     [Header("Enemy Damage")]
     [Tooltip("Select type of dice for this enemy's damage.")]
     public DiceType damageDie;
@@ -49,7 +55,6 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         spawnPoint = transform.position;
         currentState = State.Idle;
         audioSource = GetComponent<AudioSource>();
@@ -65,13 +70,11 @@ public class EnemyAI : MonoBehaviour
         switch (currentState)
         {
             case State.Idle:
-                animator.SetFloat("Speed", 0);
                 if (distanceToPlayer <= detectionRadius)
                     currentState = State.Chasing;
                 break;
 
             case State.Chasing:
-                animator.SetFloat("Speed", moveSpeed);
                 if (distanceToPlayer > giveUpRange)
                 {
                     currentState = State.Returning;
@@ -87,7 +90,6 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case State.Attacking:
-                animator.SetFloat("Speed", 0);
                 if (distanceToPlayer > attackRange)
                 {
                     currentState = State.Chasing;
@@ -101,7 +103,6 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case State.Returning:
-                animator.SetFloat("Speed", moveSpeed);
                 float distToSpawn = Vector2.Distance(transform.position, spawnPoint);
                 if (distToSpawn <= 0.2f)
                 {
@@ -113,42 +114,65 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
         }
+
+        //  Always update animator here
+        bool moving = rb.linearVelocity.sqrMagnitude > 0.0001f;
+        if (moving)
+            UpdateFacingFromVector(rb.linearVelocity.normalized);
+
+        UpdateAnimator(moving ? rb.linearVelocity.normalized : lastNonZeroDir, moving);
     }
+
 
     private void MoveToward(Vector2 target)
     {
         Vector2 dir = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = dir * moveSpeed;
-        //SFXManager.Instance.PlaySFXFromSource(audioSource, stepsSFX, 1, 1, 1);  
+
+        UpdateFacingFromVector(dir);
+        UpdateAnimator(dir, true);
     }
 
     private void FaceTarget(Vector2 target)
     {
         Vector2 dir = target - (Vector2)transform.position;
+
+        // keep your scale flip for left/right if you want
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
             transform.localScale = new Vector3(dir.x > 0 ? 1 : -1, 1, 1);
+
+        // also update anim facing so attack uses the right directional clip
+        Vector2 ndir = dir.sqrMagnitude > 0.0001f ? dir.normalized : lastNonZeroDir;
+        UpdateFacingFromVector(ndir);
+        UpdateAnimator(ndir, false); // not moving while in attack windup/loop
     }
 
     private void AttackPlayer()
     {
-        animator.SetTrigger("Attack");
+        // ensure attack uses current facing toward player
+        FaceTarget(player.position);
+
+        // kick the animation
+        if (animator != null) animator.SetTrigger("Attack");
+
+        // your existing SFX and hit logic
         SFXManager.Instance.PlaySFXFromSource(audioSource, attackSFX, 1, 1, 1);
         int hitRoll = DiceRoller.Roll(DiceType.D20) + hitModifier;
         int playerDefense = PlayerEquipmentManager.Instance.GetArmorBonus();
 
-        InGameConsole.Instance.SendMessageToConsole($"Enemy Hit Roll: d20 + {hitModifier} = {hitRoll} vs Player Defense: {PlayerEquipmentManager.Instance.GetArmorBonus()}");
+        InGameConsole.Instance.SendMessageToConsole("Enemy Hit Roll: d20 + " + hitModifier + " = " + hitRoll + " vs Player Defense: " + playerDefense);
 
         if (hitRoll >= playerDefense)
         {
             SFXManager.Instance.PlaySFXFromSource(audioSource, hitSFX, 1, 1, 1);
             int damage = DiceRoller.Roll(damageDie) + damageModifier;
-            InGameConsole.Instance.SendMessageToConsole($"{enemy.enemyName} hits you for {damage} damage!");
+            InGameConsole.Instance.SendMessageToConsole(enemy.enemyName + " hits you for " + damage + " damage!");
             PlayerVitals.instance.DamageHealth(damage);
         }
         else
         {
             SFXManager.Instance.PlaySFXFromSource(audioSource, missSFX, 1, 1, 1);
-            InGameConsole.Instance.SendMessageToConsole($"{enemy.enemyName} missed!");
+            InGameConsole.Instance.SendMessageToConsole(enemy.enemyName + " missed!");
         }
     }
 
@@ -162,7 +186,57 @@ public class EnemyAI : MonoBehaviour
                 currentWanderTarget = spawnPoint + randomOffset;
                 MoveToward(currentWanderTarget);
             }
+            else
+            {
+                // when not explicitly moving via MoveToward, keep animator updated for idle
+                Vector2 v = rb.linearVelocity;
+                bool moving = v.sqrMagnitude > 0.0001f;
+                if (moving) UpdateFacingFromVector(v.normalized);
+                UpdateAnimator(moving ? v.normalized : lastNonZeroDir, moving);
+            }
             yield return new WaitForSeconds(wanderInterval);
         }
+    }
+
+    private void UpdateFacingFromVector(Vector2 dir)
+    {
+        if (dir.sqrMagnitude < 0.0001f) return;
+        // Snap to cardinal so your 4-dir clips look right
+        Cardinal c = ToCardinal(dir);
+        switch (c)
+        {
+            case Cardinal.Up: lastNonZeroDir = Vector2.up; break;
+            case Cardinal.Down: lastNonZeroDir = Vector2.down; break;
+            case Cardinal.Left: lastNonZeroDir = Vector2.left; break;
+            case Cardinal.Right: lastNonZeroDir = Vector2.right; break;
+        }
+    }
+
+    private void UpdateAnimator(Vector2 dir, bool isMoving)
+    {
+        if (animator == null) return;
+
+        // For a 4-direction setup, feed exact cardinals to avoid diagonal blends
+        Vector2 snapped = SnapToCardinal(dir);
+
+        animator.SetBool("isMoving", isMoving);
+        animator.SetFloat("DirX", snapped.x);
+        animator.SetFloat("DirY", snapped.y);
+    }
+
+    private static Cardinal ToCardinal(Vector2 v)
+    {
+        if (Mathf.Abs(v.x) >= Mathf.Abs(v.y))
+            return v.x >= 0f ? Cardinal.Right : Cardinal.Left;
+        else
+            return v.y >= 0f ? Cardinal.Up : Cardinal.Down;
+    }
+
+    private static Vector2 SnapToCardinal(Vector2 v)
+    {
+        if (Mathf.Abs(v.x) >= Mathf.Abs(v.y))
+            return v.x >= 0f ? Vector2.right : Vector2.left;
+        else
+            return v.y >= 0f ? Vector2.up : Vector2.down;
     }
 }

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7037303708562741972}
   - component: {fileID: 162813094756345812}
   - component: {fileID: 4654532415971639248}
+  - component: {fileID: 4361637363517229372}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Enemy
@@ -161,10 +162,10 @@ BoxCollider2D:
   m_Offset: {x: 0.4966526, y: 0.5033475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.23}
+    newSize: {x: 0.19, y: 0.23}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -243,6 +244,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: fd8609e5526967445b628681dcabf25e, type: 3}
   missSFX: {fileID: 8300000, guid: a9240cc6efc089242874f317023f63f9, type: 3}
   stepsSFX: {fileID: 8300000, guid: c61781f32e46d074e8e6e707f54bf226, type: 3}
+  animator: {fileID: 4361637363517229372}
   damageDie: 2
   hitModifier: 2
   damageModifier: 0
@@ -343,3 +345,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &4361637363517229372
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895018915321834762}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d330a1b4959cd04c8514db04e7b2c0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
