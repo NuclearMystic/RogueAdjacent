@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections.Generic;
 
-public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
+public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Image iconImage;
     public TextMeshProUGUI quantityLabel;
@@ -80,6 +80,19 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         iconImage.sprite = item.ObjectIcon;
         UpdateQuantity(qty);
     }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (slotItem != null)
+        {
+            ItemHoverTooltip.Instance?.Show(slotItem, this.GetComponent<RectTransform>());
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ItemHoverTooltip.Instance?.Hide();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (slotItem == null || dragGhostHandler == null) return;
