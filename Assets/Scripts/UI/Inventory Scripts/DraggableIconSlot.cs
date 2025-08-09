@@ -98,39 +98,22 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if (slotItem == null || dragGhostHandler == null) return;
 
         dragAmount = quantity;
-
         bool usingSlider = InventoryManager.Instance.selectedItemSlot == this &&
                            InventoryManager.Instance.qtySlider != null &&
                            InventoryManager.Instance.qtySlider.gameObject.activeInHierarchy;
 
-        if (usingSlider)
-        {
-            dragAmount = Mathf.RoundToInt(InventoryManager.Instance.qtySlider.value);
-        }
+        if (usingSlider) dragAmount = Mathf.RoundToInt(InventoryManager.Instance.qtySlider.value);
 
-        var originSlot = GetComponentInParent<ItemSlot>();
-        cachedSlot = originSlot;
+        cachedSlot = GetComponentInParent<ItemSlot>();
         cachedParent = transform.parent;
 
-        if (usingSlider || dragAmount < quantity)
-        {
-            quantity -= dragAmount;             
-            UpdateQuantity(quantity);
+        dragGhostHandler.BeginDrag(slotItem, dragAmount, cachedSlot);
+        dragGhostHandler.gameObject.SetActive(true);
+        eventData.pointerDrag = dragGhostHandler.gameObject;
+        usedGhost = true;
 
-            dragGhostHandler.BeginDrag(slotItem, dragAmount, originSlot);
-            dragGhostHandler.gameObject.SetActive(true);
-            eventData.pointerDrag = dragGhostHandler.gameObject;
-            usedGhost = true;
-        }
-        else
-        {
-            parentAfterDrag = transform.parent;
-            transform.SetParent(mainUICanvas.transform);
-            transform.SetAsLastSibling();
-            iconImage.raycastTarget = false;
-            isDragging = true;
-            usedGhost = false;
-        }
+        isDragging = false;
+        iconImage.raycastTarget = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -230,7 +213,24 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
             if (hotbarSlot != null && cachedSlot != null)
             {
-                hotbarSlot.AssignReference(cachedSlot);
+                if (slotItem is EquipmentItem eq && slotItem.itemType == InventoryItem.SlotType.Weapon)
+                {
+                    if (HotbarManager.Instance.EnsureWeaponInWeaponSlot(cachedSlot, eq, out ItemSlot weaponSlot))
+                    {
+                        hotbarSlot.AssignReference(weaponSlot);
+                    }
+                    else
+                    {
+                        ItemHoverTooltip.Instance?.ShowRaw("No empty weapon slot — can't hotbar.");
+                        transform.SetParent(parentAfterDrag);
+                        transform.localPosition = Vector3.zero;
+                        return;
+                    }
+                }
+                else
+                {
+                    hotbarSlot.AssignReference(cachedSlot);
+                }
                 transform.SetParent(parentAfterDrag);
                 transform.localPosition = Vector3.zero;
                 dropped = true;
@@ -238,7 +238,6 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             }
         }
 
-        // --- DEFAULT DROP TO WORLD ---
         if (!dropped)
         {
             DropItemToWorld();
@@ -267,14 +266,24 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             ItemSlot originSlot = GetComponentInParent<ItemSlot>();
             if (originSlot != null)
             {
-                var hotbar = HotbarManager.Instance;
-                if (hotbar.IsSlotAssigned(originSlot))
+                if (slotItem is EquipmentItem eq && slotItem.itemType == InventoryItem.SlotType.Weapon)
                 {
-                    hotbar.UnassignHotbarSlotByOrigin(originSlot);
+                    bool ok = HotbarManager.Instance.TryEquipToWeaponSlotAndBind(originSlot, eq);
+                    if (!ok)
+                    {
+                        ItemHoverTooltip.Instance?.ShowRaw("No empty weapon slot\nCan't hotbar.");
+                    }
                 }
                 else
                 {
-                    hotbar.AssignItemToHotbar(originSlot);
+                    if (slotItem.itemType == InventoryItem.SlotType.Food)
+                    {
+                        var hotbar = HotbarManager.Instance;
+                        if (hotbar.IsSlotAssigned(originSlot))
+                            hotbar.UnassignHotbarSlotByOrigin(originSlot);
+                        else
+                            hotbar.AssignItemToHotbar(originSlot);
+                    }
                 }
             }
             return;
@@ -288,9 +297,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         }
 
         if (manager.selectedItemSlot != null)
-        {
             manager.selectedItemSlot.RemoveHighlight();
-        }
 
         manager.selectedItemSlot = this;
         AddHighlight();

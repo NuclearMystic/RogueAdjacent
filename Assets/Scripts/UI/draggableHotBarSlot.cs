@@ -21,7 +21,7 @@ public class DraggableHotBarSlot : MonoBehaviour, IBeginDragHandler, IDragHandle
         originalPosition = rectTransform.position;
         originalParent = transform.parent;
         canvasGroup.blocksRaycasts = false;
-        transform.SetParent(canvas.transform); // Drag over UI
+        transform.SetParent(canvas.transform); 
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -38,7 +38,6 @@ public class DraggableHotBarSlot : MonoBehaviour, IBeginDragHandler, IDragHandle
         HotbarSlot originSlot = originalParent.GetComponent<HotbarSlot>();
         if (targetSlot != null && targetSlot != originSlot)
         {
-            // Swap origin references
             var originRef = originSlot.originSlot;
             var targetRef = targetSlot.originSlot;
 
@@ -46,7 +45,6 @@ public class DraggableHotBarSlot : MonoBehaviour, IBeginDragHandler, IDragHandle
             targetSlot.AssignReference(originRef);
         }
 
-        // Return to original layout position
         transform.SetParent(originalParent);
         rectTransform.position = originalPosition;
     }

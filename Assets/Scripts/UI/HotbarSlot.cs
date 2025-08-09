@@ -13,6 +13,7 @@ public class HotbarSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     [Header("Runtime")]
     public ItemSlot originSlot;
+    public int weaponSlotIndex = -1;
 
     private void Update()
     {
@@ -26,7 +27,15 @@ public class HotbarSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
             }
         }
     }
-
+    private void LateUpdate()
+    {
+        if (originSlot == null || !originSlot.HasItem())
+        {
+            ClearSlot();
+            return;
+        }
+        UpdateQuantity();
+    }
     public void OnDrop(PointerEventData eventData)
     {
         DraggableIconSlot draggedIcon = eventData.pointerDrag?.GetComponent<DraggableIconSlot>();
@@ -54,49 +63,45 @@ public class HotbarSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         originSlot = origin;
 
-        if (origin != null && origin.HasItem() && origin.inventoryItem != null)
+        weaponSlotIndex = -1;
+        var pim = PlayerInventoryManager.Instance;
+        var charMgr = pim != null ? pim.characterManager : null;
+        if (charMgr != null && originSlot != null && originSlot.slotType == ItemSlot.SlotType.Weapon)
         {
-            iconImage.sprite = origin.inventoryItem.ObjectIcon;
+            for (int i = 0; i < charMgr.characterWeaponSlots.Length; i++)
+            {
+                if (charMgr.characterWeaponSlots[i] == originSlot)
+                {
+                    weaponSlotIndex = i;
+                    break;
+                }
+            }
+        }
+
+        if (originSlot != null && originSlot.HasItem())
+        {
+            iconImage.sprite = originSlot.inventoryItem.ObjectIcon;
             iconImage.color = Color.white;
             UpdateQuantity();
         }
         else
         {
-            iconImage.sprite = null;
-            iconImage.color = new Color(1, 1, 1, 0);
-            quantityText.text = "";
+            ClearSlot();
         }
     }
 
     public void UpdateQuantity()
     {
-        if (originSlot != null && originSlot.heldItems > 1)
-        {
+        if (originSlot != null && originSlot.HasItem() && originSlot.heldItems > 1)
             quantityText.text = originSlot.heldItems.ToString();
-        }
         else
-        {
             quantityText.text = "";
-        }
     }
 
     public void ClearSlot()
     {
-        if (originSlot != null && originSlot.inventoryItem is EquipmentItem equipItem)
-        {
-            int equippedIndex = PlayerEquipmentManager.Instance.equippedWeapons
-                                 .ToList()
-                                 .FindIndex(e => e == equipItem);
-
-            if (equippedIndex >= 0)
-            {
-                PlayerEquipmentManager.Instance.UnequipWeaponItem(equippedIndex);
-                if (PlayerEquipmentManager.Instance.currentHeldWeapon == equippedIndex + 1)
-                    PlayerEquipmentManager.Instance.SetCurrentHeldWeapon(0);
-            }
-        }
-
         originSlot = null;
+        weaponSlotIndex = -1; // reset cache
         iconImage.sprite = null;
         iconImage.color = new Color(1, 1, 1, 0);
         quantityText.text = "";

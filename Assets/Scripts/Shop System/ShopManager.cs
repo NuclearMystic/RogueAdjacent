@@ -233,9 +233,17 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var slot in itemsToSell)
         {
-            float amount = GetSellValueForItem(slot.slotItem) * slot.quantity;
+            var item = slot.slotItem;
+            int qty = slot.quantity;
+
+            // 1) pay player
+            float amount = GetSellValueForItem(item) * qty;
             GameEventsManager.instance.currencyEvents.CurrencyGained(amount);
-            GameEventsManager.instance.miscEvents.ItemSold(slot.slotItem.itemId, slot.quantity);
+
+            // 2) remove from inventory NOW
+            PlayerInventoryManager.Instance.RemoveItemsById(item.itemId, qty);
+
+            // 3) UI cleanup
             Destroy(slot.gameObject);
         }
 
@@ -245,18 +253,10 @@ public class ShopManager : MonoBehaviour
 
     private void CancelSale()
     {
-        var slotsToCancel = new List<DraggableIconSlot>(itemsToSell);
-
-        foreach (var slot in slotsToCancel)
+        foreach (var slot in new List<DraggableIconSlot>(itemsToSell))
         {
-            if (slot != null)
-            {
-                InventoryManager.Instance.AddItemToInventoryWithQuantity(slot.slotItem, slot.quantity);
-                UnregisterSellItem(slot);
-                Destroy(slot.gameObject);
-            }
+            if (slot != null) Destroy(slot.gameObject);
         }
-
         itemsToSell.Clear();
         UpdateTotalSellValue();
     }

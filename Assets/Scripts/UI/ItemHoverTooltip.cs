@@ -79,6 +79,14 @@ public class ItemHoverTooltip : MonoBehaviour
         rect.gameObject.SetActive(true);
         visible = true;
     }
+    public void ShowRaw(string text)
+    {
+        if (tooltipText == null) return;
+
+        tooltipText.text = text;
+        rect.gameObject.SetActive(true);
+        rect.gameObject.transform.position = (Vector2)Input.mousePosition + tipOffset;
+    }
 
     public void Hide()
     {
