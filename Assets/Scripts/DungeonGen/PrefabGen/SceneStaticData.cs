@@ -12,4 +12,5 @@ public class SceneStaticData : ScriptableObject
     public AudioClip getHitSFX;
     public AudioClip destroySFX;
     public GameObject specificDropItem;
+    public GameObject lightToSpawn;
 }

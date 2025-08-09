@@ -20,6 +20,8 @@ public class SceneStatic : MonoBehaviour
     private AudioClip getHitSFX;
     private AudioClip destroySFX;
 
+    public GameObject lightToSpawn;
+
     [Header("Flash Settings")]
     [SerializeField] private Color flashColor = Color.white;
     [SerializeField] private float flashDuration = 0.05f;
@@ -37,9 +39,17 @@ public class SceneStatic : MonoBehaviour
         destroySFX = sceneStaticData.destroySFX;
         specificDropItem = sceneStaticData.specificDropItem;
         //set sprite offset
-        spriteRenderer.transform.localPosition = new Vector2(0.5f * sceneStaticData.size.x, 0.5f * sceneStaticData.size.y);
+        Vector2 offset = new Vector2(0.5f * sceneStaticData.size.x, 0.5f * sceneStaticData.size.y);
+        spriteRenderer.transform.localPosition = offset;
         itemCollider.size = sceneStaticData.size;
-        itemCollider.offset = spriteRenderer.transform.localPosition;
+        itemCollider.offset = offset;
+
+        if (sceneStaticData.lightToSpawn != null)
+        {
+            // Place the light where the visible sprite is (same world position as the sprite)
+            Vector3 lightPos = transform.position + (Vector3)offset;
+            GameObject light = Instantiate(sceneStaticData.lightToSpawn, lightPos, Quaternion.identity, transform);
+        }
     }
 
     public void StaticTakeDamage()
