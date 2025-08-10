@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillMenuUI : MonoBehaviour
 {
     [SerializeField] private GameObject skillPrefab;
     [SerializeField] private Transform skillGridParent;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private Button closeButton;
 
 
     private Dictionary<SkillType, SkillUIObject> skillUIMap = new();
@@ -31,8 +33,13 @@ public class SkillMenuUI : MonoBehaviour
     private void Start()
     {
         PopulateSkillMenu();
+        closeButton.onClick.RemoveAllListeners();
+        closeButton.onClick.AddListener(() => CloseMenu());
     }
-
+    public void CloseMenu()
+    {
+        UIManager.Instance.SkillsMenu.SetActive(false);
+    }
     private void PopulateSkillMenu()
     {
         skillUIMap.Clear();
