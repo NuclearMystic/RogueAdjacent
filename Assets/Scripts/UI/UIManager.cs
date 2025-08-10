@@ -95,6 +95,28 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void ToggleAllPlayersMenus()
+    {
+        if (!AreAllPlayerMenusOpen())
+        {
+            CharacterMenu.SetActive(true);
+            QuestMenu.SetActive(true);
+            InventoryMenu.SetActive(true);
+            SkillsMenu.SetActive(true);
+        }
+        else
+        {
+            CharacterMenu.SetActive(false);
+            QuestMenu.SetActive(false);
+            InventoryMenu.SetActive(false);
+            SkillsMenu.SetActive(false);
+        }
+    }
+    private bool AreAllPlayerMenusOpen()
+    {
+        if (InventoryOpen && CharacterOpen && SkillsMenuOpen && QuestMenuOpen) { return true; };
+        return false;
+    }
     public bool IsAnyMenuOpen()
     {
         if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen || SystemMenuOpen || LootBoxOpen))

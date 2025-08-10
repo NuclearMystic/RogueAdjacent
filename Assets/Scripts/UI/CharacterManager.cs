@@ -41,7 +41,8 @@ public class CharacterManager : MonoBehaviour
         if (armorBonus != equipmentManager.GetArmorBonus())
         {
             armorBonus = equipmentManager.GetArmorBonus();
-            armorBonusText.text = equipmentManager.GetArmorBonus().ToString();
+            Debug.Log("Armor bonus is: " + armorBonus);
+            armorBonusText.text = armorBonus.ToString();
         }
     }
 

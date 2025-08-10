@@ -239,6 +239,7 @@ public class ShopManager : MonoBehaviour
             // 1) pay player
             float amount = GetSellValueForItem(item) * qty;
             GameEventsManager.instance.currencyEvents.CurrencyGained(amount);
+            GameEventsManager.instance.miscEvents.ItemSold(item.itemId, qty);
 
             // 2) remove from inventory NOW
             PlayerInventoryManager.Instance.RemoveItemsById(item.itemId, qty);

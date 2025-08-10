@@ -80,8 +80,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     public EquipmentItem GetCurrentHeldWeapon()
     {
-        if (currentHeldWeapon == 0) return equippedWeapons[0];
-        return equippedWeapons[currentHeldWeapon - 1];
+        if (currentHeldWeapon == 0) return baseLayer.equipped;
+        return equippedWeapons[currentHeldWeapon-1];
     }
 
     public int GetArmorBonus()

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 738310352698263126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.419771, y: -0.11226067, z: 0.89}
+  m_LocalPosition: {x: 0, y: 0.641, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 1838896250378662973}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.43799996, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 794eebe47fcde214aa4668031592303e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 3021652985079141356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.438, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -252,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 4106957952389252628}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.43799996, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 6988414208664963996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.43799996, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -428,6 +428,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.29
       objectReference: {fileID: 0}
+    - target: {fileID: 586492298751238232, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 903675696408525739, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -440,6 +444,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1494113281
       objectReference: {fileID: 0}
+    - target: {fileID: 1598929668690962977, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2722368929304550045, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -451,6 +459,18 @@ PrefabInstance:
     - target: {fileID: 3940162799297382573, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
       propertyPath: m_Name
       value: ShopNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070944329378822765, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070944329378822765, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070944329378822765, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4151043559621990819, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
       propertyPath: m_SortingLayer
@@ -507,6 +527,14 @@ PrefabInstance:
     - target: {fileID: 6135274988001422275, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667634108810739039, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.373
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667634108810739039, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 7224723091523931937, guid: adc6d1e9e51373e40811603a71cb666f, type: 3}
       propertyPath: m_Sprite
@@ -575,7 +603,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
   dialogueData: {fileID: 0}
-  triggerCooldown: 5
 --- !u!114 &4143475625559937298
 MonoBehaviour:
   m_ObjectHideFlags: 0
