@@ -46502,46 +46502,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1944895043}
     m_Modifications:
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: canStartLine
-      value: I've got a mission for you!
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: finishedLine
-      value: I'll have more work for you soon.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: canFinishLine
-      value: I always wonder if I'll see you again...
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: inProgressLine
-      value: You done with the mission?
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: quests.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: 'quests.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4e2662e46c343b1428f2d2dacf77fb1b, type: 2}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: 'quests.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: bb6ef5732e5cd7e4dba4f45c1476bd8c, type: 2}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: 'quests.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: b0a1c252536b1a74490815c3639b9b7c, type: 2}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: 'quests.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: baedc2e7ae9669648a11dfa16efb87f4, type: 2}
-    - target: {fileID: 3095438651021096227, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
-      propertyPath: 'quests.Array.data[4]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 5a5fbf7a43537114490d3e95b8e3cd95, type: 2}
     - target: {fileID: 3987319723210812761, guid: e8046129a0a2d2d4ea1be17c7a88876b, type: 3}
       propertyPath: m_Name
       value: ExampleQuestNPC
@@ -46599,14 +46559,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1944895043}
     m_Modifications:
-    - target: {fileID: 224386024716231045, guid: 16230fd58654066418de20dc5d751e03, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5585119887960142624, guid: 16230fd58654066418de20dc5d751e03, type: 3}
-      propertyPath: m_HorizontalFit
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5640812514126186477, guid: 16230fd58654066418de20dc5d751e03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.852
