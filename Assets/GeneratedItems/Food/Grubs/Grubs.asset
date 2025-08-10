@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Grubs
+  m_EditorClassIdentifier: 
+  ObjectName: Grubs
+  ObjectIcon: {fileID: 21300000, guid: 82378645ab8e81540a4d91e623193d96, type: 3}
+  stackable: 1
+  stackSize: 16
+  itemId: 4453
+  baseCost: 0
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 397eafda86f37c1439b6bbdbbe1dd1d0, type: 3}
+  itemType: 0
+  itemPrefab: {fileID: 451194834718080399, guid: b79814044d335f845b2fd38373cbffef, type: 3}
+  draggableIcon: {fileID: 1477329580937468496, guid: 5b033f15b48ff1d4da99db8bd0590cb3, type: 3}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
+  filePathSheetOne: 
+  filePathSheetTwo: 
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 0}
+  textureTwo: {fileID: 0}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

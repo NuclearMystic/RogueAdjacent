@@ -91,9 +91,13 @@ public class ShopManager : MonoBehaviour
 
         foreach (var entry in currentShop.itemsForSale)
         {
-            if (MatchesTab(entry.item.itemType, tab))
+            if (entry.item != null)
             {
-                CreateShopSlot(entry.item);
+                if (MatchesTab(entry.item.itemType, tab))
+                {
+
+                    CreateShopSlot(entry.item);
+                }
             }
         }
     }
@@ -120,6 +124,8 @@ public class ShopManager : MonoBehaviour
 
         GameObject newSlot = Instantiate(item.draggableIcon, sellSlotParent);
         DraggableIconSlot icon = newSlot.GetComponent<DraggableIconSlot>();
+        icon.iconImage.raycastTarget = false;
+        icon.shopItem = true;
 
         if (icon == null)
         {
@@ -169,7 +175,9 @@ public class ShopManager : MonoBehaviour
 
     public float GetPriceForItem(InventoryItem item)
     {
+
         return Mathf.Ceil(item.baseCost * currentShop.buyMarkup);
+
     }
 
     public float GetSellValueForItem(InventoryItem item)
@@ -252,7 +260,7 @@ public class ShopManager : MonoBehaviour
         UpdateTotalSellValue();
     }
 
-    private void CancelSale()
+    public void CancelSale()
     {
         foreach (var slot in new List<DraggableIconSlot>(itemsToSell))
         {

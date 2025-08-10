@@ -67,9 +67,9 @@ public class PlayerEquipmentManager : MonoBehaviour
     private void UpdateEquippedWeapons()
     {
         if (currentHeldWeapon != 0 && equippedWeapons[currentHeldWeapon - 1] != null)
-            equipmentLayers[4].EquipNewItem(equippedWeapons[currentHeldWeapon - 1]);
+            equipmentLayers[2].EquipNewItem(equippedWeapons[currentHeldWeapon - 1]);
         else
-            equipmentLayers[4].EquipNewItem(null);
+            equipmentLayers[2].EquipNewItem(null);
     }
 
     public void SetCurrentHeldWeapon(int weapon)

@@ -43,10 +43,15 @@ public class Enemy : MonoBehaviour
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
+        ScaleHP();
         goldOffDeath = Random.Range(xpOnDeath/2 - 5, xpOnDeath/2 + 5);
     }
 
     public int Defense => defense;
+    public void ScaleHP()
+    {
+        maxHealth += (PlayerStats.Instance.GetAttributeTotal(AttributeType.STR) * Random.Range(1, 3));
+    }
 
     public void TakeDamage(int amount, Vector2 knockbackDirection)
     {

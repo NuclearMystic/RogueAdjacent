@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Damascus Axe
+  m_EditorClassIdentifier: 
+  ObjectName: Damascus Axe
+  ObjectIcon: {fileID: 21300000, guid: d3e0c7e978bedd74490ac9a1926d2975, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 156
+  baseCost: 150
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 1
+  itemPrefab: {fileID: 8141110209830400117, guid: 42bbb322f7c75454aa165bd682798a73, type: 3}
+  draggableIcon: {fileID: 683208868467199720, guid: 3c471c07e2bd3344397fc2aa44fc2076, type: 3}
+  weaponSkill: 1
+  weaponDice: 4
+  flatBonusDamage: 13
+  stamDrain: 15
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 8606bfac07bf0a24f91a2e394c6510bd, type: 3}
+  filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/6tla/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 89e19998dfa13e24898bf2ddfb6c6825, type: 3}
+  textureTwo: {fileID: 2800000, guid: bd170b3bfc77fe3429c2631224f9b945, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

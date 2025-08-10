@@ -146,11 +146,24 @@ public class UIManager : MonoBehaviour
 
     private void ToggleInventoryMenu()
     {
+        RectTransform menuRect = InventoryMenu.GetComponent<RectTransform>();
+
+        if (menuRect.anchoredPosition == new Vector2(5000, 5000))
+        {
+            menuRect.anchoredPosition = new Vector2(0, 0);
+        }
         InventoryMenu.SetActive(!InventoryMenu.activeInHierarchy);
     }
 
     private void ToggleCharacterMenu()
     {
+        RectTransform menuRect = CharacterMenu.GetComponent<RectTransform>();
+
+        if (menuRect.anchoredPosition == new Vector2(5000, 5000))
+        {
+            menuRect.anchoredPosition = new Vector2(0, 0);
+        }
+
         CharacterMenu.SetActive(!CharacterMenu.activeInHierarchy);
     }
 

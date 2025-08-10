@@ -13,6 +13,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private Button skillsButton;
     [SerializeField] private int armorBonus;
     [SerializeField] private TMP_Text armorBonusText;
+    [SerializeField] private TMP_Text playerName;
 
     private EquipmentItem[] currentArmorItems;
     private EquipmentItem[] currentWeaponItems;
@@ -32,6 +33,7 @@ public class CharacterManager : MonoBehaviour
         currentWeaponItems = new EquipmentItem[characterWeaponSlots.Length];
 
         equipmentManager = PlayerEquipmentManager.Instance;
+        playerName.text = GameManager.Instance.playerData.PlayerName;
     }
 
     private void Update()

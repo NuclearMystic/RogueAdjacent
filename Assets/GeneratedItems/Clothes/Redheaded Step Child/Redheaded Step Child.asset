@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Redheaded Step Child
+  m_EditorClassIdentifier: 
+  ObjectName: Redheaded Step Child
+  ObjectIcon: {fileID: 21300000, guid: 4f28308cabfe50c45bf2f0392a9b03b2, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 205
+  baseCost: 5
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 3
+  itemPrefab: {fileID: 3775886503905394262, guid: 574a0a2a2b5249f409c2d2588895ffed, type: 3}
+  draggableIcon: {fileID: 4539104748176708523, guid: 5505515161090df44b6e6320c7354319, type: 3}
+  weaponSkill: 8
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 130f76df6c72d4249bb43ddb0ec150fe, type: 3}
+  filePathSheetOne: 2D/Actors/char_a_p1/4har/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/4har/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 622c4bf507e748e449594904ba7f5813, type: 3}
+  textureTwo: {fileID: 2800000, guid: 030143f695d4a814182e3ce476467153, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

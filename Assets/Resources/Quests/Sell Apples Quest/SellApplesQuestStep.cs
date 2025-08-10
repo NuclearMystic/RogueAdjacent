@@ -26,6 +26,7 @@ public class SellApplesQuestStep : QuestStep
         if (itemIDToSell == itemId)
         {
             itemsSold += qty;
+            InGameConsole.Instance.SendMessageToConsole($"Sold item {itemId}. Quest Progress: {itemsSold}/{itemsToSell}");
             UpdateStepDescription();
         }
         if (itemsSold >= itemsToSell) { 

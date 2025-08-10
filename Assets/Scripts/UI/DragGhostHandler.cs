@@ -159,8 +159,6 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     }
 
 
-
-
     private void DropItemToWorld(int amount)
     {
         if (currentItem == null || currentItem.itemPrefab == null) return;
@@ -186,7 +184,8 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             {
                 dropPosition = hit.point;
             }
-
+            ShopManager.Instance.CancelSale();
+            Debug.Log("Called Late Cleanup fromm ghost");
             Instantiate(currentItem.itemPrefab, dropPosition, Quaternion.identity);
         }
     }

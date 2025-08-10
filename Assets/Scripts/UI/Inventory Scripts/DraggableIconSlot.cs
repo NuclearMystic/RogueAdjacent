@@ -19,6 +19,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private bool isDragging;
     private int dragAmount;
     private bool usedGhost;
+    public bool shopItem;
 
     private ItemSlot cachedSlot;
     private Transform cachedParent;
@@ -82,6 +83,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (shopItem) return;
         if (slotItem != null)
         {
             ItemHoverTooltip.Instance?.Show(slotItem, this.GetComponent<RectTransform>());
@@ -90,12 +92,14 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (shopItem) return;
         ItemHoverTooltip.Instance?.Hide();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (slotItem == null || dragGhostHandler == null) return;
+        if (shopItem) return;
 
         dragAmount = quantity;
         bool usingSlider = InventoryManager.Instance.selectedItemSlot == this &&
@@ -118,6 +122,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (shopItem) return;
         if (usedGhost && dragGhostHandler != null && dragGhostHandler.isActiveAndEnabled)
         {
             dragGhostHandler.transform.position = crosshair != null ? crosshair.position : Input.mousePosition;
@@ -130,6 +135,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (shopItem) return;
         isDragging = false;
         iconImage.raycastTarget = true;
 
@@ -258,6 +264,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (shopItem) return;
         var manager = InventoryManager.Instance;
         if (manager == null) return;
 
@@ -307,6 +314,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private void DropItemToWorld()
     {
         if (slotItem == null || slotItem.itemPrefab == null) return;
+        if (shopItem) return;
 
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null) return;
@@ -329,7 +337,8 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             {
                 dropPosition = hit.point;
             }
-
+            ShopManager.Instance.CancelSale();
+            Debug.Log("Called Late Cleanup");
             Instantiate(slotItem.itemPrefab, dropPosition, Quaternion.identity);
         }
     }
@@ -337,17 +346,20 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void AddHighlight()
     {
         if (highlightOverlayInstance != null) return;
+        if (shopItem) return;
 
         GameObject prefab = InventoryManager.Instance.highlightedSlotPrefab;
         if (prefab != null)
         {
             highlightOverlayInstance = Instantiate(prefab, transform);
+            // highlightOverlayInstance.GetComponent<RectTransform>().
             highlightOverlayInstance.transform.SetAsFirstSibling();
         }
     }
 
     public void RemoveHighlight()
     {
+        if (shopItem) return;
         if (highlightOverlayInstance != null)
         {
             Destroy(highlightOverlayInstance);

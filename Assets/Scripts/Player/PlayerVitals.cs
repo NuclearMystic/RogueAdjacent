@@ -43,7 +43,7 @@ public class PlayerVitals : MonoBehaviour
     private Coroutine magicRegenCoroutine;
 
     // health
-    [SerializeField] private float currentHealth;
+     private float currentHealth;
     private float MaxHealth(){
         float maxHealth = 90 + PlayerStats.Instance.GetAttributeTotal(AttributeType.STR) * 10;
         return maxHealth;
