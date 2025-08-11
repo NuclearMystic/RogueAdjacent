@@ -97,6 +97,8 @@ public class UIManager : MonoBehaviour
 
     public void ToggleAllPlayersMenus()
     {
+        updateSkillMenu?.Invoke();
+
         if (!AreAllPlayerMenusOpen())
         {
             CharacterMenu.SetActive(true);
