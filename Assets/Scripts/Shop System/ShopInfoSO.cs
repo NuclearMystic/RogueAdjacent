@@ -20,6 +20,6 @@ public class ShopInfoSO : ScriptableObject
 public struct ShopItemEntry
 {
     public InventoryItem item;
-    public int quantity;
-    public bool isRestocking;
+  // public int quantity;
+  //  public bool isRestocking;
 }

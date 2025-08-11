@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Green Vest
+  m_EditorClassIdentifier: 
+  ObjectName: Green Vest
+  ObjectIcon: {fileID: 21300000, guid: 1aeb244e768534e419b5663318bf78b1, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 305
+  baseCost: 85
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 6
+  itemPrefab: {fileID: 5870479626522152992, guid: d3a8ebb4691bcdf4f9262851c78e0160, type: 3}
+  draggableIcon: {fileID: 4514637482022466795, guid: baad265b8b15abb43a7093b159be8b49, type: 3}
+  weaponSkill: 8
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 3
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 130f76df6c72d4249bb43ddb0ec150fe, type: 3}
+  filePathSheetOne: 2D/Actors/char_a_p1/1out/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/1out/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 093a9eb0daf0ccc4f8ab547a03a64df9, type: 3}
+  textureTwo: {fileID: 2800000, guid: f5b15b54ded8c2840b0d9c896bf6a25e, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

@@ -29,11 +29,11 @@ public class ItemCollectionQuestStep : QuestStep
         if (itemId == itemIdToCollect)
         {
             itemsCollected++;
-            Debug.Log($"Picked up item {itemId}. Progress: {itemsCollected}/{itemsToCollect}");
+            InGameConsole.Instance.SendMessageToConsole($"Picked up item {itemId}. Progress: {itemsCollected}/{itemsToCollect}");
             UpdateStepDescription();
             if (itemsCollected >= itemsToCollect)
             {
-                Debug.Log("Quest Complete!");
+                InGameConsole.Instance.SendMessageToConsole("Quest Complete!");
                 // Notify quest system here
                 FinishQuestStep();
             }

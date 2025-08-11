@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Steel Great Sword
+  m_EditorClassIdentifier: 
+  ObjectName: Steel Great Sword
+  ObjectIcon: {fileID: 21300000, guid: 14fca08c88ae24e458e51b9426fe5483, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 172
+  baseCost: 100
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 1
+  itemPrefab: {fileID: 8526723624715387952, guid: 21727c657e36fd54db44e624a187fbd1, type: 3}
+  draggableIcon: {fileID: 8891023141775807738, guid: 0691accc9de2ae1439ea4f0461b4e35f, type: 3}
+  weaponSkill: 3
+  weaponDice: 5
+  flatBonusDamage: 5
+  stamDrain: 10
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 8300000, guid: 5f93be25182d2d44d99a7b4bd83a7ba5, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 608f82354cc90434780bd2e0f78351eb, type: 3}
+  filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/6tla/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: aa614840a9ba85c4083154e37112a13a, type: 3}
+  textureTwo: {fileID: 2800000, guid: 7740843727c0b4543ba8df8699296a43, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

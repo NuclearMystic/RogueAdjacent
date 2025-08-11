@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Cheese
+  m_EditorClassIdentifier: 
+  ObjectName: Cheese
+  ObjectIcon: {fileID: 21300000, guid: 31ce55c2474361d4fab07984f18f9145, type: 3}
+  stackable: 1
+  stackSize: 64
+  itemId: 4542
+  baseCost: 5
+  healthEffect: 5
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 397eafda86f37c1439b6bbdbbe1dd1d0, type: 3}
+  itemType: 0
+  itemPrefab: {fileID: 5283261784859748949, guid: 5789dcd6960d9b84698d55f6e7ab6c16, type: 3}
+  draggableIcon: {fileID: 7586386798125324441, guid: 31147cc590bc9574cb9c915230bb56b5, type: 3}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
+  filePathSheetOne: 
+  filePathSheetTwo: 
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 0}
+  textureTwo: {fileID: 0}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

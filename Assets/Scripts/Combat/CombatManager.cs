@@ -44,11 +44,16 @@ public class CombatManager : MonoBehaviour
         {
             if (PlayerVitals.instance.currentStamina > 0 && Time.timeScale != 0f && uiManager.IsAnyMenuOpen() == false)
             {
-                if (equipmentManager.GetCurrentHeldWeapon().itemAttackSFX != null)
+                EquipmentItem managerHeldWeapon = equipmentManager.GetCurrentHeldWeapon();
+                if (managerHeldWeapon == null) { return; }
+                else
                 {
-                    SFXManager.Instance.PlaySFX(equipmentManager.GetCurrentHeldWeapon().itemAttackSFX, 1);
+                    if (managerHeldWeapon.itemAttackSFX != null)
+                    {
+                        SFXManager.Instance.PlaySFX(managerHeldWeapon.itemAttackSFX, 1);
+                    }
+                    playerAnimator.SetTrigger("Attack");
                 }
-                playerAnimator.SetTrigger("Attack");
             }
         }
     }

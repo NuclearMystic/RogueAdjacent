@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: The Hellen Mirren
+  m_EditorClassIdentifier: 
+  ObjectName: The Hellen Mirren
+  ObjectIcon: {fileID: 21300000, guid: a1293ec2e88712347a73330e3baa1e49, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 310
+  baseCost: 5
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 3
+  itemPrefab: {fileID: 7514892884517803642, guid: 5011d58c5178fb4418b07f3c3d8a20f2, type: 3}
+  draggableIcon: {fileID: 3177585726397573097, guid: df5a8defe26c76b4aa2927b80c051248, type: 3}
+  weaponSkill: 8
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 130f76df6c72d4249bb43ddb0ec150fe, type: 3}
+  filePathSheetOne: 2D/Actors/char_a_p1/4har/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/4har/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 65e097e19daebbd4186e8a65dc660f72, type: 3}
+  textureTwo: {fileID: 2800000, guid: 6fc16387e1184c24b936558e8d2f61e1, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

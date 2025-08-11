@@ -53,12 +53,47 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         pickedUp = false;
 
-        if (incomingItem.itemPickedUpSFX != null) SFXManager.Instance.PlaySFX(incomingItem.itemPickedUpSFX);
+        if (incomingItem == null)
+        {
+            Debug.LogWarning("PickUpItem called with null incomingItem.");
+            return;
+        }
 
+        // Make sure our managers & slot cache exist
+        if (playerInventory == null || playerInventory.Length == 0)
+        {
+            // Try to (re)bind dependencies if needed
+            if (UIManager == null) UIManager = FindFirstObjectByType<UIManager>();
+            if (inventoryManager == null && UIManager != null)
+                inventoryManager = UIManager.InventoryMenu?.GetComponentInChildren<InventoryManager>();
+            if (characterManager == null && UIManager != null)
+                characterManager = UIManager.CharacterMenu?.GetComponentInChildren<CharacterManager>();
+
+            if (characterManager != null && inventoryManager != null)
+            {
+                playerInventory = characterManager.characterItemSlots
+                                  .Concat(inventoryManager.inventoryItemSlots)
+                                  .ToArray();
+            }
+        }
+
+        if (playerInventory == null || playerInventory.Length == 0)
+        {
+            Debug.LogWarning("PickUpItem: playerInventory not ready yet.");
+            return;
+        }
+
+        // SFX is optional — guard instance too
+        if (SFXManager.Instance != null)
+            SFXManager.Instance.PlaySFX(incomingItem.itemPickedUpSFX);
+
+        // 1) Try stacking into Any-slots
         if (incomingItem.stackable)
         {
             foreach (var slot in playerInventory)
             {
+                if (slot == null) continue; // guard!
+
                 if (slot.slotType == ItemSlot.SlotType.Any)
                 {
                     if (slot.ReceiveInventoryItem(incomingItem, 1))
@@ -67,18 +102,22 @@ public class PlayerInventoryManager : MonoBehaviour
                         return;
                     }
                 }
-                
             }
         }
 
+        // 2) Try first empty/compatible slot
         foreach (var slot in playerInventory)
         {
+            if (slot == null) continue; // guard!
+
             if (slot.ReceiveInventoryItem(incomingItem, 1))
             {
                 pickedUp = true;
                 return;
             }
         }
+
+        Debug.LogWarning($"PickUpItem: No space for {incomingItem.ObjectName}");
     }
 
     public void RemoveItemsById(int itemId, int quantity)

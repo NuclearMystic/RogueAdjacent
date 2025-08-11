@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Eggs
+  m_EditorClassIdentifier: 
+  ObjectName: Eggs
+  ObjectIcon: {fileID: 21300000, guid: 9eaa6d95a1d94ed41866b52732c3f08b, type: 3}
+  stackable: 1
+  stackSize: 64
+  itemId: 8432
+  baseCost: 8
+  healthEffect: 5
+  staminaEffect: 2
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 3fddcc6a6a0e20d4b91f1c792151d605, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: d2f4c15b4179b4344926e703682ed159, type: 3}
+  itemType: 0
+  itemPrefab: {fileID: 7550382534469746804, guid: b60a33e393a68bf429bed8d3eb0e4e36, type: 3}
+  draggableIcon: {fileID: 1734476327954419940, guid: e6aa643bcdce97140bfbbd29dd17b189, type: 3}
+  weaponSkill: 0
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 0}
+  itemAttackSFX: {fileID: 0}
+  filePathSheetOne: 
+  filePathSheetTwo: 
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 0}
+  textureTwo: {fileID: 0}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

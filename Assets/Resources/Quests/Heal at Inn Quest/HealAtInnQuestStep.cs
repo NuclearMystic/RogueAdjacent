@@ -22,6 +22,7 @@ public class HealAtInnQuestStep : QuestStep
     {
         if (healedAtInn)
         {
+            InGameConsole.Instance.SendMessageToConsole($"Healed at Inn, you can complete your quest...");
             FinishQuestStep();
         }
     }

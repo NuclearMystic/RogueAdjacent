@@ -91,9 +91,13 @@ public class ShopManager : MonoBehaviour
 
         foreach (var entry in currentShop.itemsForSale)
         {
-            if (MatchesTab(entry.item.itemType, tab))
+            if (entry.item != null)
             {
-                CreateShopSlot(entry.item);
+                if (MatchesTab(entry.item.itemType, tab))
+                {
+
+                    CreateShopSlot(entry.item);
+                }
             }
         }
     }
@@ -120,6 +124,8 @@ public class ShopManager : MonoBehaviour
 
         GameObject newSlot = Instantiate(item.draggableIcon, sellSlotParent);
         DraggableIconSlot icon = newSlot.GetComponent<DraggableIconSlot>();
+        icon.iconImage.raycastTarget = false;
+        icon.shopItem = true;
 
         if (icon == null)
         {
@@ -169,7 +175,9 @@ public class ShopManager : MonoBehaviour
 
     public float GetPriceForItem(InventoryItem item)
     {
+
         return Mathf.Ceil(item.baseCost * currentShop.buyMarkup);
+
     }
 
     public float GetSellValueForItem(InventoryItem item)
@@ -233,9 +241,18 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var slot in itemsToSell)
         {
-            float amount = GetSellValueForItem(slot.slotItem) * slot.quantity;
+            var item = slot.slotItem;
+            int qty = slot.quantity;
+
+            // 1) pay player
+            float amount = GetSellValueForItem(item) * qty;
             GameEventsManager.instance.currencyEvents.CurrencyGained(amount);
-            GameEventsManager.instance.miscEvents.ItemSold(slot.slotItem.itemId, slot.quantity);
+            GameEventsManager.instance.miscEvents.ItemSold(item.itemId, qty);
+
+            // 2) remove from inventory NOW
+            PlayerInventoryManager.Instance.RemoveItemsById(item.itemId, qty);
+
+            // 3) UI cleanup
             Destroy(slot.gameObject);
         }
 
@@ -243,20 +260,12 @@ public class ShopManager : MonoBehaviour
         UpdateTotalSellValue();
     }
 
-    private void CancelSale()
+    public void CancelSale()
     {
-        var slotsToCancel = new List<DraggableIconSlot>(itemsToSell);
-
-        foreach (var slot in slotsToCancel)
+        foreach (var slot in new List<DraggableIconSlot>(itemsToSell))
         {
-            if (slot != null)
-            {
-                InventoryManager.Instance.AddItemToInventoryWithQuantity(slot.slotItem, slot.quantity);
-                UnregisterSellItem(slot);
-                Destroy(slot.gameObject);
-            }
+            if (slot != null) Destroy(slot.gameObject);
         }
-
         itemsToSell.Clear();
         UpdateTotalSellValue();
     }

@@ -32,11 +32,13 @@ public class KillGoblinsQuest : QuestStep
         if (enemyName == firstEnemy)
         {
             firstEnemyKills++;
+            InGameConsole.Instance.SendMessageToConsole($"Killed {firstEnemy}. Quest Progress: {firstEnemyKills}/{firstEnemyKillsNeeded}");
             updated = true;
         }
         else if (enemyName == secondEnemy)
         {
             secondEnemyKills++;
+            InGameConsole.Instance.SendMessageToConsole($"Killed {secondEnemy}. Quest Progress: {secondEnemyKills}/{secondEnemyKillsNeeded}");
             updated = true;
         }
         if (updated)

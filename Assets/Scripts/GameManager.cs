@@ -68,14 +68,12 @@ public class GameManager : MonoBehaviour
 
         // Scene is fully loaded, now find the spawn point
         Transform whereToPlacePlayer = GameObject.FindWithTag("SpawnPoint")?.transform;
-        Debug.Log($"Placing player at {whereToPlacePlayer.position}");
         if (whereToPlacePlayer != null)
         {
             Vector3 spawnPosition = whereToPlacePlayer.position;
 
             // Move the player to the spawn point
             playerObject.transform.position = spawnPosition;
-            Debug.Log($"Player moved to {spawnPosition}");
 
             // Reset Rigidbody velocities
             Rigidbody2D rb = playerObject.GetComponent<Rigidbody2D>();

@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  ObjectName: Axe
-  ObjectIcon: {fileID: 338497175, guid: 4b658565e6b4a214bbf23420028dca8b, type: 3}
+  ObjectName: Poorly Made Tin Axe
+  ObjectIcon: {fileID: 21300000, guid: dc4cd403de5e5c94ea16b17642debc8a, type: 3}
   stackable: 0
   stackSize: 1
   itemId: 4
-  baseCost: 10
+  baseCost: 15
   healthEffect: 0
   staminaEffect: 0
   magicEffect: 0
   itemPickedUpSFX: {fileID: 8300000, guid: dfb0f0ac4a6b1c7409bc2a0ba724aa8a, type: 3}
-  itemUsedSFX: {fileID: 0}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
   itemType: 1
   itemPrefab: {fileID: 8442681505238350167, guid: fff279302a8dd294bb30ce106168cb52, type: 3}
   draggableIcon: {fileID: 650231313308108039, guid: 53ea2f61d473e2a4a9d94e1006d769c3, type: 3}
   weaponSkill: 1
   weaponDice: 4
   flatBonusDamage: 1
-  stamDrain: 5
+  stamDrain: 8
   isRanged: 0
   armorBonus: 0
   itemEquippedSFX: {fileID: 8300000, guid: aa7f7af9c268e8e4c8e450321c0a1981, type: 3}

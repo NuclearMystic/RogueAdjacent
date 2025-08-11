@@ -24,7 +24,8 @@ public class GainWeaponXPQuestStep : QuestStep
     private void WeaponSkillGained (SkillType skill, float gain)
     {
         if (skill == weaponSkill) { 
-            skillGained += gain;    
+            skillGained += gain;
+            InGameConsole.Instance.SendMessageToConsole($"Axe XP Gained. Quest Progress: {skillGained}/{skillToGain}");
             UpdateStepDescription();
         }
 

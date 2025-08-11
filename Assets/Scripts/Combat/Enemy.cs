@@ -43,10 +43,15 @@ public class Enemy : MonoBehaviour
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
+        ScaleHP();
         goldOffDeath = Random.Range(xpOnDeath/2 - 5, xpOnDeath/2 + 5);
     }
 
     public int Defense => defense;
+    public void ScaleHP()
+    {
+        maxHealth += (PlayerStats.Instance.GetAttributeTotal(AttributeType.STR) * Random.Range(1, 3));
+    }
 
     public void TakeDamage(int amount, Vector2 knockbackDirection)
     {
@@ -71,7 +76,6 @@ public class Enemy : MonoBehaviour
     private void ApplyKnockback(Vector2 direction)
     {
         if (rb == null) return;
-        Debug.Log("tried to knockback)");
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction.normalized * knockbackForce, ForceMode2D.Impulse);
     }

@@ -29,8 +29,7 @@ public class SkillUIObject : MonoBehaviour
         baseText.text = baseVal.ToString();
         attributeText.text = $"{attr} ({attrBonus})";
         totalText.text = totalVal.ToString();
-
-        UpdateXPBar(); 
+        UpdateXPBar();
     }
 
     public void UpdateXPBar(bool force = false)

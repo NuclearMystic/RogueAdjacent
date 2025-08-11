@@ -102,7 +102,7 @@ public class QuestNPC : MonoBehaviour
             QuestState.IN_PROGRESS => inProgressLine,
             QuestState.CAN_FINISH => canFinishLine,
             QuestState.FINISHED => finishedLine,
-            _ => ""
+            _ => "I've got nothing for you bud!"
         };
 
         dialogueManager.ShowText(lineToSay);

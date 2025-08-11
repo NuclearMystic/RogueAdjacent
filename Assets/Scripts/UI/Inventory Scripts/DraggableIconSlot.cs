@@ -19,6 +19,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private bool isDragging;
     private int dragAmount;
     private bool usedGhost;
+    public bool shopItem;
 
     private ItemSlot cachedSlot;
     private Transform cachedParent;
@@ -82,6 +83,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (shopItem) return;
         if (slotItem != null)
         {
             ItemHoverTooltip.Instance?.Show(slotItem, this.GetComponent<RectTransform>());
@@ -90,51 +92,37 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (shopItem) return;
         ItemHoverTooltip.Instance?.Hide();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (slotItem == null || dragGhostHandler == null) return;
+        if (shopItem) return;
 
         dragAmount = quantity;
-
         bool usingSlider = InventoryManager.Instance.selectedItemSlot == this &&
                            InventoryManager.Instance.qtySlider != null &&
                            InventoryManager.Instance.qtySlider.gameObject.activeInHierarchy;
 
-        if (usingSlider)
-        {
-            dragAmount = Mathf.RoundToInt(InventoryManager.Instance.qtySlider.value);
-        }
+        if (usingSlider) dragAmount = Mathf.RoundToInt(InventoryManager.Instance.qtySlider.value);
 
-        var originSlot = GetComponentInParent<ItemSlot>();
-        cachedSlot = originSlot;
+        cachedSlot = GetComponentInParent<ItemSlot>();
         cachedParent = transform.parent;
 
-        if (usingSlider || dragAmount < quantity)
-        {
-            quantity -= dragAmount;             
-            UpdateQuantity(quantity);
+        dragGhostHandler.BeginDrag(slotItem, dragAmount, cachedSlot);
+        dragGhostHandler.gameObject.SetActive(true);
+        eventData.pointerDrag = dragGhostHandler.gameObject;
+        usedGhost = true;
 
-            dragGhostHandler.BeginDrag(slotItem, dragAmount, originSlot);
-            dragGhostHandler.gameObject.SetActive(true);
-            eventData.pointerDrag = dragGhostHandler.gameObject;
-            usedGhost = true;
-        }
-        else
-        {
-            parentAfterDrag = transform.parent;
-            transform.SetParent(mainUICanvas.transform);
-            transform.SetAsLastSibling();
-            iconImage.raycastTarget = false;
-            isDragging = true;
-            usedGhost = false;
-        }
+        isDragging = false;
+        iconImage.raycastTarget = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (shopItem) return;
         if (usedGhost && dragGhostHandler != null && dragGhostHandler.isActiveAndEnabled)
         {
             dragGhostHandler.transform.position = crosshair != null ? crosshair.position : Input.mousePosition;
@@ -147,6 +135,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (shopItem) return;
         isDragging = false;
         iconImage.raycastTarget = true;
 
@@ -230,7 +219,24 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
             if (hotbarSlot != null && cachedSlot != null)
             {
-                hotbarSlot.AssignReference(cachedSlot);
+                if (slotItem is EquipmentItem eq && slotItem.itemType == InventoryItem.SlotType.Weapon)
+                {
+                    if (HotbarManager.Instance.EnsureWeaponInWeaponSlot(cachedSlot, eq, out ItemSlot weaponSlot))
+                    {
+                        hotbarSlot.AssignReference(weaponSlot);
+                    }
+                    else
+                    {
+                        ItemHoverTooltip.Instance?.ShowRaw("No empty weapon slot — can't hotbar.");
+                        transform.SetParent(parentAfterDrag);
+                        transform.localPosition = Vector3.zero;
+                        return;
+                    }
+                }
+                else
+                {
+                    hotbarSlot.AssignReference(cachedSlot);
+                }
                 transform.SetParent(parentAfterDrag);
                 transform.localPosition = Vector3.zero;
                 dropped = true;
@@ -238,7 +244,6 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             }
         }
 
-        // --- DEFAULT DROP TO WORLD ---
         if (!dropped)
         {
             DropItemToWorld();
@@ -259,6 +264,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (shopItem) return;
         var manager = InventoryManager.Instance;
         if (manager == null) return;
 
@@ -267,14 +273,24 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             ItemSlot originSlot = GetComponentInParent<ItemSlot>();
             if (originSlot != null)
             {
-                var hotbar = HotbarManager.Instance;
-                if (hotbar.IsSlotAssigned(originSlot))
+                if (slotItem is EquipmentItem eq && slotItem.itemType == InventoryItem.SlotType.Weapon)
                 {
-                    hotbar.UnassignHotbarSlotByOrigin(originSlot);
+                    bool ok = HotbarManager.Instance.TryEquipToWeaponSlotAndBind(originSlot, eq);
+                    if (!ok)
+                    {
+                        ItemHoverTooltip.Instance?.ShowRaw("No empty weapon slot\nCan't hotbar.");
+                    }
                 }
                 else
                 {
-                    hotbar.AssignItemToHotbar(originSlot);
+                    if (slotItem.itemType == InventoryItem.SlotType.Food)
+                    {
+                        var hotbar = HotbarManager.Instance;
+                        if (hotbar.IsSlotAssigned(originSlot))
+                            hotbar.UnassignHotbarSlotByOrigin(originSlot);
+                        else
+                            hotbar.AssignItemToHotbar(originSlot);
+                    }
                 }
             }
             return;
@@ -288,9 +304,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
         }
 
         if (manager.selectedItemSlot != null)
-        {
             manager.selectedItemSlot.RemoveHighlight();
-        }
 
         manager.selectedItemSlot = this;
         AddHighlight();
@@ -300,6 +314,7 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private void DropItemToWorld()
     {
         if (slotItem == null || slotItem.itemPrefab == null) return;
+        if (shopItem) return;
 
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null) return;
@@ -322,7 +337,8 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
             {
                 dropPosition = hit.point;
             }
-
+            ShopManager.Instance.CancelSale();
+            Debug.Log("Called Late Cleanup");
             Instantiate(slotItem.itemPrefab, dropPosition, Quaternion.identity);
         }
     }
@@ -330,17 +346,20 @@ public class DraggableIconSlot : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void AddHighlight()
     {
         if (highlightOverlayInstance != null) return;
+        if (shopItem) return;
 
         GameObject prefab = InventoryManager.Instance.highlightedSlotPrefab;
         if (prefab != null)
         {
             highlightOverlayInstance = Instantiate(prefab, transform);
+            // highlightOverlayInstance.GetComponent<RectTransform>().
             highlightOverlayInstance.transform.SetAsFirstSibling();
         }
     }
 
     public void RemoveHighlight()
     {
+        if (shopItem) return;
         if (highlightOverlayInstance != null)
         {
             Destroy(highlightOverlayInstance);

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Ice Bain Axe
+  m_EditorClassIdentifier: 
+  ObjectName: Ice Bain Axe
+  ObjectIcon: {fileID: 21300000, guid: bd8a94acaf000534391f82f085b2fca4, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 158
+  baseCost: 225
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 1
+  itemPrefab: {fileID: 999136302778395125, guid: f85642487d9db0e4ba84376118d57e72, type: 3}
+  draggableIcon: {fileID: 7106231099114828306, guid: f26479de37a860a4ebd4ac9671923280, type: 3}
+  weaponSkill: 1
+  weaponDice: 4
+  flatBonusDamage: 25
+  stamDrain: 15
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 8606bfac07bf0a24f91a2e394c6510bd, type: 3}
+  filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/6tla/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: fa242d13e73df2649baea2746fef8319, type: 3}
+  textureTwo: {fileID: 2800000, guid: de3bf6398338b2f4da9e5d997695c4c2, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

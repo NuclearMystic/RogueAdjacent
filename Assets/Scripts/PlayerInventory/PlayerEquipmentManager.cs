@@ -24,9 +24,7 @@ public class PlayerEquipmentManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        Instance = this;
-
-        
+        Instance = this;      
     }
 
     private void Start()
@@ -62,7 +60,6 @@ public class PlayerEquipmentManager : MonoBehaviour
             else
             {
                 equipmentLayers[i].UnequipItem();
-                InGameConsole.Instance.SendMessageToConsole($"Current armor bonus is {GetArmorBonus()}");
             }
         }
     }
@@ -70,9 +67,9 @@ public class PlayerEquipmentManager : MonoBehaviour
     private void UpdateEquippedWeapons()
     {
         if (currentHeldWeapon != 0 && equippedWeapons[currentHeldWeapon - 1] != null)
-            equipmentLayers[4].EquipNewItem(equippedWeapons[currentHeldWeapon - 1]);
+            equipmentLayers[2].EquipNewItem(equippedWeapons[currentHeldWeapon - 1]);
         else
-            equipmentLayers[4].EquipNewItem(null);
+            equipmentLayers[2].EquipNewItem(null);
     }
 
     public void SetCurrentHeldWeapon(int weapon)
@@ -83,8 +80,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     public EquipmentItem GetCurrentHeldWeapon()
     {
-        if (currentHeldWeapon == 0) return equippedWeapons[0];
-        return equippedWeapons[currentHeldWeapon - 1];
+        if (currentHeldWeapon == 0) return baseLayer.equipped;
+        return equippedWeapons[currentHeldWeapon-1];
     }
 
     public int GetArmorBonus()
@@ -151,7 +148,6 @@ public class PlayerEquipmentManager : MonoBehaviour
         {
             equippedArmorItems[index] = null;
             UpdateEquippedItems();
-            InGameConsole.Instance.SendMessageToConsole($"Current armor bonus is {GetArmorBonus()}");
         }
     }
 

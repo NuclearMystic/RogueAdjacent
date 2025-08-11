@@ -77,7 +77,6 @@ public class PlayerInitializer : MonoBehaviour
             GameObject newPlayer = Instantiate(playerObject, Vector3.zero, Quaternion.identity);
             DontDestroyOnLoad(newPlayer);
             GameManager.Instance.SetPlayerObject(GameObject.FindWithTag("Player"));
-            Debug.Log($"Player's name is {playerData.PlayerName}");
         }
         else
         {

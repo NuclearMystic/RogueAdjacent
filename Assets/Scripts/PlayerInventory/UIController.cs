@@ -27,9 +27,7 @@ public class UIController : MonoBehaviour
         // Open all menus at once
         if (Input.GetKeyDown(openAllMenus))
         {
-            UIManager.Instance.ShowInventoryMenu();
-            UIManager.Instance.ShowSkillsMenu();
-            UIManager.Instance.ShowCharacterMenu();
+            UIManager.Instance.ToggleAllPlayersMenus();
         }
 
             // Open player inventory menu

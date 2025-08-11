@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopName: Example Shop
   shopIcon: {fileID: 21300062, guid: 8b8333c8af9b0c54da038fe9102febb5, type: 3}
-  buyMarkup: 1
-  sellMultiplier: 0.5
+  buyMarkup: 1.5
+  sellMultiplier: 0.7
   itemsForSale:
   - item: {fileID: 11400000, guid: e51da57a7bbb96f499dacd6f238e7c20, type: 2}
     quantity: 0
@@ -29,34 +29,94 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: d2d21889d1164754e87f00fa06af527f, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: 4211930d023ae1f46a1b4fe820dc84f9, type: 2}
+  - item: {fileID: 11400000, guid: 190cfa7cece4a37459faca93f6c5ffde, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: 7b365ca48d831e046baec4b143c62e23, type: 2}
+  - item: {fileID: 11400000, guid: 3d235944e4e9ec3458f33b1cca008ab4, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: e0e5a830bc983264ab3e8d0892f64e89, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 77f1b92bf01692f4e966414e5e5ba824, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 7d3e123a58ea4d843bd2db470906a7be, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 1e23453ff246f454695c1fdfedc83233, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 7aad5ef608a962747811005a9f6e09f1, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 065cbf156105a684ab7c487e50a7eae3, type: 2}
     quantity: 0
     isRestocking: 0
   - item: {fileID: 11400000, guid: ba068f6b50c64e74fa06e92f33519225, type: 2}
     quantity: 0
     isRestocking: 0
+  - item: {fileID: 11400000, guid: 8f436a60abd1c9e41b94b68919f0f39b, type: 2}
+    quantity: 0
+    isRestocking: 0
   - item: {fileID: 11400000, guid: 55c92171b05930f408bcc7faaefb326a, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: 9626eb568348f3144bf3399a5bf2d243, type: 2}
+  - item: {fileID: 11400000, guid: c833719c594f33f418004d87bff4999d, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 4f787037695c6e8409cff08b2f1761a8, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 3ab85de638e8bd7469ca991f3f2febeb, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 72b46a829b2771b46b67418fa0a145ef, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: c01c9e821c4ba144285e51354db5b121, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 1cec0e0bba840554c855ffa21068be09, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: c8c27d679a432fb49aaad3257570e57b, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 353e1f8d2f615384abba2daca7210d9a, type: 2}
     quantity: 0
     isRestocking: 0
   - item: {fileID: 11400000, guid: e84e4ab173716ac448b327f9f0f9bfd6, type: 2}
     quantity: 0
     isRestocking: 0
+  - item: {fileID: 11400000, guid: 598d681d4ab3ecf43a8c9833ace848ca, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 0f5d509c93e30d440858c70b9f70a7e6, type: 2}
+    quantity: 0
+    isRestocking: 0
   - item: {fileID: 11400000, guid: 985428176dd9de349a6eb4dac66ce83f, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: c4deba01ffd224a4cbbe19f2ed200f37, type: 2}
+  - item: {fileID: 11400000, guid: b59cc19fc5a975b49ab2f2a1c2dd38aa, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: 863afcad46ed2014d855e0419c48d98b, type: 2}
+  - item: {fileID: 11400000, guid: 01b0bf649189f5a44bef36011d30de2b, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 8eb432471a6780f44be25fef82abe183, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 9b7ae5faeda89804188144180483eede, type: 2}
     quantity: 0
     isRestocking: 0
   - item: {fileID: 11400000, guid: 4b9e6ce3222d57c4f9f4f82365d3d0aa, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 8a0fe254246d54a4b95a70a059668f38, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 79b9a3f3cff41934ea429d765375cc9a, type: 2}
     quantity: 0
     isRestocking: 0
   - item: {fileID: 11400000, guid: e48621a0ec698dd40ac6cf41bea96203, type: 2}
@@ -68,18 +128,51 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 6b43c09933956e44f9af339752fca2e5, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: c1dc4b99034a57049aa43318c1e85464, type: 2}
+  - item: {fileID: 11400000, guid: 6cc84f21a4b3d6d4ca44b1afa845782b, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 0f5d509c93e30d440858c70b9f70a7e6, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 58d85a12468b35c4ca37e1f67224534c, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: a9057766d986a1e4b89c23d1bf34e497, type: 2}
     quantity: 0
     isRestocking: 0
   - item: {fileID: 11400000, guid: da8040734380f6a41a012fb4db36a603, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 90bf729319f27de48be18817066b812b, type: 2}
     quantity: 0
     isRestocking: 0
   - item: {fileID: 11400000, guid: 79a1b56b147eda941855efa9372e544b, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: da8040734380f6a41a012fb4db36a603, type: 2}
+  - item: {fileID: 11400000, guid: 5a72891aeedd80a40a3d47a6788feab2, type: 2}
     quantity: 0
     isRestocking: 0
-  - item: {fileID: 11400000, guid: 8f436a60abd1c9e41b94b68919f0f39b, type: 2}
+  - item: {fileID: 11400000, guid: 6790a89cd15177842ae77a13e3e36abb, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: c9b0fb983d6c4ca42ab801ecb6987309, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 3d23d9b5acdff8648b55a121a873e81c, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: 65bfed357ea67c14b9530cb3ed8513db, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: e395180cb0fa0c441be7263a22911bb8, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: a99560fd7133c73419031d075985b95f, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: fad934300fb612d4f8d574c86b56ebd2, type: 2}
+    quantity: 0
+    isRestocking: 0
+  - item: {fileID: 11400000, guid: e62ac0b376de2914da715cdc4ccf6fd4, type: 2}
     quantity: 0
     isRestocking: 0

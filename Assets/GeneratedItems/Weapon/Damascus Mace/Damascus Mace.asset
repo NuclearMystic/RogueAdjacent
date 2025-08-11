@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Damascus Mace
+  m_EditorClassIdentifier: 
+  ObjectName: Damascus Mace
+  ObjectIcon: {fileID: 21300000, guid: f394d720a66c8464495f7bcb6e656ec6, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 163
+  baseCost: 125
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 1
+  itemPrefab: {fileID: 5112175052698817438, guid: 4cf99f43dc95c4d48ad065115850a870, type: 3}
+  draggableIcon: {fileID: 8831340122399857815, guid: 98fc25b7a5856ea4eac9a0c45f00ae55, type: 3}
+  weaponSkill: 2
+  weaponDice: 2
+  flatBonusDamage: 10
+  stamDrain: 10
+  isRanged: 0
+  armorBonus: 0
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 33cddbe61d1dcb940a6744a8e27a727a, type: 3}
+  filePathSheetOne: 2D/Actors/optional files (unsupported)/char_a_p1/6tla/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/6tla/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 45ba7444eaff1ba4a997a7f5b42238db, type: 3}
+  textureTwo: {fileID: 2800000, guid: 5c263afe19170df479eaf7572820082d, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

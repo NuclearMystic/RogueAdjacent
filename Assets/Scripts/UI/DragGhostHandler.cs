@@ -50,39 +50,59 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void EndDrag()
     {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
-        {
-            position = Input.mousePosition
-        };
-
+        var pointer = new PointerEventData(EventSystem.current) { position = Input.mousePosition };
         var results = new System.Collections.Generic.List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, results);
+        EventSystem.current.RaycastAll(pointer, results);
 
-        HotbarSlot hotbarSlot = null;
-        foreach (var result in results)
+        foreach (var r in results)
         {
-            hotbarSlot = result.gameObject.GetComponentInParent<HotbarSlot>();
-            if (hotbarSlot != null) break;
+            var hotbar = r.gameObject.GetComponentInParent<HotbarSlot>();
+            if (hotbar != null && originalSlot != null)
+            {
+                if (currentItem is EquipmentItem eq && currentItem.itemType == InventoryItem.SlotType.Weapon)
+                {
+                    if (HotbarManager.Instance.EnsureWeaponInWeaponSlot(originalSlot, eq, out ItemSlot weaponSlot))
+                    {
+                        hotbar.AssignReference(weaponSlot);
+                    }
+                    else
+                    {
+                        ItemHoverTooltip.Instance?.ShowRaw("No empty weapon slot — can't hotbar.");
+                    }
+                }
+                else
+                {
+                    if (currentItem.itemType == InventoryItem.SlotType.Food)
+                    {
+                        hotbar.AssignReference(originalSlot);
+                    }
+                }
+
+                ResetGhost();
+                return;
+            }
         }
 
-        if (hotbarSlot != null && originalSlot != null)
+        foreach (var r in results)
         {
-            hotbarSlot.AssignReference(originalSlot);
-
-            originalSlot.ReceiveInventoryItem(currentItem, currentQuantity);
-            ResetGhost();
-            return;
+            var sell = r.gameObject.GetComponentInParent<SellSlot>();
+            if (sell != null && originalSlot != null)
+            {
+                ShopManager.Instance.RegisterSellItemViaGhost(currentItem, currentQuantity);
+                ResetGhost();
+                return;
+            }
         }
 
         ItemSlot targetSlot = null;
-        foreach (var result in results)
+        foreach (var r in results)
         {
-            targetSlot = result.gameObject.GetComponentInParent<ItemSlot>();
+            targetSlot = r.gameObject.GetComponentInParent<ItemSlot>();
             if (targetSlot != null) break;
         }
 
-        int remainingAmount = currentQuantity;
-        bool successfullyTransferred = false;
+        int remaining = currentQuantity;
+        int movedOut = 0;
 
         if (targetSlot != null && targetSlot.CanAcceptItem(currentItem))
         {
@@ -91,56 +111,52 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 !targetSlot.slotFilled)
             {
                 int spaceLeft = targetSlot.maxHeldItems - targetSlot.heldItems;
-                int amountToMerge = Mathf.Min(spaceLeft, remainingAmount);
-
-                targetSlot.draggableIconSlot.SetQuantity(targetSlot.draggableIconSlot.quantity + amountToMerge);
-                targetSlot.heldItems += amountToMerge;
+                int add = Mathf.Min(spaceLeft, remaining);
+                targetSlot.draggableIconSlot.SetQuantity(targetSlot.draggableIconSlot.quantity + add);
+                targetSlot.heldItems += add;
                 targetSlot.slotFilled = targetSlot.heldItems >= targetSlot.maxHeldItems;
 
-                remainingAmount -= amountToMerge;
-                successfullyTransferred = true;
+                remaining -= add;
+                movedOut += add;
             }
             else if (targetSlot.inventoryItem == null)
             {
-                bool success = targetSlot.ReceiveInventoryItem(currentItem, remainingAmount);
+                bool success = targetSlot.ReceiveInventoryItem(currentItem, remaining);
                 if (success)
                 {
-                    remainingAmount = 0;
-                    successfullyTransferred = true;
+                    movedOut += remaining;
+                    remaining = 0;
                 }
             }
         }
 
-        foreach (var result in results)
+        if (movedOut > 0 && originalSlot != null)
         {
-            var sellSlot = result.gameObject.GetComponentInParent<SellSlot>();
-            if (sellSlot != null && originalSlot != null)
-            {
-                ShopManager.Instance.RegisterSellItemViaGhost(currentItem, currentQuantity);
-                ResetGhost();
-                return;
-            }
+            originalSlot.heldItems = Mathf.Max(0, originalSlot.heldItems - movedOut);
+            originalSlot.draggableIconSlot?.SetQuantity(originalSlot.heldItems);
+            if (originalSlot.heldItems <= 0) originalSlot.ClearSlot();
         }
 
-        if (remainingAmount > 0)
+        if (remaining > 0)
         {
-            if (!successfullyTransferred && targetSlot == null)
+            if (targetSlot == null)
             {
-                DropItemToWorld(remainingAmount);
-            }
-            else if (originalSlot != null)
-            {
-                originalSlot.ReceiveInventoryItem(currentItem, remainingAmount);
+                DropItemToWorld(remaining);
+
+                if (originalSlot != null)
+                {
+                    originalSlot.heldItems = Mathf.Max(0, originalSlot.heldItems - remaining);
+                    originalSlot.draggableIconSlot?.SetQuantity(originalSlot.heldItems);
+                    if (originalSlot.heldItems <= 0) originalSlot.ClearSlot();
+                }
             }
             else
             {
-                DropItemToWorld(remainingAmount);
             }
         }
 
         ResetGhost();
     }
-
 
 
     private void DropItemToWorld(int amount)
@@ -168,7 +184,8 @@ public class DragGhostHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             {
                 dropPosition = hit.point;
             }
-
+            ShopManager.Instance.CancelSale();
+            Debug.Log("Called Late Cleanup fromm ghost");
             Instantiate(currentItem.itemPrefab, dropPosition, Quaternion.identity);
         }
     }

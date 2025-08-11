@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8e0042c8e9ed342bb19364e155902e, type: 3}
+  m_Name: Bleached Leather Helm
+  m_EditorClassIdentifier: 
+  ObjectName: Bleached Leather Helm
+  ObjectIcon: {fileID: 21300000, guid: 02a87394d21c9eb4ea42628706bda5e6, type: 3}
+  stackable: 0
+  stackSize: 1
+  itemId: 208
+  baseCost: 75
+  healthEffect: 0
+  staminaEffect: 0
+  magicEffect: 0
+  itemPickedUpSFX: {fileID: 8300000, guid: 1e80bc952d2b4f441aaa69abd531eb83, type: 3}
+  itemUsedSFX: {fileID: 8300000, guid: 3bf715545715fc14bbf2027bb0df924e, type: 3}
+  itemType: 3
+  itemPrefab: {fileID: 7060853223391232667, guid: faff52ae22f30c4439baad47bdd0c137, type: 3}
+  draggableIcon: {fileID: 3886607750643715999, guid: 334abe40474c7bf479680ec0b492facc, type: 3}
+  weaponSkill: 8
+  weaponDice: 0
+  flatBonusDamage: 0
+  stamDrain: 0
+  isRanged: 0
+  armorBonus: 1
+  itemEquippedSFX: {fileID: 8300000, guid: e84221034b1325248a375a8666531da0, type: 3}
+  itemAttackSFX: {fileID: 8300000, guid: 130f76df6c72d4249bb43ddb0ec150fe, type: 3}
+  filePathSheetOne: 2D/Actors/char_a_p1/5hat/
+  filePathSheetTwo: 2D/Actors/char_a_pONE1/5hat/
+  filePathSheetThree: 
+  filePathSheetFour: 
+  textureOne: {fileID: 2800000, guid: 0b7db0657638c484e8e2ab645af9fe15, type: 3}
+  textureTwo: {fileID: 2800000, guid: f242d444e062b5e49af5bbeafb65c2e1, type: 3}
+  textureThree: {fileID: 0}
+  textureFour: {fileID: 0}

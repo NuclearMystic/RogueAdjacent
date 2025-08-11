@@ -40,13 +40,13 @@ public class ShopItemSlot : MonoBehaviour
             UIManager.Instance.ForceRefreshCharacterMenu();
 
             if (added)
-                Debug.Log($"Bought: {itemData.ObjectName} for {itemPrice} coins");
+                InGameConsole.Instance.SendMessageToConsole($"Bought: {itemData.ObjectName} for {itemPrice} coins");
             else
-                Debug.Log("Inventory full. Could not add item.");
+                InGameConsole.Instance.SendMessageToConsole("Inventory full. Could not add item.");
         }
         else
         {
-            Debug.Log("Not enough currency.");
+            InGameConsole.Instance.SendMessageToConsole("Not enough currency.");
         }
     }
 }

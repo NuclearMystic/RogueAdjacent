@@ -95,6 +95,30 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void ToggleAllPlayersMenus()
+    {
+        updateSkillMenu?.Invoke();
+
+        if (!AreAllPlayerMenusOpen())
+        {
+            CharacterMenu.SetActive(true);
+            QuestMenu.SetActive(true);
+            InventoryMenu.SetActive(true);
+            SkillsMenu.SetActive(true);
+        }
+        else
+        {
+            CharacterMenu.SetActive(false);
+            QuestMenu.SetActive(false);
+            InventoryMenu.SetActive(false);
+            SkillsMenu.SetActive(false);
+        }
+    }
+    private bool AreAllPlayerMenusOpen()
+    {
+        if (InventoryOpen && CharacterOpen && SkillsMenuOpen && QuestMenuOpen) { return true; };
+        return false;
+    }
     public bool IsAnyMenuOpen()
     {
         if (!refreshingMenus && (InventoryOpen || CharacterOpen || SkillsMenuOpen || QuestMenuOpen || ShopMenuOpen || SystemMenuOpen || LootBoxOpen))
@@ -124,11 +148,24 @@ public class UIManager : MonoBehaviour
 
     private void ToggleInventoryMenu()
     {
+        RectTransform menuRect = InventoryMenu.GetComponent<RectTransform>();
+
+        if (menuRect.anchoredPosition == new Vector2(5000, 5000))
+        {
+            menuRect.anchoredPosition = new Vector2(0, 0);
+        }
         InventoryMenu.SetActive(!InventoryMenu.activeInHierarchy);
     }
 
     private void ToggleCharacterMenu()
     {
+        RectTransform menuRect = CharacterMenu.GetComponent<RectTransform>();
+
+        if (menuRect.anchoredPosition == new Vector2(5000, 5000))
+        {
+            menuRect.anchoredPosition = new Vector2(0, 0);
+        }
+
         CharacterMenu.SetActive(!CharacterMenu.activeInHierarchy);
     }
 

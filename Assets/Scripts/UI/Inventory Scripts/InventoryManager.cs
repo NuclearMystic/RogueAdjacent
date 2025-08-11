@@ -116,8 +116,8 @@ public class InventoryManager : MonoBehaviour
         if (item.itemPickedUpSFX != null) SFXManager.Instance.PlaySFX(item.itemUsedSFX);
 
         PlayerVitals.instance.RestoreHealth(item.healthEffect * amountToConsume);
-        PlayerVitals.instance.RestoreStamina(item.healthEffect * amountToConsume);
-        PlayerVitals.instance.ReplenishMagic(item.healthEffect * amountToConsume);
+        PlayerVitals.instance.RestoreStamina(item.staminaEffect * amountToConsume);
+        PlayerVitals.instance.ReplenishMagic(item.magicEffect * amountToConsume);
 
         selectedItemSlot.quantity -= amountToConsume;
         selectedItemSlot.UpdateQuantity(selectedItemSlot.quantity);
